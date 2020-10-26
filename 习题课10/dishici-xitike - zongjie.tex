@@ -54,11 +54,11 @@ $，实数$a_1b_1+a_2b_2+\cdots+a_nb_n=\sum\limits_{i=1}^{n}a_ib_i$称为向量$
 
 性质：
 
-(1)$\|\alpha\geq0\|,\|\alpha\|=0$当且仅当$\alpha=0$。非负性
+(1)$\|\alpha\|\geq0,\|\alpha\|=0$当且仅当$\alpha=0$。非负性
 
 (2)$\|k\alpha\|=|k|\|\alpha\|$，$k$为实数。
 
-(3)对任意向量$\alpha,\beta$，有$|\alpha^T\beta|\leq\|\alpha\|\|\beta\|$
+(3)对任意向量$\alpha,\beta$，有$|\alpha^T\beta|\leq\|\alpha\|\|\beta\|$（$Schwarz$不等式）
 
 \num 单位向量。对任意非零向量$\alpha\in\mathbb{R}^n$，则向量$\dfrac{\alpha}{\|\alpha\|}$是一个单位向量。
 
@@ -86,7 +86,7 @@ $，实数$a_1b_1+a_2b_2+\cdots+a_nb_n=\sum\limits_{i=1}^{n}a_ib_i$称为向量$
 
 (1)若$Q$为正交矩阵，则$|Q|=1$或$|Q|=-1$。
 
-(2)若$Q$为正交矩阵，则$Q^{-1}=Q$。
+(2)若$Q$为正交矩阵，则$Q^{-1}=Q^T$。
 
 (3)若$P,Q$为正交矩阵，则$PQ$是正交矩阵。
 
@@ -97,4 +97,6 @@ $，实数$a_1b_1+a_2b_2+\cdots+a_nb_n=\sum\limits_{i=1}^{n}a_ib_i$称为向量$
 \num 实对称矩阵的特征值都是实数。
 
 \num 实对称矩阵的对应于不同特征值的特征向量是正交的。
+
+\num 设$A$为实对称矩阵，则存在正交矩阵$Q$，使得$Q^{-1}AQ$为对角矩阵。
 \end{document}  
