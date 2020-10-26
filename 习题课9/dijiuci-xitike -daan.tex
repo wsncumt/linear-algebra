@@ -1,0 +1,570 @@
+\documentclass{article}
+\usepackage[space,fancyhdr,fntef]{ctexcap}
+\usepackage[namelimits,sumlimits,nointlimits]{amsmath}
+\usepackage[bottom=25mm,top=25mm,left=25mm,right=15mm,centering]{geometry}
+\usepackage{xcolor}
+\usepackage{arydshln}%234页，虚线表格宏包
+\pagestyle{fancy} \fancyhf{}
+\fancyhead[OL]{~~~班序号：\hfill 学院：\hfill 学号：\hfill 姓名：王松年~~~ \thepage}
+%\usepackage{parskip}
+%\usepackage{indentfirst}
+\usepackage{graphicx}%插图宏包，参见手册318页
+\usepackage{mathdots}%反对角省略号
+\usepackage{extarrows}
+\begin{document}
+
+\newcounter{num} \renewcommand{\thenum}{\arabic{num}.} \newcommand{\num}{\refstepcounter{num}\text{\thenum}}
+
+\newenvironment{jie}{\kaishu\zihao{-5}\color{blue}{\noindent\em 解：}\par}{\hfill $\diamondsuit$\par}
+
+\newenvironment{zhengming}{\kaishu\zihao{-5}\color{blue}{\noindent\em 证明：}\par}{\hfill $\diamondsuit$\par}
+
+\hphantom{~~}\hfill {\zihao{3}\heiti 第九次习题课} \hfill\hphantom{~~}
+
+\hphantom{~~}\hfill {\zihao{4}\heiti 群文件《期中$\&$期末试题》} \hfill\hphantom{~~}
+
+{\heiti \zihao{4} 期末试题}
+
+\num 期末2014-2015 一4.
+
+已知3阶矩阵$A$的特征值为$-1,3,2$，$A^{*}$是$A$的伴随矩阵，则矩阵$A^{3}+2A^{*}$主对角线元素之和为\underline{\hphantom{~~~~~~~~~~}}。
+
+\begin{jie}
+由题得：$|A|=\prod\limits_{i=1}^3\lambda_i=-1\times3\times2=-6$。所以$A^*$的特征值为：$\dfrac{|A|}{\lambda_i}$。由特征值的性质：
+
+$A^ {3}+2A^{*}$的特征值为$\lambda_i^3+2\dfrac{|A|}{\lambda_i}$.所以
+$A^ {3}+2A^{*}$主对角线元素之和为
+
+\begin{equation*}
+trace(A^ {3}+2A^{*})=\sum_{i=1}^{3}\left(\lambda_i^3+2\dfrac{|A|}{\lambda_i}\right)=36
+\end{equation*}
+\end{jie}
+
+\num 期末2014-2015 一6.
+
+设$(1,1,1)^{T}$是矩阵$
+\begin{bmatrix}
+  1 & 2 & 3 \\
+  0 & a & 2\\
+  2 & 2 & b
+\end{bmatrix}
+$的一个特征向量，则$a-b=$\underline{\hphantom{~~~~~~~~~~}}。
+
+\begin{jie}
+由特征向量的定义有
+\begin{equation*}
+A
+\begin{bmatrix}
+1\\ 1\\ 1
+\end{bmatrix}=\lambda
+\begin{bmatrix}
+1\\ 1\\ 1
+\end{bmatrix}~~~\Rightarrow~~~
+\begin{bmatrix}
+6\\ a+2\\ b+4
+\end{bmatrix}=\begin{bmatrix}
+\lambda\\ \lambda\\ \lambda
+\end{bmatrix}~~~\Rightarrow~~~
+\begin{cases}
+\lambda=6\\
+a=4\\
+b=2
+\end{cases}~~~\Rightarrow~~a-b=2
+\end{equation*}
+\end{jie}
+
+\num 期末2014-2015 八.
+
+设3阶方阵$A$的特征值-1,1对应的特征向量分别为$\alpha_{1},\alpha_{2}$，向量$\alpha_{3}$满足$A\alpha_{3}=\alpha_{2}+\alpha_{3}$.
+
+(1)证明：$\alpha_{1},\alpha_{2},\alpha_{3}$线性无关；
+
+(2)设$P=[\alpha_{1},\alpha_{2},\alpha_{3}]$,求$P^{-1}AP$。
+
+\begin{jie}
+由题得：$A\alpha_ {1}=-\alpha_ {1},A\alpha_{2}=\alpha_{2}$。
+
+(1)设
+\begin{equation*}
+k_1\alpha_{1}+k_2\alpha_{2}+k_3\alpha_{3}=0\tag{$1$}
+\end{equation*}
+要证明$\alpha_{1},\alpha_{2},\alpha_{3}$线性无关，只需证明$k_1=k_2=k_3=0$,(1)式两边同左乘$A$:
+\begin{equation*}
+k_1A\alpha_{1}+k_2A\alpha_{2}+k_3A\alpha_{3}=-k_1\alpha_{1}+k_2\alpha_{2}+k_3(\alpha_{2}+\alpha_{3})=-k_1\alpha_{1}+(k_2+k_3)\alpha_{2}+k_3\alpha_{3}=0\tag{$2$}
+\end{equation*}
+(1)式减(2)式：$-2k_1\alpha_{1}-k_3\alpha_{2}=0$，因为$\alpha_1$和$\alpha_2$是分属于不同的特征值的特征向量，所以$\alpha_1$和$\alpha_2$线性无关。即$
+\begin{cases}
+-2k_1=0\\
+-k_3=0
+\end{cases}~\Rightarrow k_1=k_3=0
+$，代入到$(1)$式：$k_2\alpha_{2}=0$，又因为特征向量不为0，所以$k_{2}=0$。
+
+综上所述：$k_{1}=k_2=k_3=0$，所以$\alpha_{1},\alpha_{2},\alpha_{3}$线性无关。
+
+(2)由题得：
+\begin{equation*}
+AP=[A\alpha_1,A\alpha_2,A\alpha_3]=[-\alpha_1,\alpha_2,\alpha_2+\alpha_3]=[\alpha_1,\alpha_2,\alpha_3]
+\begin{bmatrix}
+  -1 & 0 & 0 \\
+  0 & 1 & 1\\
+  0 & 0 & 1
+\end{bmatrix}=P\Lambda
+\end{equation*}
+所以$\Lambda=P^-1AP=
+\begin{bmatrix}
+  -1 & 0 & 0 \\
+  0 & 1 & 1\\
+  0 & 0 & 1
+\end{bmatrix}
+$。
+\end{jie}
+
+\num 期末2015-2016 一4.
+
+已知矩阵$
+A=
+\begin{bmatrix}
+  3 & 2 & -1 \\
+  a & -2 & 2\\
+  3 & b & -1
+\end{bmatrix}
+$，若$\alpha=(1,-2,3)^{T}$是其特征向量，则$a+b=$\underline{\hphantom{~~~~~~~~~~}}。
+
+\begin{jie}
+设$\alpha$对应的特征值为$\lambda$。由特征向量的定义：
+\begin{equation*}
+A\alpha=\lambda\alpha~~~\Rightarrow~~~
+\begin{bmatrix}
+-4 \\ a+10 \\ -2b
+\end{bmatrix}=
+\begin{bmatrix}
+\lambda \\ -2\lambda \\ 3\lambda
+\end{bmatrix}~~~\Rightarrow ~~~
+\begin{cases}
+\lambda=-4\\
+a=-2\\
+b=6
+\end{cases}~~~\Rightarrow~~~a+b=4
+\end{equation*}
+\end{jie}
+
+\num 期末2016-2017 三1.
+
+令$\alpha=(1,1,0)^{T}$,实对称矩阵$A=\alpha\alpha_{T}$.
+
+(1)把矩阵$A$相似对角化；
+
+(2)求$|6I-A^{2017}|$.
+
+\begin{jie}
+由题得：$A=\alpha\alpha_{T}=(1,1,0)^{T}(1,1,0)=
+\begin{bmatrix}
+  1 & 1 & 0 \\
+  1 & 1 & 0 \\
+   0 & 0 & 0 \\
+\end{bmatrix}
+$。所以
+\begin{equation*}
+|\lambda E-A|=
+\begin{vmatrix}
+  \lambda-1 & -1 & 0 \\
+  -1 & \lambda-1 & 0 \\
+   0 & 0 & \lambda
+\end{vmatrix}=\lambda[(\lambda-1)^2-1]=0~~~\Rightarrow~~~\lambda_{1}=2,\lambda_{2}=\lambda_3=0
+\end{equation*}
+
+$\lambda_{1}=2$时：
+\begin{align*}
+[\lambda E-A]=
+\begin{bmatrix}
+  1 & -1 & 0 \\
+  -1 & 1 & 0 \\
+   0 & 0 & 2
+\end{bmatrix}
+\xrightarrow{\text{高斯消元，步骤略}}&
+{
+\begin{bmatrix}
+  1 & -1 & 0 \\
+  0 & 0 & 1 \\
+   0 & 0 & 0
+\end{bmatrix}
+}~~~\Rightarrow~~~\alpha_{1}=
+\begin{bmatrix}
+  1  \\
+   1 \\
+    0
+\end{bmatrix}
+\end{align*}
+可以看出，$\lambda_1=2$时：代数重数等于几何重数。
+
+$\lambda_{2}=\lambda_3=0$时：
+\begin{align*}
+[\lambda E-A]=
+\begin{bmatrix}
+  -1 & -1 & 0 \\
+  -1 & -1 & 0 \\
+   0 & 0 & 0
+\end{bmatrix}
+\xrightarrow{\text{高斯消元，步骤略}}&
+{
+\begin{bmatrix}
+  1 & 1 & 0 \\
+  0 & 0 & 0 \\
+   0 & 0 & 0
+\end{bmatrix}
+}~~~\Rightarrow~~~\alpha_{2}=
+\begin{bmatrix}
+  1  \\
+   -1 \\
+    0
+\end{bmatrix},
+\alpha_{2}=
+\begin{bmatrix}
+0  \\
+0 \\
+1
+\end{bmatrix}
+\end{align*}
+可以看出，$\lambda_2=\lambda_2=0$时：代数重数等于几何重数。
+
+所以$A$可以相似对角化：即存在可逆矩阵$P$，使得$P^{-1}AP=\Lambda=
+\begin{bmatrix}
+  0 &  &   \\
+   &  0&   \\
+   &  &  2
+\end{bmatrix}
+$，其中$P=
+\begin{bmatrix}
+  1 &  0&  1 \\
+  -1 &  0&  1 \\
+  0 &  1&  0
+\end{bmatrix}
+$
+
+(2)由特征值的性质：$6I-A^{2017}$的特征值为：$6-\lambda_{i}^{2017}$，所以
+\begin{equation*}
+|6I-A^{2017}|=\prod_{i=1}^{3}(6-\lambda_ {i}^{2017})=36\times(6-2^{2017})
+\end{equation*}
+\end{jie}
+
+\num 期末2017-2018 一5.
+
+若3阶矩阵$A$相似于$B$，矩阵$A$的特征值是1,2,3那么行列式$|2B+I|=$\underline{\hphantom{~~~~~~~~~~}}。(其中$I$是3阶单位矩阵)
+
+\begin{jie}
+$A$相似于$B$,所以$A$与$B$的特征值相等。所以$2B+I$的特征值为$2\lambda_i+1$，所以$|2B+I|=\prod\limits_{i=1}^{3}(2\lambda_i+1)=105$
+\end{jie}
+
+\num 期末2017-2018 三1.
+
+设1为矩阵$A=
+\begin{bmatrix}
+  1 & 2 & 3 \\
+  x & 1 & -1 \\
+  1 & 1 & x
+\end{bmatrix}
+$的特征值，其中$x>1$.
+
+(1)求$x$及$A$的其他特征值。
+
+(2)判断$A$能否对角化，若能对角化，写出相应的对角矩阵$\Lambda$。
+
+\begin{jie}
+设$\alpha_1$为特征值$1$对应的特征向量，所以$\alpha_1\neq 0$由题得：$A\alpha_1=\alpha_1$，即$(A-E)\alpha_1=0$，即$(A-E)x=0$有非零解。所以由存在唯一性定理：$|A-E|=0$，所以
+
+\begin{equation*}
+|A-E|=
+\begin{vmatrix}
+  0 & 2 & 3 \\
+  x & 0 & -1 \\
+  1 & 1 & x-1
+\end{vmatrix}=-x
+\begin{vmatrix}
+ 2 & 3 \\
+1 & x-1
+\end{vmatrix}+
+\begin{vmatrix}
+ 2 & 3 \\
+0 & -1
+\end{vmatrix}=(2x-1)(x-2)=0
+\end{equation*}
+由题得：$x>1$，所以解得$x=2$。
+
+(2)把$x=2$代入得：
+\begin{align*}
+|\lambda E-A|&=
+\begin{vmatrix}
+  \lambda-1 & -2 & -3 \\
+  -2 & \lambda-1 & 1 \\
+  -1 & -1 & \lambda-2
+\end{vmatrix}\xlongequal{c_{1}-c_{2}}
+\begin{vmatrix}
+  \lambda+1 & -2 & -3 \\
+  -(\lambda+1) & \lambda-1 & 1 \\
+  0 & -1 & \lambda-2
+\end{vmatrix}=(\lambda+1)
+\begin{vmatrix}
+  1 & -2 & -3 \\
+  -1 & \lambda-1 & 1 \\
+  0 & -1 & \lambda-2
+\end{vmatrix}\xlongequal{r_{2}+r_{1}}
+(\lambda+1)
+\begin{vmatrix}
+  1 & -2 & -3 \\
+  0 & \lambda-3 & -2 \\
+  0 & -1 & \lambda-2
+\end{vmatrix}\\
+&=(\lambda+1)[(\lambda-3)(\lambda-2)-2]=0
+\end{align*}
+解得：$\lambda_1=1,\lambda_2=4,\lambda_3=-1$。
+
+因为$A$为三阶，并且有3个不同的特征值，所以可以相似对角化，
+$
+\Lambda=
+\begin{bmatrix}
+  1 & & \\
+    & 4 &\\
+    &&-1
+\end{bmatrix}
+$。\textcolor[rgb]{1.00,0.00,0.00}{（不唯一，只要对角线元素是这三个就可以）}
+\end{jie}
+
+\num 期末2017-2018 四1.
+
+设$A,B$均为$n$阶方阵，证明：若$A,B$相似则$|A|=|B|$，举例说明反过来不成立。
+
+\begin{zhengming}
+若$A$与$B$相似，则依定义有:存在一个可逆矩阵$P$，使得$A=P^{-1}BP$，两边同时求行列式：
+$|A|=|P^ {-1}BP|=|P^{-1}|\cdot|B|\cdot|P|=|B|\cdot|P^{-1}P|=|B|\cdot|E|=|B|$。
+
+反过来描述：如果$|A|=|B|$，则$A$和$B$相似。
+
+例如：$A
+\begin{bmatrix}
+  1 & 0\\
+  0& 1
+\end{bmatrix},|A|=1
+,B=
+\begin{bmatrix}
+  1 & 1 \\
+  0 & 1
+\end{bmatrix},|B|=1
+$，所以$|A|=|B|$,
+但是：假设存在一个可逆矩阵$P$,$P^{-1}AP=P^{-1}EP=E\neq B$，即$|A|=|B|$，但是$A,B$不相似。
+\end{zhengming}
+
+\num 期末2018-2019 一4.
+
+设$A=(a_{ij})_{3\times 3}$，其特征值为$1,-1,2$，$A_{ij}$是元素$a_{ij}$的代数余子式，$A^{*}$是$A$的伴随矩阵，则$A^{*}$的主对角线元素之和即$A_{11}+A_{22}+A_{33}=$\underline{\hphantom{~~~~~~~~~~}}。
+
+\begin{jie}
+由题得：$|A|=\prod\limits_{i=1}^{3}\lambda_{i}=-2$，所以$A^*$的特征值为$\dfrac{|A|}{\lambda_{i}}$，所以$A^{*}$的主对角线元素之和为$trace(A^*)=\sum\limits_{i=1}^{3}\dfrac{|A|}{\lambda_{i}}=-1$。
+\end{jie}
+
+\num 期末2018-2019 四2.
+
+若同阶矩阵$A$与$B$相似，即$A\~{}B$，证明$A^{2}\~{}B^{2}$。反过来结论是否成立并说明理由。
+
+\begin{zhengming}
+若$A$与$B$相似，则依定义有:存在一个可逆矩阵$P$，使得$A=P^{-1}BP$，所以：
+$A^2=P^ {-1}B\textcolor[rgb]{1.00,0.00,0.00}{P\cdot P^ {-1}}BP=P^ {-1}B^{2}P$。所以$A^{2}\~{}B^{2}$。
+
+反过来描述：如果$A^{2}\~{}B^{2}$，则$A$和$B$相似。
+
+不成立。理由如下：
+
+例如：$A
+\begin{bmatrix}
+  1 & 0\\
+  0& 1
+\end{bmatrix},A^2=
+\begin{bmatrix}
+  1 & 0\\
+  0& 1
+\end{bmatrix}
+,B=
+\begin{bmatrix}
+  0 & 1 \\
+  1 & 0
+\end{bmatrix},B^2=
+\begin{bmatrix}
+  1 & 0\\
+  0& 1
+\end{bmatrix}
+$，所以$A^2=B^2$,由相似的性质$A^2\~{}B^{2}$
+但是：假设存在一个可逆矩阵$P$,$P^{-1}AP=P^{-1}EP=E\neq B$，即$A^2\~{}B^{2}$，但是$A,B$不相似。
+\end{zhengming}
+
+\num 期末2018-2019 四3.
+
+设$\lambda_{1},\lambda_{2}$是$A$的两个互异的特征值，$\alpha_{11},\cdots,\alpha_ {1s}$是对应于$\lambda_{1}$的线性无关的特征向量，$\alpha_ {21},\cdots,\alpha_ {2t}$是对应于$\lambda_{2}$的线性无关的特征向量，证明：向量组$\alpha_{11},\cdots,\alpha_{1s},\alpha_{21},\cdots,\alpha_{2t}$线性无关。
+
+\begin{zhengming}
+由题得：$A\alpha_ {1i}=\lambda_{1}\alpha_ {1i},(1\leq i\leq s)$,$A\alpha_ {2j}=\lambda_{1}\alpha_ {1j},(1\leq j\leq t)$。
+
+设
+\begin{equation*}
+k_1\alpha_ {11}+\cdots+k_s\alpha_ {1s}+k_{s+1}\alpha_ {21}+\cdots+k_{s+t}\alpha_{2t}=0\tag{$1$}
+\end{equation*}
+
+要证明向量组$\alpha_{11},\cdots,\alpha_{1s},\alpha_{21},\cdots,\alpha_{2t}$线性无关，只需证明$k_1=k_2=\cdots=k_s=k_{s+1}=\cdots=k_{s+t}=0$即可。
+
+在$(1)$式左边同乘$A$:
+\begin{equation*}
+  k_1A\alpha_ {11}+\cdots+k_sA\alpha_ {1s}+k_{s+1}A\alpha_ {21}+\cdots+k_{s+t}A\alpha_{2t}=\lambda_{1}(k_1\alpha_ {11}+\cdots+k_s\alpha_ {1s})+\lambda_{2}(k_{s+1}\alpha_ {21}+\cdots+k_{s+t}\alpha_{2t})=0\tag{$2$}
+\end{equation*}
+$(2)-\lambda_{2}(1)$得：$(\lambda_1-\lambda_2)(k_1\alpha_ {11}+\cdots+k_s\alpha_ {1s})=0$，因为$\lambda_{1},\lambda_{2}$是$A$的两个互异的特征值，所以$\lambda_1-\lambda_2\neq0$，所以$k_1\alpha_ {11}+\cdots+k_s\alpha_ {1s}=0$，又因为$\alpha_ {11},\cdots,\alpha_ {1s}$是对应于$\lambda_{1}$的线性无关的特征向量,所以：$k_1=k_2=\cdots=k_{s}=0$。代入到$(1)$式得：
+
+$k_{s+1}\alpha_ {21}+\cdots+k_{s+t}\alpha_{2t}=0$，因为$\alpha_ {21},\cdots,\alpha_ {2t}$是对应于$\lambda_{2}$的线性无关的特征向量，所以$k_{s+1}=k_{s+2}=\cdots=k_{s+t}=0$
+
+综上所述：$k_1=k_2=\cdots=k_{s}=k_{s+1}=k_{s+2}=\cdots=k_{s+t}=0$,所以向量组$\alpha_{11},\cdots,\alpha_{1s},\alpha_{21},\cdots,\alpha_{2t}$线性无关。
+\end{zhengming}
+
+\num 期末2019-2020 一1.
+
+设$A$是3阶方阵，$E$是3阶单位矩阵，已知$A$的特征值为$1,1,2$,则$\left|\left(\left(\dfrac{1}{2}A\right)^{*}\right)^{-1}-2A^{-1}+E\right|= $\underline{\hphantom{~~~~~~~~~~}}。
+
+\begin{jie}
+由题得：$|A|=\prod\limits_{i=1}^{3}\lambda_{i}=2,A^*$的特征值为$\dfrac{|A|}{\lambda}=\dfrac{2}{\lambda}$.
+
+由伴随矩阵的性质：$\left(\dfrac{1}{2}A\right)^*=\left(\dfrac{1}{2}\right)^{3-1}A^*=\dfrac{A^*}{4}$,所以$\left(\left(\dfrac{1} {2}A\right)^{*}\right)^{-1}-2A^{-1}+E $的特征值为
+\begin{equation*}
+\left(\dfrac{1} {4}\cdot\dfrac{2}{\lambda_{i}}\right)^{-1}-2\lambda_{i}^{-1}+1=2\lambda_{i}-\dfrac{2}{\lambda_i}+1
+\end{equation*}
+所以：
+\begin{equation*}
+  \left|\left(\left(\dfrac{1} {2}A\right)^{*}\right)^{-1}-2A^{-1}+E\right|=\prod_{i=1}^{3}\left(2\lambda_{i}-\dfrac{2}{\lambda_i}+1\right)=4
+\end{equation*}
+\end{jie}
+
+\num 期末2019-2020 一5.
+
+已知$n$阶方阵$A$对应于特征值$\lambda$的全部的特征向量为$c\alpha$,其中$c$为非零常数，设$n$阶方阵$P$可逆，则$P^{-1}AP$对应于特征值$\lambda$的全部的特征向量为\underline{\hphantom{~~~~~~~~~~}}。
+
+\begin{jie}
+由题得：$A(c\alpha)=\lambda (c\alpha)$等式两边同时左乘$P^{-1}$:
+\begin{equation*}
+P^{-1}A\textcolor[rgb]{1.00,0.00,0.00}{E}(c\alpha)=P^{-1}A\textcolor[rgb]{1.00,0.00,0.00}{PP^{-1}}(c\alpha)=(P^{-1}AP)(P^{-1}c\alpha)=\lambda (P^{-1}c\alpha)
+\end{equation*}
+所以$P^ {-1}AP$对应于特征值$\lambda$的全部的特征向量为$P^{-1}c\alpha=cP^{-1}\alpha$
+\end{jie}
+
+\num 期末2019-2020 三2.
+
+已知3阶方阵$
+A=
+\begin{bmatrix}
+  -1 & a+2 & 0\\
+  a-2 & 3 & 0\\
+ 8 & -8 & -1
+\end{bmatrix}
+$可以相似对角化且$A$得到特征方程有一个二重根，求$a$的值。其中$a\leq 0$.
+
+\begin{jie}
+由题得:
+\begin{align*}
+|\lambda E-A|&=
+\begin{vmatrix}
+  \lambda+1 & -(a+2) & 0\\
+  2-a & \lambda-3 & 0\\
+ -8 & 8 & \lambda+1
+\end{vmatrix}=(\lambda+1)[(\lambda-1)(\lambda-3)+(2+a)(2-a)]=(\lambda+1)[(\lambda-1)^2-a^2]=0\\
+&\Rightarrow ~~\lambda_{1}=-1,\lambda_2=1+a,\lambda_{3}=1-a.
+\end{align*}
+依题意：有二重根且可以相似对角化且$a\leq0$.
+
+讨论：
+
+(1)$\lambda_1=\lambda_2$，即$-1=1+a,a=-2\leq 0$,此时$\lambda_{3}=1-a=3$,代入到${\lambda E-A}$得：
+\begin{align*}
+[\lambda E-A]=
+\begin{bmatrix}
+  \lambda+1 & 0 & 0\\
+  4 & \lambda-3 & 0\\
+ -8 & 8 & \lambda+1
+\end{bmatrix}
+\end{align*}
+对于重根$-1$:
+\begin{align*}
+[\lambda E-A]=
+\begin{bmatrix}
+  0 & 0 & 0\\
+  4 & -4 & 0\\
+ -8 & 8 & 0
+\end{bmatrix}
+\rightarrow
+\begin{bmatrix}
+  1 & -1 & 0\\
+  0 & 0 & 0\\
+ 0 & 0 & 0
+\end{bmatrix}~~~\Rightarrow~~~\alpha_1=
+\begin{bmatrix}
+0\\
+0\\
+1
+\end{bmatrix}~~\alpha_2=
+\begin{bmatrix}
+1\\
+1\\
+0
+\end{bmatrix}
+\end{align*}
+对于根$3$:
+\begin{align*}
+[\lambda E-A]=
+\begin{bmatrix}
+  4 & 0 & 0\\
+  4 & 0 & 0\\
+ -8 & 8 & 4
+\end{bmatrix}
+\rightarrow
+\begin{bmatrix}
+  1 & 0 & 0\\
+  0 & 2 & 1\\
+ 0 & 0 & 0
+\end{bmatrix}~~~\Rightarrow~~~\alpha_3=
+\begin{bmatrix}
+0\\
+-1\\
+2
+\end{bmatrix}
+\end{align*}
+可以看出$\alpha_{1},\alpha_{2},\alpha_3$线性无关，即$A$可相似对角化，即$a=-2$符合题意。
+
+(2)$\lambda_1=\lambda_3$,即$-1=1-a,a=2>0$，不符合题意。
+
+(3)$\lambda_{2}=\lambda=3$,即$1+a=1-a,a=0$。此时$\lambda_{2}=\lambda_3=1$.把$a=0$代入到$[\lambda E-A]$得：
+\begin{equation*}
+[\lambda E-A]=
+\begin{bmatrix}
+  \lambda+1 & -2 & 0\\
+  2 & \lambda-3 & 0\\
+ -8 & 8 & \lambda+1
+\end{bmatrix}
+\end{equation*}
+对于重根$1$:
+\begin{align*}
+[\lambda E-A]=
+\begin{bmatrix}
+  2 & -2 & 0\\
+  2 & -2 & 0\\
+ -8 & 8 & 2
+\end{bmatrix}
+\rightarrow
+\begin{bmatrix}
+  1 & -1 & 0\\
+  0 & 0 & 1\\
+ 0 & 0 & 0
+\end{bmatrix}~~~\Rightarrow~~~\alpha_1=
+\begin{bmatrix}
+1\\
+1\\
+0
+\end{bmatrix}
+\end{align*}
+对于重根$1$，其代数重数与几何重数不相等，所以不能相似对角化。
+
+综上所述：$a=-2$.
+\end{jie}
+
+\end{document}  

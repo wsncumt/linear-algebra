@@ -1,9 +1,9 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2020.4.27)  14 OCT 2020 22:21
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2020.4.27)  26 OCT 2020 18:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**"dibaci-xitike - zongjie.tex"
-(./dibaci-xitike - zongjie.tex
+**"dijiuci-xitike - zongjie.tex"
+(./dijiuci-xitike - zongjie.tex
 LaTeX2e <2018-12-01>
 (d:/texlive/2019/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2018/09/03 v1.4i Standard LaTeX document class
@@ -631,8 +631,8 @@ LaTeX Font Info:    Overwriting math alphabet `\mathbbm' in version `bold'
 LaTeX Font Info:    Overwriting math alphabet `\mathbbmss' in version `bold'
 (Font)                  U/bbmss/m/n --> U/bbmss/bx/n on input line 35.
 )
-(./dibaci-xitike - zongjie.aux)
-\openout1 = `"dibaci-xitike - zongjie.aux"'.
+No file "dijiuci-xitike - zongjie".aux.
+\openout1 = `"dijiuci-xitike - zongjie.aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
 LaTeX Font Info:    ... okay on input line 15.
@@ -650,7 +650,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
 LaTeX Font Info:    ... okay on input line 15.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 15.
 LaTeX Font Info:    ... okay on input line 15.
- ABD: EverySelectfont initializing macros
+ABD: EverySelectfont initializing macros
 LaTeX Info: Redefining \selectfont on input line 15.
 
 Package fontspec Info: Adjusting the maths setup (use [no-math] to avoid
@@ -769,25 +769,25 @@ Package fontspec Info: Font family 'SimHei(0)' created for font 'SimHei' with
 (fontspec)             <->"SimHei/OT:script=hani;language=DFLT;"
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 24.
+LaTeX Font Info:    Try loading font information for U+msa on input line 23.
 (d:/texlive/2019/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 24.
+LaTeX Font Info:    Try loading font information for U+msb on input line 23.
 
 (d:/texlive/2019/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
 ]
-(./dibaci-xitike - zongjie.aux) ) 
+(./dijiuci-xitike - zongjie.aux) ) 
 Here is how much of TeX's memory you used:
- 18612 strings out of 492922
- 413426 string characters out of 6136751
- 476395 words of memory out of 5000000
+ 18610 strings out of 492922
+ 413377 string characters out of 6136751
+ 478398 words of memory out of 5000000
  22483 multiletter control sequences out of 15000+600000
  535467 words of font info for 60 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 59i,11n,70p,918b,446s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 59i,11n,70p,919b,446s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on dibaci-xitike - zongjie.pdf (1 page).
+Output written on dijiuci-xitike - zongjie.pdf (1 page).
