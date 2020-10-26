@@ -1,0 +1,65 @@
+\documentclass{article}
+\usepackage[space,fancyhdr,fntef]{ctexcap}
+\usepackage[namelimits,sumlimits,nointlimits]{amsmath}
+\usepackage[bottom=25mm,top=25mm,left=25mm,right=15mm,centering]{geometry}
+\usepackage{xcolor}
+\usepackage{paralist}%列表宏包
+\usepackage{arydshln}%234页，虚线表格宏包
+\pagestyle{fancy} \fancyhf{}
+\fancyhead[OL]{~~~班序号：\hfill 学院：\hfill 学号：\hfill 姓名：王松年~~~ \thepage}
+%\usepackage{parskip}
+%\usepackage{indentfirst}
+\usepackage{graphicx}%插图宏包，参见手册318页
+\begin{document}
+
+\newcounter{num} \renewcommand{\thenum}{\arabic{num}.} \newcommand{\num}{\refstepcounter{num}\text{\thenum}}
+
+\hphantom{~~}\hfill {\zihao{3}\heiti 第五次习题课} \hfill\hphantom{~~}
+
+\hphantom{~~}\hfill {\zihao{4}\heiti 知识点} \hfill\hphantom{~~}
+
+\num 余子式、代数余子式、行列式的定义以及求法。
+
+\num 特殊行列式：
+
+下（上）三角矩阵是主对角线上元素的乘积。
+
+对角阵的行列式是主对角线上元素的乘积。
+
+反三角行列式是反对角线上元素的乘积乘$(-1)^{\frac{n(n-1)}{2}}$
+
+\num 行列式的存在唯一性质。
+\begin{asparaenum}[(1)]
+\item 线性性质。
+\item 交错性：如果有两行（列）相同（或成比例），则行列式为0.
+\item 单位阵的行列式为1.
+\item 若行列式其中一行（列）为0，则行列式为0.
+\end{asparaenum}
+
+\num 行列式的性质：
+\begin{asparaenum}[(1)]
+\item 方阵$A$的第$i$行乘以常数$k$，得到的矩阵为$E(i(k))A$，则$\det E(i(k))A=k\det A$。
+\item 交换方阵$A$的第$i$行与第$j$行，得到的矩阵为$E(ij)A$，则$\det E(ij)A=\det E(ij)\det A=-det A$。
+\item 方阵$A$的第$j$行的$l$倍加到第$i$行，得到的矩阵为$E(ij(l))A$，则$\det E(ij(l))A=\det E(ij(l))\det A=\det A$
+\end{asparaenum}
+
+\num 设$A=(a_{ij})$是$n$阶方阵，$A_{ij}$是$a_{ij}$的代数余子式，则
+\begin{gather*}
+  \sum_{j=1}^{n}a_{ij}A_{sj}=
+  \begin{cases}
+  \det A~~&i=s\\
+  0~~&i\neq s
+  \end{cases}\\
+  \sum_{i=1}^{n}a_{ij}A_{is}=
+  \begin{cases}
+  \det A~~&j=s\\
+  0~~&i\neq s
+  \end{cases}
+\end{gather*}
+
+\num  范德蒙行列式
+
+\num 假设$A$、$B$都是$n$阶方阵，则$|AB|=|A||B|=|B||A|=|BA|$
+
+\num 设$A$是分块的上三角矩阵，其中对角线上都是方阵，则$A$的行列式等于对角线行列式的乘积。
+\end{document}  

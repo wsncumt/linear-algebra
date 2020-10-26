@@ -1,0 +1,51 @@
+\documentclass{article}
+\usepackage[space,fancyhdr,fntef]{ctexcap}
+\usepackage[namelimits,sumlimits,nointlimits]{amsmath}
+\usepackage[bottom=25mm,top=25mm,left=25mm,right=15mm,centering]{geometry}
+\usepackage{xcolor}
+\usepackage{paralist}%列表宏包
+\usepackage{arydshln}%234页，虚线表格宏包
+\pagestyle{fancy} \fancyhf{}
+\fancyhead[OL]{~~~班序号：\hfill 学院：\hfill 学号：\hfill 姓名：王松年~~~ \thepage}
+%\usepackage{parskip}
+%\usepackage{indentfirst}
+\usepackage{graphicx}%插图宏包，参见手册318页
+\begin{document}
+
+\newcounter{num} \renewcommand{\thenum}{\arabic{num}.} \newcommand{\num}{\refstepcounter{num}\text{\thenum}}
+
+\hphantom{~~}\hfill {\zihao{3}\heiti 第六次习题课} \hfill\hphantom{~~}
+
+\hphantom{~~}\hfill {\zihao{4}\heiti 知识点} \hfill\hphantom{~~}
+
+\num 逆序数的定义。奇排列，偶排列。
+
+\num 行列式的定义：$\det A=\sum(-1)^{\tau(j_{1}j_{2}\cdots j_{n})}a_{1j_{1}}a_{2j_{2}}\cdots a_{nj_{n}}$。
+
+\num $n$阶行列式$D=|a_{ij}|$的一般项可以记为$(-1)^{\tau(i_{1}i_{2}\cdots i_{n})+\tau(j_{1}j_{2}\cdots j_{n})}a_{i_{1}j_{1}}a_{i_{2}j_{2}}\cdots a_{i_{n}j_{n}}$
+
+\num 设$A=(a_{ij})$是$n$阶方阵，则$\det A=\sum (-1)^ {\tau(i_{1}i_{2}\cdots i_{n})+\tau(j_{1}j_{2}\cdots j_{n})}a_{i_{1}j_{1}}a_{i_{2}j_{2}}\cdots a_{i_{n}j_{n}}$，其中$i_{1}i_{2}\cdots i_{n}$是一个取定的$n$级排列，$j_{1}j_{2}\cdots j_{n})$取遍$n$级排列。（或者$j_ {1}j_{2}\cdots j_{n}$是一个取定的$n$级排列，$i_{1}i_{2}\cdots i_{n})$取遍$n$级排列）
+
+\num 伴随矩阵。性质：
+
+(1)对任意$n$阶方阵：$AA^{*}=|A|E=A^{*}A$.$|AA^{*}|=||A|E|=|A|^{n}|E|=|A|^{n}$.
+
+\num 设$A$是$n$阶方阵，若$|A|\neq0$,则称$A$非奇异。若$|A|=0$,则称$A$为奇异矩阵。
+
+\num $n$阶矩阵$A$可逆的充要条件是$A$为非奇异矩阵。$A^{-1}=\dfrac{1}{|A|}A^{*}$。对于二阶可逆矩阵$A=
+\begin{bmatrix}
+  a & b \\
+  c & d
+\end{bmatrix},|A|\neq0
+$，则$A^{-1}=\dfrac{1}{|A|}
+\begin{bmatrix}
+  d & -b \\
+  -c & a
+\end{bmatrix}$.
+
+\num 克莱姆法则：$A_{n\times n}X=\beta$系数行列式$\det A\neq0$时，方程组$AX=\beta$恰有唯一解
+\begin{equation*}
+  x_{j}=\dfrac{\det A_{j}}{\det A},j=1,2,\cdots,n
+\end{equation*}
+其中$A_{j}$是把系数矩阵$A$的第$j$列$\alpha_{j}$换为常数项$\beta$后得到的方阵。
+\end{document}  

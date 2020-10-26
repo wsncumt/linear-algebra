@@ -1,0 +1,185 @@
+\documentclass{article}
+\usepackage[space,fancyhdr,fntef]{ctexcap}
+\usepackage[namelimits,sumlimits,nointlimits]{amsmath}
+\usepackage[bottom=25mm,top=25mm,left=25mm,right=15mm,centering]{geometry}
+\usepackage{xcolor}
+\usepackage{arydshln}%234页，虚线表格宏包
+\pagestyle{fancy} \fancyhf{}
+\fancyhead[OL]{~~~班序号：\hfill 学院：\hfill 学号：\hfill 姓名：王松年~~~ \thepage}
+%\usepackage{parskip}
+%\usepackage{indentfirst}
+\usepackage{graphicx}%插图宏包，参见手册318页
+\begin{document}
+
+\newcounter{num} \renewcommand{\thenum}{\arabic{num}.} \newcommand{\num}{\refstepcounter{num}\text{\thenum}}
+
+\hphantom{~~}\hfill {\zihao{3}\heiti 第四次习题课} \hfill\hphantom{~~}
+
+\hphantom{~~}\hfill {\zihao{4}\heiti 群文件《期中$\&$期末试题》} \hfill\hphantom{~~}
+
+{\heiti \zihao{4} 期中试题}
+
+\num 2015-2016 一7.
+
+设$A=
+\begin{bmatrix}
+  1 & 0 & 0 & 0\\
+  0 & 1 & 0 & 0\\
+  2 & 0 & 1 & 0\\
+  0 & 0 & 0 & 1
+\end{bmatrix},B=
+\begin{bmatrix}
+  1 & 1 & 2 & 3\\
+  0 & 1 & 1 & -4\\
+  1 & 2 & 3 & -1\\
+  2 & 3 & -1 & -1
+\end{bmatrix}
+$,则$ABA^{-1}=$\underline{\hphantom{~~~~~~~~~~}}。\\
+
+\num 期中2015-2016 一8.
+
+设$A,B$均为$n$阶方阵，$|A|=2$,且$AB$可逆，则$r(B)=$\underline{\hphantom{~~~~~~~~~~}}。\\
+
+\num 2015-2016 二3.
+
+若$(2I-C^{-1}B)A^{T}=C^{-1}$,
+$B=
+\begin{bmatrix}
+  1 & 2 & -3 & -2\\
+  0 & 1 & 2 & -3\\
+  0 & 0 & 1 & 2\\
+  0 & 0 & 0 & 1\\
+\end{bmatrix},C=
+\begin{bmatrix}
+  1 & 2 & 0 & 1\\
+  0 & 1 & 2 & 0\\
+  0 & 0 & 1 & 2\\
+  0 & 0 & 0 & 1\\
+\end{bmatrix}
+$,求$A$。\\
+
+\num 2015-2016 二4.
+
+设$
+A=
+\begin{bmatrix}
+  1 & -1 & 0 \\
+  0 & 1 & -1\\
+  0 & 0 & 1
+\end{bmatrix},B=
+\begin{bmatrix}
+  2 & 1 & 3 \\
+  0 & 2 & 1\\
+  0 & 0 & 2
+\end{bmatrix}
+$,$A^{T}(BA^{-1}-I)^{T}X=B^{T}$，求$X$。\\
+
+\num 2016-2017 二3.（\textcolor[rgb]{1.00,0.00,0.00}{第二次习题课讲过，自己翻看，不讲}）
+
+\num 2016-2017 三1.
+
+设$A$满足$A^{2}-2A+4I=0$，证明$A+I$可逆，并求$(A+I)^{-1}$.\\
+
+\num 2017-2018 一4.\textcolor[rgb]{1.00,0.00,0.00}{第二次习题课讲过，自己翻看，不讲}）
+
+\num 2017-2018 二5.
+
+若$AB=I$且$BC=I$，其中$I$为单位矩阵，则$A=C$。\\
+
+\num 2017-2018 二6.
+
+若$n$阶矩阵$A$满足$A^{3}=3A(A-I)$，则$I-A$可逆。\\
+
+\num 2018-2019 一5.
+
+已知矩阵$A=
+\begin{bmatrix}
+  1 &  0 & 0\\
+  1 & 1 & 0\\
+   1 & 1 & 1
+\end{bmatrix},B=
+\begin{bmatrix}
+  0 & 1 & 1\\
+  1 & 0 & 1 \\
+  0 & 1 & 0
+\end{bmatrix}
+$,且矩阵$X$满足
+\begin{equation*}
+  AXA+BXB=AXB+BXA+I
+\end{equation*}
+其中$I$为3阶单位阵，求$X$。\\
+
+
+{\heiti \zihao{4} 期末试题}
+
+\num 2014-2015 七1.设$A$为$n$阶矩阵，且$A^{2}-A-2I=0$。
+
+(2)证明：矩阵$A+2I$可逆，并求$(A+2I)^{-1}$。\\
+
+\num 2015-2016 二2.
+
+已知矩阵$X$满足方程$X
+\begin{bmatrix}
+  1 & 0 & -2 \\
+  0 & 1 & 2 \\
+  -1 & 0 & 3
+\end{bmatrix}
+=
+\begin{bmatrix}
+  -1 & 2 & 0 \\
+  3 & 0 & 5
+\end{bmatrix}$，求矩阵$X$。\\
+
+\num 2015-2016 四1.(1)
+
+设$A$为$n$阶实对称矩阵，且满足$A^{2}-3A+2E=0$,其中$E$为单位矩阵，试证：
+
+(1)$A+2E$可逆；\\
+
+\num 2017-2018 二2.
+
+解矩阵方程$(2I-B^{-1}A)X^{T}=B^{-1}$,其中$I$是3阶单位矩阵，$X^{T}$是3阶矩阵$X$的转置矩阵，$A=
+\begin{bmatrix}
+  1 & 2 & -3 \\
+  0 & 1 & 2 \\
+  0 & 0 & 1
+\end{bmatrix},B=
+\begin{bmatrix}
+  1 & 2 & 0 \\
+  0 & 1 & 2 \\
+  0 & 0 & 1
+\end{bmatrix}
+$.\\
+
+\num 2018-2019 二2.
+
+已知
+$
+A=
+\begin{bmatrix}
+  1 & 3 & 1 \\
+  1 & 1 & 0\\
+  0 & 1 & 1
+\end{bmatrix}
+$,且$X$满足$AX=X+A$，求$X$。\\
+
+\num 2018-2019 四1.
+
+设$n$阶矩阵$A$满足$A^{2}+3A-4I=0$,其中$I$为$n$阶单位矩阵。
+
+(1)证明：$A,A+3I$可逆，并求他们的逆；
+
+(2)当$A\neq I$时，判断$A+4I$是否可逆并说明理由。
+
+\num 2019-2020 一3.
+
+记$A=
+\begin{bmatrix}
+  0 & 0 & 1 & 2 \\
+  0 & 0 & 2 & 3 \\
+  1 & 1 & 0 & 0  \\
+  2& 3 & 0 & 0
+\end{bmatrix}
+$,则$A^{-1}$\underline{\hphantom{~~~~~~~~~~}}。\\
+
+\end{document}  

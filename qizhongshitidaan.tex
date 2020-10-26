@@ -1,0 +1,1824 @@
+\documentclass{article}
+\usepackage[space,fancyhdr,fntef]{ctexcap}
+\usepackage[namelimits,sumlimits,nointlimits]{amsmath}
+\usepackage[bottom=25mm,top=25mm,left=25mm,right=15mm,centering]{geometry}
+\usepackage{xcolor}
+\usepackage{arydshln}%234页，虚线表格宏包
+\usepackage{lastpage}
+\pagestyle{fancy} \fancyhf{}
+\fancyhead[C]{\kaishu 四川大学线性代数三历年期中测试答案解析}
+\fancyfoot[C]{第\thepage 页}
+%\usepackage{parskip}
+%\usepackage{indentfirst}
+\usepackage{graphicx}%插图宏包，参见手册318页
+\usepackage{mathdots}%反对角省略号
+\usepackage{extarrows}%等号上加文字
+\begin{document}
+
+\newcounter{num} \renewcommand{\thenum}{\arabic{num}.} \newcommand{\num}{\refstepcounter{num}\text{\thenum}}
+
+\newenvironment{jie}{\kaishu\zihao{-5}\color{blue}{\noindent\em 解：}\par}{\hfill $\diamondsuit$\par}
+
+\newenvironment{zhengming}{\kaishu\zihao{-5}\color{blue}{\noindent\em 证明：}\par}{\hfill $\diamondsuit$\par}
+
+\hphantom{~~}\hfill {\zihao{2}\heiti 四川大学《线性代数三》历年期中测试答案解析} \hfill\hphantom{~~}
+
+\hphantom{~~}\hfill {\zihao{5}\kaishu 王松年} \hfill\hphantom{~~}
+
+{\zihao{3}\heiti 写在前面：}
+
+\num 答案里说的课本指的是由四川大学数学学院编写的《线性代数》（中国人民大学出版社）。
+
+\num 仅供内部参考使用，请勿将此文档上传到百度文库以及其同类网站上。
+
+\num 由个人整理，如果发现错误或有更好的解题方法请发送邮件至$1315030237@qq.com$.
+
+\hphantom{~~}\hfill {\zihao{4}\heiti 2015-2016年第一学期} \hfill\hphantom{~~}
+
+一、填空题
+
+1.已知$A=
+\begin{bmatrix}
+  3 & 0 & 4 & 0 \\
+  2 & 2 & 2 & 2 \\
+  0 & -7 & 0 & 0 \\
+  5 & 3 & -2 & 2 \\
+\end{bmatrix}
+$,则代数余子式之和$A_{41}+A_{42}+A_{43}+A_{44}=$\underline{~~~~0~~~~}。
+
+\begin{jie}
+由题得：
+\begin{align*}
+A_{41}+A_{42}+A_{43}+A_{44}=
+\begin{vmatrix}
+  3 & 0 & 4 & 0 \\
+  2 & 2 & 2 & 2 \\
+  0 & -7 & 0 & 0 \\
+  \textcolor[rgb]{1.00,0.00,0.00}{1} & \textcolor[rgb]{1.00,0.00,0.00}{1} & \textcolor[rgb]{1.00,0.00,0.00}{1} & \textcolor[rgb]{1.00,0.00,0.00}{1} \\
+\end{vmatrix}=a_{3,2}A_{32}=
+(-1)^{3+2}\times (-7)\times
+\begin{vmatrix}
+  3 &  4 & 0 \\
+  2 &  2 & 2 \\
+  1 &  1 & 1 \\
+\end{vmatrix}=0
+\end{align*}
+\end{jie}
+
+2.设$f(x)=
+\begin{vmatrix}
+  2x & x & 1 & 2\\
+  1 & x & 1 & -1\\
+  3 & 2 & x & 1\\
+  1 & 1 & 1 & x\\
+\end{vmatrix}
+$，则$x^{3}$的系数为\underline{\hphantom{~~~~~~~~~~}}。
+
+\begin{jie}
+方法一：求出对应的行列式，然后写出$x^3$的系数。（此方法太过繁琐，容易出错，不推荐使用）
+
+用$Matlab$计算出来的结果为：$f(x)=2x^4-x^3-7x^2+12x-8$.（仅供参考）
+\\
+
+方法二：使用定义,课本106-108页。
+
+思路：使用行列式的定义来做。仅找出与$x^{3}$有关的项。这里取列按照自然排列，行由自己指定（也可以取行按照自然排列，列由自己指定）。
+
+第一列中：取第一行，第二列第三列第四列无论怎么取都不可能构成$x^{3}$。
+
+\textcolor[rgb]{1.00,0.00,0.00}{（注意：在行列式的定义式中，每一项中的几个元素必须来自不同的行数和列数，如：对于此题来说，列按自然排列，第一个元素取第一列中的第一行，那么第二个元素只能从剩下三列中的剩下三行来取）}
+
+第一列中：取第二行，第二列取第一行，第三列取第三行，第四列取第四行。即$(-1)^{\tau(2134)}a_{\textcolor[rgb]{1.00,0.00,0.00}{2}\textcolor[rgb]{0.00,0.00,0.00}{1}}a_{\textcolor[rgb]{1.00,0.00,0.00}{1}\textcolor[rgb]{0.00,0.00,0.00}{2}}a_{\textcolor[rgb]{1.00,0.00,0.00}{3}\textcolor[rgb]{0.00,0.00,0.00}{3}}a_{\textcolor[rgb]{1.00,0.00,0.00}{4}\textcolor[rgb]{0.00,0.00,0.00}{4}}=(-1)^{1}1*x*x*x=-x^{3}$(注意下标，列（黑色）是自然排列，行（红色）是上边分析得来的)
+
+第一列取第三行第四行都不能构成$x^{3}$。
+
+\textcolor[rgb]{0.50,0.00,0.00}{
+验证：$x^{2}$的系数
+}
+
+列取自然排列，行按下述几个取时构成$x^2$:$1324~~3124~~3214~~4231~~4132$
+即：
+\begin{align*}
+&(-1)^{\tau(1324)}a_{11}a_{32}a_{23}a_{44}+(-1)^{\tau(3124)}a_{31}a_{12}a_{23}a_{44}+\\
+&(-1)^{\tau(3214)}a_{31}a_{22}a_{13}a_{44}+(-1)^{\tau(4132)}a_{41}a_{12}a_{33}a_{24}+(-1)^{\tau(4231)}a_{41}a_{22}a_{33}a_{14}\\
+=&(-4+3-3-1-2)x^2=-7x^2
+\end{align*}
+可以看出和方法1算的结果一样。
+\end{jie}
+
+3.
+设$a,b,c$满足方程
+$
+\begin{vmatrix}
+  1 & a & b & c\\
+  a & 1 & 0 & 0\\
+  b & 0 & 1 & 0\\
+  c & 0 & 0 & 1\\
+\end{vmatrix}=1
+$，则$abc=$\underline{\hphantom{~~~~~~~~~~}}。
+
+\begin{jie}
+对行列式做如下变换：第一行减去$c$倍的第四行，第一行减去$b$倍的第三行，第一行减去$a$倍的第二行，得到如下行列式：
+\begin{equation*}
+\begin{vmatrix}
+  1 & a & b & c\\
+  a & 1 & 0 & 0\\
+  b & 0 & 1 & 0\\
+  c & 0 & 0 & 1\\
+\end{vmatrix}=\begin{vmatrix}
+  1-a^{2}-b^{2}-c^{2} & 0 & 0 & 0\\
+  a & 1 & 0 & 0\\
+  b & 0 & 1 & 0\\
+  c & 0 & 0 & 1\\
+\end{vmatrix}=1-a^{2}-b^{2}-c^{2}=1
+\end{equation*}
+即$a^{2}+b^{2}+c^{2}=0$,对于实数，任何数的平方都大于等于0，所以可以推出$a=0,b=0,c=0$，所以$abc=0$。
+\end{jie}
+
+4.
+设$A=
+\begin{bmatrix}
+  2 & 0 \\
+  1 & 4
+\end{bmatrix}
+$,若$B=2BA-3I$，其中$I$为单位矩阵，则$|B|=$\underline{\hphantom{~~~~~~~~~~}}。
+
+\begin{jie}
+由题得：$B=2BA-3I~~~\Rightarrow B(2A-I)=3I$，所以$|B(2A-I)|=|3I|=3^{2}=9$,$|2A-I|=
+\begin{vmatrix}
+  3 & 0 \\
+  2 & 7
+\end{vmatrix}=21
+$,所以$|B(2A-I)|=|B||2A-I|=21|B|=9$,解得$|B|=\dfrac{3}{7}$
+\end{jie}
+
+5.
+若$A$为4阶方阵，$A^{*}$为$A$的伴随矩阵，$|A|=\dfrac{1}{2}$,则$\left|\left(\dfrac{1}{4}A\right)^{-1}-A^{*}\right|=$\underline{\hphantom{~~~~~~~~~~}}。
+
+\begin{jie}
+$\left|\left(\dfrac{1}{4}A\right)^{-1}-A^{*}\right|=\left|\left(\dfrac{1}{4}A\right)^{-1}-|A|A^{-1}\right|=\left|4A^{-1}-\frac{1}{2}A^{-1}\right|=\left|\frac{7}{2}A^{-1}\right|=\left(\frac{7}{2}\right)^{4}|A|^{-1}=\frac{7^4}{8}$
+\end{jie}
+
+6.设$A=
+\begin{bmatrix}
+  1 & 0 & 0\\
+  1 & 1 & 0\\
+  1 & 2 & 3
+\end{bmatrix}
+$,则$(A^*)^{-1}=$\underline{\hphantom{~~~~~~~~~~}}。
+
+\begin{jie}
+$A^*=|A|A^{-1}$，所以$(A^*)^{-1}=(|A|A^{-1})^{-1}=|A|^{-1}(A^{-1})^{-1}=|A|^{-1}A$
+
+$|A|=1\times 1\times 3=3$
+所以：$(A^*)^{-1}=\dfrac{1}{3}A=\begin{bmatrix}
+  \frac{1}{3} & 0 & 0\\
+  \frac{1}{3} & \frac{1}{3} & 0\\
+  \frac{1 }{3}& \frac{2}{3} & 1
+\end{bmatrix}$
+\end{jie}
+
+7.设$A=
+\begin{bmatrix}
+  1 & 0 & 0 & 0\\
+  0 & 1 & 0 & 0\\
+  2 & 0 & 1 & 0\\
+  0 & 0 & 0 & 1
+\end{bmatrix},B=
+\begin{bmatrix}
+  1 & 1 & 2 & 3\\
+  0 & 1 & 1 & -4\\
+  1 & 2 & 3 & -1\\
+  2 & 3 & -1 & -1
+\end{bmatrix}
+$,则$ABA^{-1}=$\underline{\hphantom{~~~~~~~~~~}}。
+
+\begin{jie}
+由题得：$A=
+\begin{bmatrix}
+  A_{11} & 0 \\
+   A_{21}& A_{22}
+\end{bmatrix}
+$，其中$A_{11}=A_{22}=
+\begin{bmatrix}
+  1 & 0 \\
+  0 & 1
+\end{bmatrix}=E_{2}
+,A_{21}=
+\begin{bmatrix}
+  2 & 0 \\
+  0 & 0
+\end{bmatrix}
+$.所以
+\begin{equation*}
+  A^{-1}=
+  \begin{bmatrix}
+    E_{2} & 0 \\
+    -E_{2}A_{21}E_{2} & E_{2}
+  \end{bmatrix}=
+  \begin{bmatrix}
+    1 & 0 & 0 & 0\\
+  0 & 1 & 0 & 0\\
+  -2 & 0 & 1 & 0\\
+  0 & 0 & 0 & 1
+  \end{bmatrix}
+\end{equation*}
+所以
+\begin{align*}
+ABA^{-1}=\begin{bmatrix}
+  1 & 0 & 0 & 0\\
+  0 & 1 & 0 & 0\\
+  2 & 0 & 1 & 0\\
+  0 & 0 & 0 & 1
+\end{bmatrix}
+\begin{bmatrix}
+  1 & 1 & 2 & 3\\
+  0 & 1 & 1 & -4\\
+  1 & 2 & 3 & -1\\
+  2 & 3 & -1 & -1
+\end{bmatrix}
+  \begin{bmatrix}
+    1 & 0 & 0 & 0\\
+  0 & 1 & 0 & 0\\
+  -2 & 0 & 1 & 0\\
+  0 & 0 & 0 & 1
+  \end{bmatrix}=\begin{bmatrix}
+  1 & 1 & 2 & 3\\
+  0 & 1 & 1 & -4\\
+  3 & 4 & 7 & 5\\
+  2 & 3 & -1 & -1
+\end{bmatrix}
+  \begin{bmatrix}
+    1 & 0 & 0 & 0\\
+  0 & 1 & 0 & 0\\
+  -2 & 0 & 1 & 0\\
+  0 & 0 & 0 & 1
+  \end{bmatrix}=\begin{bmatrix}
+  -3 & 1 & 2 & 3\\
+  -2 & 1 & 1 & -4\\
+  -11 & 4 & 7 & 5\\
+  4 & 3 & -1 & -1
+\end{bmatrix}
+\end{align*}
+\end{jie}
+
+8.设$A,B$均为$n$阶方阵，$|A|=2$,且$AB$可逆，则$r(B)=$\underline{\hphantom{~~~~~~~~~~}}。
+
+\begin{jie}
+课本97页命题3.2.4.
+
+$|A|=2\neq0$，所以$A$可逆，又因为$AB$可逆，所以$B$可逆，即$B$满秩。$r(B)=n$
+\end{jie}
+
+二、解答题
+
+1.计算行列式$
+\begin{vmatrix}
+  5 & 0 & 4 & 2\\
+  1 & -1 & 2 & 1\\
+  4 & 1 & 2 & 0\\
+  1 & 1 & 1 & 1\\
+\end{vmatrix}
+$。
+
+\begin{jie}
+（过程不唯一）
+
+对行列式做如下变换：把第二行加到第三行，把第二行加到第四行，由行列式的性质，此时行列式的值没有改变。即
+\begin{align*}
+\begin{vmatrix}
+  5 & 0 & 4 & 2\\
+  1 & -1 & 2 & 1\\
+  4 & 1 & 2 & 0\\
+  1 & 1 & 1 & 1\\
+\end{vmatrix}=
+\begin{vmatrix}
+  5 & 0 & 4 & 2\\
+  1 & -1 & 2 & 1\\
+  5 & 0 & 4 & 1\\
+  2 & 0 & 3 & 2\\
+\end{vmatrix}
+=(-1)^{2+2}\times (-1)\times
+\begin{vmatrix}
+  5 &  4 & 2\\
+  5 &  4 & 1\\
+  2 &  3 & 2\\
+\end{vmatrix}=-\begin{vmatrix}
+  5 &  4 & 2\\
+  5 &  4 & 1\\
+  2 &  3 & 2\\
+\end{vmatrix}=-|A|
+\end{align*}
+对于$|A|$：把第二行的负一倍加到第一行
+\begin{equation*}
+-\begin{vmatrix}
+  5 &  4 & 2\\
+  5 &  4 & 1\\
+  2 &  3 & 2\\
+\end{vmatrix}=-
+\begin{vmatrix}
+  0 &  0 & 1\\
+  5 &  4 & 1\\
+  2 &  3 & 2\\
+\end{vmatrix}=-(-1)^{1+3}\times(5\times 3-2\times 4)=-7
+\end{equation*}
+\end{jie}
+
+2.计算行列式$
+\begin{vmatrix}
+  a^{2} & ab & b^{2}\\
+  2a & a+b & 2b \\
+  1 & 1 & 1
+\end{vmatrix}
+$。
+
+\begin{jie}
+对行列式做如下变换：把第二列的负一倍分别加到第一列和第三列上。得到$
+\begin{vmatrix}
+  a(a-b) & ab & b(b-a)\\
+  a-b & a+b & b-a \\
+  0 & 1 & 0
+\end{vmatrix}
+$
+
+把第三列加到第一列上：
+\begin{equation*}
+\begin{vmatrix}
+  (a-b)^{2} & ab & b(b-a)\\
+  0 & a+b & b-a \\
+  0 & 1 & 0
+\end{vmatrix}=(-1)^{1+1}(a-b)^{2}[(a+b)0-(b-a)]=(a-b)^{3}
+\end{equation*}
+\end{jie}
+
+3.若$(2I-C^{-1}B)A^{T}=C^{-1}$,
+$B=
+\begin{bmatrix}
+  1 & 2 & -3 & -2\\
+  0 & 1 & 2 & -3\\
+  0 & 0 & 1 & 2\\
+  0 & 0 & 0 & 1\\
+\end{bmatrix},C=
+\begin{bmatrix}
+  1 & 2 & 0 & 1\\
+  0 & 1 & 2 & 0\\
+  0 & 0 & 1 & 2\\
+  0 & 0 & 0 & 1\\
+\end{bmatrix}
+$,求$A$。
+
+\begin{jie}
+由题得：$(2I-C^{-1}B)A^{T}=C^{-1}$，等式两边左乘$(2I-C^{-1}B)^{-1}$:
+\begin{align*}
+A^{T}&=(2I-C^{-1}B)^{-1}C^{-1}=[C(2I-C^{-1}B)]^{-1}\\
+&=(2C-B)^{-1}
+\end{align*}
+\begin{equation*}
+D=2C-B=2\begin{bmatrix}
+  1 & 2 & 0 & 1\\
+  0 & 1 & 2 & 0\\
+  0 & 0 & 1 & 2\\
+  0 & 0 & 0 & 1\\
+\end{bmatrix}-\begin{bmatrix}
+  1 & 2 & -3 & -2\\
+  0 & 1 & 2 & -3\\
+  0 & 0 & 1 & 2\\
+  0 & 0 & 0 & 1\\
+\end{bmatrix}=
+\begin{bmatrix}
+  1 & 2 & 3 & 4\\
+  0 & 1 & 2 & 3\\
+  0 & 0 & 1 & 2\\
+  0 & 0 & 0 & 1\\
+\end{bmatrix}
+\end{equation*}
+所以
+\begin{align*}
+[D|E_{4}]&\xrightarrow{\substack{r_{1}-4r_{4}\\ r_{2}-3r_{4}\\ r_{3}-2r_{4}}}
+{\left[
+\begin{array}{c:c}
+\begin{matrix}
+  1 & 2 & 3 & 0\\
+  0 & 1 & 2 & 0\\
+  0 & 0 & 1 & 0\\
+  0 & 0 & 0 & 1\\
+\end{matrix} &
+\begin{matrix}
+  1 & 0 & 0 & -4\\
+  0 & 1 & 0 & -3\\
+  0 & 0 & 1 & -2\\
+  0 & 0 & 0 & 1\\
+\end{matrix}
+\end{array}
+\right]
+}\xrightarrow{\substack{r_{1}-3r_{3}\\ r_{2}-2r_{3}}}
+{\left[
+\begin{array}{c:c}
+\begin{matrix}
+  1 & 2 & 0 & 0\\
+  0 & 1 & 0 & 0\\
+  0 & 0 & 1 & 0\\
+  0 & 0 & 0 & 1\\
+\end{matrix} &
+\begin{matrix}
+  1 & 0 & -3 & 2\\
+  0 & 1 & -2 & 1\\
+  0 & 0 & 1 & -2\\
+  0 & 0 & 0 & 1\\
+\end{matrix}
+\end{array}
+\right]
+}\\
+&\xrightarrow{\substack{r_{1}-2r_{2}}}
+{\left[
+\begin{array}{c:c}
+\begin{matrix}
+  1 & 0 & 0 & 0\\
+  0 & 1 & 0 & 0\\
+  0 & 0 & 1 & 0\\
+  0 & 0 & 0 & 1\\
+\end{matrix} &
+\begin{matrix}
+  1 & -2 & 1 & 0\\
+  0 & 1 & -2 & 1\\
+  0 & 0 & 1 & -2\\
+  0 & 0 & 0 & 1\\
+\end{matrix}
+\end{array}
+\right]
+}
+\end{align*}
+所以$A^{T}=D^{-1}=(2C-B)^{-1}=\begin{bmatrix}
+  1 & -2 & 1 & 0\\
+  0 & 1 & -2 & 1\\
+  0 & 0 & 1 & -2\\
+  0 & 0 & 0 & 1\\
+\end{bmatrix}$
+,$
+  A=(A^{T})^{T}=\begin{bmatrix}
+  1 & 0 & 0 & 0\\
+  -2 & 1 & 0 & 0\\
+  1 & -2 & 1 & 0\\
+  0 & 1 & -2 & 1\\
+\end{bmatrix}
+.$
+\end{jie}
+
+4.设$
+A=
+\begin{bmatrix}
+  1 & -1 & 0 \\
+  0 & 1 & -1\\
+  0 & 0 & 1
+\end{bmatrix},B=
+\begin{bmatrix}
+  2 & 1 & 3 \\
+  0 & 2 & 1\\
+  0 & 0 & 2
+\end{bmatrix}
+$,$A^{T}(BA^{-1}-I)^{T}X=B^{T}$，求$X$。
+
+\begin{jie}
+由题得：$A^{T}(BA^{-1}-I)^{T}=[(BA^{-1}-I)A]^{T}=(B-A)^{T}$,所以
+\begin{equation*}
+  X=((B-A)^{T})^{-1}B^{T}=((B-A)^{-1})^{T}B^{T}=[B(B-A)^{-1}]^{T}
+\end{equation*}
+\begin{equation*}
+  B-A=\begin{bmatrix}
+  2 & 1 & 3 \\
+  0 & 2 & 1\\
+  0 & 0 & 2
+\end{bmatrix}-\begin{bmatrix}
+  1 & -1 & 0 \\
+  0 & 1 & -1\\
+  0 & 0 & 1
+\end{bmatrix}=
+\begin{bmatrix}
+  1 & 2 & 3 \\
+  0 & 1 & 2\\
+  0 & 0 & 1
+\end{bmatrix}
+\end{equation*}
+(\textcolor[rgb]{0.00,1.00,0.50}{由上一题可以看出，B-A是上一题目中D的左上角三行三列的元素。其逆矩阵也应该是D逆矩阵左上角三行三列，这里直接用结论})
+所以：
+\begin{gather*}
+( B-A)^{-1}=\begin{bmatrix}
+  1 & -2 & 1 \\
+  0 & 1 & -2 \\
+  0 & 0 & 1
+\end{bmatrix}~~~~~~
+B( B-A)^{-1}=\begin{bmatrix}
+  2 & 1 & 3 \\
+  0 & 2 & 1\\
+  0 & 0 & 2
+\end{bmatrix}\begin{bmatrix}
+  1 & -2 & 1 \\
+  0 & 1 & -2 \\
+  0 & 0 & 1
+\end{bmatrix}=
+\begin{bmatrix}
+  2 & -3 & 3 \\
+  0 & 2 & -3 \\
+  0 & 0 & 2
+\end{bmatrix}\\
+X=\left[B(B-A)^{-1}\right]^{T}=
+\begin{bmatrix}
+  2 & 0 & 0 \\
+  -3 & 2 & 0\\
+  3 & -3 & 2
+\end{bmatrix}
+\end{gather*}
+\end{jie}
+
+5.设$A=
+\begin{bmatrix}
+  3 & 4 & 1\\
+  0 & 2 & 0\\
+  5 & 1 & 3
+\end{bmatrix}
+,B=
+\begin{bmatrix}
+  2 & -1 & 3\\
+  0 & 3 & 1\\
+  0 & 0 & 0
+\end{bmatrix}
+$,求$AB$的秩$r(AB)$。
+
+\begin{jie}
+由题得：$r(B)=2$。
+
+\begin{equation*}
+|A|=2\times
+\begin{vmatrix}
+3&1\\
+5&3
+\end{vmatrix}=8\neq0
+\end{equation*}
+
+所以$A$可逆，即A满秩，$r(A)=3$，所以$r(AB)=r(B)=2$。
+\end{jie}
+
+三、证明题
+
+1.设$A$可逆，且$A^{*}B=A^{-1}+B$，证明$B$可逆，当$A=
+\begin{bmatrix}
+  2 & 6 & 0 \\
+  0 & 2 & 6\\
+  0 & 0 & 2
+\end{bmatrix}
+$时，求$B$。
+
+\begin{zhengming}
+由题得：$A^{*}B=A^{-1}+B$，即$(A^*-E)B=A^{-1}$，两边同时左乘$A$得：$A(A^*-E)B=E$，所以$B$可逆，其逆矩阵为$A(A^*-E)=(|A|E-A)$.
+
+由题得：$|A|=2\times2\times 2=8$
+\begin{equation*}
+B=(|A|E-A)^{-1}=\begin{bmatrix}
+  6 & -6 & 0 \\
+  0 & 6 & -6\\
+  0 & 0 & 6
+\end{bmatrix}^{-1}=\frac{1}{6}\begin{bmatrix}
+  1 & 1 & 1 \\
+  0 & 1 & 1\\
+  0 & 0 & 1
+\end{bmatrix}
+\end{equation*}
+\end{zhengming}
+
+2. \textcolor[rgb]{1.00,0.00,0.00}{（18-19学年二大题的第1题）}
+设$A$为$n$阶方阵，$AA^{T}=I$，$|A|<0$，证明:$|A+I|=0$。
+
+\begin{zhengming}
+由行列式的性质得$|AB|=|A||B|,|A^{T}|=|A|$，所以由题得
+
+$|AA^{T}|=|I|$,等号左边：$|AA^{T}|=|A||A^{T}|=|A||A|=|A|^{2}$,等号右边等于1，由题得$|A|<0$，所以$|A|=-1$.
+
+$|A+I|=|A+AA^{T}|=|A(I+A^{T})|=|A||(I+A)^{T}|=-|I+A|$，所以$|A+I|=0$。\textcolor[rgb]{1.00,0.00,0.00}{（注：两个矩阵相加的转置等于两个矩阵分别转置后相加，即$A^{T}+B^{T}=(A+B)^{T}$）}
+\end{zhengming}
+\newpage
+\hphantom{~~}\hfill {\zihao{4}\heiti 2016-2017年第一学期} \hfill\hphantom{~~}
+
+一、填空题
+
+1.设$M_{ij}$是$
+\begin{vmatrix}
+  0 & 4 & 0 \\
+  2 & 2 & 2\\
+  2 & 0 & 0
+\end{vmatrix}
+$的第$i$行第$j$列元素的余子式，则$M_{11}+M_{12}=$\underline{\hphantom{~~~~~~~~~~}}。
+
+\begin{jie}
+由题得：$M_ {11}+M_{12}=M_ {11}+M_{12}+0M_{13}=A_{11}-A_{12}+0A_{13}=\begin{vmatrix}
+  \textcolor[rgb]{1.00,0.00,0.00}{1} & \textcolor[rgb]{1.00,0.00,0.00}{-1} & \textcolor[rgb]{1.00,0.00,0.00}{0} \\
+  2 & 2 & 2\\
+  2 & 0 & 0
+\end{vmatrix}=2\times(-1)^{(3+1)}\times[(-1)\times 2-2\times0]=-4$
+\end{jie}
+
+2.计算行列式$
+\begin{vmatrix}
+  1 & 1 & 1 & 1 \\
+  1 & 2 & 4& 8 \\
+  1 & 3 & 9& 27\\
+   1 & 4 &16 &64
+\end{vmatrix}
+=$\underline{\hphantom{~~~~~~~~~~}}。
+
+\begin{jie}
+经观察，该行列式为四阶范德蒙行列式，且$x_{1}=1,x_{2}=2,x_{3}=3,x_{4}=4$，所以原式$=(x_{4}-x_{3})(x_{4}-x_{2})(x_{4}-x_{1})(x_{3}-x_{2})(x_{3}-x_{1})(x_{2}-x_{1})=12$
+\end{jie}
+
+3.设方程组$
+\begin{cases}
+ 2x_{1}-x_{2}+x_{3}=0\\
+ x_{1}+kx_{2}-x_{3}=0\\
+ kx_{1}+x_{2}+x_{3}=0
+\end{cases}
+$有非零解，则$k=$
+\underline{~~~~-1或4~~~~}。
+
+\begin{jie}
+该方程组的系数矩阵为一个三阶方阵，由解得存在唯一性定理，如果$Ax=0$有非零解，则$|A|=0$。所以：
+\begin{equation*}
+|A|=
+\begin{vmatrix}
+2 & -1 & 1 \\
+1 & k &-1\\
+k & 1 & 1
+\end{vmatrix}=(1+k)(4-k)=0~~~\Rightarrow k_{1}=-1 ~k_{2}=4
+\end{equation*}
+(上述行列式第一行减去第三行,第二行加上第三行后按第三列展开)
+\end{jie}
+
+4.设$f(x)=ax^{2}+bx+c$,$A$为$n$阶方阵，定义$f(A)=aA^{2}+bA+cI$，如果$
+A=
+\begin{bmatrix}
+  1 & 0 & 0 & 0 \\
+  0 & 1& 0& 0 \\
+  2 & 0 & 1& 0\\
+   0 & 0 &0 &1
+\end{bmatrix},f(x)=x^{2}-x-1,
+$则$f(A)=$\underline{\hphantom{~~~~~~~~~~}}。
+
+\begin{jie}
+由题得：
+\begin{equation*}
+A=E+\begin{bmatrix}
+  0 & 0 & 0 & 0 \\
+  0 & 0& 0& 0 \\
+  2 & 0 & 0& 0\\
+   0 & 0 &0 &0
+\end{bmatrix}=E+B
+\end{equation*}
+可以看出：$B^2=0$.所以$A^2=(E+B)^2=E+B^2+2EB=E+2B$.
+
+所以$f(A)=A^2-A-E=E+2B-E-B-E=B-E=
+\begin{bmatrix}
+  -1 & 0 & 0 & 0 \\
+  0 & -1& 0& 0 \\
+  2 & 0 & -1& 0\\
+   0 & 0 &0 &-1
+\end{bmatrix}
+$
+\end{jie}
+
+5.若$A$为3阶方阵，$A^{*}$为$A$的伴随矩阵，$|A|=\dfrac{1}{2}$，则$\left|(3A)^{-1}-2A^{*}\right|=$\underline{\hphantom{~~~~~~~~~~}}。
+
+\begin{jie}
+$\left|(3A)^{-1}-2A^{*}\right|=\left|3^{-1}A^{-1}-2|A|A^{-1}\right|=\left|-\frac{2}{3}A^{-1}\right|=\left(-\frac{2}{3}\right)^{3}|A|^{-1}=-\frac{16}{27}$
+\end{jie}
+
+6.设$A=
+\begin{bmatrix}
+  1 & -1 & 2 & 1\\
+  -1 & a & 2 & 1\\
+  3 & 1 & b & -1\\
+\end{bmatrix},r(A)=2
+$，则$a+b=$\underline{~~~~~~$-3$~~~~~~}。
+
+\begin{jie}
+由题得：
+\begin{equation*}
+  A\xrightarrow{\substack{r_{2}+r_{1} \\ r_{3}-3r_{1}}}
+{
+    \begin{bmatrix}
+  1 & -1 & 2 & 1\\
+  0 & a-1 & 4 & 2\\
+  0 & 4 & b-6 & -4\\
+\end{bmatrix}
+}
+\end{equation*}
+若$r(A)=2$，则$r_{2}=kr_{3}$其中$k\neq0$.(指的是非零元素成比例)即：
+\begin{equation*}
+  \frac{a-1}{4}=\frac{4}{b-6}=\frac{2}{-4}~~~\Rightarrow
+  \begin{cases}
+    a=-1\\ b=-2
+  \end{cases}
+\end{equation*}
+\end{jie}
+
+二、解答题
+
+1.计算行列式$
+\begin{vmatrix}
+  1 & 2 & 3 & 4 \\
+  2 & 3 & 4& 1 \\
+  3 & 4 & 1& 2\\
+   4 & 1 &2 &3
+\end{vmatrix}
+$。
+
+\begin{jie}
+步骤不唯一
+
+把所有列加到第一列，原行列式变为
+\begin{equation*}
+\begin{vmatrix}
+  10 & 2 & 3 & 4 \\
+  10 & 3 & 4& 1 \\
+  10 & 4 & 1& 2\\
+   10 & 1 &2 &3
+\end{vmatrix}=10\begin{vmatrix}
+  1 & 2 & 3 & 4 \\
+  1 & 3 & 4& 1 \\
+  1 & 4 & 1& 2\\
+   1 & 1 &2 &3
+\end{vmatrix}
+\end{equation*}
+把第一行的负一倍分别加到第二行，第三行，第四行。$10
+\begin{vmatrix}
+  1 & 2 & 3 & 4 \\
+  0 & 1 & 1& -3 \\
+  0 & 2 & -2& -2\\
+   0 & -1 &-1 &-1
+\end{vmatrix}
+$,把第四行加到第二行\begin{align*}
+10
+\begin{vmatrix}
+  1 & 2 & 3 & 4 \\
+  0 & 0 & 0& -4 \\
+  0 & 2 & -2& -2\\
+   0 & -1 &-1 &-1
+\end{vmatrix}=10\times(-4)\times2\times(-1)\begin{vmatrix}
+  1 & 2 & 3 & 4 \\
+  0 & 0 & 0& 1 \\
+  0 & 1 & -1& -1\\
+   0 & 1 &1 &1
+\end{vmatrix}=80\times1\times(-1)^{2+4}\begin{vmatrix}
+  1 & 2 & 3  \\
+  0 & 1 & -1\\
+   0 & 1 &1
+\end{vmatrix}=160
+\end{align*}
+\end{jie}
+
+2.设$f(x)=
+\begin{vmatrix}
+  x-1 & 1 & -1 & 1 \\
+  -1 & x+1 & -1& 1 \\
+  -1 & 1 & x-1& 1\\
+   -1 & 1 &-1 &x+1
+\end{vmatrix}
+$,求$f(x)=0$的根。
+
+\begin{jie}
+分别把第四行的负一倍加到第一行、第二行与第三行上
+\begin{equation*}
+\begin{vmatrix}
+  x & 0 & 0 & -x \\
+  0 & x & 0& -x \\
+  0 & 0 & x& -x\\
+   -1 & 1 &-1 &x+1
+\end{vmatrix}
+\end{equation*}
+把前边三列全部加到第四列上：
+\begin{equation*}
+\begin{vmatrix}
+  x & 0 & 0 & 0 \\
+  0 & x & 0& 0 \\
+  0 & 0 & x& 0\\
+   -1 & 1 &-1 &x
+\end{vmatrix}=x^{4}
+\end{equation*}
+所以$f(x)=x^{4}=0$的根为$x_{1}=x_{2}=x_{3}=x_{4}=0$.
+\end{jie}
+
+3.设$
+A=
+\begin{bmatrix}
+  1& 0 &-1 \\
+  1&3&0\\
+  0&2&1
+\end{bmatrix}
+$，若矩阵$X$满足方程$AX+I=A^{2}+X$，求$X$。
+
+\begin{jie}
+由题得：$AX+I=A^{2}+X$,所以$(A-I)X=A^{2}-I=(A+I)(A-I)=(A-I)(A+I)$.
+等式两边同时左乘$(A-I)^{-1}$:
+\begin{equation*}
+ (A-I)^{-1}(A-I)X=(A-I)^{-1}(A-I)(A+I) ~~~\Rightarrow~~~X=(A+I)= \begin{bmatrix}
+       2&0&-1\\
+  1&4&0\\
+  0&2&2\\
+    \end{bmatrix}
+\end{equation*}
+\end{jie}
+
+4.（2015-2016的期末试题一大题第2，原题）
+
+设$
+A=\begin{bmatrix}
+    1 & 1 & 1 & 1\\
+    0 & 2 & 2 & 2\\
+    0 & 0 & 3 & 3\\
+    0 & 0 & 0 & 4
+  \end{bmatrix}
+$,求$A^{2}-2A$的秩$r(A^{2}-2A)$。
+
+\begin{jie}
+由题得：$A^{2}-2A=A(A-2E)$,可以看出$A$是满秩方阵，即$A$可逆。\textcolor[rgb]{1.00,0.00,0.00}{满秩方阵一定可逆}，所以
+$r(A^{2}-2A)=r(A(A-2E))=r(A-2E)$。
+\begin{align*}
+A-2E=
+\begin{bmatrix}
+-1 & 1 & 1 & 1\\
+0 & 0 & 2 & 2\\
+0 & 0 & 1 & 3\\
+0 & 0 & 0 & 2
+\end{bmatrix}
+\xrightarrow{r_{2}\times\frac{1}{2}}
+{
+\begin{bmatrix}
+-1 & 1 & 1 & 1\\
+0 & 0 & 1 & 1\\
+0 & 0 & 1 & 3\\
+0 & 0 & 0 & 2
+\end{bmatrix}
+}\xrightarrow{r_{3}-r_{2}}
+{
+\begin{bmatrix}
+-1 & 1 & 1 & 1\\
+0 & 0 & 1 & 1\\
+0 & 0 & 0 & 2\\
+0 & 0 & 0 & 2
+\end{bmatrix}
+}\xrightarrow{r_{4}-r_{3}}
+{
+\begin{bmatrix}
+-1 & 1 & 1 & 1\\
+0 & 0 & 1 & 1\\
+0 & 0 & 0 & 2\\
+0 & 0 & 0 & 0
+\end{bmatrix}
+}
+\end{align*}
+所以r(A-2E)=3，所以$r(A^{2}-2A)=3$
+\end{jie}
+
+5.若$\left(\dfrac{1}{4}A^{*}\right)^{-1}BA^{-1}=2AB+I$，且
+$A=
+\begin{bmatrix}
+  2 & 0& 0 & 0 \\
+  1 & 1 & 0& 0 \\
+  0 & 0 & 2& 1\\
+   0& 0 &0 &1
+\end{bmatrix}
+$，求$B$。
+
+\begin{jie}
+由题得：$A=
+\begin{bmatrix}
+  A_{11} & 0 \\
+  0 & A_{22}
+\end{bmatrix}
+$,其中$A_{11}=\begin{bmatrix}
+              2 & 0 \\
+              1 & 1
+            \end{bmatrix}$,
+$A_{22}=
+\begin{bmatrix}
+  2 & 1 \\
+  0 & 1
+\end{bmatrix}
+$，所以有：
+\begin{equation*}
+|A_{11}|=|A_{22}|=2\times1=2;~~|A|=|A_{11}|\cdot|A_{22}|=4;~~A_{11}^{-1}=
+\begin{bmatrix}
+  \frac{1}{2} & 0 \\
+  -\frac{1}{2} & 1
+\end{bmatrix};~~A_{22}^{-1}=
+\begin{bmatrix}
+  \frac{1}{2} & -\frac{1}{2} \\
+   0& 1
+\end{bmatrix};~~A^{-1}=\begin{bmatrix}
+  A_{11}^{-1} & 0 \\
+  0 & A_{22}^{-1}
+\end{bmatrix}
+\end{equation*}
+\begin{gather*}
+\left(\dfrac{1}{4}A^{*}\right)^{-1}BA^{-1}=2AB+I ~~~\Rightarrow~~~
+4(|A|A^{-1})^{-1}BA^{-1}=2AB+I ~~~ \Rightarrow~~~
+\frac{4}{|A|}ABA^{-1}=2AB+I\\
+ABA^{-1}=2AB+I~~~\Rightarrow~~~
+AB=2ABA+A~~~\Rightarrow~~~
+AB(E-2A)=A~~~\Rightarrow~~~
+B(E-2A)=I~~~\Rightarrow~~
+B=(E-2A)^{-1}
+\end{gather*}
+\begin{equation*}
+  B=(E-2A)^{-1}=\begin{bmatrix}
+  -3 & 0& 0 & 0 \\
+  -2 & -1 & 0& 0 \\
+  0 & 0 & -3& -2\\
+   0& 0 &0 &-1
+\end{bmatrix}^{-1}=
+\begin{bmatrix}
+  -\frac{1}{3} & 0& 0 & 0 \\
+  \frac{2}{3} & -1 & 0& 0 \\
+  0 & 0 & -\frac{1}{3}& \frac{2}{3}\\
+   0& 0 &0 &-1
+\end{bmatrix}
+\end{equation*}
+\end{jie}
+
+三、证明题
+
+1.设$A$满足$A^{2}-2A+4I=0$，证明$A+I$可逆，并求$(A+I)^{-1}$.
+
+\textcolor[rgb]{1.00,0.00,0.00}{思路：题目让证明谁可逆，就凑出这个表达式与某个表达式的乘积等于单位矩阵。}
+
+\begin{zhengming}
+由题得：$A^{2}-2A+4I=0$，所以：
+\begin{gather*}
+  A^{2}\textcolor[rgb]{1.00,0.00,0.00}{+A-A}-2A+4I=0\\
+  A(A+I)-3A\textcolor[rgb]{1.00,0.00,0.00}{-3I+3I}+4I=0\\
+  A(A+I)-3(A+I)=-7I\\
+  (A-3I)(A+I)=-7I\\
+  -\frac{1}{7}(A-3I)(A+I)=I
+\end{gather*}
+所以$A+I$可逆，$(A+I)^{-1}=-\dfrac{1}{7}(A-3I)$.
+\end{zhengming}
+
+2.已知$A=(a_{ij})$是三阶的非零矩阵，设$A_{ij}$是$a_{ij}$的代数余子式，且对任意的$i,j$有$A_{ij}+a_{ij}=0$，求$A$ 的行列式。
+
+\begin{jie}
+因为$A_{ij}+a_{ij}=0$，所以可以推出$A+(A^*)^T=0$。即$(A^*)^T=-A$.\textcolor[rgb]{1.00,0.00,0.00}{（看不懂的用伴随矩阵的定义表达出伴随矩阵，代入该式看一下）}两边同时取行列式：
+
+左边：$|(A^*)^T|=|A^*|=||A|A^{-1}|=|A|^n|A|^{-1}=|A|^{n-1}=|A|^2$
+
+右边：$|-A|=(-1)^3|A|=-|A|$
+
+所以$|A|^2=-|A|$，解得$|A|=-1$或$|A|=0$。
+
+又因为$(A^*)^T=-A$,所以有$r((A^*)^T)=r(-A)$，即$r(A^*)=r(A)$，所以$r(A)=n=3$。\textcolor[rgb]{1.00,0.00,0.00}{注：此步看不懂的看课本121页的例3.3.23，记住这个例题的结论。}
+
+$r(A)=3$，即满秩，满秩即(可逆$\&$行列式不为$0$)，所以$|A|=-1$。
+\end{jie}
+\newpage
+\hphantom{~~}\hfill {\zihao{4}\heiti 2017-2018年第一学期} \hfill\hphantom{~~}
+
+一、解答题
+
+1.计算行列式$
+\begin{vmatrix}
+  1 & 1 & 1 & 1 \\
+  1 & 1 & 1& 2 \\
+  1 & 1 & 3& 1\\
+   1 & 4 &1 &1
+\end{vmatrix}
+.$
+
+\begin{jie}
+过程不唯一 。
+
+把第一列的负一倍分别加到第二、三、四列上：
+\begin{equation*}
+\begin{vmatrix}
+  1 & 1 & 1 & 1 \\
+  1 & 1 & 1& 2 \\
+  1 & 1 & 3& 1\\
+   1 & 4 &1 &1
+\end{vmatrix}=\begin{vmatrix}
+  1 & 0 & 0 & 0 \\
+  1 & 0 & 0& 1 \\
+  1 & 0 & 2& 0\\
+   1 & 3 &0 &0
+\end{vmatrix}=1\times(-1)^{1+1}\begin{vmatrix}
+ 0 & 0& 1 \\
+ 0 & 2& 0\\
+ 3 &0 &0
+\end{vmatrix}=(-1)^{\frac{3\times(3-1)}{2}}6=-6
+\end{equation*}
+\end{jie}
+
+2.求方程$
+\begin{vmatrix}
+  1 & 2 & 1 & 1 \\
+  1 & x & 2& 3 \\
+  1 & 2 & x& 2\\
+   0 & 0 &2 &x
+\end{vmatrix}=0
+$的根。
+
+\begin{jie}
+把第一行的负一倍分别加到第二、三行上：
+\begin{align*}
+\begin{vmatrix}
+  1 & 2 & 1 & 1 \\
+  1 & x & 2& 3 \\
+  1 & 2 & x& 2\\
+   0 & 0 &2 &x
+\end{vmatrix}=\begin{vmatrix}
+  1 & 2 & 1 & 1 \\
+  0 & x-2 & 1& 2 \\
+  0 & 0 & x-1& 1\\
+   0 & 0 &2 &x
+\end{vmatrix}=1\times(-1)^{1+1}\begin{vmatrix}
+  x-2 & 1& 2 \\
+   0 & x-1& 1\\
+   0 &2 &x
+\end{vmatrix}=(x-2)\times(-1)^{1+1}[(x-1)x-2\times1]=0
+\end{align*}
+解得：$x_{1}=x_{2}=2,x_{3}=-1$。
+\end{jie}
+
+3.设$\gamma_{1},\gamma_{2},\gamma_{3},\gamma_{4}$及$\beta$均为4维列向量。4阶矩阵$A=[\gamma_ {1}~\gamma_{2}~\gamma_{3}~\gamma_{4}],B=[\beta~\gamma_{2}~\gamma_{3}~\gamma_{4}]$,若$\left|A\right|=2,\left|B\right|=3$，求
+
+(1)$\left|A+B\right|$;
+
+(2)$\left|A^{2}+AB\right|$;
+
+\begin{jie}
+(1)$A+B=[\gamma_ {1}~\gamma_{2}~\gamma_{3}~\gamma_{4}]+[\beta~\gamma_{2}~\gamma_{3}~\gamma_{4}]=[\gamma_{1}+\beta ~~2\gamma_{2}~~2\gamma_{3}~~2\gamma_{4}]$，由行列式的性质：
+\begin{align*}
+|A+B|&=|\gamma_{1}+\beta ~~2\gamma_{2}~~2\gamma_{3}~~2\gamma_{4}|=|\gamma_{1}~~2\gamma_{2}~~2\gamma_{3}~~2\gamma_{4}|+|\beta ~~2\gamma_{2}~~2\gamma_{3}~~2\gamma_{4}|\\
+&=2\times2\times2|\gamma_ {1}~\gamma_{2}~\gamma_{3}~\gamma_{4}|+2\times2\times2|\beta~\gamma_{2}~\gamma_{3}~\gamma_{4}|=8|A|+8|B|=8(|A|+|B|)=40
+\end{align*}
+
+(2)$\left|A^{2}+AB\right|=|A(A+B)|=|A||A+B|=2\times 40=80.$
+\end{jie}
+
+4.设$
+A=
+\begin{bmatrix}
+  3&2&2 \\
+  0&1&1\\
+  0&0&3
+\end{bmatrix}
+,~B=
+\begin{bmatrix}
+  1&0&0 \\
+  0&0&0\\
+  0&0&-1
+\end{bmatrix}
+,~AX+2B=BA+2X$，求$X^{2017}$。
+
+\begin{jie}
+\textcolor[rgb]{1.00,0.00,0.00}{若存在可逆矩阵$P$，使得$A=P^{-1}BP$，则称矩阵$A$与矩阵$B$相似，记为$A\~{}B$}
+
+由题得：$(A-2I)X=B(A-2I)$,等式两边同时乘$(A-2I)^{-1}$得：$X=(A-2I)^{-1}B(A-2I)$，令$P=A-2I$，则$X=P^{-1}BP$.所以
+\begin{equation*}
+  X^{2}=(P^{-1}BP)^{2}=P^{-1}B\textcolor[rgb]{0.00,0.50,1.00}{PP^{-1}}BP=P^{-1}B\textcolor[rgb]{0.00,0.50,1.00}{I}BP=P^{-1}B^{2}P
+\end{equation*}
+同理可以推出：$X^{n}=P^{-1}B^{n}P$.
+(由此我们可以得出一条结论：\textcolor[rgb]{1.00,0.00,0.00}{若$A\~{}B$，则$A^{n}=P^{-1}B^{n}P$},以后做题可直接使用)
+\textcolor[rgb]{1.00,0.00,0.00}{对于任意对角矩阵$C=
+\begin{bmatrix}
+ c_{11} &~&~&~\\
+ ~&c_{22}&~&~\\
+ ~&~&\ddots&~\\
+ ~&~&~&c_{nn}
+\end{bmatrix}
+$}，可以计算得:$C^{2}=
+\begin{bmatrix}
+ c_{11}^{2} &~&~&~\\
+ ~&c_{22}^{2}&~&~\\
+ ~&~&\ddots&~\\
+ ~&~&~&c_{nn}^{2}
+\end{bmatrix}$，所以\textcolor[rgb]{1.00,0.00,0.00}{$C^{n}=
+\begin{bmatrix}
+ c_{11}^{n} &~&~&~\\
+ ~&c_{22}^{n}&~&~\\
+ ~&~&\ddots&~\\
+ ~&~&~&c_{nn}^{n}
+\end{bmatrix}$}
+所以：
+\begin{equation*}
+B^{2017}=
+\begin{bmatrix}
+1^{2017}&0&0\\
+0&0&0\\
+0&0&(-1)^{2017}
+\end{bmatrix}=
+\begin{bmatrix}
+1&0&0\\
+0&0&0\\
+0&0&-1
+\end{bmatrix}=B
+\end{equation*}
+（下边求逆的过程略）
+\begin{equation*}
+P=A-2I=
+\begin{bmatrix}
+1&2&2\\
+0&-1&1\\
+0&0&1\\
+\end{bmatrix}~~~
+P^{-1}=
+\begin{bmatrix}
+1 &2&-4\\
+0&-1&1\\
+0&0&1
+\end{bmatrix}
+\end{equation*}
+所以：
+\begin{align*}
+X^{2017}&=P^{-1}B^{2017}P=P^{-1}BP=\begin{bmatrix}
+1 &2&-4\\
+0&-1&1\\
+0&0&1
+\end{bmatrix}
+\begin{bmatrix}
+  1&0&0 \\
+  0&0&0\\
+  0&0&-1
+\end{bmatrix}
+\begin{bmatrix}
+1&2&2\\
+0&-1&1\\
+0&0&1\\
+\end{bmatrix}\\
+&=
+\begin{bmatrix}
+1&0&4\\
+0&0&-1\\
+0&0&-1\\
+\end{bmatrix}
+\begin{bmatrix}
+1&2&2\\
+0&-1&1\\
+0&0&1\\
+\end{bmatrix}=\begin{bmatrix}
+1&2&6\\
+0&0&-1\\
+0&0&-1
+\end{bmatrix}
+\end{align*}
+\end{jie}
+
+5.设$
+A=\begin{bmatrix}
+   2 & 4 & 1 & 0\\
+   1 & 0 & 3 & 2\\
+   -1 & 5 & -3 & 1\\
+   0 & 1 & 0 & 2
+  \end{bmatrix},B=
+  \begin{bmatrix}
+   1& 1& 1 & 1\\
+   1 & 1 & 2 & 2\\
+   a+1 & 2 & 3 &4\\
+   1 & a & 1 & a
+  \end{bmatrix}
+$，若$r(A)=r(B)$，则$a$应满足什么条件。
+
+\begin{jie}
+由题得
+\begin{align*}
+A\xrightarrow{r_{1}\times \frac{1}{2}}&
+{
+\begin{bmatrix}
+   1 & 2 & \frac{1}{2} & 0\\
+   1 & 0 & 3 & 2\\
+   -1 & 5 & -3 & 1\\
+   0 & 1 & 0 & 2
+  \end{bmatrix}
+}\xrightarrow{ \substack{r_{2}-r_{1} \\ r_{3}+r_{1}}}
+{
+\begin{bmatrix}
+   1 & 2 & \frac{1}{2} & 0\\
+   0 & -2 & \frac{5}{2} & 2\\
+   0 & 7 & -\frac{5}{2} & 1\\
+   0 & 1 & 0 & 2
+  \end{bmatrix}
+}\xrightarrow{r_{2}\Leftrightarrow r_{4}}
+{
+\begin{bmatrix}
+   1 & 2 & \frac{1}{2} & 0\\
+   0 & 1 & 0 & 2\\
+   0 & 7 & -\frac{5}{2} & 1\\
+   0 & -2 & \frac{5}{2} & 2
+  \end{bmatrix}
+}\xrightarrow{\substack{r_{3}-7 r_{2} \\ r_{4}+2r_{2}}}
+{
+\begin{bmatrix}
+   1 & 2 & \frac{1}{2} & 0\\
+   0 & 1 & 0 & 2\\
+   0 & 0 & -\frac{5}{2} & -13\\
+   0 & 0 & \frac{5}{2} & 4
+  \end{bmatrix}
+}\\
+\xrightarrow{r_{4}+ r_{3}}&
+{
+\begin{bmatrix}
+   1 & 2 & \frac{1}{2} & 0\\
+   0 & 1 & 0 & 2\\
+   0 & 0 & -\frac{5}{2} & -13\\
+   0 & 0 & 0 & -9
+  \end{bmatrix}
+}
+\end{align*}
+所以$r(A)=4$。$r(B)=4$，$B$满秩即$B$可逆，即$|B|\neq0$:
+\begin{equation*}
+|B|\xlongequal{\substack{c_{2}-c_{1}\\ c_{3}-c_{1}\\ c_{4}-c_{1}}}
+\begin{vmatrix}
+0 & 1 & 1\\
+1-a & 2-a & 3-a\\
+a-1 & 0 & a-1
+\end{vmatrix}\xlongequal{\substack{ c_{3}-c_{2}}}
+\begin{vmatrix}
+0 & 1 & 0\\
+1-a & 2-a & 1\\
+a-1 & 0 & a-1
+\end{vmatrix}=-a(1-a)\neq0
+\end{equation*}
+所以$a\neq0$且$a\neq1$.
+\end{jie}
+
+二、判断下列命题是否成立并给出理由。
+
+1. 设$A,B$为同阶对称方阵，则$AB$一定是对称矩阵；
+
+\begin{jie}
+不成立。理由如下：
+
+以2阶对称矩阵为例：（式中:$a,b,c,x,y,z$为任意实数。）
+\begin{equation*}
+A=\begin{bmatrix}
+  a & b \\
+  b & c
+\end{bmatrix}~~~B=
+\begin{bmatrix}
+  x & y \\
+  y & z
+\end{bmatrix}~~AB=
+\begin{bmatrix}
+  ax+by & \textcolor[rgb]{1.00,0.00,0.00}{ay+bz}\\
+  \textcolor[rgb]{1.00,0.00,0.00}{bx+cy} & by+cz
+\end{bmatrix}
+\end{equation*}
+可以看出，由于$a,b,c,x,y,z$取值的任意性，所以$ay+bz\neq by+cz$。 （可以取$a=1,b=2,c=3,x=3,y=4,z=5$实际验证一下。）
+\end{jie}
+
+2. 设$A,B$为$n$阶可逆方阵，则$(AB)^{*}=B^{*}A^{*}$.
+
+\begin{jie}
+成立。理由如下：
+
+因为$A,B$为$n$阶可逆方阵，所以$AB$可逆，所以$(AB)^{*}=|AB|(AB)^{-1}=|A||B|B^{-1}A^{-1}=|A|B^{*}A^{-1}=B^{*}A^{*}$
+\end{jie}
+
+3. 若$A^{2}=B^{2}$，则$A=B$或$A=-B$。
+
+\begin{jie}
+不成立。理由如下：
+
+理由：
+\begin{align*}
+ A=\begin{bmatrix}
+  1 & 0\\
+  0 & 1
+   \end{bmatrix}~~~
+ A^{2}=\begin{bmatrix}
+         1 & 0\\
+         0 & 1
+       \end{bmatrix}\\
+ B=\begin{bmatrix}
+  0 & 1\\
+  1 & 0
+   \end{bmatrix}~~~
+ B^{2}=\begin{bmatrix}
+         1 & 0\\
+         0 & 1
+       \end{bmatrix}
+\end{align*}
+可以看出$A^{2}=B^{2}$，但是$A\neq B$,$A\neq -B$
+\end{jie}
+
+4. 设2阶矩阵$A=
+\begin{bmatrix}
+  a & b \\
+  c & d
+\end{bmatrix}
+$,若$A$与所有的2阶矩阵均可以交换，则$a=d,b=c=0$。
+
+\begin{jie}
+成立。理由如下：
+
+取任意二阶矩阵（$x,y,z,w$为任意实数）:$
+B=
+\begin{bmatrix}
+  x & y \\
+  z & w
+\end{bmatrix}
+$,则
+\begin{gather*}
+AB=\begin{bmatrix}
+  a & b \\
+  c & d
+\end{bmatrix}
+\begin{bmatrix}
+  x & y \\
+  z & w
+\end{bmatrix}=
+\begin{bmatrix}
+  ax+bz & ay+bw \\
+  cx+dz & cy+dw
+\end{bmatrix}\\
+BA=
+\begin{bmatrix}
+  x & y \\
+  z & w
+\end{bmatrix}
+\begin{bmatrix}
+  a & b \\
+  c & d
+\end{bmatrix}=
+\begin{bmatrix}
+  xa+cy & xb+yd \\
+  az+cw & bz+dw
+\end{bmatrix}
+\end{gather*}
+若$A$与$B$可交换，则有$AB=BA$,即：
+\begin{gather}
+ax+bz=xa+cy  \\
+ay+bw=xb+yd\\
+cx+dz=az+cw\\
+cy+dw=bz+dw
+\end{gather}
+由(1)式和(4)式得：$bz=cy$，因为$z$和$y$为任意数，所以$b=c=0$，代入(2)式和(3)式：$ay=dy,az=dz$，所以$a=d$。
+\end{jie}
+
+5.若$AB=I$且$BC=I$，其中$I$为单位矩阵，则$A=C$。
+
+\begin{jie}
+成立。理由如下：
+
+设$I$为n阶单位矩阵，那么由矩阵乘法的定义有如下关系：
+
+$A$的列数等于$B$的行数；$A$的行数等于$I$的行数等于$n$；$B$的列数等于$I$的列数等于$n$；\\
+$B$的列数等于$C$的行数；$B$的行数等于$I$的行数等于$n$；$C$的列数等于$I$的列数等于$n$.
+
+即$A,B,C$均为$n$阶方阵，对于$n$阶方阵，如果$AB=I$，那么$A,B$可逆，所以$A$是$B$的逆矩阵，$C$是$B$的逆矩阵，由逆矩阵的唯一性可知$B$=$C$。
+\end{jie}
+
+6. 若$n$阶矩阵$A$满足$A^{3}=3A(A-I)$，则$I-A$可逆。
+
+\begin{jie}
+成立。理由如下：
+
+由题得：$A^{3}=3A(A-I)$，即$-A^{3}+3A^{2}-3A=0$,$-A^{3}+3A^{2}-3A+I=I$，所以$(I-A)^{3}=I$,所以$I-A$可逆，其逆矩阵为$(I-A)^{-1}=(I-A)^{2}$
+\end{jie}
+
+\newpage
+\hphantom{~~}\hfill {\zihao{4}\heiti 2018-2019年第一学期} \hfill\hphantom{~~}
+
+一、解答题
+
+1.计算行列式$
+\begin{vmatrix}
+  b^{2}+c^{2} & c^{2}+a^{2} & a^{2}+b^{2} \\
+  a & b & c \\
+  a^{2} & b^{2} & c^{2}
+\end{vmatrix}
+.$
+
+\begin{jie}
+把第三行加到第一行上：
+\begin{equation*}
+\begin{vmatrix}
+  b^{2}+c^{2} & c^{2}+a^{2} & a^{2}+b^{2} \\
+  a & b & c \\
+  a^{2} & b^{2} & c^{2}
+\end{vmatrix}=\begin{vmatrix}
+  a^{2}+b^{2}+c^{2} & b^{2}+c^{2}+a^{2} & a^{2}+b^{2}+c^{2} \\
+  a & b & c \\
+  a^{2} & b^{2} & c^{2}
+\end{vmatrix}=(a^{2}+b^{2}+c^{2})\begin{vmatrix}
+  1 & 1 & 1 \\
+  a & b & c \\
+  a^{2} & b^{2} & c^{2}
+\end{vmatrix}=(a^{2}+b^{2}+c^{2})|A|
+\end{equation*}
+可以看出$|A|$是三阶范德蒙行列式，所以原式$=(a^{2}+b^{2}+c^{2})(c-b)(c-a)(b-a)$
+\end{jie}
+
+2. 设$A,B$为3阶矩阵，且$|A|=3,|B|=2$,$A^{*}$为$A$的伴随矩阵。
+
+(1)若交换$A$的第一行与第二行得矩阵$C$,求$|CA^{*}|$;
+
+(2)若$|A^{-1}+B|=2$，求$|A+B^{-1}|$.
+
+\begin{jie}
+(1)交换交换$A$的第一行与第二行得矩阵$C$，所以$|C|=-|A|$,所以$|CA^{*}|=|C||A^{*}|=-|A|||A|A^{-1}|-|A||A|^{3}|A|^{-1}=-|A|^3=-27$。
+
+(2) $|A+B^{-1}|=|EA+B^{-1}E|=|B^{-1}BA+B^{-1}A^{-1}A|=|B^{-1}(BA+A^{-1}A)|=|B^{-1}|\cdot|BA+A^{-1}A|=|B^{-1}|\cdot|(B+A^{-1})A|=|B^{-1}|\cdot|(B+A^{-1})|\cdot|A|=2^{-1}\times2\times3=3$。
+\end{jie}
+
+3. 已知3阶矩阵$A$的逆矩阵$
+A^{-1}=
+\begin{bmatrix}
+  1 & 1 & 1 \\
+  1 & 2 & 1 \\
+  2 & 1 & 3
+\end{bmatrix}
+$，试求伴随矩阵$A^{*}$的逆矩阵。
+
+\begin{jie}
+由伴随矩阵的性质：$A^{*}=|A|A^{-1}$,所以$(A^*)^{-1}=(|A|A^{-1})^{-1}=|A|^{-1}A=|A^{-1}|A$
+
+由题得：
+\begin{equation*}|A^{-1}|=
+  \begin{vmatrix}
+  1 & 1 & 1 \\
+  1 & 2 & 1 \\
+  2 & 1 & 3
+  \end{vmatrix}\xlongequal{\substack{c_{2}-c_{1}\\c_{3}-c_{1}}}
+  \begin{vmatrix}
+  1 & 0 & 0 \\
+  1 & 1 & 0 \\
+  2 & -1 & 1
+  \end{vmatrix}=1
+\end{equation*}
+
+\begin{align*}
+[A^{-1}|E]=&
+\left[
+\begin{array}{c:c}
+\begin{matrix}
+1 & 1 & 1 \\
+  1 & 2 & 1 \\
+  2 & 1 & 3
+\end{matrix}&
+\begin{matrix}
+1 & 0 & 0 \\
+  0 & 1 & 0 \\
+  0 & 0 & 1
+\end{matrix}
+\end{array}
+\right]
+\xrightarrow{\substack{r_{2}-r_{1}\\ r_{3}-2r_{1}}}
+{
+\left[
+\begin{array}{c:c}
+\begin{matrix}
+1 & 1 & 1 \\
+  0 & 1 & 0 \\
+  0 & -1 & 1
+\end{matrix}&
+\begin{matrix}
+1 & 0 & 0 \\
+  -1 & 1 & 0 \\
+  -2 & 0 & 1
+\end{matrix}
+\end{array}
+\right]
+}\xrightarrow{r_{3}+r_{2}}
+{
+\left[
+\begin{array}{c:c}
+\begin{matrix}
+1 & 1 & 1 \\
+  0 & 1 & 0 \\
+  0 & 0 & 1
+\end{matrix}&
+\begin{matrix}
+1 & 0 & 0 \\
+  -1 & 1 & 0 \\
+  -3 & 1 & 1
+\end{matrix}
+\end{array}
+\right]
+}\\
+\xrightarrow{r_{1}-r_{3}}&
+{
+\left[
+\begin{array}{c:c}
+\begin{matrix}
+1 & 1 & 0 \\
+  0 & 1 & 0 \\
+  0 & 0 & 1
+\end{matrix}&
+\begin{matrix}
+4 & -1 & -1 \\
+  -1 & 1 & 0 \\
+  -3 & 1 & 1
+\end{matrix}
+\end{array}
+\right]
+}
+\xrightarrow{r_{1}-r_{2}}
+{
+\left[
+\begin{array}{c:c}
+\begin{matrix}
+1 & 0 & 0 \\
+  0 & 1 & 0 \\
+  0 & 0 & 1
+\end{matrix}&
+\begin{matrix}
+5 & -2 & -1 \\
+  -1 & 1 & 0 \\
+  -3 & 1 & 1
+\end{matrix}
+\end{array}
+\right]
+}
+\end{align*}
+所以$(A^{*})^{-1}=|A^{-1}|A=
+\begin{bmatrix}
+  5 & -2 & -1\\
+  -1 & 1 & 0\\
+  -3 & 1 & 1
+\end{bmatrix}
+$
+\end{jie}
+
+4. 设$n$阶行列式$D_{n}(n=1,2,\cdots):D_{1}=1,D_{2}=
+\begin{vmatrix}
+  1 & 1 \\
+  1 & 1
+\end{vmatrix},D_{3}=
+\begin{vmatrix}
+  1 & 1 & 0\\
+  1 & 1 & 1\\
+  0 & 1 & 1
+\end{vmatrix},D_{4}=
+\begin{vmatrix}
+  1 & 1 & 0 & 0\\
+  1 & 1 & 1 & 0\\
+  0 & 1 & 1 & 1\\
+  0 & 0 & 1 & 1
+\end{vmatrix},\ldots\ldots,D_{n}=
+\begin{vmatrix}
+  1 & 1 & 0 & 0 & \cdots & 0\\
+  1 & 1 & 1 & 0 & \cdots & 0\\
+  0 & 1 & 1 & 1 & \cdots & 0\\
+  \vdots & \vdots &\ddots & \ddots &\ddots &\vdots\\
+  0 &\cdots & 0 & 1 & 1& 1\\
+  0 &\cdots & 0 & 0 & 1& 1
+\end{vmatrix}.
+$
+
+(1)给出$D_{n},D_{n-1},D_{n-2}$的关系；
+
+(2)利用找到的递推关系及$D_{1}=1,D_{2}=0$,计算$D_{3},D_{4},\cdots,D_{8}$;
+
+(3)求$D_{2018}$
+
+\begin{jie}
+(1)对$D_{n}$按第一列进行行列式展开($a_{11}$表示第一行第一列的元素，$A_{11}$表示第一行第一列元素对应的代数余子式)：
+\begin{align*}
+D_{n}=a_{11}A_{11}+a_{21}A_{21}=1\times(-1)^{1+1}
+\begin{vmatrix}
+   1 & 1 & 0 & \cdots & 0\\
+   1 & 1 & 1 & \cdots & 0\\
+   \vdots &\ddots & \ddots &\ddots &\vdots\\
+  0 &\cdots  & 1 & 1& 1\\
+  0 &\cdots & 0  & 1& 1
+\end{vmatrix}+1\times(-1)^{2+1}
+\begin{vmatrix}
+   1 & 0 & 0 & \cdots & 0\\
+   1 & 1 & 1 & \cdots & 0\\
+  \vdots &\ddots & \ddots &\ddots &\vdots\\
+  0 &\cdots  & 1 & 1& 1\\
+  0 &\cdots  & 0 & 1& 1
+\end{vmatrix}=D_{n-1}-D_{n-2}
+\end{align*}
+
+(2)由(1)得：
+\begin{gather*}
+D_{3}=D_{3-1}-D_{3-2}=D_{2}-D_{1}=-1\\
+D_{4}=D_{4-1}-D_{4-2}=D_{3}-D_{2}=-1\\
+D_{5}=D_{5-1}-D_{5-2}=D_{4}-D_{3}=0\\
+D_{6}=D_{6-1}-D_{6-2}=D_{5}-D_{4}=1\\
+D_{7}=D_{7-1}-D_{7-2}=D_{6}-D_{5}=1\\
+D_{8}=D_{8-1}-D_{8-2}=D_{7}-D_{6}=0
+\end{gather*}
+
+(3)由(2)可以看出，每6组数据为一个循环，即$D_{n}=D_{n+6}$,所以$2018\div6=336$余$2$。所以$D_{2018}=D_{2}=0$
+\end{jie}
+
+5. 已知矩阵$A=
+\begin{bmatrix}
+  1 &  0 & 0\\
+  1 & 1 & 0\\
+   1 & 1 & 1
+\end{bmatrix},B=
+\begin{bmatrix}
+  0 & 1 & 1\\
+  1 & 0 & 1 \\
+  0 & 1 & 0
+\end{bmatrix}
+$,且矩阵$X$满足
+\begin{equation*}
+  AXA+BXB=AXB+BXA+I
+\end{equation*}
+其中$I$为3阶单位阵，求$X$。
+
+\begin{jie}
+由题得：$AXA+BXB=AXB+BXA+I$所以：
+\begin{gather*}
+  AXA+BXB-AXB-BXA=I\\
+  (A-B)XA+(B-A)XB=(A-B)XA-(A-B)XB=I \\
+  (A-B)X(A-B)=I\\
+  (A-B)X=I(A-B)^{-1}\\
+  X=(A-B)^{-1}I(A-B)^{-1}=((A-B)^{-1})^{2}
+\end{gather*}
+\begin{align*}
+ &C=A-B=\begin{bmatrix}
+  1 &  0 & 0\\
+  1 & 1 & 0\\
+   1 & 1 & 1
+\end{bmatrix}-
+\begin{bmatrix}
+  0 & 1 & 1\\
+  1 & 0 & 1 \\
+  0 & 1 & 0
+\end{bmatrix}=\begin{bmatrix}
+  1 &  -1 & -1\\
+  0 & 1 & -1\\
+   0 & 0 & 1
+\end{bmatrix}\\
+&[C|E]\xrightarrow{\substack{r_{1}+r_{3}\\ r_{2}+r_{3}}}
+{\left[
+\begin{array}{c:c}
+\begin{matrix}
+ 1 &  -1 & 0\\
+  0 & 1 & 0\\
+   0 & 0 & 1
+\end{matrix} &
+\begin{matrix}
+  1 & 0 & 1\\
+  0 & 1 & 1\\
+  0 & 0 & 1
+\end{matrix}
+\end{array}
+\right]
+}\xrightarrow{\substack{r_{1}+r_{3}\\ r_{2}+r_{3}}}
+{\left[
+\begin{array}{c:c}
+\begin{matrix}
+ 1 &  0 & 0\\
+  0 & 1 & 0\\
+   0 & 0 & 1
+\end{matrix} &
+\begin{matrix}
+  1 & 1 & 2\\
+  0 & 1 & 1\\
+  0 & 0 & 1
+\end{matrix}
+\end{array}
+\right]
+}
+\end{align*}
+所以$C^{-1}=\begin{bmatrix}
+  1 & 1 & 2\\
+  0 & 1 & 1\\
+  0 & 0 & 1
+\end{bmatrix},C^{2}=\begin{bmatrix}
+  1 & 2 & 5\\
+  0 & 1 & 2\\
+  0 & 0 & 1
+\end{bmatrix}$
+\end{jie}
+
+6. 设$A=
+\begin{bmatrix}
+  1 & 0 & 1\\
+  -1 & -1 & 1\\
+  0 & 2 & a
+\end{bmatrix},
+B=
+\begin{bmatrix}
+  1 & 0 & 1\\
+  0 & -1 & 2\\
+   0 & 0 & 0
+\end{bmatrix}
+$。
+
+(1)问$a$为何值时，矩阵$A$和$B$等价。
+
+(2)当$A$和$B$等价时，求可逆矩阵$P$，使得$PA=B$。
+
+\begin{jie}
+(1)
+由题得：$r(B)=2$，若$A$和$B$等价，则$r(A)=2$。
+\begin{equation*}
+ A\xrightarrow{r_{2}+ r_{1}}
+{
+\begin{bmatrix}
+  1 & 0 & 1\\
+  0 & -1 & 2\\
+  0 & 2 & a
+\end{bmatrix}
+}\xrightarrow{r_{3}+2r_{2}}
+{
+\begin{bmatrix}
+  1 & 0 & 1\\
+  0 & -1 & 2\\
+  0 & 0 & a+4
+\end{bmatrix}
+}
+\end{equation*}
+$a+4=0$即$a=-4$时，$r(A)=2$，所以$a=-4$。
+
+(2)~~由(1)得：
+\begin{equation*}A=
+  \begin{bmatrix}
+  1 & 0 & 1\\
+  0 & -1 & 2\\
+  0 & 2 & -4
+  \end{bmatrix}\xrightarrow{r_{2}+r_{1}}
+{
+\begin{bmatrix}
+  1 & 0 & 1\\
+  0 & -1 & 2\\
+  0 & 2 & 4
+\end{bmatrix}
+}\xrightarrow{r_{3}+2r_{2}}
+{
+\begin{bmatrix}
+  1 & 0 & 1\\
+  0 & -1 & 2\\
+  0 & 0 & 0
+\end{bmatrix}
+}=B
+\end{equation*}
+由初等行变换得：$E(3~2(2))E(2~1(1))A=B$所以
+\begin{equation*}
+P=E(3~2(2))E(2~1(1))=
+  \begin{bmatrix}
+    1 & 0 & 0\\
+    0 & 1& 0\\
+    0 & 2& 1
+  \end{bmatrix}
+   \begin{bmatrix}
+    1 & 0 & 0\\
+    1 & 1& 0\\
+    0 & 0& 1
+  \end{bmatrix}=
+   \begin{bmatrix}
+    1 & 0 & 0\\
+    1 & 1& 0\\
+    2 & 2& 1
+  \end{bmatrix}
+\end{equation*}
+\end{jie}
+
+二、证明题
+
+1. 若$n$阶实矩阵$Q$满足$QQ^{T}=I$，则称$Q$为正交矩阵。设$Q$为正交矩阵，则
+
+(1)$Q$的行列式为1或-1.
+
+(2)当$|Q|=1$且$n$为奇数时，证明$|I-Q|=0$，其中$I$是$n$阶单位矩阵；
+
+(3)$Q$的逆矩阵$Q^{-1}$和伴随矩阵$Q^{*}$都是正交矩阵。
+
+\begin{zhengming}
+(1)由题得：$|QQ^{T}|=|I|=1$,由行列式的性质：$|QQ^{T}|=|Q|\cdot|Q^T|,|Q^T|=|Q|$，所以$|QQ^{T}|=|Q|^2=1$，解得$|Q|=1$或$|Q|=-1$.
+
+(2)$|I-Q|=|QQ^{T}-Q|=|Q|\cdot|Q^T-I|=|Q^T-I|=|(Q^T)^T-I^T|=|Q-I|=|-(I-Q)|=(-1)^{n}|I-Q|$，因为$n$为奇数，所以$(-1)^n=-1$,即$|I-Q|=-|I-Q|$，所以$|I-
+Q|=0$。
+
+(3)因为$QQ^{T}=I$，两边同时左乘$Q^{-1}$:$Q^{T}=Q^{-1}$,两边同时右乘$(Q^{T})^{-1}$:$I=Q^{-1}(Q^{T})^{-1}=Q^{-1}(Q^{-1})^{T}$,所以$Q^{-1}$是正交矩阵。
+
+由伴随矩阵的性质：$Q^*=|Q|Q^{-1},(Q^T)^*=(Q^*)^T=|Q^T|(Q^{T})^{-1}=|Q|(Q^{-1})^{T}$，所以$Q^*(Q^*)^T=|Q|Q^{-1}|Q|(Q^{-1})^{T}=|Q|^{2}Q^{-1}(Q^{-1})^{T}$
+
+由(1)得$|Q|^{2}=1$,所以有$|Q|^{2}Q^{-1}(Q^{-1})^{T}=Q^{-1}(Q^{-1})^{T}=I$,所以$Q^{*}$是正交矩阵。
+\end{zhengming}
+
+2. 设$A$是$n$阶实对称矩阵，如果$A^{2}=0$，证明$A=0$.并举例说明，如果$A$不是实对称矩阵，上述命题不正确。
+
+\begin{zhengming}
+
+(1)依题意设$A=
+\begin{bmatrix}
+  a_{11} & a_{12} & \cdots & a_{1n} \\
+  a_{12} & a_{22} & \cdots & a_{2n} \\
+  \vdots & \vdots & \ddots & \vdots \\
+  a_{1n} & a_{2n} & \cdots & a_{nn}
+\end{bmatrix}
+$，所以$A^2$为：只看$A^2$对角线上的元素，$A^2$的第$k$行第$k$列的元素为$A$的第$k$行乘第$k$列：$a_{1k}^2+a_{2k}^2+\cdots+a_{kk}^2+a_{kk+1}^2+a_{kk+2}^2+\cdots+a_{kn}^2=0$，因为平方一定大于等于0，所以该式的每一项都为0，即$a_{1k},a_{2k},\cdots,a_{kk},a_{kk+1},a_{kk+2},\cdots,a_{kn}$为0.即$A$的第$k$行和第$k$列元素为0.\textcolor[rgb]{1.00,0.00,0.00}{（这一步看不懂的计算一下$A^2$的第一行第一列，第二行第二列的元素验证一下）}
+
+因为$A^2$为0，即其对角线每个元素都为0，由上边的步骤可以推出$A$的每行每列元素都为0，即$A=0$。
+
+(2)举例：对于二阶矩阵$
+A=\begin{bmatrix}
+0& 0\\
+1& 0
+\end{bmatrix}
+$,$A^2=0$，$A$不是对称矩阵,$A^2=0$但$A\neq0$。
+\end{zhengming}
+\end{document}

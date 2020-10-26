@@ -1,0 +1,100 @@
+\documentclass{article}
+\usepackage[space,fancyhdr,fntef]{ctexcap}
+\usepackage[namelimits,sumlimits,nointlimits]{amsmath}
+\usepackage[bottom=25mm,top=25mm,left=25mm,right=15mm,centering]{geometry}
+\usepackage{xcolor}
+\usepackage{paralist}%列表宏包
+\usepackage{arydshln}%234页，虚线表格宏包
+\pagestyle{fancy} \fancyhf{}
+\fancyhead[OL]{~~~班序号：\hfill 学院：\hfill 学号：\hfill 姓名：王松年~~~ \thepage}
+%\usepackage{parskip}
+%\usepackage{indentfirst}
+\usepackage{graphicx}%插图宏包，参见手册318页
+\usepackage{amssymb}
+\usepackage{bbm}
+\begin{document}
+
+\newcounter{num} \renewcommand{\thenum}{\arabic{num}.} \newcommand{\num}{\refstepcounter{num}\text{\thenum}}
+
+\hphantom{~~}\hfill {\zihao{3}\heiti 第十次习题课} \hfill\hphantom{~~}
+
+\hphantom{~~}\hfill {\zihao{4}\heiti 知识点} \hfill\hphantom{~~}
+
+
+\num 在$\mathbb{R}^n$中，设向量
+$\alpha=
+\begin{bmatrix}
+ a_1\\
+  a_2\\
+ \vdots\\
+  a_n\\
+\end{bmatrix},\beta=
+\begin{bmatrix}
+ b_1\\
+  b_2\\
+ \vdots\\
+  b_n\\
+\end{bmatrix}
+$，实数$a_1b_1+a_2b_2+\cdots+a_nb_n=\sum\limits_{i=1}^{n}a_ib_i$称为向量$\alpha$和$\beta$的内积。记作$\alpha^T\beta$或$\alpha\cdot\beta$.
+
+性质：
+
+(1)$\alpha^T\beta=\beta^T\alpha$;
+
+(2)$(k\alpha)^T\beta=k\beta^T\alpha$;
+
+(3)$(\alpha+\beta)^T\gamma=\alpha^T\gamma+\beta^T\gamma$
+
+(4)$\alpha^T\alpha\geq0,\alpha^T\alpha=0$,当且仅当$\alpha=0$。
+
+\num $\forall\alpha=(a_1,\cdots,a_n)\in\mathbb{R}^n$，定义其长度
+\begin{equation*}
+  \|\alpha\|=\sqrt{\alpha\cdot\alpha}=\sqrt{a_1^{2}+a_2^{2}+\cdots+a_n^{2}}
+\end{equation*},向量长度称为向量范数。
+
+性质：
+
+(1)$\|\alpha\geq0\|,\|\alpha\|=0$当且仅当$\alpha=0$。非负性
+
+(2)$\|k\alpha\|=|k|\|\alpha\|$，$k$为实数。
+
+(3)对任意向量$\alpha,\beta$，有$|\alpha^T\beta|\leq\|\alpha\|\|\beta\|$
+
+\num 单位向量。对任意非零向量$\alpha\in\mathbb{R}^n$，则向量$\dfrac{\alpha}{\|\alpha\|}$是一个单位向量。
+
+\num $\alpha\beta\in\mathbb{R}^n$,若$\alpha$与$\beta$的内积为零，则称$\alpha$与$\beta$正交（垂直）。
+
+\num 如果$\mathbb{R}^n$中的非零向量组$\alpha_{1},\cdots,\alpha_s$两两正交，$\alpha_i^T\alpha_j=0(i\neq j;i,j=1,2,\cdots,s)$,则称该向量组为正交向量组。进一步，如果$\forall i,\|\alpha_{i}\|=1$,则称为单位（规范）正交向量组。
+
+\num $\mathbb{R}^n$中的正交向量组线性无关。
+
+\num $\mathbb{R}^n$中的线性无关向量组$\alpha_{1},\cdots,\alpha_s$可以化为另一正交向量组$\beta_{1},\cdots,\beta_s$，并且
+\begin{gather*}
+  \alpha_{1}\leftrightarrow \beta_{1}\\
+  \alpha_{1}\alpha_{2}\leftrightarrow \beta_{1}\beta_{2} \\
+ \cdots\\
+ \alpha_{1},\cdots,\alpha_s\leftrightarrow\beta_{1},\cdots,\beta_s
+\end{gather*}
+这一方法称为施密特正交化方法。
+\begin{equation*}
+  \beta_{n}=\alpha_{n}-\sum_{i=1}^{n-1}\frac{\alpha_{n}^T\beta_{i}}{\beta_{i}^T\beta_{i}}\beta_{i}~~~(n=1,2,\cdots,s)
+\end{equation*}
+
+\num 若$n$阶实矩阵$Q$，满足$Q^TQ=E$，则称$Q$为正交矩阵。
+
+性质：
+
+(1)若$Q$为正交矩阵，则$|Q|=1$或$|Q|=-1$。
+
+(2)若$Q$为正交矩阵，则$Q^{-1}=Q$。
+
+(3)若$P,Q$为正交矩阵，则$PQ$是正交矩阵。
+
+(4)$Q$是正交矩阵等价于$QQ^T=E$
+
+\num 设$Q$为$n$阶实矩阵，则$Q$为正交矩阵的充分必要条件是其列（行）向量组是规范正交向量组。
+
+\num 实对称矩阵的特征值都是实数。
+
+\num 实对称矩阵的对应于不同特征值的特征向量是正交的。
+\end{document}  

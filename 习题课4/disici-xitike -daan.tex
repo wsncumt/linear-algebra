@@ -1,0 +1,827 @@
+\documentclass{article}
+\usepackage[space,fancyhdr,fntef]{ctexcap}
+\usepackage[namelimits,sumlimits,nointlimits]{amsmath}
+\usepackage[bottom=25mm,top=25mm,left=25mm,right=15mm,centering]{geometry}
+\usepackage{xcolor}
+\usepackage{arydshln}%234页，虚线表格宏包
+\pagestyle{fancy} \fancyhf{}
+\fancyhead[OL]{~~~班序号：\hfill 学院：\hfill 学号：\hfill 姓名：王松年~~~ \thepage}
+%\usepackage{parskip}
+%\usepackage{indentfirst}
+\usepackage{graphicx}%插图宏包，参见手册318页
+\begin{document}
+
+\newcounter{num} \renewcommand{\thenum}{\arabic{num}.} \newcommand{\num}{\refstepcounter{num}\text{\thenum}}
+
+\newenvironment{jie}{\kaishu\zihao{-5}\color{blue}{\noindent\em 解：}\par}{\hfill $\diamondsuit$\par}
+
+\newenvironment{zhengming}{\kaishu\zihao{-5}\color{blue}{\noindent\em 证明：}\par}{\hfill $\diamondsuit$\par}
+
+\hphantom{~~}\hfill {\zihao{3}\heiti 第四次习题课} \hfill\hphantom{~~}
+
+\hphantom{~~}\hfill {\zihao{4}\heiti 群文件《期中$\&$期末试题》} \hfill\hphantom{~~}
+
+{\heiti \zihao{4} 期中试题}
+
+\num 2015-2016 一7.
+
+设$A=
+\begin{bmatrix}
+  1 & 0 & 0 & 0\\
+  0 & 1 & 0 & 0\\
+  2 & 0 & 1 & 0\\
+  0 & 0 & 0 & 1
+\end{bmatrix},B=
+\begin{bmatrix}
+  1 & 1 & 2 & 3\\
+  0 & 1 & 1 & -4\\
+  1 & 2 & 3 & -1\\
+  2 & 3 & -1 & -1
+\end{bmatrix}
+$,则$ABA^{-1}=$\underline{\hphantom{~~~~~~~~~~}}。
+
+\begin{jie}
+由题得：$A=
+\begin{bmatrix}
+  A_{11} & 0 \\
+   A_{21}& A_{22}
+\end{bmatrix}
+$，其中$A_{11}=A_{22}=
+\begin{bmatrix}
+  1 & 0 \\
+  0 & 1
+\end{bmatrix}=E_{2}
+,A_{21}=
+\begin{bmatrix}
+  2 & 0 \\
+  0 & 0
+\end{bmatrix}
+$.所以
+\begin{equation*}
+  A^{-1}=
+  \begin{bmatrix}
+    E_{2} & 0 \\
+    -E_{2}A_{21}E_{2} & E_{2}
+  \end{bmatrix}=
+  \begin{bmatrix}
+    1 & 0 & 0 & 0\\
+  0 & 1 & 0 & 0\\
+  -2 & 0 & 1 & 0\\
+  0 & 0 & 0 & 1
+  \end{bmatrix}
+\end{equation*}
+所以
+\begin{align*}
+ABA^{-1}=\begin{bmatrix}
+  1 & 0 & 0 & 0\\
+  0 & 1 & 0 & 0\\
+  2 & 0 & 1 & 0\\
+  0 & 0 & 0 & 1
+\end{bmatrix}
+\begin{bmatrix}
+  1 & 1 & 2 & 3\\
+  0 & 1 & 1 & -4\\
+  1 & 2 & 3 & -1\\
+  2 & 3 & -1 & -1
+\end{bmatrix}
+  \begin{bmatrix}
+    1 & 0 & 0 & 0\\
+  0 & 1 & 0 & 0\\
+  -2 & 0 & 1 & 0\\
+  0 & 0 & 0 & 1
+  \end{bmatrix}=\begin{bmatrix}
+  1 & 1 & 2 & 3\\
+  0 & 1 & 1 & -4\\
+  3 & 4 & 7 & 5\\
+  2 & 3 & -1 & -1
+\end{bmatrix}
+  \begin{bmatrix}
+    1 & 0 & 0 & 0\\
+  0 & 1 & 0 & 0\\
+  -2 & 0 & 1 & 0\\
+  0 & 0 & 0 & 1
+  \end{bmatrix}=\begin{bmatrix}
+  -3 & 1 & 2 & 3\\
+  -2 & 1 & 1 & -4\\
+  -11 & 4 & 7 & 5\\
+  4 & 3 & -1 & -1
+\end{bmatrix}
+\end{align*}
+\end{jie}
+
+\num 期中2015-2016 一8.
+
+设$A,B$均为$n$阶方阵，$|A|=2$,且$AB$可逆，则$r(B)=$\underline{\hphantom{~~~~~~~~~~}}。
+
+\begin{jie}
+课本97页命题3.2.4.
+
+$|A|=2\neq0$，所以$A$可逆，又因为$AB$可逆，所以$B$可逆，即$B$满秩。$r(B)=n$
+\end{jie}
+
+\num 2015-2016 二3.
+
+若$(2I-C^{-1}B)A^{T}=C^{-1}$,
+$B=
+\begin{bmatrix}
+  1 & 2 & -3 & -2\\
+  0 & 1 & 2 & -3\\
+  0 & 0 & 1 & 2\\
+  0 & 0 & 0 & 1\\
+\end{bmatrix},C=
+\begin{bmatrix}
+  1 & 2 & 0 & 1\\
+  0 & 1 & 2 & 0\\
+  0 & 0 & 1 & 2\\
+  0 & 0 & 0 & 1\\
+\end{bmatrix}
+$,求$A$。
+
+\begin{jie}
+由题得：$(2I-C^{-1}B)A^{T}=C^{-1}$，等式两边左乘$(2I-C^{-1}B)^{-1}$:
+\begin{align*}
+A^{T}&=(2I-C^{-1}B)^{-1}C^{-1}=[C(2I-C^{-1}B)]^{-1}\\
+&=(2C-B)^{-1}
+\end{align*}
+\begin{equation*}
+D=2C-B=2\begin{bmatrix}
+  1 & 2 & 0 & 1\\
+  0 & 1 & 2 & 0\\
+  0 & 0 & 1 & 2\\
+  0 & 0 & 0 & 1\\
+\end{bmatrix}-\begin{bmatrix}
+  1 & 2 & -3 & -2\\
+  0 & 1 & 2 & -3\\
+  0 & 0 & 1 & 2\\
+  0 & 0 & 0 & 1\\
+\end{bmatrix}=
+\begin{bmatrix}
+  1 & 2 & 3 & 4\\
+  0 & 1 & 2 & 3\\
+  0 & 0 & 1 & 2\\
+  0 & 0 & 0 & 1\\
+\end{bmatrix}
+\end{equation*}
+所以
+\begin{align*}
+[D|E_{4}]&\xrightarrow{\substack{r_{1}-4r_{4}\\ r_{2}-3r_{4}\\ r_{3}-2r_{4}}}
+{\left[
+\begin{array}{c:c}
+\begin{matrix}
+  1 & 2 & 3 & 0\\
+  0 & 1 & 2 & 0\\
+  0 & 0 & 1 & 0\\
+  0 & 0 & 0 & 1\\
+\end{matrix} &
+\begin{matrix}
+  1 & 0 & 0 & -4\\
+  0 & 1 & 0 & -3\\
+  0 & 0 & 1 & -2\\
+  0 & 0 & 0 & 1\\
+\end{matrix}
+\end{array}
+\right]
+}\xrightarrow{\substack{r_{1}-3r_{3}\\ r_{2}-2r_{3}}}
+{\left[
+\begin{array}{c:c}
+\begin{matrix}
+  1 & 2 & 0 & 0\\
+  0 & 1 & 0 & 0\\
+  0 & 0 & 1 & 0\\
+  0 & 0 & 0 & 1\\
+\end{matrix} &
+\begin{matrix}
+  1 & 0 & -3 & 2\\
+  0 & 1 & -2 & 1\\
+  0 & 0 & 1 & -2\\
+  0 & 0 & 0 & 1\\
+\end{matrix}
+\end{array}
+\right]
+}\\
+&\xrightarrow{\substack{r_{1}-2r_{2}}}
+{\left[
+\begin{array}{c:c}
+\begin{matrix}
+  1 & 0 & 0 & 0\\
+  0 & 1 & 0 & 0\\
+  0 & 0 & 1 & 0\\
+  0 & 0 & 0 & 1\\
+\end{matrix} &
+\begin{matrix}
+  1 & -2 & 1 & 0\\
+  0 & 1 & -2 & 1\\
+  0 & 0 & 1 & -2\\
+  0 & 0 & 0 & 1\\
+\end{matrix}
+\end{array}
+\right]
+}
+\end{align*}
+所以$A^{T}=D^{-1}=(2C-B)^{-1}=\begin{bmatrix}
+  1 & -2 & 1 & 0\\
+  0 & 1 & -2 & 1\\
+  0 & 0 & 1 & -2\\
+  0 & 0 & 0 & 1\\
+\end{bmatrix}$
+,$
+  A=(A^{T})^{T}=\begin{bmatrix}
+  1 & 0 & 0 & 0\\
+  -2 & 1 & 0 & 0\\
+  1 & -2 & 1 & 0\\
+  0 & 1 & -2 & 1\\
+\end{bmatrix}
+.$
+\end{jie}
+
+\num 2015-2016 二4.
+
+设$
+A=
+\begin{bmatrix}
+  1 & -1 & 0 \\
+  0 & 1 & -1\\
+  0 & 0 & 1
+\end{bmatrix},B=
+\begin{bmatrix}
+  2 & 1 & 3 \\
+  0 & 2 & 1\\
+  0 & 0 & 2
+\end{bmatrix}
+$,$A^{T}(BA^{-1}-I)^{T}X=B^{T}$，求$X$。
+
+\begin{jie}
+由题得：$A^{T}(BA^{-1}-I)^{T}=[(BA^{-1}-I)A]^{T}=(B-A)^{T}$,所以
+\begin{equation*}
+  X=((B-A)^{T})^{-1}B^{T}=((B-A)^{-1})^{T}B^{T}=[B(B-A)^{-1}]^{T}
+\end{equation*}
+\begin{equation*}
+  B-A=\begin{bmatrix}
+  2 & 1 & 3 \\
+  0 & 2 & 1\\
+  0 & 0 & 2
+\end{bmatrix}-\begin{bmatrix}
+  1 & -1 & 0 \\
+  0 & 1 & -1\\
+  0 & 0 & 1
+\end{bmatrix}=
+\begin{bmatrix}
+  1 & 2 & 3 \\
+  0 & 1 & 2\\
+  0 & 0 & 1
+\end{bmatrix}
+\end{equation*}
+(\textcolor[rgb]{0.00,1.00,0.50}{由上一题可以看出，B-A是上一题目中D的左上角三行三列的元素。其逆矩阵也应该是D逆矩阵左上角三行三列，这里直接用结论})
+所以：
+\begin{gather*}
+( B-A)^{-1}=\begin{bmatrix}
+  1 & -2 & 1 \\
+  0 & 1 & -2 \\
+  0 & 0 & 1
+\end{bmatrix}~~~~~~
+B( B-A)^{-1}=\begin{bmatrix}
+  2 & 1 & 3 \\
+  0 & 2 & 1\\
+  0 & 0 & 2
+\end{bmatrix}\begin{bmatrix}
+  1 & -2 & 1 \\
+  0 & 1 & -2 \\
+  0 & 0 & 1
+\end{bmatrix}=
+\begin{bmatrix}
+  2 & -3 & 3 \\
+  0 & 2 & -3 \\
+  0 & 0 & 2
+\end{bmatrix}\\
+X=\left[B(B-A)^{-1}\right]^{T}=
+\begin{bmatrix}
+  2 & 0 & 0 \\
+  -3 & 2 & 0\\
+  3 & -3 & 2
+\end{bmatrix}
+\end{gather*}
+\end{jie}
+
+\num 2016-2017 二3.第二次习题课讲过了。
+
+\num 2016-2017 三1.
+
+设$A$满足$A^{2}-2A+4I=0$，证明$A+I$可逆，并求$(A+I)^{-1}$.
+
+\textcolor[rgb]{1.00,0.00,0.00}{思路：题目让证明谁可逆，就凑出这个表达式与某个表达式的乘积等于单位矩阵。}
+\begin{zhengming}
+由题得：$A^{2}-2A+4I=0$，所以：
+\begin{gather*}
+  A^{2}\textcolor[rgb]{1.00,0.00,0.00}{+A-A}-2A+4I=0\\
+  A(A+I)-3A\textcolor[rgb]{1.00,0.00,0.00}{-3I+3I}+4I=0\\
+  A(A+I)-3(A+I)=-7I\\
+  (A-3I)(A+I)=-7I\\
+  -\frac{1}{7}(A-3I)(A+I)=I
+\end{gather*}
+所以$A+I$可逆，$(A+I)^{-1}=-\dfrac{1}{7}(A-3I)$.
+\end{zhengming}
+
+\num 2017-2018 一4.第二次习题课讲过了。自己去翻看。
+
+\num 2017-2018 二5.判断是否成立并给出理由。
+
+若$AB=I$且$BC=I$，其中$I$为单位矩阵，则$A=C$。
+
+\begin{jie}
+成立。理由如下：
+
+设$I$为n阶单位矩阵，那么由矩阵乘法的定义有如下关系：
+
+$A$的列数等于$B$的行数；$A$的行数等于$I$的行数等于$n$；$B$的列数等于$I$的列数等于$n$；\\
+$B$的列数等于$C$的行数；$B$的行数等于$I$的行数等于$n$；$C$的列数等于$I$的列数等于$n$.
+
+即$A,B,C$均为$n$阶方阵，对于$n$阶方阵，如果$AB=I$，那么$A,B$可逆，所以$A$是$B$的逆矩阵，$C$是$B$的逆矩阵，由逆矩阵的唯一性可知$B$=$C$。
+\end{jie}
+
+\num 2017-2018 二6.判断是否成立并给出理由。
+
+若$n$阶矩阵$A$满足$A^{3}=3A(A-I)$，则$I-A$可逆。
+
+\begin{jie}
+成立。理由如下：
+
+由题得：$A^{3}=3A(A-I)$，即$-A^{3}+3A^{2}-3A=0$,$-A^{3}+3A^{2}-3A+I=I$，所以$(I-A)^{3}=I$,所以$I-A$可逆，其逆矩阵为$(I-A)^{-1}=(I-A)^{2}$
+\end{jie}
+
+\num 2018-2019 一5.
+
+已知矩阵$A=
+\begin{bmatrix}
+  1 &  0 & 0\\
+  1 & 1 & 0\\
+   1 & 1 & 1
+\end{bmatrix},B=
+\begin{bmatrix}
+  0 & 1 & 1\\
+  1 & 0 & 1 \\
+  0 & 1 & 0
+\end{bmatrix}
+$,且矩阵$X$满足
+\begin{equation*}
+  AXA+BXB=AXB+BXA+I
+\end{equation*}
+其中$I$为3阶单位阵，求$X$。
+
+\begin{jie}
+由题得：$AXA+BXB=AXB+BXA+I$所以：
+\begin{gather*}
+  AXA+BXB-AXB-BXA=I\\
+  (A-B)XA+(B-A)XB=(A-B)XA-(A-B)XB=I \\
+  (A-B)X(A-B)=I\\
+  (A-B)X=I(A-B)^{-1}\\
+  X=(A-B)^{-1}I(A-B)^{-1}=((A-B)^{-1})^{2}
+\end{gather*}
+\begin{align*}
+ &C=A-B=\begin{bmatrix}
+  1 &  0 & 0\\
+  1 & 1 & 0\\
+   1 & 1 & 1
+\end{bmatrix}-
+\begin{bmatrix}
+  0 & 1 & 1\\
+  1 & 0 & 1 \\
+  0 & 1 & 0
+\end{bmatrix}=\begin{bmatrix}
+  1 &  -1 & -1\\
+  0 & 1 & -1\\
+   0 & 0 & 1
+\end{bmatrix}\\
+&[C|E]\xrightarrow{\substack{r_{1}+r_{3}\\ r_{2}+r_{3}}}
+{\left[
+\begin{array}{c:c}
+\begin{matrix}
+ 1 &  -1 & 0\\
+  0 & 1 & 0\\
+   0 & 0 & 1
+\end{matrix} &
+\begin{matrix}
+  1 & 0 & 1\\
+  0 & 1 & 1\\
+  0 & 0 & 1
+\end{matrix}
+\end{array}
+\right]
+}\xrightarrow{\substack{r_{1}+r_{3}\\ r_{2}+r_{3}}}
+{\left[
+\begin{array}{c:c}
+\begin{matrix}
+ 1 &  0 & 0\\
+  0 & 1 & 0\\
+   0 & 0 & 1
+\end{matrix} &
+\begin{matrix}
+  1 & 1 & 2\\
+  0 & 1 & 1\\
+  0 & 0 & 1
+\end{matrix}
+\end{array}
+\right]
+}
+\end{align*}
+所以$C^{-1}=\begin{bmatrix}
+  1 & 1 & 2\\
+  0 & 1 & 1\\
+  0 & 0 & 1
+\end{bmatrix},C^{2}=\begin{bmatrix}
+  1 & 2 & 5\\
+  0 & 1 & 2\\
+  0 & 0 & 1
+\end{bmatrix}$
+\end{jie}
+
+
+{\heiti \zihao{4} 期末试题}
+
+\num 2014-2015 七1.设$A$为$n$阶矩阵，且$A^{2}-A-2I=0$。
+
+(2)证明：矩阵$A+2I$可逆，并求$(A+2I)^{-1}$。
+
+\begin{zhengming}
+由题得：$A^{2}-A-2I=0$,所以
+\begin{gather*}
+  A^{2}\textcolor[rgb]{1.00,0.00,0.00}{+2A-2A}-A-2I=0 \\
+  A(A+2I)-3A\textcolor[rgb]{1.00,0.00,0.00}{-6I+6I}-2I=0 \\
+  A(A+2I)-3(A+2I)=(A-3I)(A+2I)=-4I\\
+  -\frac{1}{4}(A-3I)(A+2I)=I
+\end{gather*}
+所以$A+2I$可逆，$(A+2I)^{-1}=-\dfrac{1}{4}(A-3I)$
+\end{zhengming}
+
+\num 2015-2016 二2.
+
+已知矩阵$X$满足方程$X
+\begin{bmatrix}
+  1 & 0 & -2 \\
+  0 & 1 & 2 \\
+  -1 & 0 & 3
+\end{bmatrix}
+=
+\begin{bmatrix}
+  -1 & 2 & 0 \\
+  3 & 0 & 5
+\end{bmatrix}$，求矩阵$X$。
+
+\begin{jie}
+由题得：
+\begin{align*}
+\left[
+\begin{array}{c:c}
+\begin{matrix}
+ 1 & 0 & -2 \\
+  0 & 1 & 2 \\
+  -1 & 0 & 3
+\end{matrix} &
+\begin{matrix}
+  1 & 0 & 0\\
+  0 & 1 & 0\\
+  0 & 0 & 1
+\end{matrix}
+\end{array}
+\right]\xrightarrow{\substack{r_{3}+r_{1}}}
+{\left[
+\begin{array}{c:c}
+\begin{matrix}
+ 1 & 0 & -2 \\
+  0 & 1 & 2 \\
+  0 & 0 & 1
+\end{matrix} &
+\begin{matrix}
+  1 & 0 & 0\\
+  0 & 1 & 0\\
+  1 & 0 & 1
+\end{matrix}
+\end{array}
+\right]
+}\xrightarrow{\substack{r_{2}-2r_{3}\\ r_{1}+2r_{3}}}
+{\left[
+\begin{array}{c:c}
+\begin{matrix}
+ 1 & 0 & 0 \\
+  0 & 1 & 0 \\
+  0 & 0 & 1
+\end{matrix} &
+\begin{matrix}
+  3 & 0 & 2\\
+  -2 & 1 & -2\\
+  1 & 0 & 1
+\end{matrix}
+\end{array}
+\right]
+}
+\end{align*}
+所以$X=\begin{bmatrix}
+  -1 & 2 & 0 \\
+  3 & 0 & 5
+\end{bmatrix}\begin{bmatrix}
+  3 & 0 & 2\\
+  -2 & 1 & -2\\
+  1 & 0 & 1
+\end{bmatrix}=\begin{bmatrix}
+  -7 & 2 & -6 \\
+  14 & 0 & 11
+\end{bmatrix}$
+\end{jie}
+
+\num 2015-2016 四1.(1)
+
+设$A$为$n$阶实对称矩阵，且满足$A^{2}-3A+2E=0$,其中$E$为单位矩阵，试证：
+
+(1)$A+2E$可逆；
+
+\begin{zhengming}
+由题得：$A^{2}-3A+2E=0$，所以：
+\begin{gather*}
+  A^{2}\textcolor[rgb]{1.00,0.00,0.00}{+2A-2A}-3A+2E=0 \\
+  A(A+2E)-5A\textcolor[rgb]{1.00,0.00,0.00}{-10E+10E}+2E=0 \\
+  A(A+2E)-5(A+2E)=(A-5E)(A+2E)=-12E\\
+  -\frac{1}{12}(A-5E)(A+2E)=E
+\end{gather*}
+所以$A+2E$可逆，$(A+2E)^{-1}=-\dfrac{1}{12}(A-5E)$
+\end{zhengming}
+
+\num 2017-2018 二2.
+
+解矩阵方程$(2I-B^{-1}A)X^{T}=B^{-1}$,其中$I$是3阶单位矩阵，$X^{T}$是3阶矩阵$X$的转置矩阵，$A=
+\begin{bmatrix}
+  1 & 2 & -3 \\
+  0 & 1 & 2 \\
+  0 & 0 & 1
+\end{bmatrix},B=
+\begin{bmatrix}
+  1 & 2 & 0 \\
+  0 & 1 & 2 \\
+  0 & 0 & 1
+\end{bmatrix}
+$.
+
+\begin{jie}
+由题得：$(2I-B^{-1}A)X^{T}=B^{-1}$，所以：
+\begin{align*}
+X^{T}&=(2I-B^{-1}A)^{-1}B^{-1}=[B(2I-B^{-1}A)]^{-1}\\
+&=(2B-A)^{-1}
+\end{align*}
+\begin{align*}
+&C=2B-A=\begin{bmatrix}
+  1 & 2 & 3 \\
+  0 & 1 & 2 \\
+  0 & 0 & 1
+\end{bmatrix}
+\end{align*}
+\textcolor[rgb]{0.50,1.00,0.00}{由第三题的计算结果有}
+$C^{-1}=\begin{bmatrix}
+  1 & -2 & 1 \\
+  0 & 1 & -2 \\
+  0 & 0 & 1
+\end{bmatrix}$
+所以$X=C^{T}=\begin{bmatrix}
+  1 & 0 & 0 \\
+  -2 & 1 & 0 \\
+  1 & -2 & 1
+\end{bmatrix}$
+\end{jie}
+
+\num 2018-2019 二2.
+
+已知
+$
+A=
+\begin{bmatrix}
+  1 & 3 & 1 \\
+  1 & 1 & 0\\
+  0 & 1 & 1
+\end{bmatrix}
+$,且$X$满足$AX=X+A$，求$X$。
+
+\begin{jie}
+由题得：$AX=X+A$,所以$(A-E)X=A$，所以$X=(A-E)^{-1}A$
+\begin{align*}
+&B=A-E=\begin{bmatrix}
+  0 & 3 & 1 \\
+  1 & 0 & 0\\
+  0 & 1 & 0
+\end{bmatrix}\\
+[B|E]&\xrightarrow{\substack{r_{1}\Leftrightarrow r_{2}}}
+{\left[
+\begin{array}{c:c}
+\begin{matrix}
+ 1 & 0 & 0\\
+   0 & 3 & 1 \\
+  0 & 1 & 0
+\end{matrix} &
+\begin{matrix}
+ 0 & 1 & 0\\
+  1 & 0 & 0\\
+  0 & 0 & 1
+\end{matrix}
+\end{array}
+\right]
+}\xrightarrow{\substack{r_{2}\Leftrightarrow r_{3}}}
+{\left[
+\begin{array}{c:c}
+\begin{matrix}
+ 1 & 0 & 0\\
+  0 & 1 & 0  \\
+  0 & 3 & 1
+\end{matrix} &
+\begin{matrix}
+ 0 & 1 & 0\\
+0 & 0 & 1  \\
+  1 & 0 & 0
+\end{matrix}
+\end{array}
+\right]
+}\xrightarrow{\substack{r_{3}-3 r_{2}}}
+{\left[
+\begin{array}{c:c}
+\begin{matrix}
+ 1 & 0 & 0\\
+  0 & 1 & 0  \\
+  0 & 0 & 1
+\end{matrix} &
+\begin{matrix}
+ 0 & 1 & 0\\
+0 & 0 & 1  \\
+  1 & 0 & -3
+\end{matrix}
+\end{array}
+\right]
+}
+\end{align*}
+所以$(A-E)^{-1}=\begin{bmatrix}
+ 0 & 1 & 0\\
+0 & 0 & 1  \\
+  1 & 0 & -3
+\end{bmatrix}$,$X=(A-E)^{-1}A=\begin{bmatrix}
+ 0 & 1 & 0\\
+0 & 0 & 1  \\
+  1 & 0 & -3
+\end{bmatrix}\begin{bmatrix}
+  1 & 3 & 1 \\
+  1 & 1 & 0\\
+  0 & 1 & 1
+\end{bmatrix}=\begin{bmatrix}
+  1 & 1 & 0\\
+  0 & 1 & 1\\
+  1 & 0 & -2
+\end{bmatrix}$
+\end{jie}
+
+\num 2018-2019 四1.
+
+设$n$阶矩阵$A$满足$A^{2}+3A-4I=0$,其中$I$为$n$阶单位矩阵。
+
+(1)证明：$A,A+3I$可逆，并求他们的逆；
+
+(2)当$A\neq I$时，判断$A+4I$是否可逆并说明理由。
+
+\begin{jie}
+(1)由题得：$A^{2}+3A-4I=0$，所以$A(A+3I)=4I$,所以$A,A+3I$可逆，$A$的逆为$\dfrac{1}{4}(A+3I)$,$A+3I$的逆为$\dfrac{1}{4}A$。
+
+(2)不可逆，理由：
+
+由题得：
+$A^{2}+3A-4I=(A+4I)(A-I)=0$,假设$A+4I$可逆，则等式两端同时左乘$(A+4I)^{-1}$得$A-I=0$,即$A=I$与题目中$A\neq I$矛盾，所以假设不成立。即$A+4I$不可逆。
+\end{jie}
+
+\num 2019-2020 一3.
+
+记$A=
+\begin{bmatrix}
+  0 & 0 & 1 & 2 \\
+  0 & 0 & 2 & 3 \\
+  1 & 1 & 0 & 0  \\
+  2& 3 & 0 & 0
+\end{bmatrix}
+$,则$A^{-1}$\underline{\hphantom{~~~~~~~~~~}}。
+
+\begin{jie}
+由题得：$A=
+\begin{bmatrix}
+  0 & A_{12} \\
+  A_{21} & 0
+\end{bmatrix}
+$，其中$
+A_{12}=
+\begin{bmatrix}
+  1 & 2 \\
+  2 & 3
+\end{bmatrix},
+A_{21}=
+\begin{bmatrix}
+  1 & 1 \\
+  2 & 3
+\end{bmatrix}
+$,设$A$的逆矩阵为$A^{-1}=
+\begin{bmatrix}
+  a & b \\
+  c & d
+\end{bmatrix}
+$，其中$a,b,c,d$为$2$阶方阵，则
+\begin{equation*}
+AA^{-1}=\begin{bmatrix}
+  0 & A_{12} \\
+  A_{21} & 0
+\end{bmatrix}\begin{bmatrix}
+  a & b \\
+  c & d
+\end{bmatrix}=\begin{bmatrix}
+  A_{12}c &  A_{12}d\\
+  A_{21}a & A_{21}b
+\end{bmatrix}
+=\begin{bmatrix}
+  E_{2} & 0\\
+  0 & E_{2}
+\end{bmatrix}
+\end{equation*}
+所以：$c=A_{12}^{-1},d=0,a=0,b=A_{21}^{-1}$.
+\begin{align*}
+&[A_{12}|E_{2}]\xrightarrow{\substack{r_{2}-2r_{1}}}
+{\left[
+\begin{array}{c:c}
+\begin{matrix}
+  1 & 2 \\
+  0 & -1
+\end{matrix} &
+\begin{matrix}
+1& 0\\
+-2 &1
+\end{matrix}
+\end{array}
+\right]
+}\xrightarrow{\substack{r_{1}+2r_{2}}}
+{\left[
+\begin{array}{c:c}
+\begin{matrix}
+  1 & 0 \\
+  0 & -1
+\end{matrix} &
+\begin{matrix}
+-3 & 2\\
+-2 &1
+\end{matrix}
+\end{array}
+\right]
+}\xrightarrow{\substack{r_{2}\times(-1)}}
+{\left[
+\begin{array}{c:c}
+\begin{matrix}
+  1 & 0 \\
+  0 & 1
+\end{matrix} &
+\begin{matrix}
+-3 & 2\\
+2 &-1
+\end{matrix}
+\end{array}
+\right]
+}\\
+&[A_{21}|E_{2}]\xrightarrow{\substack{r_{2}-2r_{1}}}
+{\left[
+\begin{array}{c:c}
+\begin{matrix}
+  1 & 1 \\
+  0 & 1
+\end{matrix} &
+\begin{matrix}
+1& 0\\
+-2 &1
+\end{matrix}
+\end{array}
+\right]
+}\xrightarrow{\substack{r_{1}-r_{2}}}
+{\left[
+\begin{array}{c:c}
+\begin{matrix}
+  1 & 0 \\
+  0 & 1
+\end{matrix} &
+\begin{matrix}
+3& -1\\
+-2 &1
+\end{matrix}
+\end{array}
+\right]
+}
+\end{align*}
+所以$A^{-1}=\begin{bmatrix}
+  a & b \\
+  c & d
+\end{bmatrix}=
+\begin{bmatrix}
+  0 & A_{21}^{-1} \\
+  A_{12}^{-1} & 0
+\end{bmatrix}=
+\begin{bmatrix}
+  0 & 0 & 3 & -1\\
+  0 & 0 & -2 & 1 \\
+  -3& 2 & 0 & 0  \\
+  2& -1 & 0 & 0
+\end{bmatrix}
+$
+\end{jie}
+\end{document}  

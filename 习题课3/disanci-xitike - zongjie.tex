@@ -1,0 +1,57 @@
+\documentclass{article}
+\usepackage[space,fancyhdr,fntef]{ctexcap}
+\usepackage[namelimits,sumlimits,nointlimits]{amsmath}
+\usepackage[bottom=25mm,top=25mm,left=25mm,right=15mm,centering]{geometry}
+\usepackage{xcolor}
+\usepackage{paralist}%列表宏包
+\usepackage{arydshln}%234页，虚线表格宏包
+\pagestyle{fancy} \fancyhf{}
+\fancyhead[OL]{~~~班序号：\hfill 学院：\hfill 学号：\hfill 姓名：王松年~~~ \thepage}
+%\usepackage{parskip}
+%\usepackage{indentfirst}
+\usepackage{graphicx}%插图宏包，参见手册318页
+\begin{document}
+
+\newcounter{num} \renewcommand{\thenum}{\arabic{num}.} \newcommand{\num}{\refstepcounter{num}\text{\thenum}}
+
+\hphantom{~~}\hfill {\zihao{3}\heiti 第三次习题课} \hfill\hphantom{~~}
+
+\hphantom{~~}\hfill {\zihao{4}\heiti 知识点} \hfill\hphantom{~~}
+
+\num 初等矩阵：对单位矩阵做一次初等变换得到的矩阵。
+
+\num 初等矩阵的分类：
+\begin{asparaenum}[(1)]
+\item 交换其中的两行或两列；
+\item 第$i$行（列）乘上一个非零常数；
+\item 第$j$行（列）的$l$倍加到第$i$行（列）。
+\end{asparaenum}
+
+\num 矩阵的等价：定义和性质（三条）。
+
+\num 标准型矩阵：$
+\begin{bmatrix}
+  E_{r} & 0 \\
+  0& 0
+\end{bmatrix}
+$,（r表示单位矩阵的阶数，$r\geq 0$）一个矩阵一定可以通过初等变换化为标准型矩阵。
+
+\num 矩阵的秩。定义。\\
+性质（很重要）：
+\begin{asparaenum}[(1)]
+\item 矩阵的秩$\leq$ 矩阵的行数与列数的最小值。即：$R(A_{m\times n})\leq \min\{m,n\}$。
+\item 转置不改变矩阵的秩。即$R(A)=R(A^{T})$。
+\item 等价矩阵的秩相同。即$A\~{}B$，则$R(A)=R(B)$。
+\item $A,B$是同型矩阵（行数和列数相同），$R(A)=R(B)$当且仅当$A\~{}B$。
+\item 子矩阵的秩$\leq$矩阵的秩，矩阵的秩$\leq$所有子矩阵的秩之和。
+即：$\max\{R(A),R(B)\}\leq R(A,B)\leq R(A)+R(B)$。
+\item 矩阵之和的秩$\leq$矩阵的秩之和。即：$R(A+B)\leq R(A)+R(B)$。
+\item 矩阵乘积的秩$\leq$乘积因子的秩之最小值。即：$R(AB)\leq \min\{R(A),R(B)\}$。
+\item 若$A_{m\times n}B_{n\times l}=0$,则$R(A)+R(B)\leq n$。
+\item 左乘或右乘可逆矩阵秩不变。（左乘列满秩矩阵不改变矩阵的秩，右乘行满秩矩阵不改变矩阵的秩。）
+\end{asparaenum}
+
+\num 矩阵相抵。课本100页，定理3.2.3
+
+\num 存在唯一性定理。
+\end{document}  

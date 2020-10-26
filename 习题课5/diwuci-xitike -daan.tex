@@ -1,0 +1,903 @@
+\documentclass{article}
+\usepackage[space,fancyhdr,fntef]{ctexcap}
+\usepackage[namelimits,sumlimits,nointlimits]{amsmath}
+\usepackage[bottom=25mm,top=25mm,left=25mm,right=15mm,centering]{geometry}
+\usepackage{xcolor}
+\usepackage{arydshln}%234页，虚线表格宏包
+\pagestyle{fancy} \fancyhf{}
+\fancyhead[OL]{~~~班序号：\hfill 学院：\hfill 学号：\hfill 姓名：王松年~~~ \thepage}
+%\usepackage{parskip}
+%\usepackage{indentfirst}
+\usepackage{graphicx}%插图宏包，参见手册318页
+\usepackage{mathdots}%反对角省略号
+\begin{document}
+
+\newcounter{num} \renewcommand{\thenum}{\arabic{num}.} \newcommand{\num}{\refstepcounter{num}\text{\thenum}}
+
+\newenvironment{jie}{\kaishu\zihao{-5}\color{blue}{\noindent\em 解：}\par}{\hfill $\diamondsuit$\par}
+
+\newenvironment{zhengming}{\kaishu\zihao{-5}\color{blue}{\noindent\em 证明：}\par}{\hfill $\diamondsuit$\par}
+
+\hphantom{~~}\hfill {\zihao{3}\heiti 第五次习题课} \hfill\hphantom{~~}
+
+\hphantom{~~}\hfill {\zihao{4}\heiti 群文件《期中$\&$期末试题》} \hfill\hphantom{~~}
+
+{\heiti \zihao{4} 期中试题}
+
+\num 2015-2016 一1.
+
+已知$A=
+\begin{bmatrix}
+  3 & 0 & 4 & 0 \\
+  2 & 2 & 2 & 2 \\
+  0 & -7 & 0 & 0 \\
+  5 & 3 & -2 & 2 \\
+\end{bmatrix}
+$,则代数余子式之和$A_{41}+A_{42}+A_{43}+A_{44}=$\underline{~~~~0~~~~}。
+
+\begin{jie}
+由题得：
+\begin{align*}
+A_{41}+A_{42}+A_{43}+A_{44}=
+\begin{vmatrix}
+  3 & 0 & 4 & 0 \\
+  2 & 2 & 2 & 2 \\
+  0 & -7 & 0 & 0 \\
+  \textcolor[rgb]{1.00,0.00,0.00}{1} & \textcolor[rgb]{1.00,0.00,0.00}{1} & \textcolor[rgb]{1.00,0.00,0.00}{1} & \textcolor[rgb]{1.00,0.00,0.00}{1} \\
+\end{vmatrix}=a_{3,2}A_{32}=
+(-1)^{3+2}\times (-7)\times
+\begin{vmatrix}
+  3 &  4 & 0 \\
+  2 &  2 & 2 \\
+  1 &  1 & 1 \\
+\end{vmatrix}=0
+\end{align*}
+\end{jie}
+
+%\num 2015-2016 一2.
+%
+%设$f(x)=
+%\begin{vmatrix}
+%  2x & x & 1 & 2\\
+%  1 & x & 1 & -1\\
+%  3 & 2 & x & 1\\
+%  1 & 1 & 1 & x\\
+%\end{vmatrix}
+%$，则$x^{3}$的系数为\underline{\hphantom{~~~~~~~~~~}}。
+%
+%\begin{jie}
+%$a_{11}$表示第一行第一列的元素，$A_{11}$表示第一行第一列元素的代数余子式。其他类似。
+%\begin{align*}
+%f(x)=a_{11}A_{11}+a_{12}A_{12}+a_{13}A_{13}+a_{14}A_{14}=2x
+%\begin{vmatrix}
+%  x & 1 & -1\\
+% 2 & x & 1\\
+%   1 & 1 & x\\
+%\end{vmatrix}-x
+%\begin{vmatrix}
+%  1 &  1 & -1\\
+%  3 &  x & 1\\
+%  1 &  1 & x\\
+%\end{vmatrix}+
+%\begin{vmatrix}
+%  1 & x &  -1\\
+%  3 & 2 &  1\\
+%  1 & 1 &  x\\
+%\end{vmatrix}-2
+%\begin{vmatrix}
+%  1 & x & 1 \\
+%  3 & 2 & x\\
+%  1 & 1 & 1 \\
+%\end{vmatrix}
+%\end{align*}
+%可以看出第一项只含$x^{4}$和$x^{2/}$第三项和第四项中不含$x^{3}$，只看第二项：
+%\begin{equation*}
+%-x
+%\begin{vmatrix}
+%  1 &  1 & -1\\
+%  3 &  x & 1\\
+%  1 &  1 & x\\
+%\end{vmatrix}=-x((x^{2}-1)-(3x-1)+(3-x))
+%\end{equation*}
+%所以$x^{3}$的系数为$-1$。
+%\end{jie}
+
+\num 2015-2016 一3.
+
+设$a,b,c$满足方程
+$
+\begin{vmatrix}
+  1 & a & b & c\\
+  a & 1 & 0 & 0\\
+  b & 0 & 1 & 0\\
+  c & 0 & 0 & 1\\
+\end{vmatrix}=1
+$，则$abc=$\underline{\hphantom{~~~~~~~~~~}}。
+
+\begin{jie}
+对行列式做如下变换：第一行减去$c$倍的第四行，第一行减去$b$倍的第三行，第一行减去$a$倍的第二行，得到如下行列式：
+\begin{equation*}
+\begin{vmatrix}
+  1 & a & b & c\\
+  a & 1 & 0 & 0\\
+  b & 0 & 1 & 0\\
+  c & 0 & 0 & 1\\
+\end{vmatrix}=\begin{vmatrix}
+  1-a^{2}-b^{2}-c^{2} & 0 & 0 & 0\\
+  a & 1 & 0 & 0\\
+  b & 0 & 1 & 0\\
+  c & 0 & 0 & 1\\
+\end{vmatrix}=1-a^{2}-b^{2}-c^{2}=1
+\end{equation*}
+即$a^{2}+b^{2}+c^{2}=0$,对于实数，任何数的平方都大于等于0，所以可以推出$a=0,b=0,c=0$，所以$abc=0$。
+\end{jie}
+
+\num 2015-2016 一4.
+
+设$A=
+\begin{bmatrix}
+  2 & 0 \\
+  1 & 4
+\end{bmatrix}
+$,若$B=2BA-3I$，其中$I$为单位矩阵，则$|B|=$\underline{\hphantom{~~~~~~~~~~}}。
+
+\begin{jie}
+由题得：$B=2BA-3I~~~\Rightarrow B(2A-I)=3I$，所以$|B(2A-I)|=|3I|=3^{2}=9$,$|2A-I|=
+\begin{vmatrix}
+  3 & 0 \\
+  2 & 7
+\end{vmatrix}=21
+$,所以$|B(2A-I)|=|B||2A-I|=21|B|=9$,解得$|B|=\dfrac{3}{7}$
+\end{jie}
+
+\num 2015-2016 二1.
+
+计算行列式$
+\begin{vmatrix}
+  5 & 0 & 4 & 2\\
+  1 & -1 & 2 & 1\\
+  4 & 1 & 2 & 0\\
+  1 & 1 & 1 & 1\\
+\end{vmatrix}
+$。
+
+\begin{jie}
+（过程不唯一）
+
+对行列式做如下变换：把第二行加到第三行，把第二行加到第四行，由行列式的性质，此时行列式的值没有改变。即
+\begin{align*}
+\begin{vmatrix}
+  5 & 0 & 4 & 2\\
+  1 & -1 & 2 & 1\\
+  4 & 1 & 2 & 0\\
+  1 & 1 & 1 & 1\\
+\end{vmatrix}=
+\begin{vmatrix}
+  5 & 0 & 4 & 2\\
+  1 & -1 & 2 & 1\\
+  5 & 0 & 4 & 1\\
+  2 & 0 & 3 & 2\\
+\end{vmatrix}
+=(-1)^{2+2}\times (-1)\times
+\begin{vmatrix}
+  5 &  4 & 2\\
+  5 &  4 & 1\\
+  2 &  3 & 2\\
+\end{vmatrix}=-\begin{vmatrix}
+  5 &  4 & 2\\
+  5 &  4 & 1\\
+  2 &  3 & 2\\
+\end{vmatrix}=-|A|
+\end{align*}
+对于$|A|$：把第二行的负一倍加到第一行
+\begin{equation*}
+-\begin{vmatrix}
+  5 &  4 & 2\\
+  5 &  4 & 1\\
+  2 &  3 & 2\\
+\end{vmatrix}=-
+\begin{vmatrix}
+  0 &  0 & 1\\
+  5 &  4 & 1\\
+  2 &  3 & 2\\
+\end{vmatrix}=-(-1)^{1+3}\times(5\times 3-2\times 4)=-7
+\end{equation*}
+\end{jie}
+
+
+\num 2015-2016 二2.
+
+计算行列式$
+\begin{vmatrix}
+  a^{2} & ab & b^{2}\\
+  2a & a+b & 2b \\
+  1 & 1 & 1
+\end{vmatrix}
+$。
+
+\begin{jie}
+对行列式做如下变换：把第二列的负一倍分别加到第一列和第三列上。得到$
+\begin{vmatrix}
+  a(a-b) & ab & b(b-a)\\
+  a-b & a+b & b-a \\
+  0 & 1 & 0
+\end{vmatrix}
+$
+
+把第三列加到第一列上：
+\begin{equation*}
+\begin{vmatrix}
+  (a-b)^{2} & ab & b(b-a)\\
+  0 & a+b & b-a \\
+  0 & 1 & 0
+\end{vmatrix}=(-1)^{1+1}(a-b)^{2}[(a+b)0-(b-a)]=(a-b)^{3}
+\end{equation*}
+\end{jie}
+
+\num 2015-2016 三2.
+
+设$A$为$n$阶方阵，$AA^{T}=I$，$|A|<0$，证明:$|A+I|=0$。
+
+\begin{zhengming}
+由行列式的性质得$|AB|=|A||B|,|A^{T}|=|A|$，所以由题得
+
+$|AA^{T}|=|I|$,等号左边：$|AA^{T}|=|A||A^{T}|=|A||A|=|A|^{2}$,等号右边等于1，由题得$|A|<0$，所以$|A|=-1$.
+
+$|A+I|=|A+AA^{T}|=|A(I+A^{T})|=|A||(I+A)^{T}|=-|I+A|$，所以$|A+I|=0$。\textcolor[rgb]{1.00,0.00,0.00}{（注：两个矩阵相加的转置等于两个矩阵分别转置后相加，即$A^{T}+B^{T}=(A+B)^{T}$）}
+\end{zhengming}
+
+\num 2016-2017 一1.
+
+设$M_{ij}$是$
+\begin{vmatrix}
+  0 & 4 & 0 \\
+  2 & 2 & 2\\
+  2 & 0 & 0
+\end{vmatrix}
+$的第$i$行第$j$列元素的余子式，则$M_{11}+M_{12}=$\underline{\hphantom{~~~~~~~~~~}}。
+
+\begin{jie}
+由题得：$M_ {11}+M_{12}=M_ {11}+M_{12}+0M_{13}=A_{11}-A_{12}+0A_{13}=\begin{vmatrix}
+  \textcolor[rgb]{1.00,0.00,0.00}{1} & \textcolor[rgb]{1.00,0.00,0.00}{-1} & \textcolor[rgb]{1.00,0.00,0.00}{0} \\
+  2 & 2 & 2\\
+  2 & 0 & 0
+\end{vmatrix}=2\times(-1)^{(3+1)}\times[(-1)\times 2-2\times0]=-4$
+\end{jie}
+
+\num 2016-2017 一2.
+
+计算行列式$
+\begin{vmatrix}
+  1 & 1 & 1 & 1 \\
+  1 & 2 & 4& 8 \\
+  1 & 3 & 9& 27\\
+   1 & 4 &16 &64
+\end{vmatrix}
+=$\underline{\hphantom{~~~~~~~~~~}}。
+
+\begin{jie}
+经观察，该行列式为四阶范德蒙行列式，且$x_{1}=1,x_{2}=2,x_{3}=3,x_{4}=4$，所以原式$=(x_{4}-x_{3})(x_{4}-x_{2})(x_{4}-x_{1})(x_{3}-x_{2})(x_{3}-x_{1})(x_{2}-x_{1})=12$
+\end{jie}
+
+\num 2016-2017 二1.
+
+计算行列式$
+\begin{vmatrix}
+  1 & 2 & 3 & 4 \\
+  2 & 3 & 4& 1 \\
+  3 & 4 & 1& 2\\
+   4 & 1 &2 &3
+\end{vmatrix}
+$。
+
+\begin{jie}
+步骤不唯一
+
+把所有列加到第一列，原行列式变为
+\begin{equation*}
+\begin{vmatrix}
+  10 & 2 & 3 & 4 \\
+  10 & 3 & 4& 1 \\
+  10 & 4 & 1& 2\\
+   10 & 1 &2 &3
+\end{vmatrix}=10\begin{vmatrix}
+  1 & 2 & 3 & 4 \\
+  1 & 3 & 4& 1 \\
+  1 & 4 & 1& 2\\
+   1 & 1 &2 &3
+\end{vmatrix}
+\end{equation*}
+把第一行的负一倍分别加到第二行，第三行，第四行。$10
+\begin{vmatrix}
+  1 & 2 & 3 & 4 \\
+  0 & 1 & 1& -3 \\
+  0 & 2 & -2& -2\\
+   0 & -1 &-1 &-1
+\end{vmatrix}
+$,把第四行加到第二行\begin{align*}
+10
+\begin{vmatrix}
+  1 & 2 & 3 & 4 \\
+  0 & 0 & 0& -4 \\
+  0 & 2 & -2& -2\\
+   0 & -1 &-1 &-1
+\end{vmatrix}=10\times(-4)\times2\times(-1)\begin{vmatrix}
+  1 & 2 & 3 & 4 \\
+  0 & 0 & 0& 1 \\
+  0 & 1 & -1& -1\\
+   0 & 1 &1 &1
+\end{vmatrix}=80\times1\times(-1)^{2+4}\begin{vmatrix}
+  1 & 2 & 3  \\
+  0 & 1 & -1\\
+   0 & 1 &1
+\end{vmatrix}=160
+\end{align*}
+\end{jie}
+
+\num 2016-2017 二2.
+
+设$f(x)=
+\begin{vmatrix}
+  x-1 & 1 & -1 & 1 \\
+  -1 & x+1 & -1& 1 \\
+  -1 & 1 & x-1& 1\\
+   -1 & 1 &-1 &x+1
+\end{vmatrix}
+$,求$f(x)=0$的根。
+
+\begin{jie}
+分别把第四行的负一倍加到第一行、第二行与第三行上
+\begin{equation*}
+\begin{vmatrix}
+  x & 0 & 0 & -x \\
+  0 & x & 0& -x \\
+  0 & 0 & x& -x\\
+   -1 & 1 &-1 &x+1
+\end{vmatrix}
+\end{equation*}
+把前边三列全部加到第四列上：
+\begin{equation*}
+\begin{vmatrix}
+  x & 0 & 0 & 0 \\
+  0 & x & 0& 0 \\
+  0 & 0 & x& 0\\
+   -1 & 1 &-1 &x
+\end{vmatrix}=x^{4}
+\end{equation*}
+所以$f(x)=x^{4}=0$的根为$x_{1}=x_{2}=x_{3}=x_{4}=0$.
+\end{jie}
+
+%\num 期中2016-2017 三2.
+%
+%已知$A=(a_{ij})$是三阶的非零矩阵，设$A_{ij}$是$a_{ij}$的代数余子式，且对任意的$i,j$有$A_{ij}+a_{ij}=0$，求$A$ 的行列式。
+%
+%\begin{jie}
+%因为$A_{ij}+a_{ij}=0$，所以可以推出$A+(A^*)^T=0$。即$(A^*)^T=-A$.两边同时取行列式：
+%
+%左边：$|(A^*)^T|=|A^*|=||A|A^{-1}|=|A|^n|A|^{-1}=|A|^{n-1}=|A|^2$
+%
+%右边：$|-A|=(-1)^3|A|=-|A|$
+%
+%所以$|A|^2=-|A|$，解得$|A|=-1$或$|A|=0$。
+%
+%又因为$(A^*)^T=-A$,所以有$r((A^*)^T)=r(-A)$，即$r(A^*)=r(A)$，所以$r(A)=n=3$。\textcolor[rgb]{1.00,0.00,0.00}{注：此步看不懂的看课本121页的例3.3.23，记住这个例题的结论。}
+%
+%$r(A)=3$，即满秩，满秩即(可逆$\&$行列式不为$0$)，所以$|A|=-1$。
+%\end{jie}
+
+\num 2017-2018 一1.
+
+计算行列式$
+\begin{vmatrix}
+  1 & 1 & 1 & 1 \\
+  1 & 1 & 1& 2 \\
+  1 & 1 & 3& 1\\
+   1 & 4 &1 &1
+\end{vmatrix}
+.$
+
+\begin{jie}
+过程不唯一 。
+
+把第一列的负一倍分别加到第二、三、四列上：
+\begin{equation*}
+\begin{vmatrix}
+  1 & 1 & 1 & 1 \\
+  1 & 1 & 1& 2 \\
+  1 & 1 & 3& 1\\
+   1 & 4 &1 &1
+\end{vmatrix}=\begin{vmatrix}
+  1 & 0 & 0 & 0 \\
+  1 & 0 & 0& 1 \\
+  1 & 0 & 2& 0\\
+   1 & 3 &0 &0
+\end{vmatrix}=1\times(-1)^{1+1}\begin{vmatrix}
+ 0 & 0& 1 \\
+ 0 & 2& 0\\
+ 3 &0 &0
+\end{vmatrix}=(-1)^{\frac{3\times(3-1)}{2}}6=-6
+\end{equation*}
+\end{jie}
+
+\num 期中2017-2018 一2.
+
+ 求方程$
+\begin{vmatrix}
+  1 & 2 & 1 & 1 \\
+  1 & x & 2& 3 \\
+  1 & 2 & x& 2\\
+   0 & 0 &2 &x
+\end{vmatrix}=0
+$的根。
+
+\begin{jie}
+把第一行的负一倍分别加到第二、三行上：
+\begin{align*}
+\begin{vmatrix}
+  1 & 2 & 1 & 1 \\
+  1 & x & 2& 3 \\
+  1 & 2 & x& 2\\
+   0 & 0 &2 &x
+\end{vmatrix}=\begin{vmatrix}
+  1 & 2 & 1 & 1 \\
+  0 & x-2 & 1& 2 \\
+  0 & 0 & x-1& 1\\
+   0 & 0 &2 &x
+\end{vmatrix}=1\times(-1)^{1+1}\begin{vmatrix}
+  x-2 & 1& 2 \\
+   0 & x-1& 1\\
+   0 &2 &x
+\end{vmatrix}=(x-2)\times(-1)^{1+1}[(x-1)x-2\times1]=0
+\end{align*}
+解得：$x_{1}=x_{2}=2,x_{3}=-1$。
+\end{jie}
+
+\num 期中2017-2018 一3.
+
+ 设$\gamma_{1},\gamma_{2},\gamma_{3},\gamma_{4}$及$\beta$均为4维列向量。4阶矩阵$A=[\gamma_ {1}~\gamma_{2}~\gamma_{3}~\gamma_{4}],B=[\beta~\gamma_{2}~\gamma_{3}~\gamma_{4}]$,若$\left|A\right|=2,\left|B\right|=3$，求
+
+(1)$\left|A+B\right|$;
+
+(2)$\left|A^{2}+AB\right|$;
+
+\begin{jie}
+(1)$A+B=[\gamma_ {1}~\gamma_{2}~\gamma_{3}~\gamma_{4}]+[\beta~\gamma_{2}~\gamma_{3}~\gamma_{4}]=[\gamma_{1}+\beta ~~2\gamma_{2}~~2\gamma_{3}~~2\gamma_{4}]$，由行列式的性质：
+\begin{align*}
+|A+B|&=|\gamma_{1}+\beta ~~2\gamma_{2}~~2\gamma_{3}~~2\gamma_{4}|=|\gamma_{1}~~2\gamma_{2}~~2\gamma_{3}~~2\gamma_{4}|+|\beta ~~2\gamma_{2}~~2\gamma_{3}~~2\gamma_{4}|\\
+&=2\times2\times2|\gamma_ {1}~\gamma_{2}~\gamma_{3}~\gamma_{4}|+2\times2\times2|\beta~\gamma_{2}~\gamma_{3}~\gamma_{4}|=8|A|+8|B|=8(|A|+|B|)=40
+\end{align*}
+
+(2)$\left|A^{2}+AB\right|=|A(A+B)|=|A||A+B|=2\times 40=80.$
+\end{jie}
+
+\num 期中2018-2019 一1.
+
+计算行列式$
+\begin{vmatrix}
+  b^{2}+c^{2} & c^{2}+a^{2} & a^{2}+b^{2} \\
+  a & b & c \\
+  a^{2} & b^{2} & c^{2}
+\end{vmatrix}
+.$
+
+\begin{jie}
+把第三行加到第一行上：
+\begin{equation*}
+\begin{vmatrix}
+  b^{2}+c^{2} & c^{2}+a^{2} & a^{2}+b^{2} \\
+  a & b & c \\
+  a^{2} & b^{2} & c^{2}
+\end{vmatrix}=\begin{vmatrix}
+  a^{2}+b^{2}+c^{2} & b^{2}+c^{2}+a^{2} & a^{2}+b^{2}+c^{2} \\
+  a & b & c \\
+  a^{2} & b^{2} & c^{2}
+\end{vmatrix}=(a^{2}+b^{2}+c^{2})\begin{vmatrix}
+  1 & 1 & 1 \\
+  a & b & c \\
+  a^{2} & b^{2} & c^{2}
+\end{vmatrix}=(a^{2}+b^{2}+c^{2})|A|
+\end{equation*}
+可以看出$|A|$是三阶范德蒙行列式，所以原式$=(a^{2}+b^{2}+c^{2})(c-b)(c-a)(b-a)$
+\end{jie}
+
+\num 期中2018-2019 一2.
+
+设$A,B$为3阶矩阵，且$|A|=3,|B|=2$,$A^{*}$为$A$的伴随矩阵。
+
+(2)若$|A^{-1}+B|=2$，求$|A+B^{-1}|$.
+
+\begin{jie}
+$|A+B^{-1}|=|EA+B^{-1}E|=|B^{-1}BA+B^{-1}A^{-1}A|=|B^{-1}(BA+A^{-1}A)|=|B^{-1}|\cdot|BA+A^{-1}A|=|B^{-1}|\cdot|(B+A^{-1})A|=|B^{-1}|\cdot|(B+A^{-1})|\cdot|A|=2^{-1}\times2\times3=3$
+\end{jie}
+
+\num 期中2018-2019 一4.
+
+设$n$阶行列式$D_{n}(n=1,2,\cdots):D_{1}=1,D_{2}=
+\begin{vmatrix}
+  1 & 1 \\
+  1 & 1
+\end{vmatrix},D_{3}=
+\begin{vmatrix}
+  1 & 1 & 0\\
+  1 & 1 & 1\\
+  0 & 1 & 1
+\end{vmatrix},D_{4}=
+\begin{vmatrix}
+  1 & 1 & 0 & 0\\
+  1 & 1 & 1 & 0\\
+  0 & 1 & 1 & 1\\
+  0 & 0 & 1 & 1
+\end{vmatrix},\ldots\ldots,D_{n}=
+\begin{vmatrix}
+  1 & 1 & 0 & 0 & \cdots & 0\\
+  1 & 1 & 1 & 0 & \cdots & 0\\
+  0 & 1 & 1 & 1 & \cdots & 0\\
+  \vdots & \vdots &\ddots & \ddots &\ddots &\vdots\\
+  0 &\cdots & 0 & 1 & 1& 1\\
+  0 &\cdots & 0 & 0 & 1& 1
+\end{vmatrix}.
+$
+
+(1)给出$D_{n},D_{n-1},D_{n-2}$的关系；
+
+(2)利用找到的递推关系及$D_{1}=1,D_{2}=0$,计算$D_{3},D_{4},\cdots,D_{8}$;
+
+(3)求$D_{2018}$
+
+\begin{jie}
+(1)对$D_{n}$按第一列进行行列式展开($a_{11}$表示第一行第一列的元素，$A_{11}$表示第一行第一列元素对应的代数余子式)：
+\begin{align*}
+D_{n}=a_{11}A_{11}+a_{21}A_{21}=1\times(-1)^{1+1}
+\begin{vmatrix}
+   1 & 1 & 0 & \cdots & 0\\
+   1 & 1 & 1 & \cdots & 0\\
+   \vdots &\ddots & \ddots &\ddots &\vdots\\
+  0 &\cdots  & 1 & 1& 1\\
+  0 &\cdots & 0  & 1& 1
+\end{vmatrix}+1\times(-1)^(2+1)
+\begin{vmatrix}
+   1 & 0 & 0 & \cdots & 0\\
+   1 & 1 & 1 & \cdots & 0\\
+  \vdots &\ddots & \ddots &\ddots &\vdots\\
+  0 &\cdots  & 1 & 1& 1\\
+  0 &\cdots  & 0 & 1& 1
+\end{vmatrix}=D_{n-1}-D_{n-2}
+\end{align*}
+
+(2)由(1)得：
+\begin{gather*}
+D_{3}=D_{3-1}-D_{3-2}=D_{2}-D_{1}=-1\\
+D_{4}=D_{4-1}-D_{4-2}=D_{3}-D_{2}=-1\\
+D_{5}=D_{5-1}-D_{5-2}=D_{4}-D_{3}=0\\
+D_{6}=D_{6-1}-D_{6-2}=D_{5}-D_{4}=1\\
+D_{7}=D_{7-1}-D_{7-2}=D_{6}-D_{5}=1\\
+D_{8}=D_{8-1}-D_{8-2}=D_{7}-D_{6}=0
+\end{gather*}
+
+(3)由(2)可以看出，每6组数据为一个循环，即$D_{n}=D_{n+6}$,所以$2018\div6=336$余$2$。所以$D_{2018}=D_{2}=0$
+\end{jie}
+
+{\heiti \zihao{4} 期末试题}
+
+\num 期末2014-2015 一1.
+
+若已知行列式
+$
+\begin{vmatrix}
+  1 & 3 & a \\
+  5 & -1 &1\\
+  3 & 2&1
+\end{vmatrix}
+$的代数余子式$A_{21}=1$，则$a=$\underline{\hphantom{~~~~~~~~~~}}。
+
+\begin{jie}
+$A_{21}=(-1)^{2+1}\times(3\times 1-2\times 1)=1$，解得$a=2$。
+\end{jie}
+
+\num 期末2014-2015 一3.
+
+设3阶方阵$A=(\alpha_{1},\alpha_{2},\alpha_{3})$的行列式$|A|=3$,矩阵$B=(\alpha_{2},2\alpha_{3},-\alpha_{1})$，则行列式$|A-B|=$\underline{\hphantom{~~~~~~~~~~}}。
+
+\begin{jie}
+对$A$的第三列乘2得：$|\alpha_{1}~\alpha_{2}~2\alpha_{3}|=2|A|$,对该表达式第一列乘负一：$|-\alpha_{1}~\alpha_{2}~2\alpha_{3}|=-2|A|$，交换一二两列，$|\alpha_{2}~\alpha_ {1}~2\alpha_{3}|=2|A|$，交换二三两列，$|\alpha_ {2}~2\alpha_{3}~\alpha_ {1}|=-2|A|$,所以$|B|=-2|A|$.
+
+\begin{align*}
+|A-B|&=|\alpha_{1}-\alpha_{2}~~~\alpha_{2}-2\alpha_{3}~~~\alpha_{3}+\alpha_{1}|=|\alpha_{1}~~~\alpha_{2}-2\alpha_{3}~~~\alpha_{3}+\alpha_{1}|+|-\alpha_{2}~~~\alpha_{2}-2\alpha_{3}~~~\alpha_{3}+\alpha_{1}|\\
+&=\left|\alpha_{1}~~~\alpha_{2}-2\alpha_{3}~~~\alpha_{3}\right|+|-\alpha_{2}~~-2\alpha_{3}~~~\alpha_{3}+\alpha_{1}|\\
+&=\left|\alpha_{1}~~~\alpha_{2}~~~\alpha_{3}\right|+\left|\alpha_{1}~~~-2\alpha_{3}~~~\alpha_{3}\right|+|-\alpha_{2}~~-2\alpha_{3}~~~\alpha_{3}|+|-\alpha_{2}~~-2\alpha_{3}~~~\alpha_{1}|\\
+&=|A|+0+0-|B|=3|A|=9
+\end{align*}
+\end{jie}
+
+\num 期末2015-2016 一1.
+
+行列式$
+D=
+\begin{vmatrix}
+  1 & a & 0 & 0\\
+  -1 & 2-a & a & 0\\
+  0 & -2 & 3-a & a\\
+  0 & 0 & -3 & 4-a
+\end{vmatrix}=
+$\underline{\hphantom{~~~~~~~~~~}}。
+
+\begin{jie}
+把第二行加到第一行上：
+\begin{align*}
+D=
+\begin{vmatrix}
+  1 & a & 0 & 0\\
+  -1 & 2-a & a & 0\\
+  0 & -2 & 3-a & a\\
+  0 & 0 & -3 & 4-a
+\end{vmatrix}=\begin{vmatrix}
+  1 & a & 0 & 0\\
+  0 & 2 & a & 0\\
+  0 & -2 & 3-a & a\\
+  0 & 0 & -3 & 4-a
+\end{vmatrix}=1\times(-1)^{1+1}
+\begin{vmatrix}
+  2 & a & 0\\
+   -2 & 3-a & a\\
+   0 & -3 & 4-a
+\end{vmatrix}=A
+\end{align*}
+把$A$的第二行加到第一行上：
+\begin{align*}
+A=\begin{vmatrix}
+  2 & a & 0\\
+   0 & 3 & a\\
+   0 & -3 & 4-a
+\end{vmatrix}=2\times(-1)^{1+1}
+\begin{vmatrix}
+ 3 & a\\
+ -3 & 4-a
+\end{vmatrix}=24
+\end{align*}
+\end{jie}
+
+\num 期末2015-2016 二1.
+
+若行列式$D=
+\begin{vmatrix}
+  1 & 2 & 3 & 4 \\
+  0 & 3 & 4 & 6 \\
+  3 & 4 & 1 & 2 \\
+  2 & 2 & 2 & 2
+\end{vmatrix}
+$，求$A_{11}+2A_{21}+A_{31}+2A_{41}$,其中$A_{ij}$为元素$a_{ij}$的代数余子式。
+
+\begin{jie}
+由题得：
+\begin{align*}
+A_{11}+2A_{21}+A_{31}+2A_{41}=\begin{vmatrix}
+  1 & 2 & 3 & 4 \\
+  2 & 3 & 4 & 6 \\
+  1 & 4 & 1 & 2 \\
+  2 & 2 & 2 & 2
+\end{vmatrix}=2\begin{vmatrix}
+  1 & 2 & 3 & 4 \\
+  2 & 3 & 4 & 6 \\
+  1 & 4 & 1 & 2 \\
+  1 & 1 & 1 & 1
+\end{vmatrix}
+\end{align*}
+把第一行的负二倍加到第二行，把第一行的负一倍分别加到第三、四行。
+\begin{align*}
+2\begin{vmatrix}
+  1 & 2 & 3 & 4 \\
+  2 & 3 & 4 & 6 \\
+  1 & 4 & 1 & 2 \\
+  1 & 1 & 1 & 1
+\end{vmatrix}=
+2\begin{vmatrix}
+  1 & 2 & 3 & 4 \\
+  0 & -1 & -2 & -2 \\
+  0 & 2 & -2 & -2 \\
+  0 & -1 & -2 & -3
+\end{vmatrix}=4\begin{vmatrix}
+  -1 & -2 & -2 \\
+   1 & -1 & -1 \\
+   -1 & -2 & -3
+\end{vmatrix}
+\end{align*}
+把第一行的负一倍加到第三行：
+\begin{align*}
+4\begin{vmatrix}
+  -1 & -2 & -2 \\
+   1 & -1 & -1 \\
+   -1 & -2 & -3
+\end{vmatrix}=
+4\begin{vmatrix}
+  -1 & -2 & -2 \\
+   1 & -1 & -1 \\
+  0 & 0 & -1
+\end{vmatrix}=4\times(-1)\times((-1)\times(-1)-(-2)\times 1)=-12
+\end{align*}
+\end{jie}
+
+\num 期末2016-2017 一1.
+
+行列式$
+D=
+\begin{vmatrix}
+  1 & x & y & z\\
+  x & 1 & 0 & 0\\
+  y & 0 & 1 & 0\\
+  z & 0 & 0 & 1
+\end{vmatrix}=
+$\underline{\hphantom{~~~~~~~~~~}}。
+
+\begin{jie}
+对行列式做如下变换：第一行减去$z$倍的第四行，第一行减去$y$倍的第三行，第一行减去$x$倍的第二行，得到如下行列式：
+\begin{equation*}
+  \begin{vmatrix}
+  1-x^{2}-y^{2}-z^{2} & 0 & 0 & 0\\
+  a & 1 & 0 & 0\\
+  b & 0 & 1 & 0\\
+  c & 0 & 0 & 1\\
+\end{vmatrix}=1-x^{2}-y^{2}-z^{2}
+\end{equation*}
+\end{jie}
+
+\num 期末2016-2017 二1.
+
+若行列式$D=
+\begin{vmatrix}
+  1 & 2 & 3 & 4 \\
+  0 & 3 & 4 & 6 \\
+  0 & 4 & 1 & 2 \\
+  0 & 2 & 2 & 2
+\end{vmatrix}
+$，求$A_{11}-2A_{21}+A_{31}-2A_{41}$,其中$A_{ij}$为元素$a_{ij}$的代数余子式。
+
+\begin{jie}
+44.过程略。
+\end{jie}
+
+\num 期末2017-2018 一1.
+
+设$A_{ij}$是三阶行列式$
+D=
+\begin{vmatrix}
+  2 & 2 & 2\\
+  1 & 2 & 3\\
+  4 & 5 & 6
+\end{vmatrix}
+$第$i$行第$j$列元素的代数余子式，则$A_{31}+A_{32}+A_{33}=$\underline{\hphantom{~~~~~~~~~~}}。
+
+\begin{jie}
+0.过程略。
+\end{jie}
+
+\num 期末2017-2018 二1.
+
+计算行列式$D=
+\begin{vmatrix}
+  3 & 1 & -1 & 2 \\
+  -5 & 1 & 3 & -4 \\
+  2 & 0 & 1 & -1\\
+   1 & -5 & 3 & -3
+\end{vmatrix}
+.$
+
+\begin{jie}
+40.过程略
+\end{jie}
+
+\num 期末2018-2019 二1.
+
+已知$D=
+\begin{vmatrix}
+  1 & 1 & 1 & 1 \\
+  -1 & 2 & 2 & 3 \\
+  1 & 4 & 3 & 9 \\
+  -1 & 8 & 5 & 27
+\end{vmatrix}
+$，求$A_{13}+A_{23}+A_{33}+A_{43}$,其中$A_{ij}$为元素$a_{ij}$的代数余子式。
+
+\begin{jie}
+-48.过程略。
+\end{jie}
+
+\num 期末2019-2020 二3.
+
+记$2n$阶方阵$
+A_{n}=
+\begin{bmatrix}
+  a_{n} & ~  & ~ & ~ & ~ & ~ & ~ & b_{n}\\
+  ~ & a_{n-1}  & ~ & ~ & ~ & ~ & b_{n-1} & ~\\
+  ~ & ~ & \ddots & ~ & ~ & \iddots  & ~ & ~\\
+  ~ & ~ & ~ & a_{1}&b_{1} & ~ & ~ & ~\\
+  ~ & ~ & ~ & c_{1}&d_{1} & ~ & ~ & ~\\
+  ~ & ~ & \iddots & ~ & ~ & \ddots  & ~ & ~\\
+  ~ & c_{n-1}  & ~ & ~ & ~ & ~ & d_{n-1} & ~\\
+  c_{n} & ~  & ~ & ~ & ~ & ~ & ~ & d_{n}
+\end{bmatrix}
+$.
+
+(1)求$|A_{1}|,|A_{2}|$
+
+(2)求$|A_{n}|$。
+
+\begin{jie}
+(1)
+\begin{align*}
+|A_{1}|&=
+\begin{vmatrix}
+  a_{1} & b_{1} \\
+  c_{1} & d_{1}
+\end{vmatrix}=a_{1}d_{1}-c_{1}b_{1}\\
+|A_{2}|&=\begin{vmatrix}
+a_{2}& 0& 0&b_{2}\\
+0&  a_{1} & b_{1}& 0 \\
+0&  c_{1} & d_{1}& 0\\
+c_{2}& 0& 0&d_{2}
+\end{vmatrix}=a_{2}\begin{vmatrix}
+  a_{1} & b_{1}& 0 \\
+  c_{1} & d_{1}& 0\\
+ 0& 0&d_{2}
+\end{vmatrix}-b_{2}
+\begin{vmatrix}
+0&  a_{1} & b_{1} \\
+0&  c_{1} & d_{1}\\
+c_{2}& 0& 0
+\end{vmatrix}=a_{2}d_{2}
+\begin{vmatrix}
+  a_{1} & b_{1}\\
+  c_{1} & d_{1}\\
+\end{vmatrix}-b_{2}c_{2}\begin{vmatrix}
+  a_{1} & b_{1}\\
+  c_{1} & d_{1}\\
+\end{vmatrix}=(a_{2}d_{2}-b_{2}c_{2})|A_{1}|\\
+&=(a_{2}d_{2}-b_{2}c_{2})(a_{1}d_{1}-c_{1}b_{1})
+\end{align*}
+
+(2)用数学归纳法：
+
+由(1)得：
+\begin{gather*}
+n=1:~~\left|A_ {1}\right|=a_{1}d_{1}-c_{1}b_{1}=\prod\limits_{i=0}^{1}(a_{i}d_{i}-c_{i}b_{i})\\
+n=2:~~\left|A_ {2}\right|=(a_{2}d_{2}-c_{2}b_{2})\left|A_ {1}\right|=\prod\limits_{i=0}^{2}(a_{i}d_{i}-c_{i}b_{i})
+\end{gather*}
+则$n=k-1$时，有$|A_{n}|=\prod\limits_{i=0}^{k-1}(a_{i}d_{i}-c_{i}b_{i})$.\\
+当$n=k$时，按第一列展开，得：
+\begin{align*}
+\left|A_ {k}\right|&=a_{11}A_{11}+a_{2k1}A_{2k1}\\
+&=a_{k}\begin{bmatrix}
+  a_{k-1}  & ~ & ~ & ~ & ~ & b_{k-1} & ~\\
+   ~ & \ddots & ~ & ~ & \iddots  & ~ & ~\\
+   ~ & ~ & a_{1}&b_{1} & ~ & ~ & ~\\
+  ~ & ~ & c_{1}&d_{1} & ~ & ~ & ~\\
+   ~ & \iddots & ~ & ~ & \ddots  & ~ & ~\\
+   c_{k-1}  & ~ & ~ & ~ & ~ & d_{k-1} & ~\\
+   0  & ~ & ~ & ~ & ~ & ~ & d_{k}
+\end{bmatrix}+c_{k}(-1)^{2k+1}
+\begin{bmatrix}
+  0  & ~ & ~ & ~ & ~ & ~ & b_{k}\\
+   a_{k-1}  & ~ & ~ & ~ & ~ & b_{k-1} & ~\\
+   ~ & \ddots & ~ & ~ & \iddots  & ~ & ~\\
+   ~ & ~ & a_{1}&b_{1} & ~ & ~ & ~\\
+  ~ & ~ & c_{1}&d_{1} & ~ & ~ & ~\\
+   ~ & \iddots & ~ & ~ & \ddots  & ~ & ~\\
+   c_{k-1}  & ~ & ~ & ~ & ~ & d_{k-1} & ~
+\end{bmatrix}\\
+&=a_{k}d_{k}(-1)^{2k-2+1+2k-2+1}\begin{bmatrix}
+  a_{k-1}  & ~ & ~ & ~ & ~ & b_{k-1} \\
+   ~ & \ddots & ~ & ~ & \iddots  & ~ \\
+   ~ & ~ & a_{1}&b_{1} & ~ & ~ \\
+  ~ & ~ & c_{1}&d_{1} & ~ & ~ \\
+   ~ & \iddots & ~ & ~ & \ddots  & ~ \\
+   c_{k-1}  & ~ & ~ & ~ & ~ & d_{k-1}
+\end{bmatrix}-c_{k}d_{k}(-1)^{1+2k-2+1}\begin{bmatrix}
+  a_{k-1}  & ~ & ~ & ~ & ~ & b_{k-1} \\
+   ~ & \ddots & ~ & ~ & \iddots  & ~ \\
+   ~ & ~ & a_{1}&b_{1} & ~ & ~ \\
+  ~ & ~ & c_{1}&d_{1} & ~ & ~ \\
+   ~ & \iddots & ~ & ~ & \ddots  & ~ \\
+   c_{k-1}  & ~ & ~ & ~ & ~ & d_{k-1}
+\end{bmatrix}\\ &=(a_{k}d_{k}-c_{k}d_{k})|A_{k-1}|=\prod_{i=1}^{k}(a_{i}d_{i}-c_{i}b_{i})
+\end{align*}
+\end{jie}
+
+\end{document}  

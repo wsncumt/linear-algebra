@@ -1,0 +1,74 @@
+\documentclass{article}
+\usepackage[space,fancyhdr,fntef]{ctexcap}
+\usepackage[namelimits,sumlimits,nointlimits]{amsmath}
+\usepackage[bottom=25mm,top=25mm,left=25mm,right=15mm,centering]{geometry}
+\usepackage{xcolor}
+\usepackage{paralist}%列表宏包
+\usepackage{arydshln}%234页，虚线表格宏包
+\pagestyle{fancy} \fancyhf{}
+\fancyhead[OL]{~~~班序号：\hfill 学院：\hfill 学号：\hfill 姓名：王松年~~~ \thepage}
+%\usepackage{parskip}
+%\usepackage{indentfirst}
+\usepackage{graphicx}%插图宏包，参见手册318页
+\usepackage{amssymb}
+\usepackage{bbm}
+\begin{document}
+
+\newcounter{num} \renewcommand{\thenum}{\arabic{num}.} \newcommand{\num}{\refstepcounter{num}\text{\thenum}}
+
+\hphantom{~~}\hfill {\zihao{3}\heiti 第七次习题课} \hfill\hphantom{~~}
+
+\hphantom{~~}\hfill {\zihao{4}\heiti 知识点} \hfill\hphantom{~~}
+
+
+\num $n$阶矩阵$A$是奇异矩阵的充分必要条件是$A$有一个特征值为0.
+
+\num 设$\lambda_{0}$是$A$的一个特征值，则
+
+(1)$\lambda^{n}$是$A^{n}$的一个特征值。
+
+(2)$\forall k\in\mathbb{R},k-\lambda_{0}$是$kE-A$的一个特征值。
+
+设$f(x)=a_{n}x^{n}+a_{n-1}x^{n-1}+\cdots+a_{1}x+a_{0}$,定义$f(A)=a_{n}A^{n}+a_{n-1}A^{n-1}+\cdots+a_{1}A+a_{0}E$,$f(\lambda_{0})$是$f(A)$的一个特征值。
+
+(3)设$A$可逆，则$\dfrac{1}{\lambda_{0}}$是$A^{-1}$的一个特征值。因为$A^*=|A|A^{-1}$，所以$\dfrac{|A|}{\lambda_0}$是$A^*$的一个特征值。
+
+\num 特征值的性质
+
+(1)$n$阶矩阵与它的转置矩阵$A^T$有相同的特征值。
+
+(2)相似矩阵：设$A,B$为$n$阶矩阵，如果存在可逆矩阵$P$，使得$P^{-1}AP=B$，则称$A$与$B$相似。
+
+ 相似矩阵具有相同的秩、行列式、特征多项式和特征值，相似矩阵的逆矩阵、伴随矩阵也相似。
+
+(3)设$n$阶矩阵$A$的全部特征值为$\lambda_{1},\cdots,\lambda_{n}$（其中可能有重根、复根）
+\begin{equation*}
+  \sum_{i=1}^{n}\lambda_{i}=\sum_{i=1}^{n}a_{ii}=trace A~~~~~\prod_{i=1}^{n}\lambda_{i}=|A|
+\end{equation*}
+
+\num 特征向量的性质
+
+(1) $n$阶矩阵$A$互不相同的特征值对应的特征向量$v_{1},v_{2},\cdots,v_{m}$线性无关。
+
+(2)$n$阶矩阵$A$对应于相同特征值的特征向量的非零线性组合依然是特征向量。
+
+(3)对应于不同特征值的线性无关的特征向量组仍然是线性无关的。
+
+\num 相似对角化：设$A,B$为$n$阶矩阵，如果存在可逆矩阵$P$，使得$P^{-1}AP=\Lambda=
+\begin{bmatrix}
+  \lambda_{1} & ~ & ~ \\
+  ~& \ddots&~\\
+  ~&~&\lambda_{n}
+\end{bmatrix}
+$，则称$A$可以相似对角化。
+
+\num $n$阶矩阵$A$与$n$阶对角矩阵$\Lambda$相似的充要条件是$A$有$n$个线性无关的特征向量。
+
+$n$阶矩阵$A$有$n$个互不相同的特征值$\lambda_{1},\cdots,\lambda_{n}$，则$A$与对角阵$\Lambda$相似。
+
+$n$阶矩阵$A$互不相同的特征值对应的对应的特征向量$v_{1},v_{2},\cdots,v_{m}$线性无关。
+
+\num 方程$(\lambda_{i}E-A)x=0$的基础解系向量的个数称为$\lambda_{i}$的几何重数（等于自由变量的个数，等于$n-r(\lambda_{i}E-A)$）。$\lambda_{i}$作为特征方程的特征根的重数称为$\lambda_{i}$的代数重数。
+
+\num $n$阶矩阵$A$与对角矩阵相似的充分必要条件是对于每一个$n_{i}$重特征根$\lambda_{i}$，矩阵$\lambda_{i}E-A$的秩是$n-n_{i}$。即$\lambda_{i}$的代数重数等于几何重数。
+\end{document}  

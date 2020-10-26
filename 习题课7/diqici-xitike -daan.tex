@@ -1,0 +1,300 @@
+\documentclass{article}
+\usepackage[space,fancyhdr,fntef]{ctexcap}
+\usepackage[namelimits,sumlimits,nointlimits]{amsmath}
+\usepackage[bottom=25mm,top=25mm,left=25mm,right=15mm,centering]{geometry}
+\usepackage{xcolor}
+\usepackage{arydshln}%234页，虚线表格宏包
+\pagestyle{fancy} \fancyhf{}
+\fancyhead[OL]{~~~班序号：\hfill 学院：\hfill 学号：\hfill 姓名：王松年~~~ \thepage}
+%\usepackage{parskip}
+%\usepackage{indentfirst}
+\usepackage{graphicx}%插图宏包，参见手册318页
+\usepackage{mathdots}%反对角省略号
+\usepackage{extarrows}%等号上加文字
+\begin{document}
+
+\newcounter{num} \renewcommand{\thenum}{\arabic{num}.} \newcommand{\num}{\refstepcounter{num}\text{\thenum}}
+
+\newenvironment{jie}{\kaishu\zihao{-5}\color{blue}{\noindent\em 解：}\par}{\hfill $\diamondsuit$\par}
+
+\newenvironment{zhengming}{\kaishu\zihao{-5}\color{blue}{\noindent\em 证明：}\par}{\hfill $\diamondsuit$\par}
+
+\hphantom{~~}\hfill {\zihao{3}\heiti 第七次习题课} \hfill\hphantom{~~}
+
+\hphantom{~~}\hfill {\zihao{4}\heiti 群文件《期中$\&$期末试题》} \hfill\hphantom{~~}
+
+{\heiti \zihao{4} 期末试题}
+
+\num 期末2015-2016 一3.
+
+设$\alpha_{1},\alpha_{2},\alpha_{3}$是非齐次线性方程组$Ax=b$得到解，若$\sum\limits_{i=1}^{3}c_{i}\alpha_{i}$也是$Ax=b$得到解，则$\sum\limits_{i=1}^{3}c_{i}=$\underline{\hphantom{~~~~~~~~~~}}。
+
+\begin{jie}
+由题得：$A\alpha_{1}=b,A\alpha_{2}=b,A\alpha_{3}=b$,$A\sum\limits_{i=1}^{3}c_{i}\alpha_{i}=A(c_{1}\alpha_{1}+c_{2}\alpha_{2}+c_{3}\alpha_{3})=b$.
+
+所以$A\alpha_{1}+A\alpha_{2}+A\alpha_{3}=3b$,即$A\left(\dfrac{1}{3}\alpha_{1}+\dfrac{1}{3}\alpha_{2}+\dfrac{1}{3}\alpha_{3}\right)=b=A(c_{1}\alpha_{1}+c_{2}\alpha_{2}+c_{3}\alpha_{3})$，所以$\sum\limits_ {i=1}^{3}c_{i}=\dfrac{1}{3}+\dfrac{1}{3}+\dfrac{1}{3}=1$。
+\end{jie}
+\num 期末2015-2016 四2.
+
+设向量组$\alpha_{1},\alpha_{2},\alpha_{3}$线性无关，向量$\beta$可由$\alpha_{1},\alpha_{2},\alpha_{3}$线性表示，向量$\gamma$不能由$\alpha_{1},\alpha_{2},\alpha_{3}$线性表示，证明向量组$\alpha_{1},\alpha_{2},\alpha_{3},\beta+\alpha$线性无关。
+
+\begin{zhengming}
+向量$\beta$可由$\alpha_{1},\alpha_{2},\alpha_{3}$线性表示，即存在一组不全为0的$k_{i}(1\leq i\leq3)$,使得
+\begin{equation*}
+ \beta=k_ {1}\alpha_{1}+k_{2}\alpha_{2}+k_{3}\alpha_{3}\tag{$1$}
+\end{equation*}
+
+反证：假设向量组$\alpha_{1},\alpha_{2},\alpha_{3},\beta+\alpha$线性相关。则存在一组不全为0的$l_{i}(1\leq i\leq3)$和$l$,使得
+\begin{equation*}
+l_ {1}\alpha_{1}+l_{2}\alpha_{2}+l_{3}\alpha_{3}+l(\beta+\gamma)=0\tag{$2$}
+\end{equation*}
+
+若$l=0$,则$l_ {1}\alpha_{1}+l_{2}\alpha_{2}+l_{3}\alpha_{3}+l(\beta+\gamma)=l_ {1}\alpha_{1}+l_{2}\alpha_{2}+l_{3}\alpha_{3}=0$，此时$\alpha_{1},\alpha_{2},\alpha_{3}$线性相关，与题中的条件矛盾，所以$l\neq0$。所以$(1)$式可变形为
+\begin{equation*}
+\beta+\gamma=-\frac{1}{l}(l_ {1}\alpha_{1}+l_{2}\alpha_{2}+l_{3}\alpha_{3})
+\end{equation*}
+代入$(1)$式：
+\begin{equation*}
+  \gamma=-\frac{1}{l}(l_ {1}\alpha_{1}+l_{2}\alpha_{2}+l_{3}\alpha_{3})-k_ {1}\alpha_{1}+k_{2}\alpha_{2}+k_{3}\alpha_{3}
+\end{equation*}
+
+可以看出此时$\gamma$可以由$\alpha_{1},\alpha_{2},\alpha_{3}$线性表示，与题目矛盾，所以假设错误，即向量组$\alpha_{1},\alpha_{2},\alpha_{3},\beta+\alpha$线性无关。
+\end{zhengming}
+
+\num 期末2016-2017 四1.
+
+已知$\alpha_{1},\alpha_{2},\alpha_{3}$是线性无关的向量组，若$\alpha_{1},\alpha_{2},\alpha_{3},\beta$线性相关，证明$\beta$可以由$\alpha_{1},\alpha_{2},\alpha_{3}$线性表示并且表示方法唯一。
+
+\begin{zhengming}
+$\alpha_{1},\alpha_{2},\alpha_{3},\beta$线性相关，则存在一组不全为0的$l_{i}(1\leq i\leq3)$和$l$,使得
+\begin{equation*}
+l_ {1}\alpha_{1}+l_{2}\alpha_{2}+l_{3}\alpha_{3}+l\beta=0\tag{$1$}
+\end{equation*}
+若$l=0$,则$l_ {1}\alpha_{1}+l_{2}\alpha_{2}+l_{3}\alpha_{3}+l\beta=l_ {1}\alpha_{1}+l_{2}\alpha_{2}+l_{3}\alpha_{3}=0$，此时$\alpha_{1},\alpha_{2},\alpha_{3}$线性相关，与题中的条件矛盾，所以$l\neq0$。所以$(1)$式可变形为
+\begin{equation*}
+\beta=-\frac{1}{l}(l_ {1}\alpha_{1}+l_{2}\alpha_{2}+l_{3}\alpha_{3})
+\end{equation*}
+即$\beta$可以由$\alpha_{1},\alpha_{2},\alpha_{3}$线性表示。
+
+$\beta$可以由$\alpha_{1},\alpha_{2},\alpha_{3}$线性表示，不妨设任意两组不全为0的数$m_{i},n_i,(1\leq i\leq3)$，使得
+\begin{gather*}
+\beta=m_{1}\alpha_{1}+m_{2}\alpha_{2}+m_{3}\alpha_{3}\tag{$2$}\\
+\beta=n_{1}\alpha_{1}+n_{2}\alpha_{2}+n_{3}\alpha_{3}\tag{$3$}
+\end{gather*}
+$(2)$式减$(3)$式：$0=(m_{1}-n{1})\alpha_{1}+(m_{2}-n{2})\alpha_{2}+(m_{3}-n{3})\alpha_{3}$,因为$\alpha_{1},\alpha_{2},\alpha_{3}$线性无关，所以有
+$m_{1}-n{1}=0,m_{2}-n{2}=0,m_{3}-n{3}=0$,即$m_{1}=n{1},m_{2}=n{2},m_{3}=n{3}$,由于$m_{i}$和$n_{i}$的任意性，所以可证得表示方法唯一。
+\end{zhengming}
+
+\num 期末2017-2018 三3.
+
+已知$\alpha_ {1}=(1,4,0,2)^{T},\alpha_{2}=(2,7,1,3)^{T},\alpha_{3}=(0,1,-1,a)^{T}$及$\beta_{4}=(3,10,b,4)^{T}$.
+
+(1)$a,b$为何值时，$\beta$不能表示成$\alpha_{1},\alpha_{2},\alpha_{3}$的线性组合？
+
+(2)$a,b$为何值时，$\beta$可由$\alpha_{1},\alpha_{2},\alpha_{3}$线性表示？并写出该表达式。
+
+\begin{jie}
+记$A=[\alpha_{1},\alpha_{2},\alpha_{3}]$,则
+\begin{align*}
+[A|\beta]=&
+\left[
+\begin{array}{c:c}
+\begin{matrix}
+1 & 2 & 0 \\
+  4 & 7 & 1 \\
+  0 & 1 & -1\\
+  2& 3&a
+\end{matrix}&
+\begin{matrix}
+3  \\
+10\\
+b\\
+4
+\end{matrix}
+\end{array}
+\right]
+\xrightarrow{\substack{r_{2}-4r_{1}\\ r_{4}-2r_{1}}}
+{
+\left[
+\begin{array}{c:c}
+\begin{matrix}
+1 & 2 & 0 \\
+  0 & -1 & 1 \\
+  0 & 1 & -1\\
+  0& -1&a
+\end{matrix}&
+\begin{matrix}
+3  \\
+-2\\
+b\\
+2
+\end{matrix}
+\end{array}
+\right]
+}
+\xrightarrow{\substack{r_{3}+r_{2}\\ r_{4}-r_{2}}}
+{
+\left[
+\begin{array}{c:c}
+\begin{matrix}
+1 & 2 & 0 \\
+  0 & -1 & 1 \\
+  0 & 0 & 0\\
+  0& 0&a-1
+\end{matrix}&
+\begin{matrix}
+3  \\
+-2\\
+b-2\\
+0
+\end{matrix}
+\end{array}
+\right]
+}\\
+\xrightarrow{r_{3}\leftrightarrow r_{2}}&
+{
+\left[
+\begin{array}{c:c}
+\begin{matrix}
+1 & 2 & 0 \\
+  0 & -1 & 1 \\
+   0& 0&a-1\\
+ 0 & 0 & 0
+\end{matrix}&
+\begin{matrix}
+3  \\
+-2\\
+0\\
+b-2
+\end{matrix}
+\end{array}
+\right]
+}
+\end{align*}
+
+(1)可以看出$b\neq2,a\in R$时，$Ax=\beta$无解，即$\beta$不能表示成$\alpha_{1},\alpha_{2},\alpha_{3}$的线性组合。
+
+(2)$b=2$时，$\beta$可由$\alpha_{1},\alpha_{2},\alpha_{3}$线性表示。
+
+当$a\neq1$,$r(A)=r(A,\beta)=3$,此时：$Ax=\beta$有唯一解，即$\beta$可由$\alpha_{1},\alpha_{2},\alpha_{3}$线性表示的方法唯一。
+\begin{align*}
+\xrightarrow{r_{3}\times \frac{1}{a-1}}
+{
+\left[
+\begin{array}{c:c}
+\begin{matrix}
+1 & 2 & 0 \\
+  0 & -1 & 1 \\
+   0& 0&1\\
+ 0 & 0 & 0
+\end{matrix}&
+\begin{matrix}
+3  \\
+-2\\
+0\\
+0
+\end{matrix}
+\end{array}
+\right]
+}
+\xrightarrow{r_2-r_{3}}
+{
+\left[
+\begin{array}{c:c}
+\begin{matrix}
+1 & 2 & 0 \\
+  0 & -1 & 0 \\
+   0& 0&1\\
+ 0 & 0 & 0
+\end{matrix}&
+\begin{matrix}
+3  \\
+-2\\
+0\\
+0
+\end{matrix}
+\end{array}
+\right]
+}\xrightarrow{r_1+2r_{2}}
+{
+\left[
+\begin{array}{c:c}
+\begin{matrix}
+1 & 0 & 0 \\
+  0 & -1 & 0 \\
+   0& 0&1\\
+ 0 & 0 & 0
+\end{matrix}&
+\begin{matrix}
+-1  \\
+-2\\
+0\\
+0
+\end{matrix}
+\end{array}
+\right]
+}
+\end{align*}
+此时$Ax=\beta$的解为$x_{1}=-1,x_{2}=2,x_{3}=0$，所以$\beta=x_{1}\alpha_{1}+x_{2}\alpha_{2}+x_{3}\alpha_{3}=-\alpha_{1}+2\alpha_{2}+0\alpha_{3}=-\alpha_{1}+2\alpha_{2}$.
+
+$a=1$时$r(A,\beta)=r(A)=2<3$，所以$\beta$可由$\alpha_{1},\alpha_{2},\alpha_{3}$线性表示的方法唯一。
+\begin{equation*}
+\xrightarrow{r_1+2r_{2}}
+{
+\left[
+\begin{array}{c:c}
+\begin{matrix}
+1 & 0 & 2 \\
+  0 & -1 & 1 \\
+   0& 0&0\\
+ 0 & 0 & 0
+\end{matrix}&
+\begin{matrix}
+-1  \\
+-2\\
+0\\
+0
+\end{matrix}
+\end{array}
+\right]}
+\end{equation*}
+所以解得$x_{1}=-1-2x_{3},x_{2}=x_{3}+2$，令$x_{3}=k,k\in R$,则$\beta=x_ {1}\alpha_{1}+x_{2}\alpha_{2}+x_{3}\alpha_{3}=-(1+2k)\alpha_{1}+(2+k)\alpha_{2}+k\alpha_{3}$
+\end{jie}
+
+\num 期末2018-2019 一2.
+
+已知向量组$\alpha_{1}=(1,3,1),\alpha_{2}=(0,1,1),\alpha_{3}=(1,4,k)$线性无关，则实数$k$满足的条件是\underline{\hphantom{~~~~~~~~~~}}。
+
+\begin{jie}
+$\alpha_{1},\alpha_{2},\alpha_{3}$线性无关，即$r(\alpha_{1},\alpha_{2},\alpha_{3})=3$，记$A=(\alpha_{1},\alpha_{2},\alpha_{3})$,则$|A|\neq0$
+\begin{equation*}
+  |A|=\begin{vmatrix}
+       1& 0 & 1\\
+       3 & 1 & 4\\
+       1 & 1 & k
+\end{vmatrix}\xlongequal{c_{3}-c_{1}}
+\begin{vmatrix}
+1& 0 & 0\\
+3 & 1 & 1\\
+1 & 1 & k-1
+\end{vmatrix}=k-2\neq0~~~\Rightarrow k\neq 2
+\end{equation*}
+\end{jie}
+
+\num 期末2018-2019 一6.
+
+设3维列向量组$\alpha_{1},\alpha_{2},\alpha_{3}$线性无关，3阶方阵$A$满足$A\alpha_{1}=-\alpha_{1},A\alpha_{2}=\alpha_{2},A\alpha_{3}=\alpha_{2}+\alpha_{3}$。则行列式$|A|=$\underline{\hphantom{~~~~~~~~~~}}。
+
+\begin{jie}
+由题得：$A\alpha_ {1}=-\alpha_{1},A\alpha_{2}=\alpha_{2},A\alpha_{3}=\alpha_{2}+\alpha_{3}$所以
+\begin{equation*}
+A(\alpha_{1}~\alpha_{2}~\alpha_{3})=(-\alpha_{1}~~\alpha_{2}~~\alpha_{2}+\alpha_{3})
+\end{equation*}
+即
+\begin{gather*}
+|A(\alpha_{1}~\alpha_{2}~\alpha_{3})|=|A|\cdot|\alpha_{1}~\alpha_{2}~\alpha_{3}|=|-\alpha_{1}~~\alpha_{2}~~\alpha_{2}+\alpha_{3}|\\
+|-\alpha_{1}~~\alpha_{2}~~\alpha_{2}+\alpha_{3}|\xlongequal{c_{3}-c_{2}}|-\alpha_{1}~~\alpha_{2}~~\alpha_{3}|=-|\alpha_{1}~\alpha_{2}~\alpha_{3}|\\
+|A|=-1
+\end{gather*}
+\end{jie}
+\end{document}  

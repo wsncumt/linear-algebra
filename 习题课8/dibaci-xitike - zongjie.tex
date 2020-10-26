@@ -1,0 +1,53 @@
+\documentclass{article}
+\usepackage[space,fancyhdr,fntef]{ctexcap}
+\usepackage[namelimits,sumlimits,nointlimits]{amsmath}
+\usepackage[bottom=25mm,top=25mm,left=25mm,right=15mm,centering]{geometry}
+\usepackage{xcolor}
+\usepackage{paralist}%列表宏包
+\usepackage{arydshln}%234页，虚线表格宏包
+\pagestyle{fancy} \fancyhf{}
+\fancyhead[OL]{~~~班序号：\hfill 学院：\hfill 学号：\hfill 姓名：王松年~~~ \thepage}
+%\usepackage{parskip}
+%\usepackage{indentfirst}
+\usepackage{graphicx}%插图宏包，参见手册318页
+\begin{document}
+
+\newcounter{num} \renewcommand{\thenum}{\arabic{num}.} \newcommand{\num}{\refstepcounter{num}\text{\thenum}}
+
+\hphantom{~~}\hfill {\zihao{3}\heiti 第七次习题课} \hfill\hphantom{~~}
+
+\hphantom{~~}\hfill {\zihao{4}\heiti 知识点} \hfill\hphantom{~~}
+
+
+\num 极大线性无关组：在不全为的向量组$\alpha_{1},\alpha_{2},\cdots,\alpha_{s}$中取出一组线性无关的向量$\alpha_{i_{1}},\alpha_{i_{2}},\cdots,\alpha_{i_{k}}$，若任意添加$\beta\in\{\alpha_{1},\cdots,\alpha_{s}\}$得到的向量组$\alpha_ {i_{1}},\alpha_{i_{2}},\cdots,\alpha_{i_{k}},\beta$是线性相关的，那么我们称$\alpha_ {i_{1}},\alpha_{i_{2}},\cdots,\alpha_{i_{k}}$是$\alpha_ {1},\alpha_{2},\cdots,\alpha_{s}$的一个极大线性无关组。向量组$\alpha_{1},\alpha_{2},\cdots,\alpha_{s}$的极大无关组所含向量的个数称为向量组的秩。
+
+\num $\alpha_{i_{1}},\alpha_{i_{2}},\cdots,\alpha_{i_{k}}$是$\alpha_ {1},\alpha_{2},\cdots,\alpha_{s}$一个极大线性无关组的充分必要条件是$k=r(\alpha_{i_{1}},\alpha_{i_{2}},\cdots,\alpha_{i_{k}})=r(\alpha_ {1},\alpha_{2},\cdots,\alpha_{s})$.把$\alpha_ {1},\alpha_{2},\cdots,\alpha_{s}$化为阶梯型矩阵后，不全为0的行的首个非零元对应的向量放一起就得到的是极大线性无关组。
+
+\num 向量组$\alpha_{1},\alpha_{2},\cdots,\alpha_{s}$中一部分向量（部分向量组）线性相关，则整个向量组线性相关。
+
+推论：部分相关则整体相关，反之不成立。整体无关则部分无关，反之不成立。
+
+\num 向量组的秩：向量组$\alpha_{1},\alpha_{2},\cdots,\alpha_{s}$的极大线性无关组所含向量的个数称为向量组的秩。记为$r(\alpha_{1},\alpha_{2},\cdots,\alpha_{s})$。
+
+\num 向量组$\alpha_{1},\alpha_{2},\cdots,\alpha_{s}(s\geq 2)$线性相关当且仅当其中至少有一个向量是其余$s-1$个向量的线性组合。
+
+\num 如何求$Ax=0$的通解？
+
+(1)$(A,0)$化为最简阶梯型矩阵；
+
+(2)找出自由变量，假设自由变量是$x_{r+1},x_{r+2},x_{n}$；
+
+(3)写出基础解系（基础解系是解的极大线性无关组）
+
+$\xi_{i}$:取$\xi_{i}=1$，其余自由变量取0得到的解
+
+则通解为$c_{1}\xi_{1}+c_{2}x_{2}+\cdots+c_{n-r}\xi_{n-r}$，其中$c_{1},c_{2},\cdots,c_{n-r}$是任意常数。
+
+\num 称齐次方程$Ax=0$是$Ax=\beta$的导出组。
+
+(1)$\eta$是$Ax=\beta$的一个解，$\xi$是$Ax=0$的解，则$\eta+\xi$也是$Ax=\beta$的一个解。
+
+(2)$\eta_{1},\eta_{2}$是$Ax=\beta$的解，则$\eta_{1}-\eta_{2}$是$Ax=0$的解。
+
+(3)$\eta$是$Ax=\beta$的一个（特）解，则$Ax=\beta$的（通解）任意解都可以表示为$\eta+\xi$的形式，其中$\xi$是$Ax=0$的任意一个解。
+\end{document}  

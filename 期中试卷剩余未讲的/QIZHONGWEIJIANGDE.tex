@@ -1,0 +1,50 @@
+\documentclass{article}
+\usepackage[space,fancyhdr,fntef]{ctexcap}
+\usepackage[namelimits,sumlimits,nointlimits]{amsmath}
+\usepackage[bottom=25mm,top=25mm,left=25mm,right=15mm,centering]{geometry}
+\usepackage{xcolor}
+\usepackage{arydshln}%234页，虚线表格宏包
+\usepackage{mathdots}%反对角省略号
+\pagestyle{fancy} \fancyhf{}
+\fancyhead[OL]{~~~班序号：\hfill 学院：\hfill 学号：\hfill 姓名：王松年~~~ \thepage}
+%\usepackage{parskip}
+%\usepackage{indentfirst}
+\usepackage{graphicx}%插图宏包，参见手册318页
+\begin{document}
+
+\newcounter{num} \renewcommand{\thenum}{\arabic{num}.} \newcommand{\num}{\refstepcounter{num}\text{\thenum}}
+
+\hphantom{~~}\hfill {\zihao{3}\heiti 期中试卷剩余部分习题} \hfill\hphantom{~~}
+
+\hphantom{~~}\hfill {\zihao{4}\heiti 群文件《期中$\&$期末试题》} \hfill\hphantom{~~}
+
+\num 期中2016-2017 一4.
+
+设$f(x)=ax^{2}+bx+c$,$A$为$n$阶方阵，定义$f(A)=aA^{2}+bA+cI$，如果$
+A=
+\begin{bmatrix}
+  1 & 0 & 0 & 0 \\
+  0 & 1& 0& 0 \\
+  2 & 0 & 1& 0\\
+   0 & 0 &0 &1
+\end{bmatrix},f(x)=x^{2}-x-1,
+$则$f(A)=$\underline{\hphantom{~~~~~~~~~~}}。\\
+
+\num 期中2017-2018 二1.判断是否成立并给出理由。
+
+设$A,B$为同阶对称方阵，则$AB$一定是对称矩阵；\\
+
+\num 期中2017-2018 二4.
+
+设2阶矩阵$A=
+\begin{bmatrix}
+  a & b \\
+  c & d
+\end{bmatrix}
+$,若$A$与所有的2阶矩阵均可以交换，则$a=d,b=c=0$。\\
+
+\num 期中2018-2019 二2.
+
+设$A$是$n$阶实对称矩阵，如果$A^{2}=0$。证明$A=0$.并举例说明，如果$A$不是实对称矩阵，上述命题不正确。\\
+
+\end{document}  

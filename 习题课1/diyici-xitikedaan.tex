@@ -1,0 +1,1163 @@
+\documentclass{article}
+\usepackage[space,fancyhdr,fntef]{ctexcap}
+\usepackage[namelimits,sumlimits,nointlimits]{amsmath}
+\usepackage[bottom=25mm,top=25mm,left=25mm,right=15mm,centering]{geometry}
+\usepackage{xcolor}
+\usepackage{arydshln}%234页，虚线表格宏包
+\pagestyle{fancy} \fancyhf{}
+\fancyhead[OL]{~~~班序号：\hfill 学院：\hfill 学号：\hfill 姓名：王松年~~~ \thepage}
+%\usepackage{parskip}
+%\usepackage{indentfirst}
+\usepackage{graphicx}%插图宏包，参见手册318页
+\begin{document}
+
+\newcounter{num} \renewcommand{\thenum}{\arabic{num}.} \newcommand{\num}{\refstepcounter{num}\text{\thenum}}
+
+\newenvironment{jie}{\kaishu\zihao{-5}\color{blue}{\noindent\em 解：}\par}{\hfill $\diamondsuit$\par}
+
+\hphantom{~~}\hfill {\zihao{3}\heiti 第一次习题课} \hfill\hphantom{~~}
+
+\hphantom{~~}\hfill {\zihao{4}\heiti 群文件《期中$\&$期末试题》} \hfill\hphantom{~~}
+
+{\heiti \zihao{-3} 期末试题}
+
+
+1.2014\~{}2015(双语)1.
+
+Determine if the following systems are consistent.\\
+\begin{flalign*}
+  &(a).
+  \begin{cases}
+    x_{1}+x_{2}-x_{3}=1\\
+    x_{2}=1\\
+    x_{2}-2x_{3}=3
+  \end{cases}
+  ~~~~(b).
+  \begin{cases}
+    x_{1}+x_{2}+x_{3}=0\\
+    x_{2}-2x_{3}=1\\
+    x_{2}+2x_{3}=6
+  \end{cases}
+\end{flalign*}
+
+\begin{jie}
+(a)增广矩阵：
+\begin{align*}
+\left[
+\begin{array}{c:c}
+ \begin{matrix}
+   1 & 1 & -1 \\
+   0 & 1 &  0 \\
+   0 & 1 & -2 \\
+ \end{matrix} &
+ \begin{matrix}
+   1 \\
+   1 \\
+   3 \\
+ \end{matrix}
+\end{array}
+\right]
+& \xrightarrow{r_{3}-r_{2}}
+{
+\left[
+\begin{array}{c:c}
+ \begin{matrix}
+   1 & 1 & -1 \\
+   0 & 1 &  0 \\
+   0 & 0 & -2 \\
+ \end{matrix} &
+ \begin{matrix}
+   1 \\
+   1 \\
+   2 \\
+ \end{matrix}
+\end{array}
+\right]
+}
+\xrightarrow{r_{3}\times\left(-\frac{1}{2}\right)}
+{
+\left[
+\begin{array}{c:c}
+ \begin{matrix}
+   1 & 1 & -1 \\
+   0 & 1 &  0 \\
+   0 & 0 & 1 \\
+ \end{matrix} &
+ \begin{matrix}
+   1 \\
+   1 \\
+   -1 \\
+ \end{matrix}
+\end{array}
+\right]
+}
+\xrightarrow{r_{1}+r_{3}}
+{
+\left[
+\begin{array}{c:c}
+ \begin{matrix}
+   1 & 1 & 0 \\
+   0 & 1 & 0 \\
+   0 & 0 & 1 \\
+ \end{matrix} &
+ \begin{matrix}
+   0 \\
+   1 \\
+   -1 \\
+ \end{matrix}
+\end{array}
+\right]
+}\\
+&\xrightarrow{r_{1}-r_{2}}
+{
+\left[
+\begin{array}{c:c}
+ \begin{matrix}
+   1 & 0 & 0 \\
+   0 & 1 &  0 \\
+   0 & 0 & 1 \\
+ \end{matrix} &
+ \begin{matrix}
+   -1 \\
+   1 \\
+   -1 \\
+ \end{matrix}
+\end{array}
+\right]
+}
+\end{align*}
+所以解得：$\mathbf{x}=\begin{bmatrix}
+                   -1 \\
+                   1 \\
+                   -1
+                 \end{bmatrix}$。
+
+(b)增广矩阵：
+\begin{align*}
+\left[
+\begin{array}{c:c}
+ \begin{matrix}
+   1 & 1 &  1 \\
+   0 & 1 & -2 \\
+   0 & 1 &  2 \\
+ \end{matrix} &
+ \begin{matrix}
+   0 \\
+   1 \\
+   6 \\
+ \end{matrix}
+\end{array}
+\right]
+& \xrightarrow{r_{3}-r_{2}}
+{
+\left[
+\begin{array}{c:c}
+ \begin{matrix}
+   1 & 1 &  1 \\
+   0 & 1 & -2 \\
+   0 & 0 &  4 \\
+ \end{matrix} &
+ \begin{matrix}
+   0 \\
+   1 \\
+   5 \\
+ \end{matrix}
+\end{array}
+\right]
+}
+\xrightarrow{r_{3}\times\left(\frac{1}{4}\right)}
+{
+\left[
+\begin{array}{c:c}
+ \begin{matrix}
+   1 & 1 &  1 \\
+   0 & 1 & -2 \\
+   0 & 0 &  1 \\
+ \end{matrix} &
+ \begin{matrix}
+   0 \\
+   1 \\
+  \frac{5}{4} \\
+ \end{matrix}
+\end{array}
+\right]
+}
+\xrightarrow{\substack{r_{2}+2r_{3}\\ r_{1}-r_{3}}}
+{
+\left[
+\begin{array}{c:c}
+ \begin{matrix}
+   1 & 1 & 0 \\
+   0 & 1 & 0 \\
+   0 & 0 & 1 \\
+ \end{matrix} &
+ \begin{matrix}
+   -\frac{5}{4} \\
+   \frac{14}{4} \\
+   \frac{5}{4} \\
+ \end{matrix}
+\end{array}
+\right]
+}\\
+&\xrightarrow{r_{1}-r_{2}}
+{
+\left[
+\begin{array}{c:c}
+ \begin{matrix}
+   1 & 0 & 0 \\
+   0 & 1 & 0 \\
+   0 & 0 & 1 \\
+ \end{matrix} &
+ \begin{matrix}
+   -\frac{19}{4} \\
+   \frac{7}{2} \\
+   \frac{5}{4} \\
+ \end{matrix}
+\end{array}
+\right]
+}
+\end{align*}
+所以解得：$\mathbf{x}=\begin{bmatrix}
+                   -\frac{19}{4} \\
+                   \frac{7}{2} \\
+                   \frac{5}{4}
+                 \end{bmatrix}$。
+\end{jie}
+
+2.2015\~{}2016~~三.1.
+
+当$k$为何值时，线性方程组
+$
+\begin{cases}
+kx_{1}+x_{2}+x_{3}=k-3\\
+x_{1}+kx_{2}+x_{3}=-2\\
+x_{1}+x_{2}+kx_{3}=-2
+\end{cases}
+$
+有唯一解，无解和有无穷多解？当方程组有无穷多解时求出所有解。
+
+\begin{jie}
+增广矩阵
+\begin{align*}
+&\left[
+\begin{array}{c:c}
+\begin{matrix}
+  k & 1 & 1 \\
+  1 & k & 1 \\
+  1 & 1 & k \\
+\end{matrix}
+&
+\begin{matrix}
+  k-3 \\
+  -2 \\
+  -2 \\
+\end{matrix}
+\end{array}
+\right]
+\xrightarrow{r_{1}\leftrightarrow r_{2}}
+{
+\left[
+\begin{array}{c:c}
+\begin{matrix}
+  1 & k & 1 \\
+  k & 1 & 1 \\
+  1 & 1 & k \\
+\end{matrix}
+&
+\begin{matrix}
+  -2 \\
+  k-3 \\
+  -2 \\
+\end{matrix}
+\end{array}
+\right]
+}
+\xrightarrow{\substack{r_{2}-kr_{1} \\ r_{3}-r_{1}}}
+{
+\left[
+\begin{array}{c:c}
+\begin{matrix}
+  1 & k & 1 \\
+  0 & 1-k^{2} & 1-k \\
+  0 & 1-k & k-1 \\
+\end{matrix}
+&
+\begin{matrix}
+  -2 \\
+  3(k-1) \\
+  0 \\
+\end{matrix}
+\end{array}
+\right]
+}\\
+\xrightarrow{r_{2}\leftrightarrow r_{3}} &
+{
+\left[
+\begin{array}{c:c}
+\begin{matrix}
+  1 & k & 1 \\
+  0 & 1-k & k-1 \\
+  0 & 1-k^{2} & 1-k \\
+\end{matrix}
+&
+\begin{matrix}
+  -2 \\
+  0 \\
+  3(k-1) \\
+\end{matrix}
+\end{array}
+\right]
+}
+\xrightarrow{r_{3}-(1+k)r_{2}}
+{
+\left[
+\begin{array}{c:c}
+\begin{matrix}
+  1 & k & 1 \\
+  0 & 1-k & k-1 \\
+  0 & 0 & (1-k)(k+2) \\
+\end{matrix}
+&
+\begin{matrix}
+  -2 \\
+  0 \\
+  3(k-1) \\
+\end{matrix}
+\end{array}
+\right]
+}
+\end{align*}
+讨论：
+
+(1)解不存在：即存在矛盾方程（增广矩阵主元列在最右列）。即对于$r_{3}$
+\begin{equation*}
+  \begin{cases}
+    (1-k)(k+2)=0\\
+    3(k-1)\neq 0
+  \end{cases}~~~
+  \Rightarrow~~~k=-2
+\end{equation*}
+
+(2)存在唯一解：主元列三个元素都不为0.即
+\begin{equation*}
+  \begin{cases}
+    1\neq 0\\
+    1-k\neq 0 \\
+    (1-k)(k+2)\neq 0
+  \end{cases}
+  ~~~\Rightarrow~~~k\neq 1\text{且}k\neq -2
+\end{equation*}
+$k\neq 1\text{且}k\neq -2$，继续对阶梯矩阵进行初等行变换
+\begin{align*}
+ \xrightarrow{\substack{r_{2}\times\frac{1}{1-k}\\r_{3}\times\frac{1}{(k+2)(1-k)} }}
+{
+\left[
+\begin{array}{c:c}
+\begin{matrix}
+  1 & k & 1 \\
+  0 & 1 & -1 \\
+  0 & 0 & 1 \\
+\end{matrix}
+&
+\begin{matrix}
+  -2 \\
+  0 \\
+  \frac{3}{(k+2)} \\
+\end{matrix}
+\end{array}
+\right]
+}
+\xrightarrow{\substack{r_{2}+r_{3}\\r_{1}-r_{3} }}
+{
+\left[
+\begin{array}{c:c}
+\begin{matrix}
+  1 & k & 0 \\
+  0 & 1 & 0 \\
+  0 & 0 & 1 \\
+\end{matrix}
+&
+\begin{matrix}
+  -2-\frac{3}{k+2} \\
+  \frac{3}{k+2} \\
+  \frac{3}{k+2} \\
+\end{matrix}
+\end{array}
+\right]
+}
+\xrightarrow{r_{1}-kr_{2}}
+{
+\left[
+\begin{array}{c:c}
+\begin{matrix}
+  1 & 0 & 0 \\
+  0 & 1 & 0 \\
+  0 & 0 & 1 \\
+\end{matrix}
+&
+\begin{matrix}
+  -\frac{5k+1}{k+2} \\
+  \frac{3}{k+2} \\
+  \frac{3}{k+2} \\
+\end{matrix}
+\end{array}
+\right]
+}
+\end{align*}
+所以方程组存在唯一解时：$k\neq 1$且$k\neq -2$，解为
+\begin{equation*}
+\mathbf{x}=
+\begin{bmatrix}
+ -\frac{5k+1}{k+2} \\
+  \frac{3}{k+2} \\
+  \frac{3}{k+2}
+\end{bmatrix}
+~,~~~k\neq1\text{且}k\neq -2
+\end{equation*}
+
+(3)存在无穷解：至少存在一个自由变量。由阶梯矩阵可以看出
+\begin{equation*}
+  \begin{cases}
+    (k-1)(k+2)=0\\
+    3(k-1)=0
+  \end{cases}
+  ~~~\Rightarrow~~~k=1
+\end{equation*}
+把$k=1$代入阶梯矩阵：
+\begin{equation*}
+\left[
+  \begin{array}{c:c}
+    \begin{matrix}
+      1 & 1 & 1 \\
+      0 & 0 & 0 \\
+      0 & 0 & 0 \\
+    \end{matrix}
+     &
+     \begin{matrix}
+      -2 \\
+      0 \\
+      0\\
+    \end{matrix}
+  \end{array}
+\right]
+~~~\Rightarrow~~~
+x=
+\begin{bmatrix}
+  -2-c_{1}-c_{2} \\
+  c_{1} \\
+  c_{2}
+\end{bmatrix}
+\end{equation*}
+所以$x$的解为$x=
+\begin{bmatrix}
+  -2 \\
+  0\\
+   0
+\end{bmatrix}+
+\begin{bmatrix}
+  -1 \\
+  1\\
+   0
+\end{bmatrix}c_{1}+
+\begin{bmatrix}
+  -1 \\
+  0\\
+   1
+\end{bmatrix}c_{1}
+~~~c_{1},c_{2}\in R$。
+\end{jie}
+
+3.2017\~{}2018~~二.3.
+
+求线性方程组
+$
+\begin{cases}
+ 2x_{1}-x_{2}+4x_{3}-3x_{4}=-4\\
+ x_{1}+x_{3}-x_{4}=-3\\
+ 3x_{1}+x_{2}+x_{3}=1\\
+ 7x_{1}+7x_{3}-3x_{4}=3\\
+\end{cases}
+$
+的通解。
+
+\begin{jie}
+增广矩阵
+\begin{align*}
+&\left[
+\begin{array}{c:c}
+ \begin{matrix}
+   2 & -1 & 4 &-3 \\
+   1 & 0 & 1 &-1 \\
+   7 & 0 & 7 &-3\\
+ \end{matrix}
+ &
+  \begin{matrix}
+   -4 \\
+   -3\\
+   3\\
+ \end{matrix}
+\end{array}
+\right]
+\xrightarrow{\substack{r_{2}-\frac{1}{2}r_{1} \\ r_{3}-\frac{7}{2}r_{1}}}
+{
+\left[
+\begin{array}{c:c}
+ \begin{matrix}
+   2 & -1 & 4 &-3 \\
+   0 & \frac{1}{2} & -1 &\frac{1}{2} \\
+   0 & \frac{7}{2} & -7 &\frac{15}{2}\\
+ \end{matrix}
+ &
+  \begin{matrix}
+   -4 \\
+   -1\\
+   17\\
+ \end{matrix}
+\end{array}
+\right]
+}
+\xrightarrow{r_{3}-7r_{2}}
+{
+\left[
+\begin{array}{c:c}
+ \begin{matrix}
+   2 & -1 & 4 &-3 \\
+   0 & \frac{1}{2} & -1 &\frac{1}{2} \\
+   0 &0& 0 &4\\
+ \end{matrix}
+ &
+  \begin{matrix}
+   -4 \\
+   -1\\
+   24\\
+ \end{matrix}
+\end{array}
+\right]
+}\\
+\xrightarrow{\substack{r_{1}\times\frac{1}{2} \\ r_{2}\times 2 \\ r_{3}\times \frac{1}{4}}}&
+{
+\left[
+\begin{array}{c:c}
+ \begin{matrix}
+   1 & -\frac{1}{2} & 2 &-\frac{3}{2} \\
+   0 & 1 & -2 &1 \\
+   0 &0& 0 &1\\
+ \end{matrix}
+ &
+  \begin{matrix}
+   -2 \\
+   -2\\
+   6\\
+ \end{matrix}
+\end{array}
+\right]
+}
+\xrightarrow{\substack{r_{2}-r_{3}\\r_{1}+\frac{3}{2} r_{3}}}
+{
+\left[
+\begin{array}{c:c}
+ \begin{matrix}
+   1 & -\frac{1}{2} & 2 &0 \\
+   0 & 1 & -2 &0 \\
+   0 &0& 0 &1\\
+ \end{matrix}
+ &
+  \begin{matrix}
+   7 \\
+   -8\\
+   6\\
+ \end{matrix}
+\end{array}
+\right]
+}
+\xrightarrow{r_{1}+\frac{1}{2} r_{2}}
+{
+\left[
+\begin{array}{c:c}
+ \begin{matrix}
+   1 & 0 & 1 &0 \\
+   0 & 1 & -2 &0 \\
+   0 &0& 0 &1\\
+ \end{matrix}
+ &
+  \begin{matrix}
+   3 \\
+   -8\\
+   6\\
+ \end{matrix}
+\end{array}
+\right]
+}
+\end{align*}
+由最简阶梯型矩阵可以看出：
+\begin{equation*}
+  x_{1}=3-x_{3}~~x_{2}=x_{3}-8~~x_{3}=x_{3}~~x_{4}=6
+\end{equation*}
+令$x_{3}=C,C\in R$，则
+\begin{equation*}
+x=
+ \begin{bmatrix}
+   3-C \\
+   C-8 \\
+   C\\
+   6
+ \end{bmatrix}
+ =
+  \begin{bmatrix}
+   3 \\
+   -8 \\
+   0\\
+   6
+ \end{bmatrix}
+ +
+  \begin{bmatrix}
+   -1 \\
+   1 \\
+   1\\
+   0
+ \end{bmatrix}C
+ ~,~C\in R
+\end{equation*}
+\end{jie}
+
+4.2018\~{}2019~~三.1.
+
+设
+$
+\begin{cases}
+\lambda x_{1}+x_{2}+x_{3}=\lambda-2\\
+x_{1}+\lambda x_{2} +x_{3}=2\\
+x_{1}+ x_{2} +\lambda x_{3}=2
+\end{cases}
+$
+，$\lambda$为何值时，该方程组无解、唯一解、无穷解？并且在有唯一解时求出解；有无穷多解时，求出全部解并用向量表示。
+
+\begin{jie}
+增广矩阵
+\begin{align*}
+&\left[
+\begin{array}{c:c}
+\begin{matrix}
+\lambda & 1 & 1 \\
+1& \lambda & 1 \\
+1 & 1&\lambda  \\
+\end{matrix}
+&
+\begin{matrix}
+\lambda-2 \\
+2 \\
+2 \\
+\end{matrix}
+\end{array}
+\right]
+\xrightarrow{r_{1}\Leftrightarrow r_{2}}
+{
+\left[
+\begin{array}{c:c}
+\begin{matrix}
+1& \lambda & 1 \\
+\lambda & 1 & 1 \\
+1 & 1&\lambda  \\
+\end{matrix}
+&
+\begin{matrix}
+2 \\
+\lambda-2 \\
+2 \\
+\end{matrix}
+\end{array}
+\right]
+}
+\xrightarrow{\substack{r_{2}-\lambda r_{1}\\ r_{3}- r_{1} }}
+{
+\left[
+\begin{array}{c:c}
+\begin{matrix}
+1& \lambda & 1 \\
+0 & 1-\lambda^{2} & 1-\lambda \\
+0 & 1-\lambda &\lambda-1  \\
+\end{matrix}
+&
+\begin{matrix}
+2 \\
+-\lambda-2 \\
+0 \\
+\end{matrix}
+\end{array}
+\right]
+}\\
+\xrightarrow{r_{2}\Leftrightarrow r_{3}}&
+{
+\left[
+\begin{array}{c:c}
+\begin{matrix}
+1& \lambda & 1 \\
+0 & 1-\lambda &\lambda-1  \\
+0 & 1-\lambda^{2} & 1-\lambda \\
+\end{matrix}
+&
+\begin{matrix}
+2 \\
+0 \\
+-\lambda-2 \\
+\end{matrix}
+\end{array}
+\right]
+}
+\xrightarrow{r_{3}-(\lambda+1) r_{2}}
+{
+\left[
+\begin{array}{c:c}
+\begin{matrix}
+1& \lambda & 1 \\
+0 & 1-\lambda &\lambda-1  \\
+0 & 0 & (\lambda-1)(-2-\lambda) \\
+\end{matrix}
+&
+\begin{matrix}
+2 \\
+0 \\
+-\lambda-2 \\
+\end{matrix}
+\end{array}
+\right]
+}
+\end{align*}
+讨论：
+
+(1)解不存在：即存在矛盾方程（增广矩阵主元列在最右列）。即对于$r_{3}$
+\begin{equation*}
+  \begin{cases}
+    (\lambda-1)(-2-\lambda)=0\\
+    -\lambda-2\neq 0
+  \end{cases}~~~
+  \Rightarrow~~~\lambda=1
+\end{equation*}
+
+(2)存在唯一解：主元列三个元素都不为0.即
+\begin{equation*}
+  \begin{cases}
+    1\neq 0\\
+    1-\lambda\neq 0 \\
+    (\lambda-1)(-2-\lambda)\neq 0
+  \end{cases}
+  ~~~\Rightarrow~~~\lambda\neq 1\text{且}\lambda\neq -2
+\end{equation*}
+$\lambda\neq 1\text{且}\lambda\neq -2$，继续对阶梯矩阵进行初等行变换
+\begin{equation*}
+\xrightarrow{\substack{ r_{2}\times \frac{1}{1-\lambda}\\  r_{3}\times \frac{1}{(\lambda-1)(-2-\lambda)}}}
+{
+\left[
+\begin{array}{c:c}
+\begin{matrix}
+1& \lambda & 1 \\
+0 & 1 & -1  \\
+0 & 0 & 1 \\
+\end{matrix}
+&
+\begin{matrix}
+2 \\
+0 \\
+\frac{1}{\lambda-1} \\
+\end{matrix}
+\end{array}
+\right]
+}
+\xrightarrow{\substack{ r_{2}+r_{3}\\  r_{1}-r_{3}}}
+{
+\left[
+\begin{array}{c:c}
+\begin{matrix}
+1& \lambda & 0 \\
+0& 1 & 0  \\
+0 & 0 & 1 \\
+\end{matrix}
+&
+\begin{matrix}
+\frac{2\lambda-3}{\lambda-1} \\
+\frac{1}{\lambda-1} \\
+\frac{1}{\lambda-1} \\
+\end{matrix}
+\end{array}
+\right]
+}
+\xrightarrow{ r_{1}-\lambda r_{3}}
+{
+\left[
+\begin{array}{c:c}
+\begin{matrix}
+1& 0 & 0 \\
+0 & 1 & 0  \\
+0 & 0 & 1 \\
+\end{matrix}
+&
+\begin{matrix}
+\frac{\lambda-3}{\lambda-1} \\
+\frac{1}{\lambda-1} \\
+\frac{1}{\lambda-1} \\
+\end{matrix}
+\end{array}
+\right]
+}
+\end{equation*}
+所以方程组存在唯一解时：$\lambda\neq 1$且$\lambda\neq -2$，解为
+\begin{equation*}
+\mathbf{x}=
+\begin{bmatrix}
+\frac{\lambda-3}{\lambda-1} \\
+\frac{1}{\lambda-1} \\
+\frac{1}{\lambda-1}
+\end{bmatrix}
+~,~~~\lambda\neq1\text{且}\lambda\neq -2
+\end{equation*}
+
+(3)存在无穷解：至少存在一个自由变量。由阶梯矩阵可以看出
+\begin{equation*}
+  \begin{cases}
+    (\lambda-1)(-2-\lambda)=0\\
+    -2-\lambda=0
+  \end{cases}
+  ~~~\Rightarrow~~~\lambda=-2
+\end{equation*}
+把$\lambda=-2$代入阶梯矩阵：
+\begin{equation*}
+\left[
+\begin{array}{c:c}
+\begin{matrix}
+1& -2 & 1 \\
+0 & 3 & -3  \\
+0 & 0 & 0 \\
+\end{matrix}
+&
+\begin{matrix}
+2 \\
+0 \\
+0 \\
+\end{matrix}
+\end{array}
+\right]
+\xrightarrow{ r_{2}\times\frac{1}{3}}
+{\left[
+\begin{array}{c:c}
+\begin{matrix}
+1& -2 & 1 \\
+0 & 1 & -1  \\
+0 & 0 & 0 \\
+\end{matrix}
+&
+\begin{matrix}
+2 \\
+0 \\
+0 \\
+\end{matrix}
+\end{array}
+\right]
+}
+\xrightarrow{ r_{1}+2r_{2}}
+{\left[
+\begin{array}{c:c}
+\begin{matrix}
+1& 0 & -1 \\
+0 & 1 & -1  \\
+0 & 0 & 0 \\
+\end{matrix}
+&
+\begin{matrix}
+2 \\
+0 \\
+0 \\
+\end{matrix}
+\end{array}
+\right]
+}
+\end{equation*}
+由最简阶梯型矩阵可以看出：
+\begin{equation*}
+  x_{1}=2+x_{3}~~x_{2}=x_{3}~~x_{3}=x_{3}
+\end{equation*}
+令$x_{3}=C,C\in R$，则
+\begin{equation*}
+x=
+ \begin{bmatrix}
+   2+C \\
+   C \\
+   C
+ \end{bmatrix}
+ =
+  \begin{bmatrix}
+   2 \\
+   0 \\
+   0
+ \end{bmatrix}
+ +
+  \begin{bmatrix}
+   1 \\
+   1 \\
+   1
+ \end{bmatrix}C
+ ~,~C\in R
+\end{equation*}
+
+\end{jie}
+5.2019\~{}2020~~一.4.
+
+若线性方程组
+$
+\begin{cases}
+x_{1}+x_{2}=-a_{1}\\
+x_{2}+x_{3}=a_{2}\\
+x_{3}+x_{4}=-a_{3}\\
+x_{4}+x_{1}=a_{4}
+\end{cases}
+$
+有解，$a_{1},a_{2},a_{3},a_{4}$应满足的条件是\underline{~~\textcolor[rgb]{1.00,0.00,0.00}{$a_{1}+a_{2}-a_{3}+a_{4}=0$}~~}。
+
+\begin{jie}
+增广矩阵
+\begin{align*}
+&\left[
+\begin{array}{c:c}
+\begin{matrix}
+1 & 1 & 0 & 0 \\
+0 & 1 & 1 & 0 \\
+0 & 0 & 1 & 1 \\
+1 & 0 & 0 & 1 \\
+\end{matrix}
+&
+\begin{matrix}
+-a_{1} \\
+a_{2} \\
+-a_{3} \\
+a_{4} \\
+\end{matrix}
+\end{array}
+\right]
+\xrightarrow{r_{4}-r_{1}}
+{
+\left[
+\begin{array}{c:c}
+\begin{matrix}
+1 & 1 & 0 & 0 \\
+0 & 1 & 1 & 0 \\
+0 & 0 & 1 & 1 \\
+0 & -1 & 0 & 1 \\
+\end{matrix}
+&
+\begin{matrix}
+-a_{1} \\
+a_{2} \\
+-a_{3} \\
+a_{1}+a_{4} \\
+\end{matrix}
+\end{array}
+\right]
+}
+\xrightarrow{r_{4}+r_{2}}
+{
+\left[
+\begin{array}{c:c}
+\begin{matrix}
+1 & 1 & 0 & 0 \\
+0 & 1 & 1 & 0 \\
+0 & 0 & 1 & 1 \\
+0 & 0 & 1 & 1 \\
+\end{matrix}
+&
+\begin{matrix}
+-a_{1} \\
+a_{2} \\
+-a_{3} \\
+a_{1}+a_{2}+a_{4} \\
+\end{matrix}
+\end{array}
+\right]
+}\\
+\xrightarrow{r_{4}-r_{3}}&
+{
+\left[
+\begin{array}{c:c}
+\begin{matrix}
+1 & 1 & 0 & 0 \\
+0 & 1 & 1 & 0 \\
+0 & 0 & 1 & 1 \\
+0 & 0 & 0 & 0 \\
+\end{matrix}
+&
+\begin{matrix}
+-a_{1} \\
+a_{2} \\
+-a_{3} \\
+a_{1}+a_{2}-a_{3}+a_{4} \\
+\end{matrix}
+\end{array}
+\right]
+}
+\end{align*}
+若方程有解：$a_{1}+a_{2}-a_{3}+a_{4}=0$
+\end{jie}
+%\begin{align*}
+%\left[
+%\begin{array}{c:c}
+%\begin{matrix}
+%1 & 1 & 0 & 0 \\
+%0 & 1 & 1 & 0 \\
+%0 & 0 & 1 & 1 \\
+%1 & 0 & 0 & 1 \\
+%\end{matrix}
+%&
+%\begin{matrix}
+%-a_{1} \\
+%a_{2} \\
+%-a_{3} \\
+%a_{4} \\
+%\end{array}
+%\right]
+%\xrightarrow{r_{4}-r_{1}}
+%{
+%\left[
+%\begin{array}{c:c}
+%\begin{matrix}
+%1 & 1 & 0 & 0 \\
+%0 & 1 & 1 & 0 \\
+%0 & 0 & 1 & 1 \\
+%0 & -1 & 0 & 1 \\
+%\end{matrix}
+%&
+%\begin{matrix}
+%-a_{1} \\
+%a_{2} \\
+%-a_{3} \\
+%a_{1}+a_{4} \\
+%\end{array}
+%\right]
+%}
+%\xrightarrow{r_{4}+r_{2}}
+%{
+%\left[
+%\begin{array}{c:c}
+%\begin{matrix}
+%1 & 1 & 0 & 0 \\
+%0 & 1 & 1 & 0 \\
+%0 & 0 & 1 & 1 \\
+%0 & 0 & 1 & 1 \\
+%\end{matrix}
+%&
+%\begin{matrix}
+%-a_{1} \\
+%a_{2} \\
+%-a_{3} \\
+%a_{1}+a_{2}+a_{4} \\
+%\end{array}
+%\right]
+%}
+%\end{align*}
+6.期末2019-2020 二1.
+
+设$
+A=
+\begin{bmatrix}
+  0 & 1 & 0 \\
+  0 & 0 & 1\\
+  0 & 0 & 0
+\end{bmatrix}
+$.求满足$AX=XA$的全部的矩阵$X$。
+
+\begin{jie}
+设$X=
+\begin{bmatrix}
+  a &b& c \\
+  d & e &f\\
+  g&h&i
+\end{bmatrix}
+$，
+\begin{gather*}
+AX=\begin{bmatrix}
+  0 & 1 & 0 \\
+  0 & 0 & 1\\
+  0 & 0 & 0
+\end{bmatrix}\begin{bmatrix}
+  a &b& c \\
+  d & e &f\\
+  g&h&i
+\end{bmatrix}=
+\begin{bmatrix}
+d & e & f\\
+g & h & i\\
+0& 0 & 0
+\end{bmatrix}\\
+XA=
+\begin{bmatrix}
+  a &b& c \\
+  d & e &f\\
+  g&h&i
+\end{bmatrix}\begin{bmatrix}
+  0 & 1 & 0 \\
+  0 & 0 & 1\\
+  0 & 0 & 0
+\end{bmatrix}=
+\begin{bmatrix}
+  0 & a & b\\
+  0 & d & e\\
+  0 & g & h 
+\end{bmatrix}
+\end{gather*}
+$AX=XA$，即
+\begin{align*}
+\begin{bmatrix}
+d & e & f\\
+g & h & i\\
+0& 0 & 0
+\end{bmatrix}=\begin{bmatrix}
+  0 & a & b\\
+  0 & d & e\\
+  0 & g & h
+\end{bmatrix}~~~~\Rightarrow
+\begin{cases}
+d=0~~a=e\hphantom{=0}~~~b=f\\
+g=0~~h=d=0~~i=e=a\\
+0=0~~g=0\hphantom{=0}~~~h=0
+\end{cases}
+\end{align*}
+所以$x=
+\begin{bmatrix}
+  a & b & c \\
+  0& a & b\\
+  0 & 0 & a
+\end{bmatrix}
+$,其中$a,b,c$是任意常数。
+\end{jie}
+
+
+{\heiti \zihao{-3} 期中试题}
+
+2017\~{}2018~~二.3.判断命题是否成立并给出理由
+
+若$A^{2}=B^{2}$，则$A=B$或$A=-B$。
+
+\begin{jie}
+判断是否成立：\textcolor[rgb]{1.00,0.00,0.00}{否}。
+
+理由：
+\begin{align*}
+ A=\begin{bmatrix}
+  1 & 0\\
+  0 & 1
+   \end{bmatrix}~~~
+ A^{2}=\begin{bmatrix}
+         1 & 0\\
+         0 & 1
+       \end{bmatrix}\\
+ B=\begin{bmatrix}
+  0 & 1\\
+  1 & 0
+   \end{bmatrix}~~~
+ B^{2}=\begin{bmatrix}
+         1 & 0\\
+         0 & 1
+       \end{bmatrix}
+\end{align*}
+可以看出$A^{2}=B^{2}$，但是$A\neq B$,$A\neq -B$
+\end{jie}
+%$X\stackrel{\substack{F\\F}}{\longrightarrow}Y$   %268页，281页
+%$\xrightarrow{122222222222222223}$
+\end{document}  

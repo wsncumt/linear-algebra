@@ -1,0 +1,154 @@
+\documentclass{article}
+\usepackage[space,fancyhdr,fntef]{ctexcap}
+\usepackage[namelimits,sumlimits,nointlimits]{amsmath}
+\usepackage[bottom=25mm,top=25mm,left=25mm,right=15mm,centering]{geometry}
+\usepackage{xcolor}
+\usepackage{arydshln}%234页，虚线表格宏包
+\usepackage{mathdots}%反对角省略号
+\pagestyle{fancy} \fancyhf{}
+\fancyhead[OL]{~~~班序号：\hfill 学院：\hfill 学号：\hfill 姓名：王松年~~~ \thepage}
+%\usepackage{parskip}
+%\usepackage{indentfirst}
+\usepackage{graphicx}%插图宏包，参见手册318页
+\begin{document}
+\newenvironment{jie}{\kaishu\zihao{-5}\color{blue}{\noindent\em 解：}\par}{\hfill $\diamondsuit$\par}
+
+\newenvironment{zhengming}{\kaishu\zihao{-5}\color{blue}{\noindent\em 证明：}\par}{\hfill $\diamondsuit$\par}
+\newcounter{num} \renewcommand{\thenum}{\arabic{num}.} \newcommand{\num}{\refstepcounter{num}\text{\thenum}}
+
+\hphantom{~~}\hfill {\zihao{3}\heiti 期中试卷剩余部分习题} \hfill\hphantom{~~}
+
+\hphantom{~~}\hfill {\zihao{4}\heiti 群文件《期中$\&$期末试题》} \hfill\hphantom{~~}
+
+\num 期中2016-2017 一4.
+
+设$f(x)=ax^{2}+bx+c$,$A$为$n$阶方阵，定义$f(A)=aA^{2}+bA+cI$，如果$
+A=
+\begin{bmatrix}
+  1 & 0 & 0 & 0 \\
+  0 & 1& 0& 0 \\
+  2 & 0 & 1& 0\\
+   0 & 0 &0 &1
+\end{bmatrix},f(x)=x^{2}-x-1,
+$则$f(A)=$\underline{\hphantom{~~~~~~~~~~}}。
+
+\begin{jie}
+由题得：
+\begin{equation*}
+A=E+\begin{bmatrix}
+  0 & 0 & 0 & 0 \\
+  0 & 0& 0& 0 \\
+  2 & 0 & 0& 0\\
+   0 & 0 &0 &0
+\end{bmatrix}=E+B
+\end{equation*}
+可以看出：$B^2=0$.所以$A^2=(E+B)^2=E+B^2+2EB=E+2B$.
+
+所以$f(A)=A^2-A-E=E+2B-E-B-E=B-E=
+\begin{bmatrix}
+  -1 & 0 & 0 & 0 \\
+  0 & -1& 0& 0 \\
+  2 & 0 & -1& 0\\
+   0 & 0 &0 &-1
+\end{bmatrix}
+$
+\end{jie}
+
+\num 期中2017-2018 二1.判断是否成立并给出理由。
+
+设$A,B$为同阶对称方阵，则$AB$一定是对称矩阵；
+
+\begin{jie}
+不成立。理由：
+
+以2阶对称矩阵为例：（式中:$a,b,c,x,y,z$为任意实数。）
+\begin{equation*}
+A=\begin{bmatrix}
+  a & b \\
+  b & c
+\end{bmatrix}~~~B=
+\begin{bmatrix}
+  x & y \\
+  y & z
+\end{bmatrix}~~AB=
+\begin{bmatrix}
+  ax+by & \textcolor[rgb]{1.00,0.00,0.00}{ay+bz}\\
+  \textcolor[rgb]{1.00,0.00,0.00}{bx+cy} & by+cz
+\end{bmatrix}
+\end{equation*}
+可以看出，由于$a,b,c,x,y,z$取值的任意性，所以$ay+bz\neq by+cz$。 （可以取$a=1,b=2,c=3,x=3,y=4,z=5$实际验证一下。）
+\end{jie}
+
+\num 期中2017-2018 二4.判断是否成立并给出理由。
+
+设2阶矩阵$A=
+\begin{bmatrix}
+  a & b \\
+  c & d
+\end{bmatrix}
+$,若$A$与所有的2阶矩阵均可以交换，则$a=d,b=c=0$。
+
+\begin{jie}
+成立，理由如下：
+
+取任意二阶矩阵（$x,y,z,w$为任意实数）:$
+B=
+\begin{bmatrix}
+  x & y \\
+  z & w
+\end{bmatrix}
+$,则
+\begin{gather*}
+AB=\begin{bmatrix}
+  a & b \\
+  c & d
+\end{bmatrix}
+\begin{bmatrix}
+  x & y \\
+  z & w
+\end{bmatrix}=
+\begin{bmatrix}
+  ax+bz & ay+bw \\
+  cx+dz & cy+dw
+\end{bmatrix}\\
+BA=
+\begin{bmatrix}
+  x & y \\
+  z & w
+\end{bmatrix}
+\begin{bmatrix}
+  a & b \\
+  c & d
+\end{bmatrix}=
+\begin{bmatrix}
+  xa+cy & xb+yd \\
+  az+cw & bz+dw
+\end{bmatrix}
+\end{gather*}
+若$A$与$B$可交换，则有$AB=BA$,即：
+\begin{gather}
+ax+bz=xa+cy  \\ 
+ay+bw=xb+yd\\
+cx+dz=az+cw\\
+cy+dw=bz+dw
+\end{gather}
+由(1)式和(4)式得：$bz=cy$，因为$z$和$y$为任意数，所以$b=c=0$，代入(2)式和(3)式：$ay=dy,az=dz$，所以$a=d$。
+\end{jie}
+
+\num 期中2018-2019 二2.
+
+设$A$是$n$阶实对称矩阵，如果$A^{2}=0$。证明$A=0$.并举例说明，如果$A$不是实对称矩阵，上述命题不正确。
+
+\begin{jie}
+证明：
+（用定义）。
+
+举例：对于二阶矩阵$
+A=\begin{bmatrix}
+0& 0\\
+1& 0
+\end{bmatrix}
+$,$A^2=0$，但$A$不是对称矩阵。
+\end{jie}
+
+\end{document}  

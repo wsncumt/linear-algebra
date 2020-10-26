@@ -1,0 +1,142 @@
+\documentclass{article}
+\usepackage[space,fancyhdr,fntef]{ctexcap}
+\usepackage[namelimits,sumlimits,nointlimits]{amsmath}
+\usepackage[bottom=25mm,top=25mm,left=25mm,right=15mm,centering]{geometry}
+\usepackage{xcolor}
+\usepackage{arydshln}%234页，虚线表格宏包
+\pagestyle{fancy} \fancyhf{}
+\fancyhead[OL]{~~~班序号：\hfill 学院：\hfill 学号：\hfill 姓名：王松年~~~ \thepage}
+%\usepackage{parskip}
+%\usepackage{indentfirst}
+\usepackage{graphicx}%插图宏包，参见手册318页
+\begin{document}
+
+\newcounter{num} \renewcommand{\thenum}{\arabic{num}.} \newcommand{\num}{\refstepcounter{num}\text{\thenum}}
+
+\hphantom{~~}\hfill {\zihao{3}\heiti 第三次习题课} \hfill\hphantom{~~}
+
+\hphantom{~~}\hfill {\zihao{4}\heiti 群文件《期中$\&$期末试题》} \hfill\hphantom{~~}
+
+{\heiti \zihao{4} 期中试题}
+
+\num 2015-2016 ~二.5
+
+设$A=
+\begin{bmatrix}
+  3 & 4 & 1\\
+  0 & 2 & 0\\
+  5 & 1 & 3
+\end{bmatrix}
+,B=
+\begin{bmatrix}
+  2 & -1 & 3\\
+  0 & 3 & 1\\
+  0 & 0 & 0
+\end{bmatrix}
+$,求$AB$的秩$r(AB)$。\\
+
+\num 2016-2017 ~一.3
+
+设方程组$
+\begin{cases}
+ 2x_{1}-x_{2}+x_{3}=0\\
+ x_{1}+kx_{2}-x_{3}=0\\
+ kx_{1}+x_{2}+x_{3}=0
+\end{cases}
+$有非零解，则$k=$
+\underline{\hphantom{~~~~~~~~~~}}。\\
+
+
+\num 2016-2017 ~一.6
+
+设$A=
+\begin{bmatrix}
+  1 & -1 & 2 & 1\\
+  -1 & a & 2 & 1\\
+  3 & 1 & b & -1\\
+\end{bmatrix},r(A)=2
+$，则$a+b=$\underline{\hphantom{~~~~~~~~~~~~~~~}}。\\
+
+\num 2016-2017 ~二.4（2015-2016的期末试题一大题第2，原题）
+
+设$
+A=\begin{bmatrix}
+    1 & 1 & 1 & 1\\
+    0 & 2 & 2 & 2\\
+    0 & 0 & 3 & 3\\
+    0 & 0 & 0 & 4
+  \end{bmatrix}
+$,求$A^{2}-2A$的秩$r(A^{2}-2A)$。\\
+
+\num 2017-2018~一.5
+
+设$
+A=\begin{bmatrix}
+   2 & 4 & 1 & 0\\
+   1 & 0 & 3 & 2\\
+   -1 & 5 & -3 & 1\\
+   0 & 1 & 0 & 2
+  \end{bmatrix},B=
+  \begin{bmatrix}
+   1& 1& 1 & 1\\
+   1 & 1 & 2 & 2\\
+   a+1 & 2 & 3 &4\\
+   1 & a & 1 & a
+  \end{bmatrix}
+$，若$r(A)=r(B)$，则$a$应满足什么条件。\\
+
+\num 2018-2019~一.6（1）
+
+设$A=
+\begin{bmatrix}
+  1 & 0 & 1\\
+  -1 & -1 & 1\\
+  0 & 2 & a
+\end{bmatrix},
+B=
+\begin{bmatrix}
+  1 & 0 & 1\\
+  0 & -1 & 2\\
+   0 & 0 & 0
+\end{bmatrix}
+$。
+
+(1)问$a$为何值时，矩阵$A$和$B$等价。
+
+(2)当$A$和$B$等价时，求可逆矩阵$P$，使得$PA=B$。\\
+
+{\heiti \zihao{4} 期末试题}
+
+\num 2014-2015~七
+
+设$A$为$n$阶矩阵，且$A^{2}-A-2I=0$。
+
+(1)证明：$r(A-2I)+r(A+I)=n$.\\
+
+\num 2017-2018~一.2
+
+设$
+A=
+\begin{bmatrix}
+  1 & 1 & 1 \\
+  0 & 1 & 1 \\
+  2 & 3 & 2
+\end{bmatrix},
+B=\begin{bmatrix}
+    1\\ 2\\ 0
+  \end{bmatrix}
+  \begin{bmatrix}
+  1 & 2&3
+  \end{bmatrix}
+$,则$r(A+AB)=$\underline{\hphantom{~~~~~~~~~~}}。\\
+
+\num 2019-2020~一.2
+
+已知$A=
+\begin{bmatrix}
+  1 & -2 & 3k\\
+ -1 & 2k & -3\\
+ k & -2 & 3
+\end{bmatrix}
+$的秩为2，则$k=$\underline{\hphantom{~~~~~~~~~~}}。
+\end{document}  

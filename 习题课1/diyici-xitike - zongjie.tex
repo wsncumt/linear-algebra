@@ -1,0 +1,114 @@
+\documentclass{article}
+\usepackage[space,fancyhdr,fntef]{ctexcap}
+\usepackage[namelimits,sumlimits,nointlimits]{amsmath}
+\usepackage[bottom=25mm,top=25mm,left=25mm,right=15mm,centering]{geometry}
+\usepackage{xcolor}
+\usepackage{paralist}%列表宏包
+\usepackage{arydshln}%234页，虚线表格宏包
+\pagestyle{fancy} \fancyhf{}
+\fancyhead[OL]{~~~班序号：\hfill 学院：\hfill 学号：\hfill 姓名：王松年~~~ \thepage}
+%\usepackage{parskip}
+%\usepackage{indentfirst}
+\usepackage{graphicx}%插图宏包，参见手册318页
+\begin{document}
+
+\newcounter{num} \renewcommand{\thenum}{\arabic{num}.} \newcommand{\num}{\refstepcounter{num}\text{\thenum}}
+
+\hphantom{~~}\hfill {\zihao{3}\heiti 第一次习题课} \hfill\hphantom{~~}
+
+\hphantom{~~}\hfill {\zihao{4}\heiti 知识点} \hfill\hphantom{~~}
+
+1.矩阵：矩阵的定义。
+
+2.矩阵的初等行变换。
+\begin{asparaenum}[(1)]
+\item 倍加行：把其中一行的常数倍加到另一行；
+\item 交换行：交换其中的两行；
+\item 倍乘行：将其中1行乘非零常数。
+\end{asparaenum}
+
+3.阶梯型矩阵（不唯一）和行最简阶梯型矩阵（唯一）\\
+对于任意一个矩阵，如果满足下面三条性质，则称其为\textcolor[rgb]{1.00,0.00,0.00}{阶梯型矩阵}（注：括号里是另一种表述方式，与括号前的表述等价）
+\begin{asparaenum}[(1)]
+\item 每一非零行在每一零行之上；（全为0的行在不全为0的行的下边）
+\item 某一行的主元素所在的列位于前一行主元素所在列的右边；（上边行的首个非0元素位于下边行首个非0元素的左边列）；（在所有非0行中，每一行的第一个非零元素所在的列号严格单调递增）
+\item 不全为0的行的首个非0元素下面的元素全为0
+\end{asparaenum}
+行最简阶梯型矩阵：若一个阶梯形矩阵满足以下性质，则称为\textcolor[rgb]{1.00,0.00,0.00}{行最简阶梯型矩阵}。
+\begin{asparaenum}[(1)]
+\item 每一主元都为1；（每一行第一个非零元素都是1）
+\item 每一主元素是该元素所在列的唯一非0元素。
+\end{asparaenum}
+注：只有是行阶梯形矩阵，才能判断是不是行最简阶梯型矩阵。
+
+4.\textcolor[rgb]{1.00,0.00,0.00}{高斯消元法}（5大步骤）：前4步用于产生阶梯型矩阵，第5步产生最简阶梯型矩阵。
+\begin{asparaenum}[(1)]
+\item 从左边不全为零的列开始，该列称为主元列，主元素位置位于该列的最顶端；
+\item 若(1)中主元素位置上的元素包含下边两种情况：a)0；b)含有未知参数。\\
+    则需通过矩阵的初等行变换（交换行）把非零元素换到第一行；例如：
+    \begin{align*}
+      &\text{主元素位置元素为0：}
+      \begin{bmatrix}
+        0 & 3 & 1 \\
+        5 & 7 & 2 \\
+        13 & 0 & 2
+      \end{bmatrix}
+      \text{交换$r_{1},r_{2}$，或交换$r_{1},r_{3}$}\\
+      &\text{主元素位置元素含有未知参数(1)：}
+      \begin{bmatrix}
+        k-1 & 3 & 1 \\
+        5 & 7 & 2 \\
+        13 & 0 & 2
+      \end{bmatrix}
+      \text{交换$r_{1},r_{2}$，或交换$r_{1},r_{3}$}\\
+      &\text{主元素位置元素含有未知参数(2)：}
+      \begin{bmatrix}
+        k^{2}-1 & 3 & 1 \\
+        k-1 & 7 & 2 
+      \end{bmatrix}
+      \text{交换$r_{1},r_{2}$}
+    \end{align*}
+\item 通过初等行变换（倍加行），将(2)中主元素下边的元素全部变为0.
+\item 暂时不管包含主元位置的行以及它上边的各行，对剩余的子矩阵重复步骤(1)\~{}(3)，直到剩余的矩阵为0或者没有子矩阵需要进行处理为止；
+\item  从最右边的主元素开始，把每个主元素所在列的上方的元素变为0，若某个主元素不是1，则通过初等行变换（倍乘行）将其变成1.
+\end{asparaenum}
+
+5.\textcolor[rgb]{1.00,0.00,0.00}{存在唯一性定理}：
+
+对于齐次线性方程组：一定存在解。
+\begin{asparaenum}[(1)]
+\item 只有0解：没有自由变量。
+\item 有非零解：此时一定有无穷多组解。存在至少一个自由变量。
+\end{asparaenum}
+
+对于非齐次线性方程组：
+\begin{asparaenum}[(1)]
+\item 解不存在：将增广矩阵化为阶梯型矩阵后，最右列是主元列。即存在形如
+    \begin{equation*}
+      \begin{bmatrix}
+        0& 0& \cdots&b
+      \end{bmatrix}
+    \end{equation*}
+的行。
+\item 唯一解：不存在自由变量；
+
+\item 无穷解：至少有一个自由变量。
+\end{asparaenum}
+
+6.\textcolor[rgb]{1.00,0.00,0.00}{解线性方程组的步骤}
+\begin{asparaenum}[(1)]
+\item 将方程标准化；
+\item 写出增广矩阵；
+\item 执行高斯消元法1到4步；
+\item 判断解的存在性：若不存在，直接结束。若存在，执行高斯消元法第5步。
+\item  写出上一步求出的解。
+\end{asparaenum}
+
+7.特殊矩阵：对角矩阵（\textcolor[rgb]{1.00,0.00,0.00}{单位矩阵}、数量矩阵）、三角矩阵（上三、下三）、对称矩阵、反对称矩阵、\textcolor[rgb]{1.00,0.00,0.00}{向量}（区分向量的维数和向量空间的维数两个概念）
+
+8.矩阵的运算：
+\begin{asparaenum}[(1)]
+\item 加减、数乘。运算律同实数运算律。注意行数列数相同矩阵才能加减。
+\item 乘法：AB=C。只有A的列数等于B的行数才能乘，C的大小为A行B列。注意矩阵的乘法没有交换律和消去律。即$A\cdot B\neq B \cdot A$,如果$A\cdot B=A\cdot C$,推不出$B=C$。
+\end{asparaenum}
+\end{document}  

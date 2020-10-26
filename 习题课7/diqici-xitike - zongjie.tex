@@ -1,0 +1,63 @@
+\documentclass{article}
+\usepackage[space,fancyhdr,fntef]{ctexcap}
+\usepackage[namelimits,sumlimits,nointlimits]{amsmath}
+\usepackage[bottom=25mm,top=25mm,left=25mm,right=15mm,centering]{geometry}
+\usepackage{xcolor}
+\usepackage{paralist}%列表宏包
+\usepackage{arydshln}%234页，虚线表格宏包
+\pagestyle{fancy} \fancyhf{}
+\fancyhead[OL]{~~~班序号：\hfill 学院：\hfill 学号：\hfill 姓名：王松年~~~ \thepage}
+%\usepackage{parskip}
+%\usepackage{indentfirst}
+\usepackage{graphicx}%插图宏包，参见手册318页
+\begin{document}
+
+\newcounter{num} \renewcommand{\thenum}{\arabic{num}.} \newcommand{\num}{\refstepcounter{num}\text{\thenum}}
+
+\hphantom{~~}\hfill {\zihao{3}\heiti 第七次习题课} \hfill\hphantom{~~}
+
+\hphantom{~~}\hfill {\zihao{4}\heiti 知识点} \hfill\hphantom{~~}
+
+
+\num 向量：只有一行或一列的矩阵，一般用$\alpha,\beta,\gamma$表示。
+
+\num 向量空间：由所有的$n$维(行)列向量组成的集合称为$n$维向量空间。
+
+\num 两个$n$维向量相等，当且仅当他们各个对应分量相等。
+
+\num  零向量：每个分量都为0。
+
+\num 子空间：$H$是$R^n$的一个非空子集，如果满足以下条件：
+
+(1).零向量属于$H$。
+
+(2).$H$对加法封闭。即$\alpha,\beta\in H~~\rightarrow~~\alpha+\beta\in H$。
+
+(3).$H$对数乘封闭。即$\alpha\in H，k\in R~~\rightarrow~~k\alpha\in H$。
+
+称$H$是$R^n$的一个子空间。
+
+\num 线性组合。
+
+\num $\beta$可以由$\alpha_{1},\alpha_{2},\cdots,\alpha_{n}$线性表出当且仅当$r(\alpha_{1},\alpha_{2},\cdots,\alpha_{n})=r(\alpha_{1},\alpha_{2},\cdots,\alpha_{n},\beta)$。
+
+\num 向量组的等价：$\alpha_{1},\alpha_{2},\cdots,\alpha_{s}$和$\beta_{1},\beta_{2},\cdots,\beta_{t}$可以相互线性表示，则称$\alpha_{1},\alpha_{2},\cdots,\alpha_{s}$和$\beta_{1},\beta_{2},\cdots,\beta_{t}$等价。$r(\alpha_{1},\alpha_{2},\cdots,\alpha_{s})=r(\alpha_{1},\alpha_{2},\cdots,\alpha_{s},\beta_{1},\beta_{2},\cdots,\beta_{t})=r(\beta_{1},\beta_{2},\cdots,\beta_{t})$
+
+性质：
+
+(1)自反性：向量组与自身等价。
+
+(2)对称性。
+
+(3)传递性。
+
+\num 线性相关：对于向量组$\alpha_{1},\alpha_{2},\cdots,\alpha_{n}$，如果$x_{1}\alpha_{1}+x_{2}\alpha_{2}+\cdots+x_{n}\alpha_{n}=0$有不全为0的解，则称向量组$\alpha_{1},\alpha_{2},\cdots,\alpha_{n}$线性相关（$r(A)<n$），否则称$\alpha_{1},\alpha_{2},\cdots,\alpha_{n}$线性无关（$r(A)=n$）。
+
+(1)$n$个$n$维列向量组线性无关当且仅当$|A|\neq0$。
+
+(2)$m$个$n$($m>n$)维列向量组一定线性相关。
+
+(3)两个向量线性相关，当且仅当两个向量成比例
+
+
+\end{document}  

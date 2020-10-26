@@ -1,0 +1,742 @@
+\documentclass{article}
+\usepackage[space,fancyhdr,fntef]{ctexcap}
+\usepackage[namelimits,sumlimits,nointlimits]{amsmath}
+\usepackage[bottom=25mm,top=25mm,left=25mm,right=15mm,centering]{geometry}
+\usepackage{xcolor}
+\usepackage{arydshln}%234页，虚线表格宏包
+\pagestyle{fancy} \fancyhf{}
+\fancyhead[OL]{~~~班序号：\hfill 学院：\hfill 学号：\hfill 姓名：王松年~~~ \thepage}
+%\usepackage{parskip}
+%\usepackage{indentfirst}
+\usepackage{graphicx}%插图宏包，参见手册318页
+\begin{document}
+
+\newcounter{num} \renewcommand{\thenum}{\arabic{num}.} \newcommand{\num}{\refstepcounter{num}\text{\thenum}}
+
+\newenvironment{jie}{\kaishu\zihao{-5}\color{blue}{\noindent\em 解：}\par}{\hfill $\diamondsuit$\par}
+
+\newenvironment{zhengming}{\kaishu\zihao{-5}\color{blue}{\noindent\em 证明：}\par}{\hfill $\diamondsuit$\par}
+
+\hphantom{~~}\hfill {\zihao{3}\heiti 第三次习题课} \hfill\hphantom{~~}
+
+\hphantom{~~}\hfill {\zihao{4}\heiti 群文件《期中$\&$期末试题》} \hfill\hphantom{~~}
+
+{\heiti \zihao{4} 期中试题}
+
+\num 期中2016-2017 一4.
+
+设$f(x)=ax^{2}+bx+c$,$A$为$n$阶方阵，定义$f(A)=aA^{2}+bA+cI$，如果$
+A=
+\begin{bmatrix}
+  1 & 0 & 0 & 0 \\
+  0 & 1& 0& 0 \\
+  2 & 0 & 1& 0\\
+   0 & 0 &0 &1
+\end{bmatrix},f(x)=x^{2}-x-1,
+$则$f(A)=$\underline{\hphantom{~~~~~~~~~~}}。
+
+\begin{jie}
+由题得：
+\begin{equation*}
+A=E+\begin{bmatrix}
+  0 & 0 & 0 & 0 \\
+  0 & 0& 0& 0 \\
+  2 & 0 & 0& 0\\
+   0 & 0 &0 &0
+\end{bmatrix}=E+B
+\end{equation*}
+可以看出：$B^2=0$.所以$A^2=(E+B)^2=E+B^2+2EB=E+2B$.
+
+所以$f(A)=A^2-A-E=E+2B-E-B-E=B-E=
+\begin{bmatrix}
+  -1 & 0 & 0 & 0 \\
+  0 & -1& 0& 0 \\
+  2 & 0 & -1& 0\\
+   0 & 0 &0 &-1
+\end{bmatrix}
+$
+\end{jie}
+
+\num 期中2017-2018 二1.判断是否成立并给出理由。
+
+设$A,B$为同阶对称方阵，则$AB$一定是对称矩阵；
+
+\begin{jie}
+不成立。理由：
+
+以2阶对称矩阵为例：（式中:$a,b,c,x,y,z$为任意实数。）
+\begin{equation*}
+A=\begin{bmatrix}
+  a & b \\
+  b & c
+\end{bmatrix}~~~B=
+\begin{bmatrix}
+  x & y \\
+  y & z
+\end{bmatrix}~~AB=
+\begin{bmatrix}
+  ax+by & \textcolor[rgb]{1.00,0.00,0.00}{ay+bz}\\
+  \textcolor[rgb]{1.00,0.00,0.00}{bx+cy} & by+cz
+\end{bmatrix}
+\end{equation*}
+可以看出，由于$a,b,c,x,y,z$取值的任意性，所以$ay+bz\neq by+cz$。 （可以取$a=1,b=2,c=3,x=3,y=4,z=5$实际验证一下。）
+\end{jie}
+
+\num 期中2017-2018 二4.判断是否成立并给出理由。
+
+设2阶矩阵$A=
+\begin{bmatrix}
+  a & b \\
+  c & d
+\end{bmatrix}
+$,若$A$与所有的2阶矩阵均可以交换，则$a=d,b=c=0$。
+
+\begin{jie}
+成立，理由如下：
+
+取任意二阶矩阵（$x,y,z,w$为任意实数）:$
+B=
+\begin{bmatrix}
+  x & y \\
+  z & w
+\end{bmatrix}
+$,则
+\begin{gather*}
+AB=\begin{bmatrix}
+  a & b \\
+  c & d
+\end{bmatrix}
+\begin{bmatrix}
+  x & y \\
+  z & w
+\end{bmatrix}=
+\begin{bmatrix}
+  ax+bz & ay+bw \\
+  cx+dz & cy+dw
+\end{bmatrix}\\
+BA=
+\begin{bmatrix}
+  x & y \\
+  z & w
+\end{bmatrix}
+\begin{bmatrix}
+  a & b \\
+  c & d
+\end{bmatrix}=
+\begin{bmatrix}
+  xa+cy & xb+yd \\
+  az+cw & bz+dw
+\end{bmatrix}
+\end{gather*}
+若$A$与$B$可交换，则有$AB=BA$,即：
+\begin{gather}
+ax+bz=xa+cy  \\
+ay+bw=xb+yd\\
+cx+dz=az+cw\\
+cy+dw=bz+dw
+\end{gather}
+由(1)式和(4)式得：$bz=cy$，因为$z$和$y$为任意数，所以$b=c=0$，代入(2)式和(3)式：$ay=dy,az=dz$，所以$a=d$。
+\end{jie}
+
+\num 期中2018-2019 二2.
+
+设$A$是$n$阶实对称矩阵，如果$A^{2}=0$，证明$A=0$.并举例说明，如果$A$不是实对称矩阵，上述命题不正确。
+
+\begin{jie}
+证明：
+依题意设$A=
+\begin{bmatrix}
+  a_{11} & a_{12} & \cdots & a_{1n} \\
+  a_{12} & a_{22} & \cdots & a_{2n} \\
+  \vdots & \vdots & \ddots & \vdots \\
+  a_{1n} & a_{2n} & \cdots & a_{nn}
+\end{bmatrix}
+$，所以$A^2$为：只看$A^2$对角线上的元素，$A^2$的第$k$行第$k$列的元素为$A$的第$k$行乘第$k$列：$a_{1k}^2+a_{2k}^2+\cdots+a_{kk}^2+a_{kk+1}^2+a_{kk+2}^2+\cdots+a_{kn}^2=0$，因为平方一定大于等于0，所以该式的每一项都为0，即$a_{1k},a_{2k},\cdots,a_{kk},a_{kk+1},a_{kk+2},\cdots,a_{kn}$为0.即$A$的第$k$行和第$k$列元素为0.\textcolor[rgb]{1.00,0.00,0.00}{（这一步看不懂的计算一下$A^2$的第一行第一列，第二行第二列的元素验证一下）}
+
+因为$A^2$为0，即其对角线每个元素都为0，由上边的步骤可以推出$A$的每行每列元素都为0，即$A=0$。
+
+举例：对于二阶矩阵$
+A=\begin{bmatrix}
+0& 0\\
+1& 0
+\end{bmatrix}
+$,$A^2=0$，但$A$不是对称矩阵。
+\end{jie}
+
+\num 2015-2016 ~二.5
+
+设$A=
+\begin{bmatrix}
+  3 & 4 & 1\\
+  0 & 2 & 0\\
+  5 & 1 & 3
+\end{bmatrix}
+,B=
+\begin{bmatrix}
+  2 & -1 & 3\\
+  0 & 3 & 1\\
+  0 & 0 & 0
+\end{bmatrix}
+$,求$AB$的秩$r(AB)$。
+
+\begin{jie}
+知识点：矩阵的性质的应用。总结里的性质9.
+
+方法一：计算出$AB$,然后对$AB$进行高斯消元求出阶梯形矩阵，再求出秩。（步骤略，不讲，自己算）
+
+方法二：
+
+由题得：$r(B)=2$。
+\begin{align*}
+A\xrightarrow{ \substack{r_{1}\times\frac{1}{3} \\ r_{2}\times \frac{1}{2} \\ r_{3}\times \frac{1}{5}}}
+{
+\begin{bmatrix}
+  1 & \frac{4}{3} & \frac{1}{5}\\
+  0 & 1 & 0\\
+  1 & \frac{1}{5} & \frac{3}{5}
+\end{bmatrix}
+}
+\xrightarrow{r_{3}-r_{1}}
+{
+\begin{bmatrix}
+  1 & \frac{4}{3} & \frac{1}{5}\\
+  0 & 1 & 0\\
+  0 & -\frac{17}{15} & \frac{4}{15}
+\end{bmatrix}
+}\xrightarrow{r_{3}+\frac{17}{15}r_{2}}
+{
+\begin{bmatrix}
+  1 & \frac{4}{3} & \frac{1}{5}\\
+  0 & 1 & 0\\
+  0 & 0 & \frac{4}{15}
+\end{bmatrix}
+}
+\end{align*}
+所以$r(A)=3$，即A满秩。所以$r(AB)=r(B)=2$。
+
+方法三：（行列式还没学，等学到了在来看这个方法）
+
+由题得：
+\begin{equation*}
+  |A|=
+  \begin{vmatrix}
+     3 & 4 & 1\\
+  0 & 2 & 0\\
+  5 & 1 & 3
+  \end{vmatrix}=2*
+  \begin{vmatrix}
+     3 &  1\\
+  5 &  3
+  \end{vmatrix}=2\times(3\times 3-1\times 5)=8\neq 0
+\end{equation*}
+所以$A$可逆，$r(AB)=r(B)=2$。
+
+用任意一种方法做都可以，用自己最顺手的即可。
+\end{jie}
+
+\num 2016-2017 ~一.3.
+
+设方程组$
+\begin{cases}
+ 2x_{1}-x_{2}+x_{3}=0\\
+ x_{1}+kx_{2}-x_{3}=0\\
+ kx_{1}+x_{2}+x_{3}=0
+\end{cases}
+$有非零解，则$k=$
+\underline{~~~~-1或4~~~~}。
+
+\begin{jie}
+如果方程组有非零解，则$r(A)<3$,当$k=0$时，可以得出$r(A)=3$;对系数矩阵进行高斯消元：
+\begin{equation*}
+  \begin{bmatrix}
+    2 & -1 & 1 \\
+    1 & k &-1\\
+    k & 1 & 1
+  \end{bmatrix}\xrightarrow{ \substack{r_{2}-\frac{1}{2} r_{1}\\ r_{3}-\frac{k}{2}r_{1} }}
+{
+\begin{bmatrix}
+ 2 & -1 & 1 \\
+  0 & k+\frac{1}{2}  & -\frac{3}{2} \\
+  0 & \frac{k}{2}+1  & 1-\frac{k}{2}
+\end{bmatrix}
+}
+\end{equation*}
+要使$r(A)<3$，则
+\begin{equation*}
+\dfrac{k+\frac{1}{2}}{\frac{k}{2}+1}=\dfrac{-\frac{3}{2}}{1-\frac{k}{2}}~~~\Rightarrow k_{1}=-1 ~k_{2}=4
+\end{equation*}
+\end{jie}
+
+\num 2016-2017 ~一.6.
+
+设$A=
+\begin{bmatrix}
+  1 & -1 & 2 & 1\\
+  -1 & a & 2 & 1\\
+  3 & 1 & b & -1\\
+\end{bmatrix},r(A)=2
+$，则$a+b=$\underline{~~~~~~$-3$~~~~~~}。
+
+\begin{jie}
+由题得：
+\begin{equation*}
+  A\xrightarrow{\substack{r_{2}+r_{1} \\ r_{3}-3r_{1}}}
+{
+    \begin{bmatrix}
+  1 & -1 & 2 & 1\\
+  0 & a-1 & 4 & 2\\
+  0 & 4 & b-6 & -4\\
+\end{bmatrix}
+}
+\end{equation*}
+若$r(A)=2$，则$r_{2}=kr_{3}$其中$k\neq0$.(指的是非零元素成比例)即：
+\begin{equation*}
+  \frac{a-1}{4}=\frac{4}{b-6}=\frac{2}{-4}~~~\Rightarrow
+  \begin{cases}
+    a=-1\\ b=-2
+  \end{cases}
+\end{equation*}
+\end{jie}
+
+\num 2016-2017 ~二.4（2015-2016的期末试题一大题第2，原题）
+
+设$
+A=\begin{bmatrix}
+    1 & 1 & 1 & 1\\
+    0 & 2 & 2 & 2\\
+    0 & 0 & 3 & 3\\
+    0 & 0 & 0 & 4
+  \end{bmatrix}
+$,求$A^{2}-2A$的秩$r(A^{2}-2A)$。
+
+\begin{jie}
+方法一：计算出$A^{2}-2A$。然后对$A^{2}-2A$进行高斯消元求出阶梯形矩阵再求出秩。（步骤略，不讲，自己算）
+
+方法二：
+
+由题得：$A^{2}-2A=A(A-2E)$,可以看出$A$是满秩方阵，即$A$可逆。\textcolor[rgb]{1.00,0.00,0.00}{满秩方阵一定可逆}，所以
+$r(A^{2}-2A)=r(A(A-2E))=r(A-2E)$。
+\begin{align*}
+A-2E=
+\begin{bmatrix}
+-1 & 1 & 1 & 1\\
+0 & 0 & 2 & 2\\
+0 & 0 & 1 & 3\\
+0 & 0 & 0 & 2
+\end{bmatrix}
+\xrightarrow{r_{2}\times\frac{1}{2}}
+{
+\begin{bmatrix}
+-1 & 1 & 1 & 1\\
+0 & 0 & 1 & 1\\
+0 & 0 & 1 & 3\\
+0 & 0 & 0 & 2
+\end{bmatrix}
+}\xrightarrow{r_{3}-r_{2}}
+{
+\begin{bmatrix}
+-1 & 1 & 1 & 1\\
+0 & 0 & 1 & 1\\
+0 & 0 & 0 & 2\\
+0 & 0 & 0 & 2
+\end{bmatrix}
+}\xrightarrow{r_{4}-r_{3}}
+{
+\begin{bmatrix}
+-1 & 1 & 1 & 1\\
+0 & 0 & 1 & 1\\
+0 & 0 & 0 & 2\\
+0 & 0 & 0 & 0
+\end{bmatrix}
+}
+\end{align*}
+所以r(A-2E)=3，所以$r(A^{2}-2A)=3$
+\end{jie}
+
+\num 2017-2018~一.5.
+
+设$
+A=\begin{bmatrix}
+   2 & 4 & 1 & 0\\
+   1 & 0 & 3 & 2\\
+   -1 & 5 & -3 & 1\\
+   0 & 1 & 0 & 2
+  \end{bmatrix},B=
+  \begin{bmatrix}
+   1& 1& 1 & 1\\
+   1 & 1 & 2 & 2\\
+   a+1 & 2 & 3 &4\\
+   1 & a & 1 & a
+  \end{bmatrix}
+$，若$r(A)=r(B)$，则$a$应满足什么条件。
+
+\begin{jie}
+由题得
+\begin{align*}
+A\xrightarrow{r_{1}\times \frac{1}{2}}&
+{
+\begin{bmatrix}
+   1 & 2 & \frac{1}{2} & 0\\
+   1 & 0 & 3 & 2\\
+   -1 & 5 & -3 & 1\\
+   0 & 1 & 0 & 2
+  \end{bmatrix}
+}\xrightarrow{ \substack{r_{2}-r_{1} \\ r_{3}+r_{1}}}
+{
+\begin{bmatrix}
+   1 & 2 & \frac{1}{2} & 0\\
+   0 & -2 & \frac{5}{2} & 2\\
+   0 & 7 & -\frac{5}{2} & 1\\
+   0 & 1 & 0 & 2
+  \end{bmatrix}
+}\xrightarrow{r_{2}\Leftrightarrow r_{4}}
+{
+\begin{bmatrix}
+   1 & 2 & \frac{1}{2} & 0\\
+   0 & 1 & 0 & 2\\
+   0 & 7 & -\frac{5}{2} & 1\\
+   0 & -2 & \frac{5}{2} & 2
+  \end{bmatrix}
+}\xrightarrow{\substack{r_{3}-7 r_{2} \\ r_{4}+2r_{2}}}
+{
+\begin{bmatrix}
+   1 & 2 & \frac{1}{2} & 0\\
+   0 & 1 & 0 & 2\\
+   0 & 0 & -\frac{5}{2} & -13\\
+   0 & 0 & \frac{5}{2} & 4
+  \end{bmatrix}
+}\\
+\xrightarrow{r_{4}+ r_{3}}&
+{
+\begin{bmatrix}
+   1 & 2 & \frac{1}{2} & 0\\
+   0 & 1 & 0 & 2\\
+   0 & 0 & -\frac{5}{2} & -13\\
+   0 & 0 & 0 & -9
+  \end{bmatrix}
+}
+\end{align*}
+所以$r(A)=4$。
+\begin{equation*}
+  B\xrightarrow{\substack{r_{2}- r_{1} \\ r_{3}- r_{1} \\ r_{4}- r_{1} }}
+  {
+  \begin{bmatrix}
+   1& 1& 1 & 1\\
+   0 & 0 & 1 & 1\\
+   a & 1 & 2 & 3 \\
+   0 & a-1 & 1 & a
+  \end{bmatrix}
+  }=C
+\end{equation*}
+若$a=0$,则
+\begin{equation*}
+  C=
+   \begin{bmatrix}
+   1& 1& 1 & 1\\
+   0 & 0 & 1 & 1\\
+   0 & 1 & 2 & 3 \\
+   0 & -1 & 1 & 0
+  \end{bmatrix}
+  \xrightarrow{\text{中间步骤略}}
+  {
+  \begin{bmatrix}
+   1& 1& 1 & 1\\
+   0 & 1 & -1 & 0\\
+   0 & 0 & 1 & 1 \\
+   0 & 0 & 0 & 0
+  \end{bmatrix}
+  }
+\end{equation*}
+可以看出此时$r(B)=3\neq r(A)$。所以\textcolor[rgb]{1.00,0.00,0.00}{$a\neq0$}。对$C$继续化简：
+\begin{equation*}
+  C\xrightarrow{r_{3}-ar_{1}}
+  {
+  \begin{bmatrix}
+   1& 1& 1 & 1\\
+   0 & 0 & 1 & 1\\
+   0 & 1-a & 2-a & 3-a \\
+   0 & a-1 & 0 & a-1
+  \end{bmatrix}
+  }=D
+\end{equation*}
+若$1-a=0$，即$a=1$，则：
+\begin{equation*}
+  D=\begin{bmatrix}
+   1& 1& 1 & 1\\
+   0 & 0 & 1 & 1\\
+   0 & 0 & 1 & 2 \\
+   0 & 0 & 0 & 0
+  \end{bmatrix}
+\end{equation*}
+可以看出此时$r(A)<4$，所以\textcolor[rgb]{1.00,0.00,0.00}{$a\neq1$}，继续对$D$进行化简(注意：此时$a\neq0$且$a\neq1$)：
+\begin{equation*}
+D\xrightarrow{r_{4}+r_{3}}
+{
+     \begin{bmatrix}
+   1& 1& 1 & 1\\
+   0 & 0 & 1 & 1\\
+   0 & 1-a & 2-a & 3-a \\
+   0 & 0 & 2-a & 2
+  \end{bmatrix}
+}\xrightarrow{r_{2}\Leftrightarrow r_{3}}
+{
+ \begin{bmatrix}
+   1& 1& 1 & 1\\
+   0 & 1-a & 2-a & 3-a \\
+   0 & 0 & 1 & 1\\
+   0 & 0 & 2-a & 2
+  \end{bmatrix}
+}\xrightarrow{r_{4}-(2-a) r_{3}}
+{
+\begin{bmatrix}
+   1& 1& 1 & 1\\
+   0 & 1-a & 2-a & 3-a \\
+   0 & 0 & 1 & 1\\
+   0 & 0 & 0 & a
+  \end{bmatrix}
+}
+\end{equation*}
+因为$a\neq0$且$a\neq1$,所以此时$r(B)=4=r(A)$,所以$a$应满足的条件是$a\neq0$且$a\neq1$。
+\end{jie}
+
+\num 2018-2019~一.6（1）
+
+设$A=
+\begin{bmatrix}
+  1 & 0 & 1\\
+  -1 & -1 & 1\\
+  0 & 2 & a
+\end{bmatrix},
+B=
+\begin{bmatrix}
+  1 & 0 & 1\\
+  0 & -1 & 2\\
+   0 & 0 & 0
+\end{bmatrix}
+$。
+
+(1)问$a$为何值时，矩阵$A$和$B$等价。
+
+(2)当$A$和$B$等价时，求可逆矩阵$P$，使得$PA=B$。
+
+\begin{jie}
+(1)
+由题得：$r(B)=2$，若$A$和和$B$等价，则$r(A)=2$。
+\begin{equation*}
+ A\xrightarrow{r_{2}+ r_{1}}
+{
+\begin{bmatrix}
+  1 & 0 & 1\\
+  0 & -1 & 2\\
+  0 & 2 & a
+\end{bmatrix}
+}\xrightarrow{r_{3}+2r_{2}}
+{
+\begin{bmatrix}
+  1 & 0 & 1\\
+  0 & -1 & 2\\
+  0 & 0 & a+4
+\end{bmatrix}
+}
+\end{equation*}
+$a+4=0$即$a=-4$时，$r(A)=2$，所以$a=-4$。
+
+(2)~~由(1)得：
+\begin{equation*}A=
+  \begin{bmatrix}
+  1 & 0 & 1\\
+  0 & -1 & 2\\
+  0 & 2 & -4
+  \end{bmatrix}\xrightarrow{r_{2}+r_{1}}
+{
+\begin{bmatrix}
+  1 & 0 & 1\\
+  0 & -1 & 2\\
+  0 & 2 & 4
+\end{bmatrix}
+}\xrightarrow{r_{3}+2r_{2}}
+{
+\begin{bmatrix}
+  1 & 0 & 1\\
+  0 & -1 & 2\\
+  0 & 0 & 0
+\end{bmatrix}
+}=B
+\end{equation*}
+由初等行变换得：$E(3~2(2))E(2~1(1))A=B$所以
+\begin{equation*}
+P=E(3~2(2))E(2~1(1))=
+  \begin{bmatrix}
+    1 & 0 & 0\\
+    0 & 1& 0\\
+    0 & 2& 1
+  \end{bmatrix}
+   \begin{bmatrix}
+    1 & 0 & 0\\
+    1 & 1& 0\\
+    0 & 0& 1
+  \end{bmatrix}=
+   \begin{bmatrix}
+    1 & 0 & 0\\
+    1 & 1& 0\\
+    2 & 2& 1
+  \end{bmatrix}
+\end{equation*}
+\end{jie}
+
+{\heiti \zihao{4} 期末试题}
+
+\num 2014-2015~七
+
+设$A$为$n$阶矩阵，且$A^{2}-A-2I=0$。
+
+(1)证明：$r(A-2I)+r(A+I)=n$.
+
+\begin{zhengming}
+由题得：$A^{2}-A-2I=(A-2I)(A+I)=0$。
+
+所以由矩阵秩的性质有：$r(A+2I)+r(A+I)\leq n$。
+
+$r((A-2I)-(A+I))=r(-3I)\leq r(A-2I)+r(-(A+I))=r(A-2I)+r((A+I))$,即$n\leq r(A-2I)+r((A+I))$
+
+所以$r(A-2I)+r(A+I)=n$.
+\end{zhengming}
+
+\num 2017-2018~一.2
+
+设$
+A=
+\begin{bmatrix}
+  1 & 1 & 1 \\
+  0 & 1 & 1 \\
+  2 & 3 & 2
+\end{bmatrix},
+B=\begin{bmatrix}
+    1\\ 2\\ 0
+  \end{bmatrix}
+  \begin{bmatrix}
+  1 & 2&3
+  \end{bmatrix}
+$,则$r(A+AB)=$\underline{\hphantom{~~~~~~~~~~}}。\\
+
+\begin{jie}
+\begin{equation*}
+A\xrightarrow{r_{3}-2r_{1}}
+{
+\begin{bmatrix}
+  1 & 1 & 1 \\
+  0 & 1 & 1 \\
+  0 & 1 & 0
+\end{bmatrix}
+}\xrightarrow{r_{3}-r_{2}}
+{
+\begin{bmatrix}
+  1 & 1 & 1 \\
+  0 & 1 & 1 \\
+  0 & 0 & -1
+\end{bmatrix}
+}
+\end{equation*}
+$r(A)=3$,满秩。所以$r(A+AB)=r(A(E+B))=r(E+B)$
+\begin{align*}
+B=&\begin{bmatrix}
+    1\\ 2\\ 0
+  \end{bmatrix}
+  \begin{bmatrix}
+  1 & 2&3
+  \end{bmatrix}
+  =\begin{bmatrix}
+     1 & 2 & 3\\
+2 & 4 & 6\\
+0 & 0 & 0
+   \end{bmatrix}
+  \\
+E+B=&
+\begin{bmatrix}
+2 & 2 & 3\\
+2 & 5 & 6\\
+0 & 0 & 1
+\end{bmatrix}\xrightarrow{r_{2}-r_{1}}
+{
+\begin{bmatrix}
+2 & 2 & 3\\
+0 & 3 & 3\\
+0 & 0 & 1
+\end{bmatrix}
+}
+\end{align*}
+所以$r(E+B)=3$，所以$r(A+AB)=r(E+B)=3$
+\end{jie}
+
+\num 2019-2020~一.2
+
+已知$A=
+\begin{bmatrix}
+  1 & -2 & 3k\\
+ -1 & 2k & -3\\
+ k & -2 & 3
+\end{bmatrix}
+$的秩为2，则$k=$\underline{\hphantom{~~~~~~~~~~}}。
+
+\begin{jie}
+若$k=0$，则
+\begin{equation*}
+A=\begin{bmatrix}
+  1 & -2 & 0\\
+ -1 & 0 & -3\\
+ 0 & -2 & 3
+\end{bmatrix}
+\xrightarrow{r_{2}+r_{1}}
+{
+\begin{bmatrix}
+  1 & -2 & 0\\
+ 0 & -2 & -3\\
+ 0 & -2 & 3
+\end{bmatrix}
+}\xrightarrow{r_{3}-r_{2}}
+{
+\begin{bmatrix}
+  1 & -2 & 0\\
+ 0 & -2 & -3\\
+ 0 & 0 & 6
+\end{bmatrix}
+}
+\end{equation*}
+所以$r(A)=3\neq2$，即$k\neq0$.
+对$A$接着进行化简：
+\begin{equation*}
+  A\xrightarrow{\substack{r_{2}+r_{1} \\ r_{3}-kr_{1}}}
+{
+\begin{bmatrix}
+  1 & -2 & 3k\\
+ 0 & 2k-2 & 3k-3\\
+ 0 & 2k-2 & 3-3k^{2}
+\end{bmatrix}
+}=B
+\end{equation*}
+若$k=1$，则
+\begin{equation*}
+B=
+\begin{bmatrix}
+  1 & -2 & 3\\
+ 0 & 0 & 0\\
+ 0 & 0 & 0
+\end{bmatrix}
+\end{equation*}
+$r(A)=1\neq2$，所以$k\neq1$，继续对$A$进行化简：
+\begin{equation*}
+  B\xrightarrow{\substack{r_{2}\times\frac{1}{k-1} \\ r_{3}\times\frac{1}{k-1}}}
+{
+\begin{bmatrix}
+  1 & -2 & 3k\\
+ 0 & 2 & 3\\
+ 0 & 2 & -3-3k
+\end{bmatrix}
+}
+\end{equation*}
+如果要使$r(A)=2$，则
+\begin{equation*}
+  \frac{2}{2}=\frac{3}{-3-3k}~~~\Rightarrow k=-2
+\end{equation*}
+\end{jie}
+\end{document}  

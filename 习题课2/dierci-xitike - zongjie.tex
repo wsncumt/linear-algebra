@@ -1,0 +1,97 @@
+\documentclass{article}
+\usepackage[space,fancyhdr,fntef]{ctexcap}
+\usepackage[namelimits,sumlimits,nointlimits]{amsmath}
+\usepackage[bottom=25mm,top=25mm,left=25mm,right=15mm,centering]{geometry}
+\usepackage{xcolor}
+\usepackage{paralist}%列表宏包
+\usepackage{arydshln}%234页，虚线表格宏包
+\pagestyle{fancy} \fancyhf{}
+\fancyhead[OL]{~~~班序号：\hfill 学院：\hfill 学号：\hfill 姓名：王松年~~~ \thepage}
+%\usepackage{parskip}
+%\usepackage{indentfirst}
+\usepackage{graphicx}%插图宏包，参见手册318页
+\begin{document}
+
+\newcounter{num} \renewcommand{\thenum}{\arabic{num}.} \newcommand{\num}{\refstepcounter{num}\text{\thenum}}
+
+\hphantom{~~}\hfill {\zihao{3}\heiti 第二次习题课} \hfill\hphantom{~~}
+
+\hphantom{~~}\hfill {\zihao{4}\heiti 知识点} \hfill\hphantom{~~}
+
+1.矩阵的转置。$(AB)^{T}=B^{T}A^{T}$
+
+2.向量的内积。
+
+3.方阵的幂。
+
+4.矩阵多项式：设A是方阵，$f(x)=a_{0}+a_{1}x+\cdots+a_{n}x^{n}$，则定义$f(A)=a_{0}E+a_{1}A+\cdots+a_{n}A^{n}$.
+
+如果$X$与$A$可交换，则$X$与$f(A)$可交换。
+
+5.分块矩阵：分块矩阵的定义。分块矩阵的加减，数乘。
+
+分块矩阵的乘法：设A、B都是分块矩阵，A的列数和B的行数相同，且A的列分法与B的行分法相同，则采用A的行分法和B的列分法对AB进行分块，看作分块矩阵$(AB)_{pq}=\sum_{j=1}^{t}A_{pj}B_{jp}$。\\
+分块矩阵乘法常用的结果：
+\begin{asparaenum}[(1)]
+\item 若$A_{m\times n}=
+\begin{bmatrix}
+  \alpha_{1}\\
+  \vdots\\
+  \alpha_{m}
+\end{bmatrix}
+$,$
+B_{n\times l}=\begin{bmatrix}
+                \beta_{1},\cdots,\beta_{l}
+              \end{bmatrix}
+$，则$
+AB=
+\begin{bmatrix}
+  \alpha_{1}\beta_{1} & \alpha_{1}\beta_{2} & \cdots & \alpha_{1}\beta_{l}\\
+  \alpha_{2}\beta_{1} & \alpha_{2}\beta_{2} & \cdots & \alpha_{2}\beta_{l}\\
+   \vdots & \vdots & \ddots & \vdots\\
+   \alpha_{m}\beta_{1} & \alpha_{m}\beta_{2} & \cdots & \alpha_{m}\beta_{l}\\
+\end{bmatrix}
+$
+\item 若$A_{m\times n},B_{n\times l}=\begin{bmatrix}\beta_{1}&\beta_{2}&\cdots&\beta_{l}\end{bmatrix}$，则有
+\begin{equation*}
+  AB=
+  \begin{bmatrix}
+    A\beta_{1} & A\beta_{2} & \cdots &A\beta_{l}
+  \end{bmatrix}
+\end{equation*}
+\item 如果$AB=0$,显然$A\beta_{j}=0$,也就是$B$的列向量是$Ax=0$的解。
+\item 设$A=\begin{bmatrix}\alpha_{1}&\alpha_{2}&\cdots&\alpha_{n}\end{bmatrix}$,
+\begin{equation*}
+  \begin{bmatrix}
+ \alpha_{1}&\alpha_{2}&\cdots&\alpha_{n}
+  \end{bmatrix}
+  \begin{bmatrix}
+ x_{1}\\
+ x_{2}\\
+ \vdots\\
+ x_{n}
+  \end{bmatrix}=
+  \alpha_{1}x_{1}+\alpha_{2}x_{2}+\cdots+\alpha_{n}x_{n}
+\end{equation*}
+\end{asparaenum}
+
+分块矩阵的转置：如果A是分块矩阵，则$A^{T}$的行采用与$A$的列相同的分法。即
+\begin{equation*}
+A=
+  \begin{bmatrix}
+    A_{11} & A_{12} & \cdots & A_{1t}\\
+   A_{21} & A_{22} & \cdots & A_{2t}\\
+   \vdots & \vdots & \ddots & \vdots\\
+   A_{s1} & A_{s2} & \cdots & A_{st}
+  \end{bmatrix}
+  ~~~~A^{T}=
+  \begin{bmatrix}
+    A_{11}^{T} & A_{21}^{T} & \cdots & A_{s1}^{T} \\
+    A_{12}^{T} & A_{22}^{T} & \cdots & A_{s2}^{T} \\
+    \vdots & \vdots & \ddots & \vdots\\
+    A_{1t}^{T} & A_{2t}^{T} & \cdots & A_{st}^{T} \\
+  \end{bmatrix}
+\end{equation*}
+
+6.线性方程组、矩阵方程、向量方程组的转化。
+\end{document}  
