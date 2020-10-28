@@ -1,0 +1,132 @@
+\documentclass{article}
+\usepackage[space,fancyhdr,fntef]{ctexcap}
+\usepackage[namelimits,sumlimits,nointlimits]{amsmath}
+\usepackage[bottom=25mm,top=25mm,left=25mm,right=15mm,centering]{geometry}
+\usepackage{xcolor}
+\usepackage{arydshln}%234页，虚线表格宏包
+\pagestyle{fancy} \fancyhf{}
+\fancyhead[OL]{~~~班序号：\hfill 学院：\hfill 学号：\hfill 姓名：王松年~~~ \thepage}
+%\usepackage{parskip}
+%\usepackage{indentfirst}
+\usepackage{graphicx}%插图宏包，参见手册318页
+\usepackage{mathdots}%反对角省略号
+\begin{document}
+
+\newcounter{num} \renewcommand{\thenum}{\arabic{num}.} \newcommand{\num}{\refstepcounter{num}\text{\thenum}}
+
+\newenvironment{jie}{\kaishu\zihao{-5}\color{blue}{\noindent\em 解：}\par}{\hfill $\diamondsuit$\par}
+
+\newenvironment{zhengming}{\kaishu\zihao{-5}\color{blue}{\noindent\em 证明：}\par}{\hfill $\diamondsuit$\par}
+
+\hphantom{~~}\hfill {\zihao{3}\heiti 第十次习题课} \hfill\hphantom{~~}
+
+\hphantom{~~}\hfill {\zihao{4}\heiti 群文件《期中$\&$期末试题》} \hfill\hphantom{~~}
+
+{\heiti \zihao{4} 期末试题}
+
+\num 期末2015-2016 三2.
+
+设3阶实对称矩阵$A$的特征值为$\lambda_{1}=-1,\lambda_{2}=\lambda_{3}=1$,对应于$\lambda_{1}$的特征向量$\alpha_{1}=(0,1,1)^{T}$。
+
+(1)求$A$对应于特征值1的特征向量；
+
+(2)求$A$;
+
+(3)求$A^{2016}$。
+
+\begin{jie}
+(1)由于$A$是实对称矩阵，所以对于$A$的不同特征值的特征向量正交，所以设特征值1对应的特征向量是$\alpha=[x_1,x_2,x_3]$。所以有：
+\begin{equation*}
+\alpha_{1}^T\alpha=x_2+x_3=0~~~\Rightarrow~~~x_2=-x_3
+\end{equation*}
+分别取$
+\begin{bmatrix}
+x_1 \\ x_3
+\end{bmatrix}=\begin{bmatrix}
+1 \\ 0
+\end{bmatrix}，
+\begin{bmatrix}
+0 \\ 1
+\end{bmatrix}
+$得$\alpha_{2}=
+\begin{bmatrix}
+1 \\ 0 \\0
+\end{bmatrix}
+,\alpha_3=
+\begin{bmatrix}
+0\\ -1 \\1
+\end{bmatrix}$。
+
+$\alpha_2,\alpha_3$即为$A$对应于特征值1的特征向量。
+
+(2)由特征值定义：$A\alpha_i=\lambda_i\alpha_i$。所以：
+\begin{align*}
+&A[\alpha_1,\alpha_2,\alpha_3]=[\lambda_1\alpha_1,\lambda_2\alpha_2,\lambda_3\alpha_3] ~~~\Rightarrow\\
+&A=[\lambda_1\alpha_1,\lambda_2\alpha_2,\lambda_3\alpha_3] [\alpha_1,\alpha_2,\alpha_3]^{-1}=
+\begin{bmatrix}
+  0 & 1  & 0\\
+ -1 & 0&-1\\
+ -1 & 0& 1
+\end{bmatrix}
+\begin{bmatrix}
+  0 & 1  & 0\\
+ 1 & 0&-1\\
+ 1 & 0& 1
+\end{bmatrix}^{-1}=
+\begin{bmatrix}
+  1 & 0  & 0\\
+ 0 & 0&-1\\
+ 0 & -1& 0
+\end{bmatrix}
+\end{align*}
+$\left(\text{式中：}[\alpha_1,\alpha_2,\alpha_3]^{-1}=
+\begin{bmatrix}
+  0 & \frac{1}{2} & \frac{1}{2}\\
+ 1 & 0&0\\
+  0 & -\frac{1}{2} & \frac{1}{2}
+\end{bmatrix}
+\right)$
+
+(3)由$(2)$得：$A^2=E_3$（$E$表示单位矩阵。）所以$A^{2016}=(A^{2})^{1008}=E_3$。
+\end{jie}
+
+\num 期末2016-2017 一4.
+
+设$\alpha_{1}=(a,1,1)^{T},\alpha_{2}=(1,b,-1)^{T},\alpha_{3}=(1,-2,c)^{T}$是正交向量组，则$a+b+c=$\underline{\hphantom{~~~~~~~~~~}}。
+
+\begin{jie}
+由题得：
+\begin{equation*}
+\begin{cases}
+\alpha_1\alpha_2^T=a+b-1=0\\
+\alpha_1\alpha_3^T=a-2+c=0\\
+\alpha_2\alpha_3^T=1-2b-c=0
+\end{cases}
+~~~\Rightarrow~~~
+\begin{cases}
+a=1\\
+b=0\\
+c=1
+\end{cases}~~~\Rightarrow~~~a+b+c=2
+\end{equation*}
+\end{jie}
+
+\num 期末2016-2017 一5.
+
+设3阶实对称矩阵$A$的特征值分别为$1,2,3$对应的特征向量分别为$\alpha_ {1}=(1,1,1)^{T},\alpha_{2}=(2,-1,-1)^{T},\alpha_{3}$，则$A$的对应于特征值3的一个特征向量$\alpha_{3}=$\underline{\hphantom{~~~~~~~~~~}}。
+
+\begin{jie}
+设$\alpha_3=[x_1,x_2,x_3]^T$，实对称矩阵对应于不同特征值的特征向量是正交的，所以：
+\begin{equation*}
+\begin{cases}
+\alpha_{1}\alpha_3^T=x_1+x_2+x_3=0\\
+\alpha_{2}\alpha_3^T=2x_1-x_2-x_3=0
+\end{cases}~~~\Rightarrow~~~
+\begin{cases}
+x_1=0\\
+x_2=-x_3
+\end{cases}
+\end{equation*}
+令$x_{3}=-1$，有$\alpha_3=[0,1,-1]$
+\end{jie}
+\end{document}  

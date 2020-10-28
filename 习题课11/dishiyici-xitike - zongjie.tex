@@ -1,0 +1,127 @@
+\documentclass{article}
+\usepackage[space,fancyhdr,fntef]{ctexcap}
+\usepackage[namelimits,sumlimits,nointlimits]{amsmath}
+\usepackage[bottom=25mm,top=25mm,left=25mm,right=15mm,centering]{geometry}
+\usepackage{xcolor}
+\usepackage{paralist}%列表宏包
+\usepackage{arydshln}%234页，虚线表格宏包
+\pagestyle{fancy} \fancyhf{}
+\fancyhead[OL]{~~~班序号：\hfill 学院：\hfill 学号：\hfill 姓名：王松年~~~ \thepage}
+%\usepackage{parskip}
+%\usepackage{indentfirst}
+\usepackage{graphicx}%插图宏包，参见手册318页
+\usepackage{amssymb}
+\usepackage{bbm}
+\begin{document}
+
+\newcounter{num} \renewcommand{\thenum}{\arabic{num}.} \newcommand{\num}{\refstepcounter{num}\text{\thenum}}
+
+\hphantom{~~}\hfill {\zihao{3}\heiti 第十一次习题课} \hfill\hphantom{~~}
+
+\hphantom{~~}\hfill {\zihao{4}\heiti 知识点} \hfill\hphantom{~~}
+
+\num 只含有二次项的$n$元多项式
+\begin{equation*}
+f(x_1,x_2,\cdots,x_n)=a_{11}x_1^2+2a_{12}x_1x_2+\cdots+2a_{1n}x_1x_n+a_{22}x_2^2+2a_{23}x_2x_3+\cdots+2a_{2n}x_2x_n+\cdots+\cdots+a_{nn}x_n^2
+\end{equation*}
+称为$x_1,x_2,\cdots,x_n$的一个$n$元二次齐次多项式，简称为$x_1,x_2,\cdots,x_n$的一个$n$元二次型。
+
+\num 作一个$n$阶对称矩阵，$x=
+\begin{bmatrix}
+x_1\\ x_2\\  \\x_n
+\end{bmatrix}
+$，可以验证$f(x_1,x_2,\cdots,x_n)=x^TAx$，一般用$f(x)=x^TAx$表示二次型。矩阵$A$称为二次型$f(x)$的矩阵。对称矩阵$A$与二次型$f(x)$是一一对应的，定义二次型$f(x)$的秩为$r(A)$。
+
+\num 设$C_{m\times n}$，我们称$C:\mathbb{R}^n\rightarrow\mathbb{R}^m$，$\forall v\in \mathbb{R}^n,v\mapsto Cv$是从$\mathbb{R}^n$到$\mathbb{R}^m$的一个线性变换。
+
+\num 设$C_{n\times n}$是可逆矩阵，$x\in \mathbb{R}^n$，此时称$x=Cy$是可逆线性变换，此时二次型
+\begin{equation*}
+f(x_1,x_2,\cdots,x_n)=x^TAx=(Cy)^TA(Cy)=y^TC^TACy=y^T(C^TAC)y
+\end{equation*}
+变为矩阵$B=C^TAC$的$y$的$n$元二次型。
+
+若$y^T(C^TAC)y$形如$d_1y_1^2+\cdots+d_ry_r^2$，其中$d_1\cdots d_r\neq0$,则称$y^T(C^TAC)y$为$x^TAx$的一个标准型。
+
+\num 设$A,B$为两个$n$阶矩阵，如果存在$n$阶可逆矩阵$C$，使得$C^TAC=B$则称矩阵$A$合同于矩阵$B$，或$A$与$B$合同。记为$A\simeq B$。
+
+\num 如果线性变换$C$是正交矩阵，则称$x=Cy$为正交变换。
+
+设$A$为实对称矩阵，则存在正交阵$Q$，使$Q^{-1}AQ$为对角矩阵，由于二次型的矩阵是一个实对称矩阵，则$Q^{T}AQ$为对角矩阵。
+
+\num 二次型一定可以用正交变换化为标准型。
+
+\num 对任意二次型$f(x)=x^TAx$,存在正交矩阵$Q$，经过正交变换$x=Qy$可化为标准型
+\begin{equation*}
+\lambda_{1}y_1^2+\lambda_{2}y_2^2+\cdots+\lambda_{1n}y_n^2
+\end{equation*}
+其中$\lambda_{1},\lambda_{2},\cdots,\lambda_{n}$是二次型$f(x)$的矩阵$A$的全部特征值。(注：非零特征值要放在前面)
+
+\num 对任意一个实对称矩阵$A$，存在一个非奇异矩阵$C$，使$C^TAC$为对角阵。即任何一个实对称矩阵都与一个对角矩阵合同。(称这个对角阵为$A$的标准形)
+
+\num 二次型可以通过非退化线性变换化为规范形且规范形唯一。
+
+规范形中正项个数$p$称为二次型的正惯性指标，负项个数$r-p$称为二次型的副惯性指标，$r$是二次型的秩。
+
+\num 任给$0\neq x\in \mathbb{R}^n$都有$f(x)=x^TAx>0$(或$<0$)，则称$A$为正定矩阵(负定矩阵)。或称$f(x)=x^TAx>0$为正定(负定)二次型。
+
+\num 半正定，半负定
+
+\num 设$A$为正(负)定矩阵。如果$A,B$合同，则$B$也是正(负)定矩阵。合同矩阵具有相同的有定性。
+
+\num 单位矩阵是正定的。负单位矩阵是负定的。
+$I_{p,q}=
+\begin{bmatrix}
+I_p &~\\
+~&-I_q
+\end{bmatrix}
+$不定。
+
+$
+\begin{bmatrix}
+I_p &~\\
+~&0
+\end{bmatrix}
+$半正定。
+
+$
+\begin{bmatrix}
+-I_q &~\\
+~&0
+\end{bmatrix}
+$半负定。
+
+$
+\begin{bmatrix}
+I_p &~&~\\
+~&-I_q&~\\
+~&~&0
+\end{bmatrix}
+$不定。
+
+\num 实对称矩阵$A$为
+
+正定矩阵，当且仅当$A$的特征值全大于0。
+
+负定矩阵，当且仅当$A$的特征值全小于0。
+
+半正定矩阵，当且仅当$A$的特征值有正有0。
+
+半负定矩阵，当且仅当$A$的特征值有负有0。
+
+不定矩阵，当且仅当$A$的特征值有正有负。
+
+\num 如果矩阵$A$正定，以下描述等价
+
+(1)$A$的特征值全大于0。
+
+(2)$A$的规范形为$E_n$。
+
+(3)存在可逆矩阵$C$，$C^TAC=E_n$。
+
+(4)存在可逆矩阵$B$，$B=C^{-1},A=B^TB$。
+
+\num $k$阶主子式，$k$阶顺序主子式。
+
+\num 实对称矩阵$A=(a_{ij_{n\times n}})$为正定矩阵当且仅当$A$的所有顺序主子式大于0。
+
+\end{document}  

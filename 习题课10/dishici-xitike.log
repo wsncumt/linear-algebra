@@ -1,9 +1,9 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2020.4.27)  28 OCT 2020 07:41
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2020.4.27)  28 OCT 2020 07:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**"dishici-xitike - zongjie.tex"
-(./dishici-xitike - zongjie.tex
+**dishici-xitike.tex
+(./dishici-xitike.tex
 LaTeX2e <2018-12-01>
 (d:/texlive/2019/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2018/09/03 v1.4i Standard LaTeX document class
@@ -566,14 +566,6 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 )
-(d:/texlive/2019/texmf-dist/tex/latex/paralist/paralist.sty
-Package: paralist 2017/01/22 v2.7 Extended list environments
-\pltopsep=\skip74
-\plpartopsep=\skip75
-\plitemsep=\skip76
-\plparsep=\skip77
-\pl@lab=\toks22
-)
 (d:/texlive/2019/texmf-dist/tex/latex/arydshln/arydshln.sty
 Package: arydshln 2019/02/21 v1.76 
 \dashlinedash=\dimen193
@@ -594,8 +586,17 @@ Package: arydshln 2019/02/21 v1.76
 \adl@gap=\count294
 \adl@cla=\count295
 \adl@clb=\count296
-\adl@everyvbox=\toks23
+\adl@everyvbox=\toks22
 \adl@LTpagetotal=\dimen256
+)
+(d:/texlive/2019/texmf-dist/tex/generic/mathdots/mathdots.sty
+Package: mathdots 2014/06/11 v0.9 Improve and add various macros for dots in ma
+th.
+\MDo@unit=\dimen257
+\MDo@dotsbox=\box58
+\MDoprekern=\muskip18
+\MDopostkern=\muskip19
+\MDodotkern=\muskip20
 )
 (d:/texlive/2019/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
@@ -611,103 +612,86 @@ File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: xetex.def on input line 99.
 )
-\Gin@req@height=\dimen257
-\Gin@req@width=\dimen258
+\Gin@req@height=\dimen258
+\Gin@req@width=\dimen259
 )
-(d:/texlive/2019/texmf-dist/tex/latex/amsfonts/amssymb.sty
-Package: amssymb 2013/01/14 v3.01 AMS font symbols
+No file dishici-xitike.aux.
+\openout1 = `dishici-xitike.aux'.
 
-(d:/texlive/2019/texmf-dist/tex/latex/amsfonts/amsfonts.sty
-Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
-\symAMSa=\mathgroup4
-\symAMSb=\mathgroup5
-LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
-(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-))
-(d:/texlive/2019/texmf-dist/tex/latex/bbm-macros/bbm.sty
-Package: bbm 1999/03/15 V 1.2 provides fonts for set symbols - TH
-LaTeX Font Info:    Overwriting math alphabet `\mathbbm' in version `bold'
-(Font)                  U/bbm/m/n --> U/bbm/bx/n on input line 33.
-LaTeX Font Info:    Overwriting math alphabet `\mathbbmss' in version `bold'
-(Font)                  U/bbmss/m/n --> U/bbmss/bx/n on input line 35.
-)
-(./dishici-xitike - zongjie.aux)
-\openout1 = `"dishici-xitike - zongjie.aux"'.
-
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
- ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 15.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+ABD: EverySelectfont initializing macros
+LaTeX Info: Redefining \selectfont on input line 13.
 
 Package fontspec Info: Adjusting the maths setup (use [no-math] to avoid
 (fontspec)             this).
 
-\symlegacymaths=\mathgroup6
+\symlegacymaths=\mathgroup4
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 15.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 15.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 15.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 15.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 15.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 15.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 15.
-LaTeX Font Info:    Redeclaring math accent \check on input line 15.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 15.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 15.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 15.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 15.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 15.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 15.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 15.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 15.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 15.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 15.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 15.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 15.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 15.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 15.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 15.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 15.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 13.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 13.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 13.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 13.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 13.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 13.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 13.
+LaTeX Font Info:    Redeclaring math accent \check on input line 13.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 13.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 13.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 13.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 13.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 13.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 13.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 13.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 13.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 13.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 13.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 13.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 13.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 13.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 13.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 13.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 13.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 15.
+(Font)              `operators' in the math version `normal' on input line 13.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 15.
+(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 13.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 15.
+(Font)              `operators' in the math version `bold' on input line 13.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> TU/lmr/m/n on input line 15.
+(Font)                  OT1/cmr/bx/n --> TU/lmr/m/n on input line 13.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  TU/lmr/m/n --> TU/lmr/m/n on input line 15.
+(Font)                  TU/lmr/m/n --> TU/lmr/m/n on input line 13.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 15.
+(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 13.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> TU/lmr/bx/n on input line 15.
+(Font)                  OT1/cmr/bx/n --> TU/lmr/bx/n on input line 13.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 15.
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 13.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 15.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 13.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  TU/lmr/m/n --> TU/lmr/bx/n on input line 15.
+(Font)                  TU/lmr/m/n --> TU/lmr/bx/n on input line 13.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> TU/lmr/bx/it on input line 15.
+(Font)                  OT1/cmr/bx/it --> TU/lmr/bx/it on input line 13.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/bx/n on input line 15.
+(Font)                  OT1/cmss/bx/n --> TU/lmss/bx/n on input line 13.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/bx/n on input line 15.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/bx/n on input line 13.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -769,25 +753,40 @@ Package fontspec Info: Font family 'SimHei(0)' created for font 'SimHei' with
 (fontspec)             <->"SimHei/OT:script=hani;language=DFLT;"
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 24.
-(d:/texlive/2019/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Try loading font information for U+msb on input line 24.
 
-(d:/texlive/2019/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
+LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <10.53937> not available
+(Font)              size <10.95> substituted on input line 19.
 
-] [2]
-(./dishici-xitike - zongjie.aux) ) 
+
+Underfull \hbox (badness 10000) in paragraph at lines 31--32
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 35--36
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 39--40
+
+ []
+
+[1
+
+] (./dishici-xitike.aux)
+
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 0.41063pt have occurred.
+
+ ) 
 Here is how much of TeX's memory you used:
- 18602 strings out of 492922
- 412768 string characters out of 6136751
- 476398 words of memory out of 5000000
- 22473 multiletter control sequences out of 15000+600000
- 535467 words of font info for 60 fonts, out of 8000000 for 9000
+ 18216 strings out of 492922
+ 407331 string characters out of 6136751
+ 466440 words of memory out of 5000000
+ 22110 multiletter control sequences out of 15000+600000
+ 536502 words of font info for 62 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 59i,12n,70p,919b,446s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 59i,11n,70p,907b,446s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on dishici-xitike - zongjie.pdf (2 pages).
+Output written on dishici-xitike.pdf (1 page).
