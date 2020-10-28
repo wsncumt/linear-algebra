@@ -26,7 +26,11 @@
 
 \num 期末2014-2015 一5.
 
-已知实二次型$f(x_{1},x_{2},x_{3})=a(x_{1}^{2}+x_{2}^{2}+x_{3}^{2})+4x_{1}x_{2}+4x_{1}x_{3}+4x_{2}x_{2}$经正交变换$x=py$可化为标准形：$f=6y^{2}$,则$a=$\underline{\hphantom{~~~~~~~~~~}}。\\
+已知实二次型$f(x_{1},x_{2},x_{3})=a(x_{1}^{2}+x_{2}^{2}+x_{3}^{2})+4x_{1}x_{2}+4x_{1}x_{3}+4x_{2}x_{2}$经正交变换$x=py$可化为标准形：$f=6y^{2}$,则$a=$\underline{\hphantom{~~~~~~~~~~}}。
+
+\begin{jie}
+任意二次型$x^TAx$经过正交变换化为标准型时，标准型中平方项的系数即为二次型矩阵$A$的特征值,即$6,0,0$是$A$的特征值，而$A$的对角线元素是$a,a,a$，由特征值性质$trace(A)=a+a+a=\sum_{i=1}^{3}\lambda=6$，所以$a=2$。
+\end{jie}
 
 \num 期末2014-2015 六.
 
@@ -39,7 +43,87 @@
 (1)求$a,b$的值；
 
 (2)利用正交变换将二次型$f$化为标准型，并写出所用正交变换。
-\\
+
+\begin{jie}
+由题得：$A=
+\begin{bmatrix}
+  a & 0 & b\\
+  0 & 2 & 0\\
+  b & 0 & -2
+\end{bmatrix}m,|A|=2(-2a-b^2)
+$
+
+(1)由特征值的性质有：
+\begin{equation*}
+\begin{cases}
+trace(A)=a+2-2=1\\
+\prod\limits_{i=1}^{3}\lambda_i=-12=|A|=2(-2a-b^2)\\
+b>0
+\end{cases}~~~\Rightarrow~~~
+\begin{cases}
+a=1\\
+b=2
+\end{cases}
+\end{equation*}
+
+(2)
+\begin{equation*}
+  |\lambda E-A|=
+  \begin{vmatrix}
+  \lambda-1& 0 & -2\\
+  0 & \lambda-2 & 0\\
+  -2 & 0 & \lambda+2
+  \end{vmatrix}=(\lambda-2)[(\lambda-1)(\lambda+2)-4]=0~~~~\Rightarrow~~~~\lambda_1=\lambda_2=2,\lambda_3=-3
+\end{equation*}
+
+$\lambda_1=\lambda_2=2$时：
+\begin{equation*}
+  [\lambda E-A]=
+  \begin{vmatrix}
+  1& 0 & -2\\
+  0 & 0 & 0\\
+  -2 & 0 & 4
+  \end{vmatrix}~~~\Rightarrow~~~
+  \begin{cases}
+   x_1=2x_3\\
+   x_2\in R
+  \end{cases}
+\end{equation*}
+分别取$[x_2,x_3]^T=[1,0]^T$和$[0,1]^T$得：$\alpha_1=[0,1,0]^T,\alpha_{2}=[2,0,1]^T$，可以看出$\alpha_1$与$\alpha_2$正交。
+
+$\lambda_3=-3$时：
+\begin{equation*}
+  [\lambda E-A]=
+  \begin{vmatrix}
+  -4& 0 & -2\\
+  0 & -5 & 0\\
+  -2 & 0 & -1
+  \end{vmatrix}~~~\Rightarrow~~~
+  \begin{cases}
+   x_1=-\dfrac{1}{2}x_3\\
+   x_2=0
+  \end{cases}
+\end{equation*}
+取$x_3=-2$得：$\alpha_3=[1,0,-2]^T$。因为对称矩阵对应于不同特征值的特征向量正交，所以$[\alpha_1,\alpha_2,\alpha_3]$为正交向量组。
+
+单位化：
+\begin{equation*}
+\begin{cases}
+\gamma_1=\dfrac{\alpha_1}{\|\alpha_1\|}=[0,1,0]^T\\
+\gamma_2=\dfrac{\alpha_2}{\|\alpha_2\|}=\left[\dfrac{2}{\sqrt{5}},0,\dfrac{1}{\sqrt{5}}\right]^T\\[2mm]
+\gamma_3=\dfrac{\alpha_3}{\|\alpha_3\|}=\left[\dfrac{1}{\sqrt{5}},0,-\dfrac{2}{\sqrt{5}}\right]^T
+\end{cases}~~~\Rightarrow~~~Q=
+\begin{bmatrix}
+  0 & \dfrac{2}{\sqrt{5}}& \dfrac{1}{\sqrt{5}} \\
+  1 & 0& 0\\
+  0&  \dfrac{1}{\sqrt{5}}& -\dfrac{2}{\sqrt{5}}
+\end{bmatrix}
+\end{equation*}
+所以$f$可经正交变换$x=Qy$化为标准型：
+\begin{equation*}
+  f=2y_{1}^2+2y_{2}^2-3y_{3}^2
+\end{equation*}
+\end{jie}
 
 \num 期末2015-2016 一6.
 
@@ -50,7 +134,11 @@ A=
   1 & 2 & 3\\
   2 & 3 & \lambda
 \end{bmatrix}
-$正定，则$\lambda$满足的条件为\underline{\hphantom{~~~~~~~~~~}}。\\
+$正定，则$\lambda$满足的条件为\underline{\hphantom{~~~~~~~~~~}}。
+
+\begin{jie}
+由题得：$A$为对称矩阵，如果$A$正定，则$|A|>0$,所以$|A|=\lambda-5>0~~\Rightarrow~~\lambda>5$.
+\end{jie}
 
 \num 期末2015-2016 四1.
 
@@ -58,7 +146,16 @@ $正定，则$\lambda$满足的条件为\underline{\hphantom{~~~~~~~~~~}}。\\
 
 %(1)$A+2E$可逆；
 
-(2)$A$为正定矩阵。\\
+(2)$A$为正定矩阵。
+
+\begin{zhengming}
+对于$n$阶实对称矩阵，如果$A$为正定矩阵，则$A$的全部特征值大于0.
+设$A$的特征值为$\lambda$。由题得：
+\begin{equation*}
+\lambda^2-3\lambda+2=0~~~\Rightarrow~~~\lambda_1=1>0,\lambda_2=2>0
+\end{equation*}
+所以$A$为正定矩阵。
+\end{zhengming}
 
 \num 期末2016-2017 一6.
 
@@ -70,18 +167,42 @@ B=
   0 & 2 & 6\\
   0 & 0 & \lambda
 \end{bmatrix}
-$,已知二次型$f(x)=x^{T}Bx$是正定的，则$\lambda$的取值范围为\underline{\hphantom{~~~~~~~~~~}}。\\
+$,已知二次型$f(x)=x^{T}Bx$是正定的，则$\lambda$的取值范围为\underline{\hphantom{~~~~~~~~~~}}。
+
+\begin{jie}
+由题得：
+\begin{equation*}
+f(x)=x^{T}Bx=[x_1,x_2,x_3]\begin{bmatrix}
+  1 & 2 & 4 \\
+  0 & 2 & 6\\
+  0 & 0 & \lambda
+\end{bmatrix}
+\begin{bmatrix}
+x_1\\ x_2\\ x_3
+\end{bmatrix}=\begin{bmatrix}
+x_1&  2x_1+2x_2& 4x_1+6x_2+\lambda x_3
+\end{bmatrix}\begin{bmatrix}
+x_1\\ x_2\\ x_3
+\end{bmatrix}=x_1^2+2x_2^2+\lambda x_3^2+2x_1x_2+4x_1x_3+6x_2x_3
+\end{equation*}
+所以其对应的二次型矩阵为：
+$A=\begin{bmatrix}
+  1 & 1 & 2 \\
+  1 & 2 & 3\\
+  2 & 3 & \lambda
+\end{bmatrix}$,$A$为对称矩阵，如果$A$正定，则$|A|>0$,所以$|A|=\lambda-5>0~~\Rightarrow~~\lambda>5$.
+\end{jie}
 
 \num 期末2016-2017 三2.
 
-已知实对称矩阵$A
+已知实对称矩阵$A=
 \begin{bmatrix}
   a & -1 & 4 \\
   -1 & 3 & b\\
   4 & b & 0
 \end{bmatrix}
 $与
-$A
+$B=
 \begin{bmatrix}
   2 & ~ & ~ \\
   ~ & -4 & ~\\
@@ -89,9 +210,94 @@ $A
 \end{bmatrix}
 $相似。
 
-(1)求矩阵$A$化；
+(1)求矩阵$A$；
 
-(2)求正交线性变换$x=Qy$，把二次型$f(x)=x^{T}Ax$化为标准型.\\
+(2)求正交线性变换$x=Qy$，把二次型$f(x)=x^{T}Ax$化为标准型.
+
+\begin{jie}
+对于对角矩阵，其特征值为对角线上的元素。因为$A$与$B$相似，所以$A$与$B$有相同的特征值。
+
+(1)由特征值的性质
+\begin{equation*}
+\begin{cases}
+trace(A)=a+3+0=\sum\limits_{i=1}^{3}\lambda_i=2-4+5=3\\
+|A|=(-1)\times(-1)^{1+2}
+\begin{vmatrix}
+  -1 & b\\
+  4 & 0
+\end{vmatrix}+4
+\begin{vmatrix}
+  -1 & 3\\
+  4  & b
+\end{vmatrix}=-8b-48=\prod\limits_{i=1}^{3}\lambda_i=2\times(-4)\times5=-40
+\end{cases}~~\Rightarrow~~\begin{cases}a=0\\ b=-1\end{cases}
+\end{equation*}
+
+(2)
+
+$\lambda_1=2$时：
+\begin{equation*}
+[\lambda E-A]=
+\begin{bmatrix}
+  2 & 1 & -4\\
+  1 & -1 &1\\
+  -4 & 1 & 2
+\end{bmatrix}~~~\Rightarrow~~~
+\begin{cases}
+ x_1=x_3\\
+ x_2=2x_3
+\end{cases}
+\end{equation*}
+取$x_3=1$得$\alpha_1=[1,2,1]^T$。
+
+$\lambda_2=-4$时：
+\begin{equation*}
+[\lambda E-A]=
+\begin{bmatrix}
+  -4 & 1 & -4\\
+  1 & -7 &1\\
+  -4 & 1 & -4
+\end{bmatrix}~~~\Rightarrow~~~
+\begin{cases}
+ x_1=-x_3\\
+ x_2=0
+\end{cases}
+\end{equation*}
+取$x_3=-1$得$\alpha_2=[1,0,-1]^T$。
+
+$\lambda_3=5$时：
+\begin{equation*}
+[\lambda E-A]=
+\begin{bmatrix}
+  5 & 1 & -4\\
+  1 & 2 &1\\
+  -4 & 1 & 5
+\end{bmatrix}~~~\Rightarrow~~~
+\begin{cases}
+ x_1=x_3\\
+ x_2=-x_3
+\end{cases}
+\end{equation*}
+取$x_3=1$得$\alpha_2=[1,-1,1]^T$。因为对称矩阵对应于不同特征值的特征向量正交，所以$[\alpha_1,\alpha_2,\alpha_3]$为正交向量组。
+
+单位化：
+\begin{equation*}
+\begin{cases}
+\gamma_1=\dfrac{\alpha_1}{\|\alpha_1\|}=\left[\dfrac{1}{\sqrt{6}},\dfrac{2}{\sqrt{6}},\dfrac{1}{\sqrt{6}}\right]^T\\[2mm]
+\gamma_2=\dfrac{\alpha_2}{\|\alpha_2\|}=\left[\dfrac{1}{\sqrt{2}},0,-\dfrac{1}{\sqrt{2}}\right]^T\\[2mm]
+\gamma_3=\dfrac{\alpha_3}{\|\alpha_3\|}=\left[\dfrac{1}{\sqrt{3}},-\dfrac{1}{\sqrt{3}},\dfrac{1}{\sqrt{3}}\right]^T
+\end{cases}~~~\Rightarrow~~~Q=
+\begin{bmatrix}
+\dfrac{1}{\sqrt{6}}&\dfrac{1}{\sqrt{2}}&\dfrac{1}{\sqrt{3}}\\[2mm]
+\dfrac{2}{\sqrt{6}}&0&-\dfrac{1}{\sqrt{3}}\\[2mm]
+\dfrac{1}{\sqrt{6}}&-\dfrac{1}{\sqrt{2}}&\dfrac{1}{\sqrt{3}}
+\end{bmatrix}
+\end{equation*}
+所以$f$可经正交变换$x=Qy$化为标准型：
+\begin{equation*}
+  f=2y_{1}^2-4y_{2}^2+5y_{3}^2
+\end{equation*}
+\end{jie}
 
 \num 期末2016-2017 四2.
 
@@ -99,11 +305,47 @@ $相似。
 
 (1)证明如果$A\~{}B$，则$A\simeq B$,也就是相似一定合同；
 
-(2)举例说明反过来不成立。\\
+(2)举例说明反过来不成立。
+
+\begin{zhengming}
+(1)因为$A\~{}B$,所以$A,B$具有相同的特征值，记为$\lambda_i,(1\leq i\leq n)$。对于实对称矩阵$A$存在正交矩阵$Q$，使得$Q^{-1}AQ$为对角矩阵。即存在正交矩阵$Q_{1}$，使得$Q_1^{-1}AQ=\Lambda=
+\begin{bmatrix}
+  \lambda_1 & & \\
+   & \ddots &\\
+   &&\lambda_n
+\end{bmatrix}
+$，对于正交矩阵$Q_1$，有$Q_{1}^{-1}=Q_1^T$，即$Q_1^{T}AQ=\Lambda$，所以$A$合同于$\Lambda$，同理$B$合同于$\Lambda$，所以$A$合同于$B$。
+
+(2)反过来描述：$A,B$是同阶实对称矩阵，$A\simeq B$，则$A\~{}B$。
+
+由惯性定理（\textcolor[rgb]{1.00,0.00,0.00}{157页}）知：
+如果：$A=
+\begin{bmatrix}
+  1 &   \\
+    & 2
+\end{bmatrix},B=\begin{bmatrix}
+  1 &   \\
+    & 3
+\end{bmatrix}
+$，$A$,$B$为对角阵,且$A\simeq B$,但$A$和$B$的特征值不同，即$A$与$B$不相似。
+\end{zhengming}
 
 \num 期末2017-2018 一6.
 
-设二次型$f(x_{1},x_{2},x_{3})=2x_{1}^{2}+x_{2}^{2}+x_{3}^{2}+2x_{1}x_{2}+2tx_{2}x_{3}$的秩为2，则$t=$\underline{\hphantom{~~~~~~~~~~}}。\\
+设二次型$f(x_{1},x_{2},x_{3})=2x_{1}^{2}+x_{2}^{2}+x_{3}^{2}+2x_{1}x_{2}+2tx_{2}x_{3}$的秩为2，则$t=$\underline{\hphantom{~~~~~~~~~~}}。
+
+\begin{jie}
+二次型对应的矩阵为：
+\begin{equation*}
+A=
+\begin{bmatrix}
+  2 & 1 & 0\\
+  1 & 1 & t\\
+  0 & t &1
+\end{bmatrix}
+\end{equation*}
+$A$的秩为2，即$|A|=0$,解得：$t=\pm\dfrac{1}{\sqrt{2}}$
+\end{jie}
 
 \num 期末2017-2018 三2.
 
@@ -113,11 +355,121 @@ $相似。
 
 (2)求正交矩阵$Q$使得$Q^{T}AQ=Q^{-1}AQ$为对角型矩阵；
 
-(3)给出正交变换，化该二次型为标准型。\\
+(3)给出正交变换，化该二次型为标准型。
+
+\begin{jie}
+(1)由题得:
+\begin{equation*}
+A=
+\begin{bmatrix}
+  2 & 1 & 0 \\
+  1  & 2 & 0\\
+  0 & 0 & 2
+\end{bmatrix}
+\end{equation*}
+
+(2)
+\begin{equation*}
+|\lambda E-A|=
+\begin{vmatrix}
+  \lambda-2 & -1 & 0 \\
+  -1  & \lambda-2 & 0\\
+  0 & 0 & \lambda-2
+\end{vmatrix}=(\lambda-2)[(\lambda-2)^2-1]=0~~~\Rightarrow ~~~\lambda_1=1,\lambda_2=2,\lambda_3=3
+\end{equation*}
+
+$\lambda_1=1$时：
+\begin{equation*}
+[\lambda E-A]=
+\begin{bmatrix}
+  -1 & -1 & 0 \\
+  -1  & -1 & 0\\
+  0 & 0 & -1
+\end{bmatrix}~~~\Rightarrow~~~
+\begin{cases}
+ x_1=-x_2\\
+ x_3=0
+\end{cases}
+\end{equation*}
+取$x_2=-1$得$\alpha_1=[1,-1,0]^T$。
+
+$\lambda_2=2$时：
+\begin{equation*}
+[\lambda E-A]=
+\begin{bmatrix}
+  0 & -1 & 0 \\
+  -1  & 0 & 0\\
+  0 & 0 & 0
+\end{bmatrix}~~~\Rightarrow~~~
+\begin{cases}
+ x_1=x_2=0\\
+ x_3\in R
+\end{cases}
+\end{equation*}
+取$x_3=1$得$\alpha_2=[0,0,1]^T$。
+
+$\lambda_3=3$时：
+\begin{equation*}
+[\lambda E-A]=
+\begin{bmatrix}
+  1 & -1 & 0 \\
+  -1  & 1 & 0\\
+  0 & 0 & 1
+\end{bmatrix}~~~\Rightarrow~~~
+\begin{cases}
+ x_1=x_2\\
+ x_3=0
+\end{cases}
+\end{equation*}
+取$x_2=1$得$\alpha_3=[1,1,0]^T$。
+因为对称矩阵对应于不同特征值的特征向量正交，所以$[\alpha_1,\alpha_2,\alpha_3]$为正交向量组。
+
+单位化：
+\begin{equation*}
+\begin{cases}
+\gamma_1=\dfrac{\alpha_1}{\|\alpha_1\|}=\left[\dfrac{1}{\sqrt{2}},-\dfrac{1}{\sqrt{2}},0\right]^T\\[2mm]
+\gamma_2=\dfrac{\alpha_2}{\|\alpha_2\|}=\left[0,0,1\right]^T\\[2mm]
+\gamma_3=\dfrac{\alpha_3}{\|\alpha_3\|}=\left[\dfrac{1}{\sqrt{2}},\dfrac{1}{\sqrt{2}},0\right]^T
+\end{cases}~~~\Rightarrow~~~Q=
+\begin{bmatrix}
+\dfrac{1}{\sqrt{2}}&0&\dfrac{1}{\sqrt{2}}\\[2mm]
+-\dfrac{1}{\sqrt{2}}&0&\dfrac{1}{\sqrt{2}}\\[2mm]
+0&1&0
+\end{bmatrix}
+\end{equation*}
+所以$f$可经正交变换$x=Qy$化为标准型：
+\begin{equation*}
+  f=y_{1}^2+2y_{2}^2+3y_{3}^2
+\end{equation*}
+\end{jie}
 
 \num 期末2018-2019 一5.
 
-若二次型$f(x_ {1},x_{2},x_{3})=x_{1}^{2}+4x_{2}^{2}+4x_{3}^{2}+2tx_{1}x_{2}-2x_{1}x_{3}+4x_{2}x_{3}$正定，则$t$应满足\underline{\hphantom{~~~~~~~~~~}}。\\
+若二次型$f(x_ {1},x_{2},x_{3})=x_{1}^{2}+4x_{2}^{2}+4x_{3}^{2}+2tx_{1}x_{2}-2x_{1}x_{3}+4x_{2}x_{3}$正定，则$t$应满足\underline{\hphantom{~~~~~~~~~~}}。
+
+\begin{jie}
+二次型矩阵$A=
+\begin{bmatrix}
+  1 & t & -1 \\
+ t & 4 & 2\\
+ -1 &2 &4
+\end{bmatrix}
+$,二次型正定，即$A$正定，即$A$的所有顺序主子是大于0.即
+\begin{align*}
+&D_1=1\\
+&D_2=
+\begin{vmatrix}
+  1 & t\\
+  t & 4
+\end{vmatrix}=4-t^2>0~~~\Rightarrow ~~~-2<t<2\\
+&D_3=\begin{vmatrix}
+  1 & t & -1 \\
+ t & 4 & 2\\
+ -1 &2 &4
+     \end{vmatrix}=8-4t-4t^2>0~~~-2<t<1
+\end{align*}
+综上所述：$-2<t<1$.
+\end{jie}
 
 \num 期末2018-2019 三2.
 

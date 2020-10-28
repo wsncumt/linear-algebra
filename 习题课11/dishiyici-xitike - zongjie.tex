@@ -13,7 +13,7 @@
 \usepackage{amssymb}
 \usepackage{bbm}
 \begin{document}
-
+\newenvironment{add}{\kaishu\zihao{-5}\color{red}{\noindent\em 补充：}\par}{\hfill $\diamondsuit$\par}
 \newcounter{num} \renewcommand{\thenum}{\arabic{num}.} \newcommand{\num}{\refstepcounter{num}\text{\thenum}}
 
 \hphantom{~~}\hfill {\zihao{3}\heiti 第十一次习题课} \hfill\hphantom{~~}
@@ -56,8 +56,31 @@ f(x_1,x_2,\cdots,x_n)=x^TAx=(Cy)^TA(Cy)=y^TC^TACy=y^T(C^TAC)y
 \end{equation*}
 其中$\lambda_{1},\lambda_{2},\cdots,\lambda_{n}$是二次型$f(x)$的矩阵$A$的全部特征值。(注：非零特征值要放在前面)
 
+
+\begin{add}
+正交变换化二次型为标准型的方法：(以3阶为例)
+
+(1)写出二次型矩阵$A$;
+
+(2)求矩阵$A$的特征值$\lambda_1,\lambda_2,\lambda_3;$
+
+(3)求出矩阵的特征向量$\alpha_1,\alpha_2,\alpha_3$;
+
+(4)把(3)特征向量改造（施密特正交化，单位化）为$\gamma_1,\gamma_2,\gamma_3$;
+
+(5)构造正交矩阵$Q=[\gamma_1,\gamma_2,\gamma_3]$,经坐标变换$x=Qy$得：
+\begin{equation*}
+  x^TAx=y^T\Lambda y=\lambda_1y_1^2+\lambda_2y_2^2+\lambda_3y_3^2
+\end{equation*}
+
+应当注意：$\Lambda$中特征值的顺序应与$Q$中对应的向量顺序一致。
+\end{add}
+
 \num 对任意一个实对称矩阵$A$，存在一个非奇异矩阵$C$，使$C^TAC$为对角阵。即任何一个实对称矩阵都与一个对角矩阵合同。(称这个对角阵为$A$的标准形)
 
+\begin{add}
+课本157页惯性定理。
+\end{add}
 \num 二次型可以通过非退化线性变换化为规范形且规范形唯一。
 
 规范形中正项个数$p$称为二次型的正惯性指标，负项个数$r-p$称为二次型的副惯性指标，$r$是二次型的秩。

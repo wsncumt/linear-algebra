@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2020.4.27)  27 OCT 2020 18:54
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2020.4.27)  28 OCT 2020 22:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -777,17 +777,49 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 23.
 
 (d:/texlive/2019/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
+)
 
-] [2]
-(./dishiyici-xitike - zongjie.aux) ) 
+Package fontspec Info: Could not resolve font "KaiTi/BI" (it probably doesn't
+(fontspec)             exist).
+
+
+Package fontspec Info: Could not resolve font "KaiTi/B" (it probably doesn't
+(fontspec)             exist).
+
+
+Package fontspec Info: Could not resolve font "KaiTi/I" (it probably doesn't
+(fontspec)             exist).
+
+
+Package fontspec Info: Font family 'KaiTi(0)' created for font 'KaiTi' with
+(fontspec)             options [Script={CJK}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"KaiTi/OT:script=hani;language=DFLT;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+
+
+
+LaTeX Font Warning: Font shape `TU/KaiTi(0)/m/it' undefined
+(Font)              using `TU/KaiTi(0)/m/n' instead on input line 60.
+
+[1
+
+] [2] (./dishiyici-xitike - zongjie.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+ ) 
 Here is how much of TeX's memory you used:
- 18568 strings out of 492922
- 410526 string characters out of 6136751
- 479404 words of memory out of 5000000
- 22439 multiletter control sequences out of 15000+600000
- 535467 words of font info for 60 fonts, out of 8000000 for 9000
+ 18671 strings out of 492922
+ 415166 string characters out of 6136751
+ 478404 words of memory out of 5000000
+ 22525 multiletter control sequences out of 15000+600000
+ 538609 words of font info for 77 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 59i,12n,70p,921b,446s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 59i,11n,70p,921b,446s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on dishiyici-xitike - zongjie.pdf (2 pages).

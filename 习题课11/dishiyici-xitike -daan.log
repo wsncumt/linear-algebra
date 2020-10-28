@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2020.4.27)  28 OCT 2020 19:54
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2020.4.27)  28 OCT 2020 22:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -615,7 +615,7 @@ th.
 \MDopostkern=\muskip19
 \MDodotkern=\muskip20
 )
-No file "dishiyici-xitike -daan".aux.
+(./dishiyici-xitike -daan.aux)
 \openout1 = `"dishiyici-xitike -daan.aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
@@ -634,7 +634,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
 LaTeX Font Info:    ... okay on input line 13.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 13.
 LaTeX Font Info:    ... okay on input line 13.
-ABD: EverySelectfont initializing macros
+ ABD: EverySelectfont initializing macros
 LaTeX Info: Redefining \selectfont on input line 13.
 
 Package fontspec Info: Adjusting the maths setup (use [no-math] to avoid
@@ -758,103 +758,101 @@ LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <10.53937> not available
 (Font)              size <10.95> substituted on input line 23.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 29--30
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 41--43
-
- []
+Package fontspec Info: Could not resolve font "KaiTi/BI" (it probably doesn't
+(fontspec)             exist).
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 46--54
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 61--62
-
- []
+Package fontspec Info: Could not resolve font "KaiTi/B" (it probably doesn't
+(fontspec)             exist).
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 65--74
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 94--95
-
- []
+Package fontspec Info: Could not resolve font "KaiTi/I" (it probably doesn't
+(fontspec)             exist).
 
 
-LaTeX Warning: Command \~ invalid in math mode on input line 100.
+Package fontspec Info: Font family 'KaiTi(0)' created for font 'KaiTi' with
+(fontspec)             options [Script={CJK}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"KaiTi/OT:script=hani;language=DFLT;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 102--103
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 106--107
-
- []
+LaTeX Font Warning: Font shape `TU/KaiTi(0)/m/it' undefined
+(Font)              using `TU/KaiTi(0)/m/n' instead on input line 31.
 
 [1
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 116--117
+Overfull \hbox (16.06343pt too wide) detected at line 187
+\OML/cmm/m/it/9.03374 f\OT1/cmr/m/n/9.03374 (\OML/cmm/m/it/9.03374 x\OT1/cmr/m/
+n/9.03374 ) = \OML/cmm/m/it/9.03374 x[]Bx \OT1/cmr/m/n/9.03374 = [\OML/cmm/m/it
+/9.03374 x[]; x[]; x[]\OT1/cmr/m/n/9.03374 ] [] [] = [] [] = \OML/cmm/m/it/9.03
+374 x[] \OT1/cmr/m/n/9.03374 + 2\OML/cmm/m/it/9.03374 x[] \OT1/cmr/m/n/9.03374 
++ \OML/cmm/m/it/9.03374 ^^Ux[] \OT1/cmr/m/n/9.03374 + 2\OML/cmm/m/it/9.03374 x[
+]x[] \OT1/cmr/m/n/9.03374 + 4\OML/cmm/m/it/9.03374 x[]x[] \OT1/cmr/m/n/9.03374 
++ 6\OML/cmm/m/it/9.03374 x[]x[]
+ []
+
+[2]
+
+LaTeX Warning: Command \~ invalid in math mode on input line 306.
+
+
+LaTeX Warning: Command \~ invalid in math mode on input line 311.
+
+
+LaTeX Warning: Command \~ invalid in math mode on input line 319.
+
+[3] [4]
+Underfull \hbox (badness 10000) in paragraph at lines 484--485
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 120--121
+Underfull \hbox (badness 10000) in paragraph at lines 488--495
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 132--133
+Underfull \hbox (badness 10000) in paragraph at lines 502--503
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 136--143
+Underfull \hbox (badness 10000) in paragraph at lines 506--507
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 150--151
+Underfull \hbox (badness 10000) in paragraph at lines 510--511
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 154--155
+Underfull \hbox (badness 10000) in paragraph at lines 514--515
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 158--159
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 162--163
-
- []
-
-[2] (./dishiyici-xitike -daan.aux)
+[5] (./dishiyici-xitike -daan.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.41063pt have occurred.
 
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
  ) 
 Here is how much of TeX's memory you used:
- 18231 strings out of 492922
- 408095 string characters out of 6136751
- 474215 words of memory out of 5000000
- 22125 multiletter control sequences out of 15000+600000
- 536502 words of font info for 62 fonts, out of 8000000 for 9000
+ 18331 strings out of 492922
+ 412738 string characters out of 6136751
+ 482215 words of memory out of 5000000
+ 22206 multiletter control sequences out of 15000+600000
+ 538817 words of font info for 75 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 59i,11n,70p,917b,446s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 59i,15n,70p,917b,446s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on dishiyici-xitike -daan.pdf (2 pages).
+Output written on dishiyici-xitike -daan.pdf (5 pages).
