@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2020.4.27)  28 OCT 2020 22:48
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2020.4.27)  29 OCT 2020 17:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -807,37 +807,12 @@ LaTeX Warning: Command \~ invalid in math mode on input line 311.
 
 LaTeX Warning: Command \~ invalid in math mode on input line 319.
 
-[3] [4]
-Underfull \hbox (badness 10000) in paragraph at lines 484--485
-
+[3] [4] [5]
+Overfull \hbox (13.39037pt too wide) detected at line 630
+[]
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 488--495
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 502--503
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 506--507
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 510--511
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 514--515
-
- []
-
-[5] (./dishiyici-xitike -daan.aux)
+[6] [7] (./dishiyici-xitike -daan.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.41063pt have occurred.
@@ -849,10 +824,10 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Here is how much of TeX's memory you used:
  18331 strings out of 492922
  412738 string characters out of 6136751
- 482215 words of memory out of 5000000
+ 483215 words of memory out of 5000000
  22206 multiletter control sequences out of 15000+600000
  538817 words of font info for 75 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  59i,15n,70p,917b,446s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on dishiyici-xitike -daan.pdf (5 pages).
+Output written on dishiyici-xitike -daan.pdf (7 pages).
