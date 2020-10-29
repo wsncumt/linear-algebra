@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2020.4.27)  21 OCT 2020 19:23
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2020.4.27)  29 OCT 2020 20:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -615,7 +615,7 @@ Package graphics Info: Driver file: xetex.def on input line 99.
 \Gin@req@height=\dimen258
 \Gin@req@width=\dimen259
 )
-No file diqici-xitike.aux.
+(./diqici-xitike.aux)
 \openout1 = `diqici-xitike.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
@@ -634,7 +634,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
 LaTeX Font Info:    ... okay on input line 13.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 13.
 LaTeX Font Info:    ... okay on input line 13.
-ABD: EverySelectfont initializing macros
+ ABD: EverySelectfont initializing macros
 LaTeX Info: Redefining \selectfont on input line 13.
 
 Package fontspec Info: Adjusting the maths setup (use [no-math] to avoid
@@ -773,7 +773,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 33--34
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 41--42
+Underfull \hbox (badness 10000) in paragraph at lines 37--38
 
  []
 
@@ -787,6 +787,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 49--50
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 53--54
+
+ []
+
 [1
 
 ] (./diqici-xitike.aux)
@@ -796,9 +801,9 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 18216 strings out of 492922
- 407324 string characters out of 6136751
- 469437 words of memory out of 5000000
+ 18218 strings out of 492922
+ 407360 string characters out of 6136751
+ 470437 words of memory out of 5000000
  22110 multiletter control sequences out of 15000+600000
  536502 words of font info for 62 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191

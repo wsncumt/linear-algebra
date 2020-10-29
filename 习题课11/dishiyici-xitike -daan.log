@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2020.4.27)  29 OCT 2020 17:28
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2020.4.27)  29 OCT 2020 22:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -786,8 +786,8 @@ LaTeX Font Warning: Font shape `TU/KaiTi(0)/m/it' undefined
 
 [1
 
-]
-Overfull \hbox (16.06343pt too wide) detected at line 187
+] [2]
+Overfull \hbox (16.06343pt too wide) detected at line 315
 \OML/cmm/m/it/9.03374 f\OT1/cmr/m/n/9.03374 (\OML/cmm/m/it/9.03374 x\OT1/cmr/m/
 n/9.03374 ) = \OML/cmm/m/it/9.03374 x[]Bx \OT1/cmr/m/n/9.03374 = [\OML/cmm/m/it
 /9.03374 x[]; x[]; x[]\OT1/cmr/m/n/9.03374 ] [] [] = [] [] = \OML/cmm/m/it/9.03
@@ -797,22 +797,22 @@ n/9.03374 ) = \OML/cmm/m/it/9.03374 x[]Bx \OT1/cmr/m/n/9.03374 = [\OML/cmm/m/it
 + 6\OML/cmm/m/it/9.03374 x[]x[]
  []
 
-[2]
+[3]
 
-LaTeX Warning: Command \~ invalid in math mode on input line 306.
-
-
-LaTeX Warning: Command \~ invalid in math mode on input line 311.
+LaTeX Warning: Command \~ invalid in math mode on input line 434.
 
 
-LaTeX Warning: Command \~ invalid in math mode on input line 319.
+LaTeX Warning: Command \~ invalid in math mode on input line 439.
 
-[3] [4] [5]
-Overfull \hbox (13.39037pt too wide) detected at line 630
+
+LaTeX Warning: Command \~ invalid in math mode on input line 447.
+
+[4] [5] [6]
+Overfull \hbox (13.39037pt too wide) detected at line 758
 []
  []
 
-[6] [7] (./dishiyici-xitike -daan.aux)
+[7] [8] [9] (./dishiyici-xitike -daan.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.41063pt have occurred.
@@ -822,12 +822,12 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 18331 strings out of 492922
- 412738 string characters out of 6136751
- 483215 words of memory out of 5000000
- 22206 multiletter control sequences out of 15000+600000
+ 18344 strings out of 492922
+ 413615 string characters out of 6136751
+ 485215 words of memory out of 5000000
+ 22219 multiletter control sequences out of 15000+600000
  538817 words of font info for 75 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  59i,15n,70p,917b,446s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on dishiyici-xitike -daan.pdf (7 pages).
+Output written on dishiyici-xitike -daan.pdf (9 pages).

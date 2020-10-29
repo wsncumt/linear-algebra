@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2020.4.27)  24 OCT 2020 19:46
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2020.4.27)  29 OCT 2020 20:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -790,13 +790,13 @@ LaTeX Font Warning: Font shape `TU/KaiTi(0)/m/it' undefined
 [1
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 205--212
-
+Overfull \hbox (16.13797pt too wide) detected at line 263
+[]
  []
 
-[2]
+[2] [3]
 Missing character: There is no ， in font [lmroman10-regular]:mapping=tex-text;!
- [3] [4] (./dibaci-xitike -daan.aux)
+ [4] (./dibaci-xitike -daan.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.41063pt have occurred.
@@ -806,10 +806,10 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 18356 strings out of 492922
- 412791 string characters out of 6136751
- 491590 words of memory out of 5000000
- 22227 multiletter control sequences out of 15000+600000
+ 18389 strings out of 492922
+ 414956 string characters out of 6136751
+ 488590 words of memory out of 5000000
+ 22260 multiletter control sequences out of 15000+600000
  538817 words of font info for 75 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  59i,20n,70p,914b,446s stack positions out of 5000i,500n,10000p,200000b,80000s
