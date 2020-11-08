@@ -142,62 +142,68 @@ k_1X_0+k_2X_0+k_2X_1+k_3X_0+k_3X_2= (k_1+k_2+k_3)X_0+k_2X_1+k_3X_2=0\tag{$2$}
 
 \begin{jie}
 \begin{align*}
-&(\alpha_1,\alpha_2,\alpha_3,\alpha_4)=
+(\alpha_1,\alpha_2,\alpha_3,\alpha_4)&=
 \begin{bmatrix}
-  1 & 0 & 3 &1\\
-  -1 & 3 & 0&-1\\
-  2 & 1 & 7&2\\
-  4 & 2 &14&0
+  1 & 0 & 3 &1 &2\\
+  -1 & 3 & 0&-1&1\\
+  2 & 1 & 7&2&5\\
+  4 & 2 &14&0&6
 \end{bmatrix}
 \xrightarrow{\substack{r_{2}+r_{1}\\ r_3-2r_1 \\ r_4-4r_1}}
 {
 \begin{bmatrix}
-  1 & 0 & 3 &1\\
-  0 & 3 & 3&0\\
-  0 & 1 & 1&0\\
-  0 & 2 &2&-4
+  1 & 0 & 3 &1&2\\
+  0 & 3 & 3&0&3\\
+  0 & 1 & 1&0&1\\
+  0 & 2 &2&-4&-2
 \end{bmatrix}
 }
 \xrightarrow{\substack{ r_3-\frac{1}{3}r_2 \\ r_4-\frac{2}{3}r_2}}
 {
 \begin{bmatrix}
-  1 & 0 & 3 &1\\
-  0 & 3 & 3&0\\
-  0 & 0 & 0&0\\
-  0 & 0 &0&-4
-\end{bmatrix}
-}
-\xrightarrow{\substack{ r_2\times\frac{1}{3} \\ r_4\times\left(-\frac{1}{4}\right)}}
-{
-\begin{bmatrix}
-  1 & 0 & 3 &1\\
-  0 & 1 & 1&0\\
-  0 & 0 & 0&0\\
-  0 & 0 &0&1
+  1 & 0 & 3 &1&2\\
+  0 & 3 & 3&0&3\\
+  0 & 0 & 0&0&0\\
+  0 & 0 &0&-4&0
 \end{bmatrix}
 }\\
 &
+\xrightarrow{\substack{ r_2\times\frac{1}{3} \\ r_4\times\left(-\frac{1}{4}\right)}}
+{
+\begin{bmatrix}
+  1 & 0 & 3 &1&2\\
+  0 & 1 & 1&0&1\\
+  0 & 0 & 0&0&0\\
+  0 & 0 &0&1&0
+\end{bmatrix}
+}
 \xrightarrow{\substack{ r_1-r_4}}
 {
 \begin{bmatrix}
-  1 & 0 & 3 &0\\
-  0 & 1 & 1&0\\
-  0 & 0 & 0&0\\
-  0 & 0 &0&1
+  1 & 0 & 3 &0&2\\
+  0 & 1 & 1&0&1\\
+  0 & 0 & 0&0&1\\
+  0 & 0 &0&1&1
 \end{bmatrix}
 }
 \xrightarrow{\substack{ r_3\leftrightarrow r_4}}
 {
 \begin{bmatrix}
-  1 & 0 & 3 &0\\
-  0 & 1 & 1&0\\
-  0 & 0 & 0&1\\
-  0 & 0 &0&0
+  1 & 0 & 3 &0&2\\
+  0 & 1 & 1&0&1\\
+  0 & 0 & 0&1& 0\\
+  0 & 0 &0&0& 0
 \end{bmatrix}
 }
 \end{align*}
-所以该向量组的秩为$3$，极大线性无关组为$(\alpha_1,\alpha_2,\alpha_4),(\alpha_1,\alpha_3,\alpha_4),(\alpha_2,\alpha_3,\alpha_4)$.
-由$(\alpha_1,\alpha_2,\alpha_4)$表示$\alpha_3$：由最简阶梯型矩阵可以看出$\alpha_3=3\alpha_1+\alpha_2+0\alpha_4=3\alpha_1+\alpha_2$。
+所以该向量组的秩为$3$，极大线性无关组为$(\alpha_1,\alpha_2,\alpha_4),(\alpha_1,\alpha_3,\alpha_4),(\alpha_1,\alpha_4,\alpha_5),(\alpha_2,\alpha_3,\alpha_4),(\alpha_2,\alpha_3,\alpha_5),(\alpha_2,\alpha_4,\alpha_5)$.
+由$(\alpha_1,\alpha_2,\alpha_4)$表示$\alpha_3,\alpha_5$：由最简阶梯型矩阵可以看出
+\begin{equation*}
+\begin{cases}
+\alpha_3=3\alpha_1+\alpha_2+0\alpha_4=3\alpha_1+\alpha_2\\ \alpha_5=2\alpha_1+\alpha_2+0\alpha_4=2\alpha_1+\alpha_2
+\end{cases}
+\end{equation*}
+
 \end{jie}
 
 \num 期末2016-2017 一3.
@@ -218,13 +224,13 @@ $与线性方程$ax_{2}+x_{3}=1$有公共的解，则$a$的取值范围为\under
 \textcolor[rgb]{1.00,0.00,0.00}{对于方程组(1)和方程组(2)，如果$\alpha$是方程组(1)的解，则$\alpha$一定是方程组$(2)$的解，反之如果$\alpha$是方程组(2)的解，则$\alpha$一定是方程组$(1)$的解，则称,方程组(1)和方程组$(2)$同解。}
 
  关于公共解，通常有如下解法：（假设方程组(1)有两组不同的基础解系$\xi_1,\xi_2$，方程组(2)有两组不同的基础解系$\eta_1,\eta_2$）
- 
- 方法1：分别求出方程组(1)和(2)的通解：即(1)得到通解为：$k_1\xi_1+k_2\xi_2$,(2)的通解为$l_1\eta_1=l_2\eta$。令两个方程组的通解相等，找出对应的$k$和$l$的关系。
- 
+
+ 方法1：分别求出方程组(1)和(2)的通解：即(1)得到通解为：$k_1\xi_1+k_2\xi_2$,(2)的通解为$l_1\eta_1+l_2\eta$。令两个方程组的通解相等，找出对应的$k$和$l$的关系。
+
  方法2：求出其中一个通解，代入到另外一个方程组中，找出相应的系数所满足的关系式进一步求出公共解。
- 
+
  方法3：联立两个方程组得到一个新的方程组(3)，求出(3)的解即为公共解。
- 
+
  显然，此题用方法3更合适：联立两个方程组，得到增广矩阵：
  \begin{equation*}[A|B]=
 \begin{bmatrix}
@@ -235,7 +241,7 @@ $与线性方程$ax_{2}+x_{3}=1$有公共的解，则$a$的取值范围为\under
  \end{equation*}
  讨论：
  $a=0$时：显然$r(A)=r(A|B)$，即线性方程组有解，即这两个线性方程组有公共解。
- 
+
  $a\neq 0$时，对增广矩阵进一步进行高斯消元：
  \begin{align*}
 \xrightarrow{\substack{r_{2}-a r_{1}}}

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2020.4.27)  29 OCT 2020 20:10
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2020.4.27)  8 NOV 2020 16:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -790,7 +790,23 @@ LaTeX Font Warning: Font shape `TU/KaiTi(0)/m/it' undefined
 [1
 
 ]
-Overfull \hbox (16.13797pt too wide) detected at line 263
+Overfull \hbox (24.30531pt too wide) in paragraph at lines 198--201
+\TU/KaiTi(0)/m/n/9.03374 所 以 该 向 量 组 的 秩 为 $\OT1/cmr/m/n/9.03374 3$\TU/KaiTi(0)
+/m/n/9.03374 ，|  极 大 线 性 无 关 组 为 $\OT1/cmr/m/n/9.03374 (\OML/cmm/m/it/9.03374 ^
+^K[]; ^^K[]; ^^K[]\OT1/cmr/m/n/9.03374 )\OML/cmm/m/it/9.03374 ; \OT1/cmr/m/n/9.
+03374 (\OML/cmm/m/it/9.03374 ^^K[]; ^^K[]; ^^K[]\OT1/cmr/m/n/9.03374 )\OML/cmm/
+m/it/9.03374 ; \OT1/cmr/m/n/9.03374 (\OML/cmm/m/it/9.03374 ^^K[]; ^^K[]; ^^K[]\
+OT1/cmr/m/n/9.03374 )\OML/cmm/m/it/9.03374 ; \OT1/cmr/m/n/9.03374 (\OML/cmm/m/i
+t/9.03374 ^^K[]; ^^K[]; ^^K[]\OT1/cmr/m/n/9.03374 )\OML/cmm/m/it/9.03374 ; \OT1
+/cmr/m/n/9.03374 (\OML/cmm/m/it/9.03374 ^^K[]; ^^K[]; ^^K[]\OT1/cmr/m/n/9.03374
+ )\OML/cmm/m/it/9.03374 ; \OT1/cmr/m/n/9.03374 (\OML/cmm/m/it/9.03374 ^^K[]; ^^
+K[]; ^^K[]\OT1/cmr/m/n/9.03374 )$\TU/lmr/m/n/9.03374 . \TU/KaiTi(0)/m/n/9.03374
+ 由 $\OT1/cmr/m/n/9.03374 (\OML/cmm/m/it/9.03374 ^^K[]; ^^K[]; ^^K[]\OT1/cmr/m/n
+/9.03374 )$
+ []
+
+
+Overfull \hbox (16.13797pt too wide) detected at line 269
 []
  []
 
@@ -808,7 +824,7 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Here is how much of TeX's memory you used:
  18389 strings out of 492922
  414956 string characters out of 6136751
- 488590 words of memory out of 5000000
+ 489590 words of memory out of 5000000
  22260 multiletter control sequences out of 15000+600000
  538817 words of font info for 75 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
