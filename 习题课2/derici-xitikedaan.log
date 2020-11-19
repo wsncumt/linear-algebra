@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2020.4.27)  1 NOV 2020 15:41
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2020.4.27)  19 NOV 2020 10:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -809,7 +809,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 430--432
 
  []
 
-[3] [4] [5] [6] (./derici-xitikedaan.aux)
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 595--614
+
+ []
+
+[4] [5] [6] (./derici-xitikedaan.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.41063pt have occurred.

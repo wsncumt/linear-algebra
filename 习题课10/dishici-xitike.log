@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2020.4.27)  28 OCT 2020 07:46
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2020.4.27)  19 NOV 2020 11:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -615,7 +615,7 @@ Package graphics Info: Driver file: xetex.def on input line 99.
 \Gin@req@height=\dimen258
 \Gin@req@width=\dimen259
 )
-No file dishici-xitike.aux.
+(./dishici-xitike.aux)
 \openout1 = `dishici-xitike.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
@@ -634,7 +634,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
 LaTeX Font Info:    ... okay on input line 13.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 13.
 LaTeX Font Info:    ... okay on input line 13.
-ABD: EverySelectfont initializing macros
+ ABD: EverySelectfont initializing macros
 LaTeX Info: Redefining \selectfont on input line 13.
 
 Package fontspec Info: Adjusting the maths setup (use [no-math] to avoid
@@ -758,35 +758,70 @@ LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <10.53937> not available
 (Font)              size <10.95> substituted on input line 19.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 31--32
+Underfull \hbox (badness 10000) in paragraph at lines 23--30
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 35--36
+Underfull \hbox (badness 10000) in paragraph at lines 39--41
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 39--40
+Underfull \hbox (badness 10000) in paragraph at lines 44--45
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 48--49
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 52--53
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 64--66
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 69--71
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 82--83
 
  []
 
 [1
 
-] (./dishici-xitike.aux)
+]
+Underfull \hbox (badness 10000) in paragraph at lines 86--87
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 90--91
+
+ []
+
+[2] (./dishici-xitike.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.41063pt have occurred.
 
  ) 
 Here is how much of TeX's memory you used:
- 18216 strings out of 492922
- 407331 string characters out of 6136751
- 466440 words of memory out of 5000000
- 22110 multiletter control sequences out of 15000+600000
+ 18229 strings out of 492922
+ 408047 string characters out of 6136751
+ 473440 words of memory out of 5000000
+ 22121 multiletter control sequences out of 15000+600000
  536502 words of font info for 62 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 59i,11n,70p,907b,446s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 59i,13n,70p,907b,446s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on dishici-xitike.pdf (1 page).
+Output written on dishici-xitike.pdf (2 pages).

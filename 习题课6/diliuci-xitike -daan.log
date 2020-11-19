@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2020.4.27)  29 OCT 2020 21:40
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2020.4.27)  15 NOV 2020 22:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -785,16 +785,16 @@ Package fontspec Info: Font family 'KaiTi(0)' created for font 'KaiTi' with
 
 
 LaTeX Font Warning: Font shape `TU/KaiTi(0)/m/it' undefined
-(Font)              using `TU/KaiTi(0)/m/n' instead on input line 40.
+(Font)              using `TU/KaiTi(0)/m/n' instead on input line 179.
 
-[1
 
-]
 Underfull \hbox (badness 10000) in paragraph at lines 182--184
 
  []
 
-[2] [3] [4] [5] [6] [7] (./diliuci-xitike -daan.aux)
+[1
+
+] [2] [3] [4] [5] [6] (./diliuci-xitike -daan.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.41063pt have occurred.
@@ -804,12 +804,12 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 18446 strings out of 492922
- 418444 string characters out of 6136751
- 490593 words of memory out of 5000000
- 22315 multiletter control sequences out of 15000+600000
+ 18420 strings out of 492922
+ 416690 string characters out of 6136751
+ 488593 words of memory out of 5000000
+ 22289 multiletter control sequences out of 15000+600000
  538833 words of font info for 77 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  59i,22n,70p,915b,446s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on diliuci-xitike -daan.pdf (7 pages).
+Output written on diliuci-xitike -daan.pdf (6 pages).

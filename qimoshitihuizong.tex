@@ -11,6 +11,7 @@
 \usepackage{graphicx}%插图宏包，参见手册318页
 \usepackage{mathdots}%反对角省略号
 \usepackage{extarrows}%等号上加文字
+\usepackage{fancybox}%盒子宏包55页
 \begin{document}
 
 \newcounter{num} \renewcommand{\thenum}{\arabic{num}.} \newcommand{\num}{\refstepcounter{num}\text{\thenum}}
@@ -19,6 +20,519 @@
 
 \newenvironment{zhengming}{\kaishu\zihao{-5}\color{blue}{\noindent\em 证明：}\par}{\hfill $\diamondsuit$\par}
 
+\hphantom{~~}\hfill {\zihao{4}\heiti 习题课上总结的一些题} \hfill\hphantom{~~}
+
+一.求矩阵的$m$次方。（这里之所以写$m$是为了与矩阵的阶数$n$区别开来，以防混淆）
+
+1.数学归纳法。即依次求出$A,A^2,A^3,\cdots$。一般不用，但也有特殊情况（例如17-18年半期测试的一大题的第四小题，当然这个题有两种解法，任选其一；15-16年的期末试题三大题的第二小题的最后一问）。
+
+2.对角矩阵的$m$次方。（显然不会单独出题）
+
+设$A
+=
+\begin{bmatrix}
+  a_{11} & & &\\
+    & a_{22}&&\\
+    &&\ddots&\\
+    &&&a_{nn}
+\end{bmatrix}
+$，则
+$
+A^m=
+\begin{bmatrix}
+  a_{11}^{m} & & &\\
+    & a_{22}^{m}&&\\
+    &&\ddots&\\
+    &&&a_{nn}^{m}
+\end{bmatrix}
+$.
+
+3.如果一个n阶方阵A\textcolor[rgb]{1.00,0.00,0.00}{主对角线}上以及\textcolor[rgb]{1.00,0.00,0.00}{主对角线}的一侧元素全为0，那么必有$A^{k}=0$，其中$k\geq n$。即A是下边的几种形状之一：(一定要注意是针对主对角线，副对角线该结论不成立，第二次习题课讲这里时讲错了，后边已更正)
+\begin{equation*}
+\begin{bmatrix}
+  0 &\textcolor[rgb]{0.00,0.50,1.00}{ a_{12}}&\textcolor[rgb]{0.00,0.50,1.00}{a_{13}}&\textcolor[rgb]{0.00,0.50,1.00}{\cdots}&\textcolor[rgb]{0.00,0.50,1.00}{a_{1n}} \\
+  0& 0&\textcolor[rgb]{0.00,0.50,1.00}{a_{23}}&\textcolor[rgb]{0.00,0.50,1.00}{\cdots}&\textcolor[rgb]{0.00,0.50,1.00}{a_{2n}}\\
+   0&0&0&\textcolor[rgb]{0.00,0.50,1.00}{\cdots}&\textcolor[rgb]{0.00,0.50,1.00}{a_{3n}}\\
+  \vdots&\vdots&\vdots&\ddots&\textcolor[rgb]{0.00,0.50,1.00}{\vdots}\\
+  0&0&0&\cdots&0
+\end{bmatrix}
+~~
+\begin{bmatrix}
+  0 & 0&0&\cdots&0 \\
+  \textcolor[rgb]{0.00,0.50,1.00}{a_{21}}& 0&0&\cdots&0\\
+   \textcolor[rgb]{0.00,0.50,1.00}{a_{31}}&\textcolor[rgb]{0.00,0.50,1.00}{a_{32}}&0&\cdots&0\\
+  \textcolor[rgb]{0.00,0.50,1.00}{\vdots}&\textcolor[rgb]{0.00,0.50,1.00}{\vdots}&\textcolor[rgb]{0.00,0.50,1.00}{\vdots}&\ddots&\vdots\\
+  \textcolor[rgb]{0.00,0.50,1.00}{a_{n1}}&\textcolor[rgb]{0.00,0.50,1.00}{a_{n2}}&\textcolor[rgb]{0.00,0.50,1.00}{a_{n3}}&\cdots&0
+\end{bmatrix}
+\end{equation*}
+
+例如：若$
+  A=
+  \begin{bmatrix}
+   0&0&0\\
+   2&0&0\\
+   1&3&0
+  \end{bmatrix}
+  $，则$A^{2}=\underline{~~~~~  \begin{bmatrix}
+   0&0&0\\
+   0&0&0\\
+   6&0&0
+  \end{bmatrix}~~~~},A^{3}=\underline{~~~~~~0~~~~~}$.
+
+\begin{jie}
+由矩阵的乘法：
+\begin{equation*}
+ A^{2}= \begin{bmatrix}
+   0&0&0\\
+   2&0&0\\
+   1&3&0
+  \end{bmatrix}  \begin{bmatrix}
+   0&0&0\\
+   2&0&0\\
+   1&3&0
+  \end{bmatrix}=
+    \begin{bmatrix}
+   0&0&0\\
+   0&0&0\\
+   6&0&0
+  \end{bmatrix}
+\end{equation*}
+\begin{equation*}
+ A^{3}=A^{2}A=    \begin{bmatrix}
+   0&0&0\\
+   0&0&0\\
+   6&0&0
+  \end{bmatrix}  \begin{bmatrix}
+   0&0&0\\
+   2&0&0\\
+   1&3&0
+  \end{bmatrix}=
+    \begin{bmatrix}
+   0&0&0\\
+   0&0&0\\
+   0&0&0
+  \end{bmatrix}
+\end{equation*}
+\end{jie}
+
+4.一般来说，上边的2,3不会单独出题，因为太过简单，都是组合起来出题。
+
+\shadowbox{\parbox{170mm}{
+\textcolor[rgb]{1.00,0.00,0.00}{二项式定理}：$(a+b)^{n}=\sum\limits_{i=0}^{n}C_{n}^{i}a^i\cdot b^{n-i}$,式中：$C_{n}^i$为\textcolor[rgb]{1.00,0.00,0.00}{组合数}，$C_{n}^i=\dfrac{n!}{i!(n-i)!}$。
+}}
+
+例如：若$
+  A=
+  \begin{bmatrix}
+   1 & 2 & 3\\
+   0& 1&4\\
+   0& 0&1
+  \end{bmatrix}
+  $,则$A^{m}=\underline{~~~~~~~~~~~~~}.$
+
+\begin{jie}
+
+由题得：
+$
+A=
+\begin{bmatrix}
+  1&2&3\\
+  0&1&4\\
+  0&0&1\\
+\end{bmatrix}=
+\begin{bmatrix}
+1&0&0\\
+  0&1&0\\
+  0&0&1\\
+\end{bmatrix}+
+\begin{bmatrix}
+  0&2&3\\
+  0&0&4\\
+  0&0&0\\
+\end{bmatrix}=I+B
+$\\
+
+由3的结论可知：$B^{k}=0,k\geq3$。计算得：$B^{2}=\begin{bmatrix}
+                                        0 & 0&8 \\
+                                       0 & 0&0 \\  0 & 0&0 \\
+                                      \end{bmatrix}$所以
+\begin{align*}
+A^{m}&=(I+B)^{m}=C_{m}^{0}I^{m}B^{0}+C_{m}^{1}I^{m-1}B^{1}+C_{m}^{2}I^{m-2}B^{2}+C_{m}^{3}I^{m-3}\textcolor[rgb]{1.00,0.00,0.00}{B^{3}}+\cdots+C_{m}^{0}I^{0}\textcolor[rgb]{1.00,0.00,0.00}{B^{m}}\\
+&=I^{m}B^{0}+mI^{m-1}B^{1}+\frac{m(m-1)}{2}I^{m-2}B^{2}=I+mB+\frac{m(m-1)}{2}B^{2}\\
+&=\begin{bmatrix}
+1&0&0\\
+  0&1&0\\
+  0&0&1\\
+\end{bmatrix}+m\begin{bmatrix}
+  0&2&3\\
+  0&0&4\\
+  0&0&0\\
+\end{bmatrix}+\frac{m(m-1)}{2}
+\begin{bmatrix}
+                                        0 & 0&8 \\
+                                       0 & 0&0 \\  0 & 0&0 \\
+                                      \end{bmatrix}\\
+&=
+\begin{bmatrix}
+  1&2m&4m^{2}-m\\
+  0&1&4m\\
+  0&0&1\\
+\end{bmatrix}
+\end{align*}
+\end{jie}
+
+5.如果一个$n$阶方阵$A$的秩$r(A)=1$，那么$A$一定可以写成一个列向量与一个行向量的乘积，即（我们以3阶的方阵为例，最后把结果推广到$n$阶）：
+
+设$3$阶方阵$A$的秩$r(A)=1$，设$\alpha=\begin{bmatrix}
+          x_{1} & x_{2} & x_{3}
+        \end{bmatrix}^{T},\beta=\begin{bmatrix}
+          y_{1} & y_{2} & y_{3}
+        \end{bmatrix}^{T}$，则
+
+        $A=\alpha\beta^T=\begin{bmatrix}
+          x_{1}y_{1} & x_{1}y_{2} & x_{1}y_{3}\\
+          x_{2}y_{1} & x_{2}y_{2} & x_{2}y_{3}\\
+          x_{3}y_{1} & x_{3}y_{2} & x_{3}y_{3}
+        \end{bmatrix}$(至于这里的$x$和$y$的具体值，我们并不关心。)
+
+        $l=\alpha^T\beta=\beta^T\alpha=x_{1}y_{1}+x_{2}y_{2}+x_{3}y_{3}$.可以看出$l$是矩阵$A$的对角线元素之和（又称$A$的迹）。
+
+        $A^2=(\alpha\beta^T)^2=\alpha(\beta^T\alpha)\beta^T=l\alpha\beta^T=lA,A^3=AA^2=AlA=lA^2=llA=l^2A\cdots, \Rightarrow A^m=l^{m-1}A$。\\
+
+
+例如：（对2,3,4,5综合运用）
+
+设$A=
+  \begin{bmatrix}
+ 3&1&0&0\\
+ 0&3&0&0\\
+ 0&0&3&9\\
+ 0&0&1&3
+  \end{bmatrix}
+  $，则$A^{m}=\underline{~~~~~~~~~~~~~}.$
+
+\begin{jie}
+经观察，我们可将矩阵按下列方式进行分块：
+\begin{equation*}
+A=
+\begin{bmatrix}
+3&1&0&0\\
+ 0&3&0&0\\
+ 0&0&3&9\\
+ 0&0&1&3
+\end{bmatrix}
+=
+\begin{bmatrix}
+  A_{11} & \mathbf{0} \\
+  \mathbf{0} & A_{22}
+\end{bmatrix}~~~
+A_{11}=
+\begin{bmatrix}
+  3 & 1 \\
+  0 & 3
+\end{bmatrix}
+~A_{22}=
+\begin{bmatrix}
+  3 & 9 \\
+  1 & 3
+\end{bmatrix}
+\end{equation*}
+$A$分块后是对角矩阵，所以：$A^{m}=\begin{bmatrix}
+  A_{11}^{m} & \mathbf{0} \\
+  \mathbf{0} & A_{22}^{m}
+\end{bmatrix}$(注：2的结论)\\
+对于$A_{11}$：
+\begin{align*}A_{11}&=
+\begin{bmatrix}
+  3 & 1 \\
+  0 & 3
+\end{bmatrix}=
+\begin{bmatrix}
+  3 & 0 \\
+  0 & 3
+\end{bmatrix}+
+\begin{bmatrix}
+  0 & 1 \\
+  0 & 0
+\end{bmatrix}=3I+B\\
+&\text{和4一样了,此时$B^{k}=0,k\geq2$}\\
+A^{m}_{11}&=(3I+B)^{m}=C_{m}^{0}B^{0}(3I)^{m}+C_{m}^{1}B^{1}(3I)^{m-1}+C_{m}^{2}\textcolor[rgb]{1.00,0.00,0.00}{B^{2}}(3I)^{m-2}+\cdots+C_{m}^{m}\textcolor[rgb]{1.00,0.00,0.00}{B^{m}}(3I)^{0}\\
+&=3^{m}I+3^{m-1}mB\\
+&=\begin{bmatrix}
+  3^{m} & m3^{m-1} \\
+  0 & 3^{m}
+\end{bmatrix}
+\end{align*}
+
+
+对于$A_{22}$,经过高斯消元法变换($r_{1}-3r_{2}$)后:$
+\begin{bmatrix}
+  3 & 9 \\
+  0 & 0
+\end{bmatrix}
+$，可以看出$r(A_{22})=1$，符合本条的描述，所以
+\begin{align*}
+ l&=3+3=6\\
+ A_{22}^{m}&=l^{m-1}A=6^{m-1}
+ \begin{bmatrix}
+   3 & 9 \\
+   1 & 3
+ \end{bmatrix}
+\end{align*}
+所以：
+\begin{equation*}
+  A^{m}=
+\begin{bmatrix}
+  A_{11}^{m} & \mathbf{0} \\
+  \mathbf{0} & A_{22}^{m}
+\end{bmatrix}=
+\begin{bmatrix}
+  3^{m} & m\cdot3^{m-1}&0&0 \\
+  0 & 3^{m}&0&0\\
+  0&0&3\cdot6^{m-1}&9\cdot6^{m-1}\\
+  0&0&6^{m-1}&3\cdot6^{m-1}
+\end{bmatrix}
+\end{equation*}
+\end{jie}
+
+6.用相似矩阵的性质来做，即若$A\sim B$,则$A^m\sim B^m$(例如17-18年半期测试的一大题的第四小题)。
+
+但通常有一些矩阵隐含了此属性，也可以用此方法来做，要注意辨别。（例如：\textcolor[rgb]{1.00,0.00,0.00}{课本的140页第9题，答案在224页}）\\
+
+二、特殊矩阵的特征值求法
+
+1.对角阵，上下三角阵的行列式均为对角线的元素。（由这些特殊行列式的算法很容易看出来）
+
+2.设$A=[a_{ij}]$是三阶矩阵，则(下式不做推导，感兴趣的可以自己算一下)
+\begin{equation*}|\lambda E-A|=
+  \begin{bmatrix}
+    \lambda-a_{11} & -a_{12} &-a_{13} \\
+-a_{21} & \lambda-a_{22} &-a_{23} \\
+-a_{31} & -a_{32} &\lambda-a_{33}
+  \end{bmatrix}=\lambda^{3}-\sum a_{ii}\lambda^2+S_{2}\lambda-|A|
+\end{equation*}
+式中：$S_{2}=
+\begin{vmatrix}
+  a_{11} & a_{12} \\
+  a_{21} & a_{22}
+\end{vmatrix}+\begin{vmatrix}
+  a_{11} & a_{13} \\
+  a_{31} & a_{33}
+\end{vmatrix}+\begin{vmatrix}
+  a_{22} & a_{23} \\
+  a_{32} & a_{33}
+\end{vmatrix}
+$。
+
+若$r(A)=1$(再复习一下一的第五点)，则$|A|=0,S_{2}=0$,代入到上式有
+\begin{equation*}
+|\lambda E-A|=\lambda^{3}-\sum a_{ii}\lambda^2=\lambda^2\left(\lambda-\sum a_{ii}\right)
+\end{equation*}
+
+做推广，对于$n$阶矩阵$A$，若$r(A)=1$,则$|\lambda E-A|=\lambda^{n-1}\left(\lambda-\sum a_{ii}\right)$
+
+例如：
+
+已知$a\neq 0$，求矩阵
+\begin{equation*}
+  \begin{bmatrix}
+    1 & a & a& a\\
+    a & 1& a& a\\
+    a& a& 1& a\\
+    a& a& a& 1
+  \end{bmatrix}
+\end{equation*}
+的特征值、特征向量。
+
+\begin{jie}
+方法一：（直接计算）
+
+由特征多项式：
+\begin{equation*}
+  \begin{vmatrix}
+\lambda E-A
+  \end{vmatrix}
+  =\begin{vmatrix}
+     \lambda-1 & -a& -a& -a \\
+     -a& \lambda-1& -a& -a\\
+     -a& -a& \lambda-1& -a\\
+     -a& -a& -a& \lambda-1
+   \end{vmatrix}=\left[\lambda-(3a+1)\right]\left(\lambda+a-1\right)^{3}
+\end{equation*}
+得$A$的特征值是$3a+1,1-a$。
+
+当$\lambda=3a+1$时，由$[(3a+1)E-A]=0$，即
+\begin{align*}
+\begin{bmatrix}
+3a & -a& -a& -a \\
+-a& 3a& -a& -a\\
+-a& -a& 3a& -a\\
+-a& -a& -a& 3a
+\end{bmatrix}\rightarrow
+\begin{bmatrix}
+3 & -1& -1& -1 \\
+-1& 3& -1& -1\\
+-1& -1& 3& -1\\
+-1& -1& -1& 3
+\end{bmatrix}\rightarrow
+\begin{bmatrix}
+1 & -3& 1& 1 \\
+1& 1& -3& 1\\
+1& 1& 1& -3\\
+0&0& 0& 0
+\end{bmatrix}\rightarrow
+\begin{bmatrix}
+1 & 0& 0& -1 \\
+0& 1& 0& -1\\
+0& 0& 1& -1\\
+0&0& 0& 0
+\end{bmatrix}
+\end{align*}
+可得基础解系为$\alpha_{1}=(1,1,1,1)^T$，所以$\lambda=3a+1$的特征向量为$k_{1}\alpha_1,(k_1\neq 0)$。
+
+当$\lambda=1-a$时，由$[(1-a)E-A]=0$，即
+\begin{equation*}
+  \begin{bmatrix}
+-a & -a & -a& -a\\
+-a & -a & -a& -a\\
+-a & -a & -a& -a\\
+-a & -a & -a& -a
+  \end{bmatrix}\rightarrow
+  \begin{bmatrix}
+    1 & 1 & 1& 1\\
+    0 & 0& 0& 0\\
+    0 & 0& 0& 0\\
+    0 & 0& 0& 0
+  \end{bmatrix}
+\end{equation*}
+得基础解系$\alpha_2=(-1,1,0,0)^T,\alpha_3=(-1,0,1,0)^T\alpha_4=(-1,0,0,1)^T$,所以$\lambda=1-a$的特征向量为$k_2\alpha_2+k_3\alpha_3+k_4\alpha_4$,式中$k_2,k_3,k_4$是不全为0的任意常数。
+
+方法二：（转换法）
+
+由题得：
+\begin{equation*}A=
+  \begin{bmatrix}
+    a & a& a& a \\
+    a & a& a& a \\
+    a & a& a& a \\
+    a & a& a& a
+  \end{bmatrix}+
+   \begin{bmatrix}
+    1-a & 0& 0& 0 \\
+    0 & 1-a& 0& 0 \\
+    0 & 0& 1-a& 0 \\
+    0 & 0& 0& 1-a
+  \end{bmatrix}=B+(1-a)E
+\end{equation*}
+由于$r(B)=1$，所以有
+\begin{equation*}
+  |\lambda E -B|=\lambda^{4-1}\left(\lambda-\sum\limits_{i=1}^{4}a_{ii}\right)=
+  \lambda^{3}\left(\lambda-4a\right)
+\end{equation*}
+所以矩阵$B$的特征值为$0,0,0,4a$,所以由特征值的性质，$A$的特征值为$3a+1,1-a,1-a,1-a$。
+
+下边同方法一。
+\end{jie}
+
+$n$阶矩阵
+\begin{equation*}
+A=
+\begin{bmatrix}
+  a & 1 & 1 & \cdots & 1\\
+ 1 & a & 1&\cdots & 1\\
+ 1 & 1 & a & \cdots &1\\
+ \vdots&\vdots&\vdots&\ddots&\vdots\\
+ 1&1&1&\cdots&a
+\end{bmatrix}
+\end{equation*}
+则$r(A)=$\underline{\hphantom{~~~~~~~~~~~~~}}.
+
+\begin{jie}
+由上题可快速写出$A$的特征值为$n+a-1,a-1,a-1,\cdots,a-1$.
+因为$A$是实对称矩阵，所以$A\sim \Lambda$,且$\Lambda$由$A$的特征值所构成，相似矩阵具有相同的秩，所以$r(\Lambda)=r(A)$,所以
+\begin{equation*}
+\Lambda=
+\begin{bmatrix}
+  n+a-1 & && \\
+   & a-1 &&\\
+   &&\ddots&\\
+   &&&a-1
+\end{bmatrix}
+\end{equation*}
+这里$n$是$A$的阶数，所以不会等于$0$。所以
+\begin{equation*}r(A)=
+  \begin{cases}
+  n,&\text{若}a\neq 1\text{且}a\neq 1-n,\\
+  n-1,&\text{若}a=1-n,\\
+  1,&\text{若}a=1.
+  \end{cases}
+\end{equation*}
+\end{jie}
+
+设$\alpha$为$n$维单位列向量，$E$为$n$阶单位矩阵，则
+
+\hphantom{~}A.$E-\alpha\alpha^T$不可逆 \hfill B.$E+\alpha\alpha^T$不可逆 \hfill C.$E+2\alpha\alpha^T$不可逆 \hfill D.$E-2\alpha\alpha^T$不可逆
+\hphantom{~}
+
+\begin{jie}
+注意：单位向量指的是向量的模（长度）为1，要与$[1,1,1]$区分开来。
+
+$\alpha\alpha^T\alpha=\alpha(\alpha^T\alpha)=1\alpha$,所以$\alpha\alpha^T$有一个特征值1.
+
+$\alpha$为$n$维单位列向量,所以$r(\alpha\alpha^T)=1$,所以由第一题的结论，$\alpha\alpha^T$的特征值为$1,0,0,\cdots,0$。
+
+$E$为$n$阶单位矩阵，所以$E$也为实对称矩阵(特征值为$1$)，实对称矩阵相加减依然为实对称矩阵，所以上述选项中每一项均为实对称矩阵。
+
+又由矩阵可逆则行列式一定不为0（不可逆则行列式一定为0，充要条件），矩阵的行列式等于特征值的乘积。
+
+$A$.$c$的特征值为$1-1,1-0,1-0,\cdots,1-0$即$0,1,1,\cdots,1$,所以$|E-\alpha\alpha^T|=0\times 1\cdots 1=0$,即不可逆。
+
+同理可以看出其他选项的行列式均不为0，即可逆。
+\end{jie}
+
+2.抽象矩阵特征值和特征向量的求法
+
+设$A$是三阶矩阵，且矩阵$A$的各行元素之和均为5，则矩阵$A$必有特征向量\underline{\hphantom{~~~~~~~~~~~~~}}.
+
+\begin{jie}
+由题得：
+\begin{equation*}
+\begin{cases}
+a_{11}+a_{12}+a_{13}=5\\
+a_{21}+a_{22}+a_{23}=5\\
+a_{31}+a_{32}+a_{33}=5
+\end{cases}~~~~~\Rightarrow~~~
+\begin{bmatrix}
+a_{11}&a_{12}&a_{13} \\
+a_{21}&a_{22}&a_{23} \\
+a_{31}&a_{32}&a_{33}
+\end{bmatrix}
+\begin{bmatrix}
+1\\ 1\\1
+\end{bmatrix}=
+\begin{bmatrix}
+5\\ 5\\5
+\end{bmatrix}~~~\Rightarrow~~~A\begin{bmatrix}
+1\\ 1\\1
+\end{bmatrix}=5\begin{bmatrix}
+1\\ 1\\1
+\end{bmatrix}
+\end{equation*}
+所以矩阵$A$必有特征值5且必有特征向量$k[1,1,1]^T,(k\neq 0)$。
+\end{jie}
+
+已知$A$是3阶矩阵，如果非齐次线性方程组$Ax=b$有通解$5b+k_1\eta_1+k_2\eta_2$，其中$\eta_1,\eta_2$是$Ax=0$的基础解系，求$A$的特征值和特征向量。
+
+\begin{jie}
+\textcolor[rgb]{1.00,0.00,0.00}{非齐次线性方程组$Ax=b$的通解为$Ax=b$的特解加上$Ax=0$的通解。}
+
+由解得结构可知$5b$是方程组$Ax=b$的一个解，即$A(5b)=b$,所以$Ab=\dfrac{1}{5}b$。即$\dfrac{1}{5}$是$A$的特征值，$k_1b,(k_1\neq 0)$是相应的特征向量。
+
+$\eta_1,\eta_2$是$Ax=0$的基础解系，所以必有$A\eta_1=0=0\eta_1,A\eta_{2}=0=0\eta_2$,所以$\eta_1,\eta_2$是$A$关于$\lambda=0$的线性无关的特征向量，所以特征值$0$对应的特征向量为$k_2\eta_1+k_3\eta_2,(k_2,k_3\text{不全为}0)$。
+
+综上所述，$A$的特征值为$\dfrac{1}{5},0,0$,对应的特征向量分别是$k_1b,(k_1\neq 0)$，$k_2\eta_1+k_3\eta_2,(k_2,k_3\text{不全为}0)$
+\end{jie}
+\newpage
 \hphantom{~~}\hfill {\zihao{4}\heiti 2014-2015年第一学期} \hfill\hphantom{~~}
 
 一、填空题
@@ -289,6 +803,8 @@ $有无穷多组解？并在有无穷多解时，写出方程组的通解。
 }
    \end{align*}
 所以$\lambda=1$时有无穷多解，$x_{1}=1,x_{2}=x_{3}-1$.
+
+所以通解为$x=[1,-1,0]^T+k[0,1,1]^T,(k\in R)$
 
 $\lambda=-\dfrac{4}{5}$时，$r(A)\neq r(A,B)$，此时无解。
 \end{jie}
@@ -851,62 +1367,69 @@ A_{11}+2A_{21}+A_{31}+2A_{41}=\begin{vmatrix}
 
 \begin{jie}
 \begin{align*}
-&(\alpha_1,\alpha_2,\alpha_3,\alpha_4)=
+(\alpha_1,\alpha_2,\alpha_3,\alpha_4)&=
 \begin{bmatrix}
-  1 & 0 & 3 &1\\
-  -1 & 3 & 0&-1\\
-  2 & 1 & 7&2\\
-  4 & 2 &14&0
+  1 & 0 & 3 &1 &2\\
+  -1 & 3 & 0&-1&1\\
+  2 & 1 & 7&2&5\\
+  4 & 2 &14&0&6
 \end{bmatrix}
 \xrightarrow{\substack{r_{2}+r_{1}\\ r_3-2r_1 \\ r_4-4r_1}}
 {
 \begin{bmatrix}
-  1 & 0 & 3 &1\\
-  0 & 3 & 3&0\\
-  0 & 1 & 1&0\\
-  0 & 2 &2&-4
+  1 & 0 & 3 &1&2\\
+  0 & 3 & 3&0&3\\
+  0 & 1 & 1&0&1\\
+  0 & 2 &2&-4&-2
 \end{bmatrix}
 }
 \xrightarrow{\substack{ r_3-\frac{1}{3}r_2 \\ r_4-\frac{2}{3}r_2}}
 {
 \begin{bmatrix}
-  1 & 0 & 3 &1\\
-  0 & 3 & 3&0\\
-  0 & 0 & 0&0\\
-  0 & 0 &0&-4
-\end{bmatrix}
-}
-\xrightarrow{\substack{ r_2\times\frac{1}{3} \\ r_4\times\left(-\frac{1}{4}\right)}}
-{
-\begin{bmatrix}
-  1 & 0 & 3 &1\\
-  0 & 1 & 1&0\\
-  0 & 0 & 0&0\\
-  0 & 0 &0&1
+  1 & 0 & 3 &1&2\\
+  0 & 3 & 3&0&3\\
+  0 & 0 & 0&0&0\\
+  0 & 0 &0&-4&0
 \end{bmatrix}
 }\\
 &
+\xrightarrow{\substack{ r_2\times\frac{1}{3} \\ r_4\times\left(-\frac{1}{4}\right)}}
+{
+\begin{bmatrix}
+  1 & 0 & 3 &1&2\\
+  0 & 1 & 1&0&1\\
+  0 & 0 & 0&0&0\\
+  0 & 0 &0&1&0
+\end{bmatrix}
+}
 \xrightarrow{\substack{ r_1-r_4}}
 {
 \begin{bmatrix}
-  1 & 0 & 3 &0\\
-  0 & 1 & 1&0\\
-  0 & 0 & 0&0\\
-  0 & 0 &0&1
+  1 & 0 & 3 &0&2\\
+  0 & 1 & 1&0&1\\
+  0 & 0 & 0&0&1\\
+  0 & 0 &0&1&1
 \end{bmatrix}
 }
 \xrightarrow{\substack{ r_3\leftrightarrow r_4}}
 {
 \begin{bmatrix}
-  1 & 0 & 3 &0\\
-  0 & 1 & 1&0\\
-  0 & 0 & 0&1\\
-  0 & 0 &0&0
+  1 & 0 & 3 &0&2\\
+  0 & 1 & 1&0&1\\
+  0 & 0 & 0&1& 0\\
+  0 & 0 &0&0& 0
 \end{bmatrix}
 }
 \end{align*}
-所以该向量组的秩为$3$，极大线性无关组为$(\alpha_1,\alpha_2,\alpha_4),(\alpha_1,\alpha_3,\alpha_4),(\alpha_2,\alpha_3,\alpha_4)$.
-由$(\alpha_1,\alpha_2,\alpha_4)$表示$\alpha_3$：由最简阶梯型矩阵可以看出$\alpha_3=3\alpha_1+\alpha_2+0\alpha_4=3\alpha_1+\alpha_2$。
+所以该向量组的秩为$3$，极大线性无关组为$(\alpha_1,\alpha_2,\alpha_4),(\alpha_1,\alpha_3,\alpha_4),(\alpha_1,\alpha_4,\alpha_5),(\alpha_2,\alpha_3,\alpha_4),(\alpha_2,\alpha_3,\alpha_5),(\alpha_2,\alpha_4,\alpha_5)$.
+
+由$(\alpha_1,\alpha_2,\alpha_4)$表示$\alpha_3,\alpha_5$：由最简阶梯型矩阵可以看出
+\begin{equation*}
+\begin{cases}
+\alpha_3=3\alpha_1+\alpha_2+0\alpha_4=3\alpha_1+\alpha_2\\ \alpha_5=2\alpha_1+\alpha_2+0\alpha_4=2\alpha_1+\alpha_2
+\end{cases}
+\end{equation*}
+
 \end{jie}
 
 三、解答题
@@ -922,6 +1445,8 @@ $
 有唯一解，无解和有无穷多解？当方程组有无穷多解时求出所有解。
 
 \begin{jie}
+\textcolor[rgb]{1.00,0.00,0.00}{（系数矩阵是方阵，也可以用行列式来做这个题。具体看14-15年期末试题的第四题，推荐这种方法）}
+
 增广矩阵
 \begin{align*}
 &\left[
@@ -1409,6 +1934,7 @@ D=
 $\underline{\hphantom{~~~~~~~~~~}}。
 
 \begin{jie}
+(注意爪型行列式的做法)
 对行列式做如下变换：第一行减去$z$倍的第四行，第一行减去$y$倍的第三行，第一行减去$x$倍的第二行，得到如下行列式：
 \begin{equation*}
   \begin{vmatrix}
@@ -2120,7 +2646,7 @@ $(A^ {*})^{-1}=(|A|A^{-1})^{-1}=\dfrac{A}{|A|}$，由题得：$|A|=8$
 4. 已知3阶方阵$A$的秩为2，设$\alpha_ {1}=(2,2,0)^{T},\alpha_{2}=(3,3,1)^{T}$是非齐次线性方程组$Ax=b$的解，则导出$Ax=0$的基础解系为\underline{\hphantom{~~~~~~~~~~}}。
 
 \begin{jie}
-因为$\alpha_ {1},\alpha_{2}$是非齐次线性方程组$Ax=b$的解，所以$A\alpha_1=b,A\alpha_2=b$,且$\alpha_ {1},\alpha_{2}$不相等，所以$\alpha_1-\alpha_2$是$AX=0$的基础解系。
+因为$\alpha_ {1},\alpha_{2}$是非齐次线性方程组$Ax=b$的解，所以$A\alpha_1=b,A\alpha_2=b$,且$\alpha_ {1},\alpha_{2}$不相等，所以$\alpha_1-\alpha_2$是$AX=0$的基础解系。（实际上$k(\alpha_1-\alpha_2)$都是导出组的基础解系。）
 \end{jie}
 
 5. 若3阶矩阵$A$相似于$B$，矩阵$A$的特征值是1,2,3那么行列式$|2B+I|=$\underline{\hphantom{~~~~~~~~~~}}。(其中$I$是3阶单位矩阵)
@@ -2978,7 +3504,7 @@ A\xrightarrow{\substack{r_{3}-2 r_{1}\\ r_4-3r_1}}
 \begin{bmatrix}
  1 & 1 & 1 & 1\\
   0 & 2 &-2 &2\\
-  0 & 0& a-3 & 0\\
+  0 & 0& a-1 & 0\\
   0 & 0 & 0& b-1
 \end{bmatrix}
 }
@@ -2995,13 +3521,13 @@ n,~r(A)=n;\\
 
 记$A=(\alpha_1,\alpha_2,\alpha_3,\alpha_4)$
 
-(1)$a=3$且$b=1$时：$r(A)=2<4-1=3$,$r(A^*)=0$。极大线性无关组：$(\alpha_1,\alpha_2),(\alpha_1,\alpha_3),(\alpha_1,\alpha_4),(\alpha_2,\alpha_3),(\alpha_3,\alpha_4)$.
+(1)$a=1$且$b=1$时：$r(A)=2<4-1=3$,$r(A^*)=0$。极大线性无关组：$(\alpha_1,\alpha_2),(\alpha_1,\alpha_3),(\alpha_1,\alpha_4),(\alpha_2,\alpha_3),(\alpha_3,\alpha_4)$.
 
-(2)$a=3$且$b\neq1$时：$r(A)=3=4-1$,$r(A^*)=1$。极大线性无关组：$(\alpha_1,\alpha_2,\alpha_4),(\alpha_1,\alpha_3,\alpha_4),(\alpha_2,\alpha_3,\alpha_4)$.
+(2)$a=1$且$b\neq1$时：$r(A)=3=4-1$,$r(A^*)=1$。极大线性无关组：$(\alpha_1,\alpha_2,\alpha_4),(\alpha_1,\alpha_3,\alpha_4),(\alpha_2,\alpha_3,\alpha_4)$.
 
-(3)$a\neq3$且$b=1$时：$r(A)=3=4-1$,$r(A^*)=1$。极大线性无关组：$(\alpha_1,\alpha_2,\alpha_3),(\alpha_1,\alpha_3,\alpha_4),(\alpha_2,\alpha_3,\alpha_4)$.
+(3)$a\neq1$且$b=1$时：$r(A)=3=4-1$,$r(A^*)=1$。极大线性无关组：$(\alpha_1,\alpha_2,\alpha_3),(\alpha_1,\alpha_3,\alpha_4),(\alpha_2,\alpha_3,\alpha_4)$.
 
-(4)$a\neq3$且$b\neq1$时：$r(A)=4$,$r(A^*)=4$。极大线性无关组：$(\alpha_1,\alpha_2,\alpha_3,\alpha_4)$.
+(4)$a\neq1$且$b\neq1$时：$r(A)=4$,$r(A^*)=4$。极大线性无关组：$(\alpha_1,\alpha_2,\alpha_3,\alpha_4)$.
 \end{jie}
 
 三、解答题
@@ -3017,6 +3543,8 @@ $
 ，$\lambda$为何值时，该方程组无解、唯一解、无穷解？并且在有唯一解时求出解；有无穷多解时，求出全部解并用向量表示。
 
 \begin{jie}
+\textcolor[rgb]{1.00,0.00,0.00}{（系数矩阵是方阵，也可以用行列式来做这个题。具体看14-15年期末试题的第四题，推荐这种方法）}
+
 增广矩阵
 \begin{align*}
 &\left[
@@ -3979,7 +4507,7 @@ $可以相似对角化且$A$得到特征方程有一个二重根，求$a$的值�
   \lambda+1 & -(a+2) & 0\\
   2-a & \lambda-3 & 0\\
  -8 & 8 & \lambda+1
-\end{vmatrix}=(\lambda+1)[(\lambda-1)(\lambda-3)+(2+a)(2-a)]=(\lambda+1)[(\lambda-1)^2-a^2]=0\\
+\end{vmatrix}=(\lambda+1)[(\lambda+1)(\lambda-3)+(2+a)(2-a)]=(\lambda+1)[(\lambda-1)^2-a^2]=0\\
 &\Rightarrow ~~\lambda_{1}=-1,\lambda_2=1+a,\lambda_{3}=1-a.
 \end{align*}
 依题意：有二重根且可以相似对角化且$a\leq0$.

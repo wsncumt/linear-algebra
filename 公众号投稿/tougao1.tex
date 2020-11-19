@@ -1,0 +1,800 @@
+\documentclass{article}
+\usepackage[space,fancyhdr,fntef]{ctexcap}
+\usepackage[namelimits,sumlimits,nointlimits]{amsmath}
+\usepackage[bottom=25mm,top=25mm,left=25mm,right=15mm,centering]{geometry}
+\usepackage{xcolor}
+\usepackage{arydshln}%234页，虚线表格宏包
+\pagestyle{fancy} \fancyhf{}
+\fancyhead[OL]{~~~班序号：\hfill 学院：\hfill 学号：\hfill 姓名：王松年~~~ \thepage}
+%\usepackage{parskip}
+%\usepackage{indentfirst}
+\usepackage{graphicx}%插图宏包，参见手册318页
+\usepackage{fancybox}%盒子宏包55页
+\begin{document}
+
+\newcounter{num} \renewcommand{\thenum}{\arabic{num}.} \newcommand{\num}{\refstepcounter{num}\text{\thenum}}
+
+\newenvironment{jie}{\kaishu\zihao{-5}\color{blue}{\noindent\em 解：}\par}{\hfill $\diamondsuit$\par}
+
+%\hphantom{~~}\hfill {\zihao{3}\heiti 第二次习题课--答案} \hfill\hphantom{~~}
+%
+%\hphantom{~~}\hfill {\zihao{4}\heiti 群文件《期中$\&$期末试题》} \hfill\hphantom{~~}
+
+
+%{\heiti \zihao{-3} 期中试题}
+%
+%{\heiti \zihao{-3} ~}\\
+%
+%2016\~{}2017~~二.3.
+%
+%设$
+%A=
+%\begin{bmatrix}
+%  1& 0 &-1 \\
+%  1&3&0\\
+%  0&2&1
+%\end{bmatrix}
+%$，若矩阵$X$满足方程$AX+I=A^{2}+X$，求$X$。
+%
+%\begin{jie}
+%方法一：\textcolor[rgb]{1.00,0.00,0.00}{视频25}
+%
+%由题得：$AX+I=A^{2}+X$,所以$(A-I)X=A^{2}-I$.
+%\begin{equation*}
+%  A^{2}=
+%  \begin{bmatrix}
+%  1&-2&-2\\
+%  4&9&-1\\
+%  2&8&1
+%  \end{bmatrix}~~~A^{2}-I=
+%  \begin{bmatrix}
+%   0&-2&-2\\
+%  4&8&-1\\
+%  2&8&0
+%  \end{bmatrix}~~~A-I=
+%  \begin{bmatrix}
+%   0&0&-1\\
+%  1&2&0\\
+%  0&2&0
+%  \end{bmatrix}
+%\end{equation*}
+%增广矩阵
+%\begin{align*}
+%&\left[
+%  \begin{array}{c:c}
+%    \begin{matrix}
+%  0&0&-1\\
+%  1&2&0\\
+%  0&2&0\\
+%    \end{matrix}
+%    &
+%    \begin{matrix}
+%    0&-2&-2\\
+%  4&8&-1\\
+%  2&8&0
+%    \end{matrix}
+%  \end{array}\right]
+%  \xrightarrow{ r_{1}\Leftrightarrow r_{2}}
+%  {
+%  \left[
+%  \begin{array}{c:c}
+%    \begin{matrix}
+%  1&2&0\\
+%  0&0&-1\\
+%  0&2&0\\
+%    \end{matrix}
+%    &
+%    \begin{matrix}
+%    4&8&-1\\
+%    0&-2&-2\\
+%  2&8&0
+%    \end{matrix}
+%  \end{array}\right]
+%  }
+%  \xrightarrow{ r_{2}\Leftrightarrow r_{3}}
+%  {
+%  \left[
+%  \begin{array}{c:c}
+%    \begin{matrix}
+%  1&2&0\\
+%  0&2&0\\
+%  0&0&-1\\
+%    \end{matrix}
+%    &
+%    \begin{matrix}
+%    4&8&-1\\
+%  2&8&0\\
+%  0&-2&-2\\
+%    \end{matrix}
+%  \end{array}\right]
+%  }\\
+%\xrightarrow{\substack{  r_{2}\times\frac{1}{2}\\ r_{3}\times(-1)}}&
+%  {
+%  \left[
+%  \begin{array}{c:c}
+%    \begin{matrix}
+%  1&2&0\\
+%  0&1&0\\
+%  0&0&1\\
+%    \end{matrix}
+%    &
+%    \begin{matrix}
+%    4&8&-1\\
+%  1&4&0\\
+%  0&2&2\\
+%    \end{matrix}
+%  \end{array}\right]
+%  }
+%  \xrightarrow{r_{1}-2r_{2}}
+%  {
+%  \left[
+%  \begin{array}{c:c}
+%    \begin{matrix}
+%  1&0&0\\
+%  0&1&0\\
+%  0&0&1\\
+%    \end{matrix}
+%    &
+%    \begin{matrix}
+%    2&0&-1\\
+%  1&4&0\\
+%  0&2&2\\
+%    \end{matrix}
+%  \end{array}\right]
+%  }
+%\end{align*}
+%所以
+%\begin{equation*}
+%  x=\begin{bmatrix}
+%       2&0&-1\\
+%  1&4&0\\
+%  0&2&2\\
+%    \end{bmatrix}
+%\end{equation*}
+%
+%方法二：由题得：$AX+I=A^{2}+X$,所以$(A-I)X=A^{2}-I=(A+I)(A-I)=(A-I)(A+I)$.
+%等式两边同时左乘$(A-I)^{-1}$:
+%\begin{equation*}
+% (A-I)^{-1}(A-I)X=(A-I)^{-1}(A-I)(A+I) ~~~\Rightarrow~~~X=(A+I)
+%\end{equation*}
+%\textcolor[rgb]{1.00,0.00,0.00}{注：\\
+%1.单位矩阵乘任何矩阵都等于该矩阵的本身，任何矩阵乘单位矩阵都等于该矩阵的本身，即$AI=IA=A$。（$I$为单位矩阵）\\
+%所以有
+%\begin{align*}
+%&A^ {2}-I=A^{2}-I^{2}\\
+%&(A+I)(A-I)=A^{2}-AI+IA-I^{2}=A^{2}-A+A-I^{2}=A^{2}-I^{2}\\
+%&(A-I)(A+I)=A^{2}+AI-IA-I^{2}=A^{2}+A-A-I^{2}=A^{2}-I^{2}
+%\end{align*}
+%2.可逆矩阵（方阵）：若$AB=BA=I$，则$A$矩阵可逆，称$A$是$B$的逆矩阵（或$B$是$A$的逆矩阵）。通常把$A$的逆矩阵表示为$A^{-1}$，则$AA^{-1}=A^{-1}A=I$。
+%}
+%\end{jie}
+
+%{\heiti \zihao{-3} ~}\\
+%{\heiti \zihao{-3} ~}\\
+%{\heiti \zihao{-3} ~}\\
+%2016\~{}2017~~一.4.
+%
+%设$
+%A=
+%\begin{bmatrix}
+%  3&2&2 \\
+%  0&1&1\\
+%  0&0&3
+%\end{bmatrix}
+%,~B=
+%\begin{bmatrix}
+%  1&0&0 \\
+%  0&0&0\\
+%  0&0&-1
+%\end{bmatrix}
+%,~AX+2B=BA+2X$，求$X^{2017}$。
+
+%\begin{jie}
+%方法一：
+%
+%由题得：$(A-2I)X=B(A-2I)$
+%\begin{equation*}
+%A-2I=
+%\begin{bmatrix}
+%1&2&2\\
+%0&-1&1\\
+%0&0&1\\
+%\end{bmatrix}
+%~~~B(A-2I)=
+%\begin{bmatrix}
+%1&2&2\\
+%0&0&0\\
+%0&0&-1\\
+%\end{bmatrix}
+%\end{equation*}
+%增广矩阵
+%\begin{align*}
+%&
+%\left[
+%\begin{array}{c:c}
+%\begin{matrix}
+%1&2&2\\
+%0&-1&1\\
+%0&0&1\\
+%\end{matrix}
+%&
+%\begin{matrix}
+%1&2&2\\
+%0&0&0\\
+%0&0&-1\\
+%\end{matrix}
+%\end{array}
+%\right]
+%\xrightarrow{r_{1}\times(-1)}
+%{
+%\left[
+%\begin{array}{c:c}
+%\begin{matrix}
+%1&2&2\\
+%0&1&-1\\
+%0&0&1\\
+%\end{matrix}
+%&
+%\begin{matrix}
+%1&2&2\\
+%0&0&0\\
+%0&0&-1\\
+%\end{matrix}
+%\end{array}
+%\right]
+%}
+%\xrightarrow{\substack{  r_{1}-2r_{3}\\ r_{2}+r_{3}}}
+%{
+%\left[
+%\begin{array}{c:c}
+%\begin{matrix}
+%1&2&0\\
+%0&1&0\\
+%0&0&1\\
+%\end{matrix}
+%&
+%\begin{matrix}
+%1&2&4\\
+%0&0&-1\\
+%0&0&-1\\
+%\end{matrix}
+%\end{array}
+%\right]
+%}\\
+%\xrightarrow{r_{1}-2r_{2}}&
+%{
+%\left[
+%\begin{array}{c:c}
+%\begin{matrix}
+%1&0&0\\
+%0&1&0\\
+%0&0&1\\
+%\end{matrix}
+%&
+%\begin{matrix}
+%1&2&6\\
+%0&0&-1\\
+%0&0&-1\\
+%\end{matrix}
+%\end{array}
+%\right]
+%}
+%\end{align*}
+%解得
+%\begin{equation*}
+%X=
+%\begin{bmatrix}
+%1&2&6\\
+%0&0&-1\\
+%0&0&-1
+%\end{bmatrix}
+%\end{equation*}
+%计算得
+%\begin{align*}
+%&X^{2}=
+%X=
+%\begin{bmatrix}
+%1&2&-2\\
+%0&0&1\\
+%0&0&1
+%\end{bmatrix}\\
+%&X^{3}=X^{2}\cdot X=
+%\begin{bmatrix}
+%1&2&-2\\
+%0&0&1\\
+%0&0&1
+%\end{bmatrix}
+%\cdot
+%\begin{bmatrix}
+%1&2&6\\
+%0&0&-1\\
+%0&0&-1
+%\end{bmatrix}=
+%\begin{bmatrix}
+%1&2&6\\
+%0&0&-1\\
+%0&0&-1
+%\end{bmatrix}=X\\
+%&X^{3}=X\cdot X^{2}=
+%\begin{bmatrix}
+%1&2&6\\
+%0&0&-1\\
+%0&0&-1
+%\end{bmatrix}
+%\cdot
+%\begin{bmatrix}
+%1&2&-2\\
+%0&0&1\\
+%0&0&1
+%\end{bmatrix}=
+%\begin{bmatrix}
+%1&2&6\\
+%0&0&-1\\
+%0&0&-1
+%\end{bmatrix}=X
+%\end{align*}
+%可以看出:当$n$为奇数时,$X^{n}=X$，所以$X^{2017}=X$。
+%
+%方法二：
+%
+%\textcolor[rgb]{1.00,0.00,0.00}{若存在可逆矩阵$P$，使得$A=P^{-1}BP$，则称矩阵$A$与矩阵$B$相似，记为$A\~{}B$}
+%
+%由题得：$(A-2I)X=B(A-2I)$,等式两边同时乘$(A-2I)^{-1}$得：$X=(A-2I)^{-1}B(A-2I)$，令$P=A-2I$，则$X=P^{-1}BP$.所以
+%\begin{equation*}
+%  X^{2}=(P^{-1}BP)^{2}=P^{-1}B\textcolor[rgb]{0.00,0.50,1.00}{PP^{-1}}BP=P^{-1}B\textcolor[rgb]{0.00,0.50,1.00}{I}BP=P^{-1}B^{2}P
+%\end{equation*}
+%同理可以推出：$X^{n}=P^{-1}B^{n}P$.
+%(由此我们可以得出一条普适结论：\textcolor[rgb]{1.00,0.00,0.00}{若$A\~{}B$，则$A^{n}=P^{-1}B^{n}P$},以后做题可直接使用)
+%\textcolor[rgb]{1.00,0.00,0.00}{对于任意对角矩阵$C=
+%\begin{bmatrix}
+% c_{11} &~&~&~\\
+% ~&c_{22}&~&~\\
+% ~&~&\ddots&~\\
+% ~&~&~&c_{nn}
+%\end{bmatrix}
+%$}，可以计算得:$C^{2}=
+%\begin{bmatrix}
+% c_{11}^{2} &~&~&~\\
+% ~&c_{22}^{2}&~&~\\
+% ~&~&\ddots&~\\
+% ~&~&~&c_{nn}^{2}
+%\end{bmatrix}$，所以\textcolor[rgb]{1.00,0.00,0.00}{$C^{n}=
+%\begin{bmatrix}
+% c_{11}^{n} &~&~&~\\
+% ~&c_{22}^{n}&~&~\\
+% ~&~&\ddots&~\\
+% ~&~&~&c_{nn}^{n}
+%\end{bmatrix}$}
+%所以：
+%\begin{equation*}
+%B^{2017}=
+%\begin{bmatrix}
+%1^{2017}&0&0\\
+%0&0&0\\
+%0&0&(-1)^{2017}
+%\end{bmatrix}=
+%\begin{bmatrix}
+%1&0&0\\
+%0&0&0\\
+%0&0&-1
+%\end{bmatrix}=B
+%\end{equation*}
+%\textcolor[rgb]{0.50,0.00,0.00}{由于还没学逆矩阵的求法，这里先直接给结论，后边学到了逆矩阵的求法后再来计算这个P的逆矩阵}
+%\begin{equation*}
+%P=A-2I=
+%\begin{bmatrix}
+%1&2&2\\
+%0&-1&1\\
+%0&0&1\\
+%\end{bmatrix}~~~
+%P^{-1}=
+%\begin{bmatrix}
+%1 &2&-4\\
+%0&-1&1\\
+%0&0&1
+%\end{bmatrix}
+%\end{equation*}
+%所以：
+%\begin{align*}
+%X^{2017}&=P^{-1}B^{2017}P=P^{-1}BP=\begin{bmatrix}
+%1 &2&-4\\
+%0&-1&1\\
+%0&0&1
+%\end{bmatrix}
+%\begin{bmatrix}
+%  1&0&0 \\
+%  0&0&0\\
+%  0&0&-1
+%\end{bmatrix}
+%\begin{bmatrix}
+%1&2&2\\
+%0&-1&1\\
+%0&0&1\\
+%\end{bmatrix}\\
+%&=
+%\begin{bmatrix}
+%1&0&4\\
+%0&0&-1\\
+%0&0&-1\\
+%\end{bmatrix}
+%\begin{bmatrix}
+%1&2&2\\
+%0&-1&1\\
+%0&0&1\\
+%\end{bmatrix}=\begin{bmatrix}
+%1&2&6\\
+%0&0&-1\\
+%0&0&-1
+%\end{bmatrix}
+%\end{align*}
+%\end{jie}
+%{\heiti \zihao{-3} ~}\\
+%{\heiti \zihao{-3} ~}\\
+%
+%{\heiti \zihao{-3} 考研例题}
+
+  %1.设$\alpha,\beta$是3维列向量，$\beta^{T}$是$\beta$的转置，如果$
+%  \alpha\beta^{T}=
+%  \begin{bmatrix}
+%    1 & -1 & 2 \\
+%    -2 & 2& -4\\
+%    3 & -3 & 6
+%  \end{bmatrix}
+%  $，则$\alpha^{T}\beta=\underline{~~~~~~9~~~~~}$。
+
+%\begin{jie}
+%$\alpha,\beta$是3维列向量,所以可以设
+%$\alpha=\begin{bmatrix}
+%          x_{1} & x_{2} & x_{3}
+%        \end{bmatrix}^{T},\beta=\begin{bmatrix}
+%          y_{1} & y_{2} & y_{3}
+%        \end{bmatrix}^{T}$
+%由题得：
+%\begin{equation*}
+%\alpha\beta^{T}=
+%\begin{bmatrix}
+%          x_{1}\\
+%          x_{2}\\
+%          x_{3}
+%        \end{bmatrix}
+%        \begin{bmatrix}
+%          y_{1} & y_{2} & y_{3}
+%        \end{bmatrix}=
+%        \begin{bmatrix}
+%          x_{1}y_{1} & x_{1}y_{2} & x_{1}y_{3}\\
+%          x_{2}y_{1} & x_{2}y_{2} & x_{2}y_{3}\\
+%          x_{3}y_{1} & x_{3}y_{2} & x_{3}y_{3}
+%        \end{bmatrix}=
+%\begin{bmatrix}
+%    1 & -1 & 2 \\
+%    -2 & 2& -4\\
+%    3 & -3 & 6
+%  \end{bmatrix}
+%\end{equation*}
+%所以：
+%\begin{equation*}
+% \alpha^{T}\beta=
+%\begin{bmatrix}
+%x_{1} & x_{2} & x_{3}
+%\end{bmatrix}
+%\begin{bmatrix}
+%  y_{1} \\
+%  y_{2} \\
+% y_{3}
+%\end{bmatrix}=x_{1}y_{1}+x_{2}y_{2}+x_{3}y_{3}=1+2+6=9
+%\end{equation*}
+%
+%\textcolor[rgb]{1.00,0.00,0.00}{注：}
+%
+%\textcolor[rgb]{1.00,0.00,0.00}{若$\alpha,\beta$是3维列向量，记:$A=\alpha\beta^{T}=\begin{bmatrix}
+%          x_{1}y_{1} & x_{1}y_{2} & x_{1}y_{3}\\
+%          x_{2}y_{1} & x_{2}y_{2} & x_{2}y_{3}\\
+%          x_{3}y_{1} & x_{3}y_{2} & x_{3}y_{3}
+%        \end{bmatrix}$，}
+%        \textcolor[rgb]{1.00,0.00,0.00}{
+%        $l=\alpha^{T}\beta=\beta^{T}\alpha=x_{1}y_{1}+x_{2}y_{2}+x_{3}y_{3}$,(可以看出,$l$是方阵$A$主对角线元素之和)则\\
+%        $A^{2}=(\alpha\beta^{T})(\alpha\beta^{T})=\alpha\beta^{T}\alpha\beta^{T}=\alpha(\beta^{T}\alpha)\beta^{T}=\alpha l \beta^{T}=l\alpha\beta^{T}=lA$\\
+%        所以可以推出$A^{n}=l^{n-1}A$，我们可以将此结论推广到任意n维列向量的情况（即$\alpha,\beta$是n维列向量，记:$A=\alpha\beta^{T},l=\alpha^{T}\beta=\beta^{T}\alpha$,$A^{n}=l^{n-1}A$）。
+%        }
+%\end{jie}
+
+  %2.若$
+%  A=
+%  \begin{bmatrix}
+%   0&0&0\\
+%   2&0&0\\
+%   1&3&0
+%  \end{bmatrix}
+%  $，则$A^{2}=\underline{~~~~~  \begin{bmatrix}
+%   0&0&0\\
+%   0&0&0\\
+%   6&0&0
+%  \end{bmatrix}~~~~},A^{3}=\underline{~~~~~~0~~~~~}$.
+%
+%\begin{jie}
+%由矩阵的乘法：
+%\begin{equation*}
+% A^{2}= \begin{bmatrix}
+%   0&0&0\\
+%   2&0&0\\
+%   1&3&0
+%  \end{bmatrix}  \begin{bmatrix}
+%   0&0&0\\
+%   2&0&0\\
+%   1&3&0
+%  \end{bmatrix}=
+%    \begin{bmatrix}
+%   0&0&0\\
+%   0&0&0\\
+%   6&0&0
+%  \end{bmatrix}
+%\end{equation*}
+%\begin{equation*}
+% A^{3}=A^{2}A=    \begin{bmatrix}
+%   0&0&0\\
+%   0&0&0\\
+%   6&0&0
+%  \end{bmatrix}  \begin{bmatrix}
+%   0&0&0\\
+%   2&0&0\\
+%   1&3&0
+%  \end{bmatrix}=
+%    \begin{bmatrix}
+%   0&0&0\\
+%   0&0&0\\
+%   0&0&0
+%  \end{bmatrix}
+%\end{equation*}
+%
+%\textcolor[rgb]{1.00,0.00,0.00}{注：由题我们可以得出如下结论：如果一个n阶方阵A对角线上以及对角线的一侧元素全为0，那么必有$A^{k}=0$，其中$k\geq n$。即A是下边的几种形状之一：
+%\begin{equation*}
+%\begin{bmatrix}
+%  0 &\textcolor[rgb]{0.00,0.50,1.00}{ a_{12}}&\textcolor[rgb]{0.00,0.50,1.00}{a_{13}}&\textcolor[rgb]{0.00,0.50,1.00}{\cdots}&\textcolor[rgb]{0.00,0.50,1.00}{a_{1n}} \\
+%  0& 0&\textcolor[rgb]{0.00,0.50,1.00}{a_{23}}&\textcolor[rgb]{0.00,0.50,1.00}{\cdots}&\textcolor[rgb]{0.00,0.50,1.00}{a_{2n}}\\
+%   0&0&0&\textcolor[rgb]{0.00,0.50,1.00}{\cdots}&\textcolor[rgb]{0.00,0.50,1.00}{a_{3n}}\\
+%  \vdots&\vdots&\vdots&\ddots&\textcolor[rgb]{0.00,0.50,1.00}{\vdots}\\
+%  0&0&0&\cdots&0
+%\end{bmatrix}
+%~~
+%\begin{bmatrix}
+%  0 & 0&0&\cdots&0 \\
+%  \textcolor[rgb]{0.00,0.50,1.00}{a_{21}}& 0&0&\cdots&0\\
+%   \textcolor[rgb]{0.00,0.50,1.00}{a_{31}}&\textcolor[rgb]{0.00,0.50,1.00}{a_{32}}&0&\cdots&0\\
+%  \textcolor[rgb]{0.00,0.50,1.00}{\vdots}&\textcolor[rgb]{0.00,0.50,1.00}{\vdots}&\textcolor[rgb]{0.00,0.50,1.00}{\vdots}&\ddots&\vdots\\
+%  \textcolor[rgb]{0.00,0.50,1.00}{a_{n1}}&\textcolor[rgb]{0.00,0.50,1.00}{a_{n2}}&\textcolor[rgb]{0.00,0.50,1.00}{a_{n3}}&\cdots&0
+%\end{bmatrix}
+%~~
+%\begin{bmatrix}
+%  0 & 0&0&\cdots&0 \\
+% 0& 0&0&\cdots&\textcolor[rgb]{0.00,0.50,1.00}{a_{2n}}\\
+%   0&0&0&\textcolor[rgb]{0.00,0.50,1.00}{\cdots}&\textcolor[rgb]{0.00,0.50,1.00}{a_{3n}}\\
+%  \vdots&\vdots&\textcolor[rgb]{0.00,0.50,1.00}{\vdots}&\textcolor[rgb]{0.00,0.50,1.00}{\vdots}&\textcolor[rgb]{0.00,0.50,1.00}{\vdots}\\
+%  0&\textcolor[rgb]{0.00,0.50,1.00}{a_{n2}}&\textcolor[rgb]{0.00,0.50,1.00}{a_{n3}}&\textcolor[rgb]{0.00,0.50,1.00}{\cdots}&\textcolor[rgb]{0.00,0.50,1.00}{a_{nn}}
+%\end{bmatrix}
+%~~
+%\begin{bmatrix}
+% \textcolor[rgb]{0.00,0.50,1.00}{ a_{11}} & \textcolor[rgb]{0.00,0.50,1.00}{a_{12}}&\textcolor[rgb]{0.00,0.50,1.00}{a_{13}}&\textcolor[rgb]{0.00,0.50,1.00}{\cdots}&0 \\
+% \textcolor[rgb]{0.00,0.50,1.00}{a_{21}}& \textcolor[rgb]{0.00,0.50,1.00}{a_{22}}&\textcolor[rgb]{0.00,0.50,1.00}{a_{23}}&\cdots&0\\
+%  \textcolor[rgb]{0.00,0.50,1.00}{ a_{31}}&\textcolor[rgb]{0.00,0.50,1.00}{a_{32}}&0&\cdots&0\\
+%  \textcolor[rgb]{0.00,0.50,1.00}{\vdots}&\vdots&\vdots&\vdots&\vdots\\
+%  0&0&0&\cdots&0
+%\end{bmatrix}
+%\end{equation*}
+%}
+%\end{jie}
+ % 3.若$
+%  A=
+%  \begin{bmatrix}
+%   1 & 2 & 3\\
+%   0& 1&4\\
+%   0& 0&1
+%  \end{bmatrix}
+%  $,则$A^{n}=\underline{~~~~~~~~~~~~~}.$
+
+%\begin{jie}
+%
+%由题得：
+%$
+%A=
+%\begin{bmatrix}
+%  1&2&3\\
+%  0&1&4\\
+%  0&0&1\\
+%\end{bmatrix}=
+%\begin{bmatrix}
+%1&0&0\\
+%  0&1&0\\
+%  0&0&1\\
+%\end{bmatrix}+
+%\begin{bmatrix}
+%  0&2&3\\
+%  0&0&4\\
+%  0&0&0\\
+%\end{bmatrix}=I+B
+%$\\
+%\textcolor[rgb]{1.00,0.00,0.00}{二项式定理：$(a+b)^{n}=C_{n}^{0}a^{0}b^{n}+C_{n}^{1}a^{1}b^{n-1}+C_{n}^{2}a^{2}b^{n-2}+\cdots+C_{n}^{n-1}a^{n-1}b^{n-(n-1)}+C_{n}^{n}a^{n}b^{n-n}$}
+%
+%由第2题的结论可知：$B^{k}=0,k\geq3$。计算得：$B^{2}=\begin{bmatrix}
+%                                        0 & 0&8 \\
+%                                       0 & 0&0 \\  0 & 0&0 \\
+%                                      \end{bmatrix}$所以
+%\begin{align*}
+%A^{n}&=(I+B)^{n}=C_{n}^{0}I^{n}B^{0}+C_{n}^{1}I^{n-1}B^{1}+C_{n}^{2}I^{n-2}B^{2}+C_{n}^{3}I^{n-3}\textcolor[rgb]{1.00,0.00,0.00}{B^{3}}+\cdots+C_{n}^{0}I^{0}\textcolor[rgb]{1.00,0.00,0.00}{B^{n}}\\
+%&=I^{n}B^{0}+nI^{n-1}B^{1}+\frac{n(n-1)}{2}I^{n-2}B^{2}=I+nB+\frac{n(n-1)}{2}B^{2}\\
+%&=\begin{bmatrix}
+%1&0&0\\
+%  0&1&0\\
+%  0&0&1\\
+%\end{bmatrix}+n\begin{bmatrix}
+%  0&2&3\\
+%  0&0&4\\
+%  0&0&0\\
+%\end{bmatrix}+\frac{n(n-1)}{2}
+%\begin{bmatrix}
+%                                        0 & 0&8 \\
+%                                       0 & 0&0 \\  0 & 0&0 \\
+%                                      \end{bmatrix}\\
+%&=
+%\begin{bmatrix}
+%  1&2n&4n^{2}-n\\
+%  0&1&4n\\
+%  0&0&1\\
+%\end{bmatrix}
+%\end{align*}
+%\end{jie}
+{\heiti \zihao{3} \textbf{【题目】}}设$A=
+  \begin{bmatrix}
+ 3&1&0&0\\
+ 0&3&0&0\\
+ 0&0&3&9\\
+ 0&0&1&3
+  \end{bmatrix}
+  $，则$A^{n}=\underline{~~~~~~~~~~~~~}.$
+
+\begin{jie}
+经观察，我们可将矩阵按下列方式进行分块：
+\begin{equation*}
+A=
+\begin{bmatrix}
+3&1&0&0\\
+ 0&3&0&0\\
+ 0&0&3&9\\
+ 0&0&1&3
+\end{bmatrix}
+=
+\begin{bmatrix}
+  A_{11} & \mathbf{0} \\
+  \mathbf{0} & A_{22}
+\end{bmatrix}~~~
+A_{11}=
+\begin{bmatrix}
+  3 & 1 \\
+  0 & 3
+\end{bmatrix}
+~A_{22}=
+\begin{bmatrix}
+  3 & 9 \\
+  1 & 3
+\end{bmatrix}
+\end{equation*}
+$A$分块后是对角矩阵（主对角线之外的元素都为0），对角矩阵的$n$次方等于各个元素 的$n$次方。
+
+所以：$A^{n}=\begin{bmatrix}
+  A_{11}^{n} & \mathbf{0} \\
+  \mathbf{0} & A_{22}^{n}
+\end{bmatrix}$。
+
+对于$A_{11}$：
+\begin{align*}A_{11}&=
+\begin{bmatrix}
+  3 & 1 \\
+  0 & 3
+\end{bmatrix}=
+\begin{bmatrix}
+  3 & 0 \\
+  0 & 3
+\end{bmatrix}+
+\begin{bmatrix}
+  0 & 1 \\
+  0 & 0
+\end{bmatrix}=3I+B
+\end{align*}
+\shadowbox{\parbox{170mm}{
+\textcolor[rgb]{1.00,0.00,0.00}{二项式定理}：$(a+b)^{n}=\sum\limits_{i=0}^{n}C_{n}^{i}a^i\cdot b^{n-i}$,式中：$C_{n}^i$为\textcolor[rgb]{1.00,0.00,0.00}{组合数}，$C_{n}^i=\dfrac{n!}{i!(n-i)!}$。
+
+对于任意$n$阶矩阵$A$，如果矩阵的对角线元素以及对角线一侧的元素全为0，则$A^k=0,k\geq n$。
+}}
+
+所以：
+\begin{align*}
+A^{n}_{11}&=(3I+B)^{n}=C_{n}^{0}B^{0}(3I)^{n}+C_{n}^{1}B^{1}(3I)^{n-1}+C_{n}^{2}\textcolor[rgb]{1.00,0.00,0.00}{B^{2}}(3I)^{n-2}+\cdots+C_{n}^{n}\textcolor[rgb]{1.00,0.00,0.00}{B^{n}}(3I)^{0}\\
+&=3^{n}I+3^{n-1}nB\\
+&=\begin{bmatrix}
+  3^{n} & n3^{n-1} \\
+  0 & 3^{n}
+\end{bmatrix}
+\end{align*}
+\shadowbox{\parbox{170mm}{对于n维方阵$A$，如果$r(A)=1$,则$A$一定可以分解为一个列向量$\alpha=[a_1,a_2,\cdots,a_n]^T$和一个行向量$\beta^T=[b_{1},b_2,\cdots,b_n]$的乘积（此处只给结论，不做证明,至于$a$和$b$的具体值，也不需要关注。）。
+
+以$3$维来讨论，讨论结果可以推广到$n$维:即$A=\alpha\cdot\beta^T=
+\begin{bmatrix}
+a_1\\ a_2\\a_3
+\end{bmatrix}
+\begin{bmatrix}
+b_1& b_2&b_3
+\end{bmatrix}=
+\begin{bmatrix}
+  a_1b_1 & a_1b_2 & a_1b_3 \\
+  a_2b_1 & a_2b_2 & a_2b_3 \\
+  a_3b_1 & a_3b_2 & a_3b_3 
+\end{bmatrix},~~\alpha^T\beta=\beta^T\alpha=a_1b_1+a_2b_2+a_3b_3
+$,可以看出$\alpha^T\beta=\beta^T\alpha$是$A$的主对角线元素之和，记为$l$。
+
+则$A^2=\alpha\cdot\textcolor[rgb]{1.00,0.00,0.00}{\beta^T\cdot\alpha}\cdot\beta^T=\alpha l \beta^T=lA,A^3=A^2A=lA\cdot A=lA^2=l^2A,\cdots,A^n=l^{n-1}A$
+}}
+
+所以对于$A_{22}$,经过高斯消元法变换($r_{1}-3r_{2}$)后:$
+\begin{bmatrix}
+  3 & 9 \\
+  0 & 0
+\end{bmatrix}
+$，可以看出$r(A_{22})=1$，符合上边的描述，所以
+\begin{align*}
+ l&=3+3=6\\
+ A_{22}^{n}&=l^{n-1}A=6^{n-1}
+ \begin{bmatrix}
+   3 & 9 \\
+   1 & 3
+ \end{bmatrix}
+\end{align*}
+所以：
+\begin{equation*}
+  A^{n}=
+\begin{bmatrix}
+  A_{11}^{n} & \mathbf{0} \\
+  \mathbf{0} & A_{22}^{n}
+\end{bmatrix}=
+\begin{bmatrix}
+  3^{n} & n\cdot3^{n-1}&0&0 \\
+  0 & 3^{n}&0&0\\
+  0&0&3\cdot6^{n-1}&9\cdot6^{n-1}\\
+  0&0&6^{n-1}&3\cdot6^{n-1}
+\end{bmatrix}
+\end{equation*}
+\end{jie}
+ % 5.已知$
+%  A=
+%  \begin{bmatrix}
+%    2&0&1\\
+%    0&3&0\\
+%    2&0&2
+%  \end{bmatrix},
+%  B=
+%  \begin{bmatrix}
+%    1&0&0\\
+%    0&-1&0\\
+%    0&0&0
+%  \end{bmatrix}
+%  $,若$X$满足$AX+2B=BA+2X$，则$X^{4}=\underline{~~~~~~~~~~~~~}.$
+%
+%  \begin{jie}
+%  步骤同上边期中测试题第二题的方法二，所以略。自己算一下。这里给出$P=A-2I$的逆矩阵$P^{-1}$:
+%  \begin{equation*}
+%    P^{-1}=
+%    \begin{bmatrix}
+%      0 & 0 & 0.5\\
+%      0 & 1 &0\\
+%      1&0&0
+%    \end{bmatrix}
+%  \end{equation*}
+%最后算出的结果是
+%\begin{equation*}
+%X^{4}=
+%\begin{bmatrix}
+%  0 & 0 &0 \\
+%  0 & 1&0 \\
+%  0&0&1
+%\end{bmatrix}
+%\end{equation*}
+%  \end{jie}
+\end{document}  
