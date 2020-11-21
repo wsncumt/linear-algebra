@@ -92,7 +92,7 @@ $的特征值与特征向量。
     \lambda-a_{11} & -a_{12} &-a_{13} \\
 -a_{21} & \lambda-a_{22} &-a_{23} \\
 -a_{31} & -a_{32} &\lambda-a_{33}
-  \end{bmatrix}=\lambda^{3}-\sum a_{ii}\lambda^2+S_{2}\lambda-|A|
+  \end{bmatrix}=\lambda^{3}-\lambda^2\sum a_{ii}+S_{2}\lambda-|A|
 \end{equation*}
 式中：$S_{2}=
 \begin{vmatrix}
@@ -263,6 +263,17 @@ $\eta_1,\eta_2$是$Ax=0$的基础解系，所以必有$A\eta_1=0=0\eta_1,A\eta_{
 综上所述，$A$的特征值为$\dfrac{1}{5},0,0$,对应的特征向量分别是$k_1b,(k_1\neq 0)$，$k_2\eta_1+k_3\eta_2,(k_2,k_3\text{不全为}0)$
 \end{jie}
 
+\num 抽象矩阵3
+
+设$A$为3阶方阵，且$|A-2E|=|A+2E|=|A-E|=0$,则$|3A^*-2A^{-1}|=$\underline{\hphantom{~~~~~~~~~~~~~}}.
+
+\begin{jie}
+$A$的特征多项式为$|\lambda E-A|=(-1)^n|A-\lambda E|=0$，所以由题得$A$的特征值为$\lambda_1=2,\lambda_2=-2,\lambda_3=1$，所以$|A|=\prod\limits_{i=1}^{3}\lambda_i=-4$。所以$A$可逆，所以$A^*=|A|A^{-1}=-4A^{-1}$,所以
+\begin{equation*}
+|3A^*-2A^ {-1}|=|3\times(-4A^{-1})-2A^{-1}|=|-14A^{-1}|=(-14)^3|A|^{-1}=686
+\end{equation*}
+\end{jie}
+
 {\heiti \zihao{4} 考研例题--实对称矩阵}
 
 \num 设$A$是3阶实对称矩阵，秩$r(A)=2$,若$A^2=A$,则$A$的特征值是\underline{\hphantom{~~~~~~~~~~~~~}}.
@@ -342,6 +353,9 @@ $A$.$c$的特征值为$1-1,1-0,1-0,\cdots,1-0$即$0,1,1,\cdots,1$,所以$|E-\alp
 
 同理可以看出其他选项的行列式均不为0，即可逆。
 \end{jie}
+
+
+
 
 {\heiti \zihao{4} 期末试题}
 
