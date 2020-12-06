@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2020.4.27)  19 NOV 2020 09:43
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2020.4.27)  6 DEC 2020 21:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -785,35 +785,35 @@ Package fontspec Info: Font family 'KaiTi(0)' created for font 'KaiTi' with
 
 
 LaTeX Font Warning: Font shape `TU/KaiTi(0)/m/it' undefined
-(Font)              using `TU/KaiTi(0)/m/n' instead on input line 32.
+(Font)              using `TU/KaiTi(0)/m/n' instead on input line 36.
 
 [1
 
-] [2]
-Overfull \hbox (36.84952pt too wide) detected at line 318
+] [2] [3] [4]
+Overfull \hbox (36.84952pt too wide) detected at line 569
 []
  []
 
-[3]
+[5]
 
-LaTeX Warning: Command \~ invalid in math mode on input line 366.
-
-
-LaTeX Warning: Command \~ invalid in math mode on input line 366.
+LaTeX Warning: Command \~ invalid in math mode on input line 617.
 
 
-LaTeX Warning: Command \~ invalid in math mode on input line 370.
+LaTeX Warning: Command \~ invalid in math mode on input line 617.
 
 
-LaTeX Warning: Command \~ invalid in math mode on input line 372.
+LaTeX Warning: Command \~ invalid in math mode on input line 621.
 
 
-LaTeX Warning: Command \~ invalid in math mode on input line 394.
+LaTeX Warning: Command \~ invalid in math mode on input line 623.
 
 
-LaTeX Warning: Command \~ invalid in math mode on input line 395.
+LaTeX Warning: Command \~ invalid in math mode on input line 645.
 
-[4] [5] (./dijiuci-xitike -daan.aux)
+
+LaTeX Warning: Command \~ invalid in math mode on input line 646.
+
+[6] [7] [8] (./dijiuci-xitike -daan.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.41063pt have occurred.
@@ -823,12 +823,12 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 18393 strings out of 492922
- 414767 string characters out of 6136751
- 483593 words of memory out of 5000000
- 22262 multiletter control sequences out of 15000+600000
+ 18416 strings out of 492922
+ 416311 string characters out of 6136751
+ 486593 words of memory out of 5000000
+ 22285 multiletter control sequences out of 15000+600000
  538833 words of font info for 77 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 59i,18n,70p,915b,446s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 59i,19n,70p,915b,446s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on dijiuci-xitike -daan.pdf (5 pages).
+Output written on dijiuci-xitike -daan.pdf (8 pages).

@@ -50,7 +50,7 @@
   a & 0 & b\\
   0 & 2 & 0\\
   b & 0 & -2
-\end{bmatrix}m,|A|=2(-2a-b^2)
+\end{bmatrix},|A|=2(-2a-b^2)
 $
 
 (1)由特征值的性质有：
@@ -436,7 +436,7 @@ $\lambda_3=5$时：
 (2)举例说明反过来不成立。
 
 \begin{zhengming}
-(1)因为$A\~{}B$,所以$A,B$具有相同的特征值，记为$\lambda_i,(1\leq i\leq n)$。对于实对称矩阵$A$存在正交矩阵$Q$，使得$Q^{-1}AQ$为对角矩阵。即存在正交矩阵$Q_{1}$，使得$Q_1^{-1}AQ=\Lambda=
+(1)因为$A\~{}B$,所以$A,B$具有相同的特征值，记为$\lambda_i,(1\leq i\leq n)$。对于实对称矩阵$A$存在正交矩阵$Q$，使得$Q^{-1}AQ$为对角矩阵。即存在正交矩阵$Q_{1}$，使得$Q_1^{-1}AQ_1=\Lambda=
 \begin{bmatrix}
   \lambda_1 & & \\
    & \ddots &\\
@@ -839,7 +839,7 @@ $\lambda_3=-1$时：
 \begin{zhengming}
 由秩的性质：
 \begin{equation*}
-r(\alpha\alpha^ {T}+\beta\beta^{T})\leq r(\alpha\alpha^ {T})+r(\beta\beta^{T})\leq \min(\alpha,\alpha_T)+\min(\beta,\beta_T)\leq 1+1=2
+r(\alpha\alpha^ {T}+\beta\beta^{T})\leq r(\alpha\alpha^ {T})+r(\beta\beta^{T})\leq \min(r(\alpha),r(\alpha^T))+\min(r(\beta),r(\beta^T))\leq 1+1=2
 \end{equation*}
 \end{zhengming}
 
@@ -850,7 +850,7 @@ r(\alpha\alpha^ {T}+\beta\beta^{T})\leq r(\alpha\alpha^ {T})+r(\beta\beta^{T})\l
 \begin{jie}
 (1)若$x_0$为$Ax=0$的解，则$Ax_0=0$，对等式两边同时左乘$A^T$：$A^TAx_0=0$，即$x_0$为$A^TAx=0$的解。
 
-若$x_1$为$A^TAx=0$的解：则$A^TAx_1=0$，等式两边同时左乘$x_1^T$：$x_1^TA^TAx_1=(Ax_1)^T(Ax_1)=0$，两边同时求行列式有：$|(Ax_1)^T(Ax_1)|=|(Ax_1)^T||(Ax_1)|=|Ax_1|^2=0$，所以$Ax_1=0$，所以$x_1$为$Ax=0$的解。
+若$x_1$为$A^TAx=0$的解：则$A^TAx_1=0$，等式两边同时左乘$x_1^T$：$x_1^TA^TAx_1=(Ax_1)^T(Ax_1)=0$，所以$Ax_1=0$，所以$x_1$为$Ax=0$的解。（注：这里就认为$x$是一个列向量，所以$Ax$也是列向量，用\textcolor[rgb]{1.00,0.00,0.00}{向量内积}的性质。）
 
 综上所述：$Ax=0$与$A^TAx=0$同解。
 
@@ -919,7 +919,7 @@ A^Tb=\begin{bmatrix}
 1 \\ 3 \\ 8 \\ 2
 \end{bmatrix}=
 \begin{bmatrix}
-14 \\ 6 \\ 10 
+14 \\ 6 \\ 10
 \end{bmatrix}
 \end{gather*}
 高斯消元步骤略（考试必须写上）。
