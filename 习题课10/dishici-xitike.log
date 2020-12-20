@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2020.4.27)  21 NOV 2020 08:46
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2020.4.27)  13 DEC 2020 22:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -758,31 +758,6 @@ LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <10.53937> not available
 (Font)              size <10.95> substituted on input line 19.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 23--30
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 39--41
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 44--45
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 48--49
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 52--53
-
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 56--57
 
  []
@@ -797,9 +772,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 73--75
 
  []
 
-[1
 
-]
 Underfull \hbox (badness 10000) in paragraph at lines 86--87
 
  []
@@ -814,19 +787,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 94--95
 
  []
 
-[2] (./dishici-xitike.aux)
+[1
+
+] (./dishici-xitike.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.41063pt have occurred.
 
  ) 
 Here is how much of TeX's memory you used:
- 18229 strings out of 492922
- 408047 string characters out of 6136751
- 473440 words of memory out of 5000000
- 22121 multiletter control sequences out of 15000+600000
+ 18219 strings out of 492922
+ 407380 string characters out of 6136751
+ 470440 words of memory out of 5000000
+ 22111 multiletter control sequences out of 15000+600000
  536502 words of font info for 62 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  59i,13n,70p,907b,446s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on dishici-xitike.pdf (2 pages).
+Output written on dishici-xitike.pdf (1 page).
