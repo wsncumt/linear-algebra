@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2020.4.27)  20 DEC 2020 21:36
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2020.4.27)  1 JAN 2021 19:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -865,31 +865,31 @@ LaTeX Warning: Command \~ invalid in math mode on input line 2532.
 LaTeX Warning: Command \~ invalid in math mode on input line 2540.
 
 [23] [24] [25]
-Overfull \hbox (36.84952pt too wide) detected at line 3035
+Overfull \hbox (36.84952pt too wide) detected at line 3062
 []
  []
 
 [26] [27] [28] [29] [30] [31] [32]
 
-LaTeX Warning: Command \~ invalid in math mode on input line 4006.
+LaTeX Warning: Command \~ invalid in math mode on input line 4033.
 
 
-LaTeX Warning: Command \~ invalid in math mode on input line 4006.
+LaTeX Warning: Command \~ invalid in math mode on input line 4033.
 
 
-LaTeX Warning: Command \~ invalid in math mode on input line 4010.
+LaTeX Warning: Command \~ invalid in math mode on input line 4037.
 
 
-LaTeX Warning: Command \~ invalid in math mode on input line 4012.
+LaTeX Warning: Command \~ invalid in math mode on input line 4039.
 
 
-LaTeX Warning: Command \~ invalid in math mode on input line 4034.
+LaTeX Warning: Command \~ invalid in math mode on input line 4061.
 
 
-LaTeX Warning: Command \~ invalid in math mode on input line 4035.
+LaTeX Warning: Command \~ invalid in math mode on input line 4062.
 
 [33] [34]
-Overfull \hbox (11.1283pt too wide) in paragraph at lines 4065--4066
+Overfull \hbox (11.1283pt too wide) in paragraph at lines 4092--4093
 []\TU/lmr/m/n/10.53937 1. \TU/SimSun(0)/m/n/10.53937 设 $\OML/cmm/m/it/10.53937 
 A$ \TU/SimSun(0)/m/n/10.53937 是 \TU/lmr/m/n/10.53937 3 \TU/SimSun(0)/m/n/10.539
 37 阶 方 阵，| $\OML/cmm/m/it/10.53937 E$ \TU/SimSun(0)/m/n/10.53937 是 \TU/lmr/m/n/
@@ -903,7 +903,7 @@ A$ \TU/SimSun(0)/m/n/10.53937 的 特 征 值 为 $\OT1/cmr/m/n/10.53937 1\OML/c
 [35] [36] [37] [38]
 Missing character: There is no ， in font [lmroman10-regular]:mapping=tex-text;!
  [39]
-Overfull \hbox (13.39037pt too wide) detected at line 4831
+Overfull \hbox (13.39037pt too wide) detected at line 4858
 []
  []
 
@@ -919,7 +919,7 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Here is how much of TeX's memory you used:
  18787 strings out of 492922
  431170 string characters out of 6136751
- 501981 words of memory out of 5000000
+ 505499 words of memory out of 5000000
  22645 multiletter control sequences out of 15000+600000
  536593 words of font info for 74 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
