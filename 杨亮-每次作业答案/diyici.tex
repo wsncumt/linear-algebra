@@ -1,0 +1,4750 @@
+\documentclass[a4paper]{report}
+\usepackage[space,fancyhdr,fntef]{ctexcap}
+\usepackage{fontspec}
+\fontspec{宋体}
+\setmainfont{Times New Roman}
+%\fontsize{50pt}{50pt}\selectfont
+\renewcommand{\rmdefault}{ptm}
+\usepackage[namelimits,sumlimits,nointlimits]{amsmath}
+\usepackage[text={169mm,250mm},bottom=20mm,top=25mm,left=25mm,right=20mm,centering]{geometry}
+\usepackage{color}
+\usepackage{CJKfntef}%下划线宏包160页
+\usepackage{xcolor}
+\usepackage{arydshln}%234页，虚线表格宏包
+\pagestyle{fancy} \fancyhf{}
+\pagestyle{fancy} \fancyhf{}
+\fancyhead[OL]{~~~学院：\hfill 学号：\hfill 姓名：王松年~~~ }
+\fancyfoot[C]{\color{gray}\thepage}
+\renewcommand{\headrule}{\color{gray}\hrule width\headwidth}
+%\renewcommand{\footrulewidth}{0.4pt}%改为0pt即可去掉页脚上面的横线
+%\usepackage{parskip}
+%\usepackage{indentfirst}
+\usepackage{graphicx}%插图宏包，参见手册318页
+
+\usepackage[xetex,colorlinks]{hyperref}%394页  \href{网址}{文本}
+\hypersetup{urlcolor=blue}
+%\linebreak[2]%换行，152页
+\usepackage{fancybox}%盒子宏包55页
+\setcounter{secnumdepth}{4}
+\CTEXoptions[contentsname={目\hspace{15pt}录}]
+\CTEXsetup[beforeskip={-40pt},afterskip={20pt plus 2pt minus 2pt}]{chapter}
+\usepackage{mathdots}%反对角省略号
+\usepackage{extarrows}%等号上加文字
+\usepackage{paralist}%列表宏包
+
+%目录设置
+\usepackage{titletoc}
+\usepackage[toc]{multitoc}
+\titlecontents{chapter}[4em]{\addvspace{2.3mm}\bf}{\contentslabel{4.0em}}{}{\titlerule*[5pt]{$\cdot$}\contentspage}
+\titlecontents{section}[4em]{}{\contentslabel{2.5em}}{}{\titlerule*[5pt]{$\cdot$}\contentspage}
+\titlecontents{subsection}[7.2em]{}{\contentslabel{3.3em}}{}{\titlerule*[5pt]{$\cdot$}\contentspage}
+
+\begin{document}
+\flushbottom%版心底部对齐
+\newcounter{num}[section] \renewcommand{\thenum}{\arabic{num}.} \newcommand{\num}{\refstepcounter{num}\text{\thenum}}
+\newenvironment{jie}{\kaishu\zihao{-5}\color{blue}{\noindent\em 解：}\par}{\hfill $\diamondsuit$\par}
+\newenvironment{tips}{\kaishu\zihao{-6}\color{blue}{\noindent\rule[-3pt]{\textwidth}{0.5pt}\par \em \noindent {\zihao{-5} \textcolor[rgb]{1.00,0.00,0.00}{Tips}}}\par}{\\ \rule[3mm]{\textwidth}{0.5pt}\par}
+
+%生成格式如 例1.1的带序号的示例标识
+\newcounter{Emp}[chapter] \renewcommand{\theEmp}{\thechapter.\arabic{Emp}}
+\newcommand{\EX}{\par {\bf 例~}\refstepcounter{Emp}{\bf\theEmp}\hspace{1em}}
+
+\newenvironment{zhengming}{\kaishu\zihao{-5}\color{blue}{\noindent\em 证明：}\par}{\hfill $\diamondsuit$\par}
+
+\tableofcontents
+\pagenumbering{Roman}%设置目录页码
+\clearpage
+\pagenumbering{arabic}%设置正文页码
+
+\chapter{第一次线性代数}
+%\section{基本概念、阶梯型方程组}
+\EX 写出一个只有零解的齐次线性方程组的例子。写出一个有非零解的齐次线性方程组的例子。
+
+\begin{tips}
+形如$a_1x_1+a_2x_2+\cdots+a_nx_n=0$的称为齐次线程方程（其中$a_i$为系数）。
+
+齐次的含义：上式可以写为$a_1x_1+a_2x_2+\cdots+a_nx_n=0\textcolor[rgb]{1.00,0.00,0.00}{x_{n+1}}$,该式中每一项$x$的指数都为1次，所以称为齐次。
+
+非齐次：$a_1x_1+a_2x_2+\cdots+a_nx_n=b,(b\neq 0)$，该式可以写为$a_1x_1+a_2x_2+\cdots+a_nx_n=b\textcolor[rgb]{1.00,0.00,0.00}{x_{n+1}^{0}}$，等式左边的参数都是1次，而右边是0次，所以为非齐次。
+
+线性的含义：此处可以理解为所有的参数间仅有加减（各个参数的相加减）及数乘（即某个参数乘上一个系数）运算。而含有类似下边的项就不是线性：$x_ix_j$（参数间乘法运算，而非数乘）、$x_{i}^{n},\sqrt{x_i}$（幂运算）、$\log x_i$（对数运算）以及其他不满足上述要求的运算。
+
+齐次线性方程组：只含有齐次线性方程。
+
+非齐次线性方程组：含有非齐次线性方程。
+\end{tips}
+
+\begin{jie}
+答案不唯一，符合题意即可。
+
+只有零解：$
+\begin{cases}
+x_1+x_2 = 0\\
+x_1-x_2 = 0
+\end{cases}$\hphantom{~~~~~~~~~~}
+非零解：$
+\begin{cases}
+x_1+x_2 = 0\\
+2x_1+2x_2 = 0
+\end{cases}$
+\end{jie}
+
+\EX 证明：如果一个线性方程组有零解，则该方程组一定是齐次线性方程组。（等价的，非齐次线性方程组一定没有零解）
+
+\begin{zhengming}
+对任意一个线程方程组：
+\begin{equation*}\begin{cases}
+a_{11}x_{1}+a_{12}x_{2}+\cdots+a_{1n}x_{n}=b_1\\
+a_{21}x_{2}+a_{22}x_{2}+\cdots+a_{2n}x_{n}=b_2\\
+\cdots\\
+a_{i1}x_{1}+a_{i2}x_{2}+\cdots+a_{in}x_{n}=b_i\\
+\cdots\\
+a_{m1}x_{1}+a_{m2}x_{2}+\cdots+a_{mn}x_{n}=b_m \end{cases}
+\end{equation*}
+
+该线性方程组有零解，即：$x_1=x_2=\cdots=x_n=0$,把该解代入到上述方程组：
+\begin{equation*}\begin{cases}
+b_1=a_{11}0+a_{12}0+\cdots+a_{1n}0=0\\
+b_2=a_{21}0+a_{22}0+\cdots+a_{2n}0=0\\
+\cdots\\
+b_i=a_{i1}0+a_{i2}0+\cdots+a_{in}0=0\\
+\cdots\\
+b_m=a_{m1}0+a_{m2}0+\cdots+a_{mn}0=0 \end{cases}
+\end{equation*}
+即该方程组为齐次线性方程组。
+\end{zhengming}
+
+式1.1.3：
+$
+\begin{cases}
+a_{11}x_{1}+a_{12}x_{2}+\cdots+a_{1n}x_{n}=b_1\\
+a_{21}x_{1}+a_{22}x_{2}+\cdots+a_{2n}x_{n}=b_2\\
+\cdots\\
+a_{m1}x_{1}+a_{m2}x_{2}+\cdots+a_{mn}x_{n}=b_m \end{cases}
+$
+式1.1.5：
+$
+\begin{cases}
+a_{11}x_{1}+a_{12}x_{2}+\cdots+a_{1n}x_{n}=0\\
+a_{21}x_{1}+a_{22}x_{2}+\cdots+a_{2n}x_{n}=0\\
+\cdots\\
+a_{m1}x_{1}+a_{m2}x_{2}+\cdots+a_{mn}x_{n}=0 \end{cases}
+$
+
+\EX 证明：如果
+$
+\begin{cases}
+x_1=c_1\\
+x_2=c_2\\
+\cdots\\
+x_n = c_n
+\end{cases}
+$和$
+\begin{cases}
+x_1=d_1\\
+x_2=d_2\\
+\cdots\\
+x_n = d_n
+\end{cases}
+$都是非齐次线性方程组
+1.1.3的解，则$
+\begin{cases}
+x_1=c_1-d_1\\
+x_2=c_2-d_2\\
+\cdots\\
+x_n =c_n-d_n
+\end{cases}$是齐次线性方程组1.1.5的解。
+
+\begin{zhengming}
+$x_i = c_i$是非齐次线性方程组的解，所以对于该方程组中的任意一个方程都有：
+\begin{equation*}
+a_{i1}c_{1}+a_{i2}c_{2}+\cdots+a_{in}c_{n}=b_i\tag{1}
+\end{equation*}
+同理：
+\begin{equation*}
+a_{i1}d_{1}+a_{i2}d_{2}+\cdots+a_{in}d_{n}=b_i\tag{2}
+\end{equation*}
+(1)式-(2)式：
+\begin{align*}
+&(a_{i1}c_{1}+a_{i2}c_{2}+\cdots+a_{in}c_{n})-(a_{i1}d_{1}+a_{i2}d_{2}+\cdots+a_{in}d_{n})\\
+=&a_{i1}(c_{1}-d_{1})+a_{i2}(c_{2}-d_{2})+\cdots+a_{in}(c_{n}-d_{n})\\
+=&b_i - b_i =0
+\end{align*}
+
+即$x_i=c_i-d_i$是上述齐次线性方程组的解。
+\end{zhengming}
+
+\EX 证明：如果$
+\begin{cases}
+x_1=c_1\\
+x_2=c_2\\
+\cdots\\
+x_n = c_n
+\end{cases}
+$是非齐次线性方程组1.1.3的解，而
+$
+\begin{cases}
+x_1=d_1\\
+x_2=d_2\\
+\cdots\\
+x_n = d_n
+\end{cases}
+$是齐次线性方程组的解，则
+$
+\begin{cases}
+x_1=c_1+d_1\\
+x_2=c_2+d_2\\
+\cdots\\
+x_n =c_n+d_n
+\end{cases}$是非齐次线性方程组1.1.3的解。
+
+\begin{zhengming}
+$x_i = c_i$是非齐次线性方程组的解，所以对于该方程组中的任意一个方程都有：
+\begin{equation*}
+a_{i1}c_{1}+a_{i2}c_{2}+\cdots+a_{in}c_{n}=b_i\tag{1}
+\end{equation*}
+同理：
+\begin{equation*}
+a_{i1}d_{1}+a_{i2}d_{2}+\cdots+a_{in}d_{n}=0\tag{2}
+\end{equation*}
+(1)式+(2)式：
+\begin{align*}
+&(a_{i1}c_{1}+a_{i2}c_{2}+\cdots+a_{in}c_{n})-(a_{i1}d_{1}+a_{i2}d_{2}+\cdots+a_{in}d_{n})\\
+=&a_{i1}(c_{1}+d_{1})+a_{i2}(c_{2}+d_{2})+\cdots+a_{in}(c_{n}+d_{n})\\
+=&b_i + 0 =b_i
+\end{align*}
+
+即$x_i=c_i+d_i$是非齐次线性方程组1.1.3的解。
+\end{zhengming}
+
+\EX 下述方程组中，哪些是阶梯型方程组，哪些是行简化阶梯型方程组？
+
+(1)$
+\begin{cases}
+x_1+x_2-x_3=2\\
+x_1\hphantom{+x_2-x_3}=3\\
+\hphantom{x_1+x_2-}x_3=2
+\end{cases}
+$
+
+(2))$
+\begin{cases}
+x_1+\hphantom{2} x_2-2x_3+\hphantom{2}x_4=1\\
+\hphantom{x_1}-2x_2+\hphantom{2}x_3-2x_4=2\\
+\hphantom{x_1-2x_2+2x_3-2}x_4=0\\
+\hphantom{x_1-2x_2+2x_3-2}0=3
+\end{cases}
+$
+
+(3)$
+\begin{cases}
+x_1 + x_2 - 3x_3 \hphantom{+ x_4}= 7\\
+\hphantom{x_1 + x_2 - 3x_3 + }x_4= 6
+\end{cases}
+$
+
+\begin{tips}
+阶梯型方程组和阶梯型矩阵判断标准一致。
+
+阶梯型矩阵（不唯一）和行最简阶梯型矩阵（唯一）\\
+对于任意一个矩阵，如果满足下面三条性质，则称其为\textcolor[rgb]{1.00,0.00,0.00}{阶梯型矩阵}（注：括号里是另一种表述方式，与括号前的表述等价）
+\begin{asparaenum}[(1)]
+\item 每一非零行在每一零行之上；（全为0的行在不全为0的行的下边）
+\item 某一行的主元素所在的列位于前一行主元素所在列的右边；（上边行的首个非0元素位于下边行首个非0元素的左边列）；（在所有非0行中，每一行的第一个非零元素所在的列号严格单调递增）
+\item 不全为0的行的首个非0元素下面的元素全为0
+\end{asparaenum}
+行最简阶梯型矩阵：若一个阶梯形矩阵满足以下性质，则称为\textcolor[rgb]{1.00,0.00,0.00}{行最简阶梯型矩阵}。
+\begin{asparaenum}[(1)]
+\item 每一主元都为1；（每一行第一个非零元素都是1）
+\item 每一主元素是该元素所在列的唯一非0元素。
+\end{asparaenum}
+注：只有是行阶梯形矩阵，才能判断是不是行最简阶梯型矩阵。
+\end{tips}
+
+\begin{jie}
+(1)不满足阶梯型判断的第2条。所以也不是行最简。
+
+(2)是阶梯型方程组，行最简的两条都不满足，所以不是行最简。
+
+(3)最简阶梯型。（满足上边的每一条）
+\end{jie}
+
+
+\EX 在对线性方程组做初等变换时，能否用0乘以某个方程的两边？为什么？
+
+\begin{jie}
+不能。理由：用0乘某个方程的两边，可能会改变方程组的解集。
+\end{jie}
+
+\EX 是否存在恰好有两个解的线性方程组？为什么？
+
+\begin{jie}
+不存在。任意线性方程组的解只能是三种情形之一：无解，有唯一解和有无穷多解。
+
+假设对于任意的线性方程组$
+\begin{cases}
+a_{11}x_{1}+a_{12}x_{2}+\cdots+a_{1n}x_{n}=b_1\\
+a_{21}x_{1}+a_{22}x_{2}+\cdots+a_{2n}x_{n}=b_2\\
+\cdots\\
+a_{m1}x_{1}+a_{m2}x_{2}+\cdots+a_{mn}x_{n}=b_m \end{cases}
+$，$c_i$、$d_i$是该线性方程组的两个解，则对于该方程组中的任意一个方程，均有：
+\begin{equation*}
+  \begin{cases}
+   a_{i1}c_{1}+a_{i2}c_{2}+\cdots+a_{in}c_{n}=b_i\\
+   a_{i1}d_{1}+a_{i2}d_{2}+\cdots+a_{in}d_{n}=b_i
+  \end{cases}
+\end{equation*}
+将两式相加有：
+\begin{align*}
+&(a_{i1}c_{1}+a_{i2}c_{2}+\cdots+a_{in}c_{n})-(a_{i1}d_{1}+a_{i2}d_{2}+\cdots+a_{in}d_{n})\\
+=&a_{i1}(c_{1}+d_{1})+a_{i2}(c_{2}+d_{2})+\cdots+a_{in}(c_{n}+d_{n})\\
+=&b_i + b_i =2b_i
+\end{align*}
+即$e_i=\dfrac{c_i+d_i}{2}$也是该方程组的解，以此类推：$\dfrac{c_i+d_i+e_i}{3}$也是该方程组的解……
+
+所以不存在恰好有两个解的线性方程组。
+\end{jie}
+
+\EX 给定一个由$m$个方程组成的$n$元非齐次线性方程组。判断下面的说法是否正确，并简要说明理由。
+
+(1)如果$m<n$，则该方程组一定有无穷多个解。
+
+(2)如果$m< n$,且该方程组有解，则有可能只有一个解.
+
+(3)如果$m=n$,则该方程组一定有唯一解.
+
+(4)如果$m>n$则该方程组一 定没有解.
+
+(5)如果$m> n$,则该方程组可能有且仅有一个解.
+
+(6)如果$m> n$,则该方程组可能有无穷多个解.
+
+\begin{jie}
+(1)错误，若非齐次线性方程组中有矛盾方程，则就无解。
+
+(2)错误，将符合此条件的线程方程组化为阶梯型方程组后，一定存在自由变量，即有无穷多解。
+
+(3)错误，理由同(1)。
+
+(4)错误，理由：只要该方程组不存在矛盾方程就有解。
+
+(5)正确，理由：例如$
+\begin{cases}
+x_1+x_2=1\\
+x_1-x_2=5\\
+3x_1+3x_2=3
+\end{cases}
+$
+
+(6)正确，理由：例如
+$
+\begin{cases}
+x_1+x_2=1\\
+2x_1+2x_2=2\\
+3x_1+3x_2=3
+\end{cases}
+$
+\end{jie}
+
+\EX 给定一个由$m$个方程组成的$n$元齐次线性方程组.判断下列说法是否正确，并简要说明理由.
+
+(1)如果$m< n$,则该方程组一定有 无穷多个解.
+
+(2)如果$m=n$,则该方程组只有零解.
+
+(3)如果$m>n$,则该方程组可能没有解.
+
+(4)如果$m> n$,则该方程组可能只有零解.
+
+(5)如果$m> n$,则该方程组可能有非零解.
+
+\begin{jie}
+(1)正确，理由：齐次方程组一定有解，将满足该条件的方程组化为阶梯型方程组后存在自由变量，即有无穷多解。
+
+(2)错误，例如：$
+\begin{cases}
+x_1+x_2=0\\
+2x_1+2x_2=0
+\end{cases}
+$
+
+(3)错误，理由：齐次方程组一定有解。
+
+(4)正确，例如：
+$
+\begin{cases}
+x_1+x_2=0\\
+x_1-2x_2=0
+x_1=0
+\end{cases}
+$
+
+(5)正确，例如：$
+\begin{cases}
+x_1+x_2=0\\
+2x_1+2x_2=0\\
+3x_1+3x_2=0
+\end{cases}
+$
+\end{jie}
+
+\EX 证明：线性方程组的初等变换一定把齐次线性方程组变为齐次线性方程组，把非齐次线性方程组变为非齐次线性方程组。
+\begin{zhengming}
+初等变换不改变线性方程组的解集，所以线性方程组是否有零解这个事实在初等变化下不变，即题目中结论成立。
+
+（课本第11页的证明）
+\end{zhengming}
+
+\EX 求$a$、$b$、$c$使得
+\begin{equation*}
+\begin{pmatrix}
+-1&a+b&0\\ c-2&-1&a-b
+\end{pmatrix}=\begin{pmatrix}
+-1&7&0\\ 3a-2b&-1&0
+\end{pmatrix}
+\end{equation*}
+
+\begin{jie}
+由题得：
+\begin{equation*}
+\begin{cases}
+a+b=7\\
+c-2=3a-2b\\
+a-b=0
+\end{cases}~~~\Rightarrow~~~
+\begin{cases}
+a=\dfrac{7}{2}\\
+b=\dfrac{7}{2}\\
+c=\dfrac{11}{2}
+\end{cases}
+\end{equation*}
+\end{jie}
+
+\EX 有人把线性方程组$
+\begin{cases}
+x_2-2x_3=-1\\
+x_1+2x_2-x_4=1\\
+2x_1-x_3=0
+\end{cases}
+$的增广矩阵写为$
+\widetilde{A} =
+\begin{pmatrix}
+&1&-2&-1\\ 1 &2 &-1&1\\ 2&&-1&0
+\end{pmatrix}
+$是否正确？若不正确，请写出正确的增广矩阵和系数矩阵。
+
+\begin{jie}
+不正确。
+
+系数矩阵：$
+A =
+\begin{pmatrix}
+0&1&-2&0\\ 1 &2 &0&-1\\ 2&0&-1&0
+\end{pmatrix}$~~~,增广矩阵$
+\widetilde{A} =
+\begin{pmatrix}
+0&1&-2&0&-1\\ 1 &2 &0&-1&1\\ 2&0&-1&0&0
+\end{pmatrix}$
+\end{jie}
+
+\EX 下述初等行变换是否正确？如果不正确，说明理由。
+
+(1)
+$
+\begin{pmatrix}
+0&-1&2&3\\ 1&1 &0&1
+\end{pmatrix}~~\rightarrow~~
+\begin{pmatrix}
+1&1&2&3\\ 0&-1 &0&1
+\end{pmatrix}
+$.
+
+(2)
+$
+\begin{pmatrix}
+0&-1&2&3\\ 1&1 &0&1
+\end{pmatrix}~~\rightarrow~~
+\begin{pmatrix}
+1&0&2&3\\ 1&1 &0&1
+\end{pmatrix}
+$.
+
+(3)
+$
+\begin{pmatrix}
+0&-1&2&3\\ 1&1 &0&1
+\end{pmatrix}~~\rightarrow~~
+\begin{pmatrix}
+0&-1&2&3\\ 2&2 &0&1
+\end{pmatrix}
+$.
+
+(4)
+$
+\begin{pmatrix}
+0&-1&2&3\\ 1&1 &0&1
+\end{pmatrix}~~\rightarrow~~
+\begin{pmatrix}
+0&-1&2&3\\ 0&0 &0&0
+\end{pmatrix}
+$.
+
+\begin{jie}
+(1)错误，交换第1,2行不正确。
+
+(2)错误，把第二行加到第一行时不正确。
+
+(3)错误，用2乘以第二行时不正确。
+
+(4)错误，不能用0乘以第二行。
+\end{jie}
+
+\EX 用初等行变换把$
+A=
+\begin{pmatrix}
+0&-1&3&2\\
+2&2&1&5\\
+-2&-1&-4&-7\\
+1&\frac{1}{2}&2&3
+\end{pmatrix}
+$化为阶梯型矩阵。
+
+\begin{jie}
+\begin{align*}
+A&\xrightarrow{\substack{r_{1}\leftrightarrow r_{2}}}
+{
+\begin{pmatrix}
+2&2&1&5\\
+0&-1&3&2\\
+-2&-1&-4&-7\\
+1&\frac{1}{2}&2&3
+\end{pmatrix}
+}
+\xrightarrow{\substack{r_{3}+r_{1}\\ r_{4}-\frac{1}{2}r_{1}}}
+{
+\begin{pmatrix}
+2&2&1&5\\
+0&-1&3&2\\
+0&1&-3&-2\\
+0&-\frac{1}{2}&\frac{3}{2}&\frac{1}{2}
+\end{pmatrix}
+}\xrightarrow{\substack{r_{3}+r_{2}\\ r_{4}-\frac{1}{2}r_{2}}}
+{
+\begin{pmatrix}
+2&2&1&5\\
+0&-1&3&2\\
+0&0&0&0\\
+0&0&0&-\frac{1}{2}
+\end{pmatrix}
+}\\
+&\xrightarrow{\substack{r_{3}\leftrightarrow r_{4}}}
+{
+\begin{pmatrix}
+2&2&1&5\\
+0&-1&3&2\\
+0&0&0&-\frac{1}{2}\\
+0&0&0&0
+\end{pmatrix}
+}\end{align*}
+\end{jie}
+
+\EX 用初等行变化把
+$
+A=
+\begin{pmatrix}
+0&1&-2&1\\
+0&3&-1&2\\
+2&4&6&-8\\
+-3&3&4&-1
+\end{pmatrix}
+$化为行简化阶梯型矩阵。
+
+\begin{jie}
+\begin{align*}
+A&\xrightarrow{\substack{r_{1}\leftrightarrow r_{3}}}
+{
+\begin{pmatrix}
+2&4&6&-8\\
+0&3&-1&2\\
+0&1&-2&1\\
+-3&3&4&-1
+\end{pmatrix}
+}\xrightarrow{\substack{r_{4}+\frac{3}{2} r_{1}}}
+{
+\begin{pmatrix}
+2&4&6&-8\\
+0&3&-1&2\\
+0&1&-2&1\\
+0&9&13&-13
+\end{pmatrix}
+}\xrightarrow{\substack{r_{3}-\frac{1}{3} r_{2} \\ r_{4}-3r_{2}}}
+{
+\begin{pmatrix}
+2&4&6&-8\\
+0&3&-1&2\\
+0&0&-\frac{5}{3}&\frac{1}{3}\\
+0&0&16&-19
+\end{pmatrix}
+}\\ &\xrightarrow{\substack{r_{4}-\frac{3}{5}\times r_{3}}}
+{
+\begin{pmatrix}
+2&4&6&-8\\
+0&3&-1&2\\
+0&0&-\frac{5}{3}&\frac{1}{3}\\
+0&0&0&-\frac{79}{5}
+\end{pmatrix}
+}\xrightarrow{\substack{r_{1}\times\frac{1}{2}\\ r_{2}\times\frac{1}{3}\\ r_{3}\times\left(-\frac{3}{5}\right)\\ r_{4}\times\left(-\frac{5}{79}\right)}}
+{
+\begin{pmatrix}
+1&2&3&-4\\
+0&1&-\frac{1}{3}&\frac{2}{3}\\
+0&0&1&-\frac{1}{5}\\
+0&0&0&1
+\end{pmatrix}
+}\xrightarrow{\substack{r_{3}+\frac{1}{5}r_{4}\\ r_{2}-\frac{2}{3}r_{4}\\ r_{1}+4r_{4}}}
+{
+\begin{pmatrix}
+1&2&3&0\\
+0&1&-\frac{1}{3}&0\\
+0&0&1&0\\
+0&0&0&1
+\end{pmatrix}
+}\\ &\xrightarrow{\substack{r_{2}+\frac{1}{3}r_{3}\\ r_{1}-3r_{3}}}
+{
+\begin{pmatrix}
+1&2&0&0\\
+0&1&0&0\\
+0&0&1&0\\
+0&0&0&1
+\end{pmatrix}
+}\xrightarrow{\substack{r_{1}-2r_{2}}}
+{
+\begin{pmatrix}
+1&0&0&0\\
+0&1&0&0\\
+0&0&1&0\\
+0&0&0&1
+\end{pmatrix}
+}
+\end{align*}
+\end{jie}
+
+%\EX 用初等变换把$
+%A=
+%\begin{pmatrix}
+%0&0&0&3\\
+%0&0&0&1\\
+%3&5&0&0\\
+%1&1&0&0
+%\end{pmatrix}
+%$化为标准型矩阵。
+%
+%\begin{jie}
+%\begin{align*}
+%A&\xrightarrow{\substack{r_{1}\leftrightarrow r_{4}}}
+%{
+%\begin{pmatrix}
+%1&1&0&0\\
+%0&0&0&1\\
+%3&5&0&0\\
+%0&0&0&3
+%\end{pmatrix}
+%}\xrightarrow{\substack{r_{3}-3r_{1}}}
+%{
+%\begin{pmatrix}
+%1&1&0&0\\
+%0&0&0&1\\
+%0&2&0&0\\
+%0&0&0&3
+%\end{pmatrix}
+%}\xrightarrow{\substack{r_{2}\leftrightarrow r_{3}}}
+%{
+%\begin{pmatrix}
+%1&1&0&0\\
+%0&2&0&0\\
+%0&0&0&1\\
+%0&0&0&3
+%\end{pmatrix}
+%}\\ &\xrightarrow{\substack{r_{4}-3r_{3}}}
+%{
+%\begin{pmatrix}
+%1&1&0&0\\
+%0&2&0&0\\
+%0&0&0&1\\
+%0&0&0&0
+%\end{pmatrix}
+%}\xrightarrow{\substack{r_{2}\times \frac{1}{2}}}
+%{
+%\begin{pmatrix}
+%1&1&0&0\\
+%0&1&0&0\\
+%0&0&0&1\\
+%0&0&0&0
+%\end{pmatrix}
+%}\xrightarrow{\substack{r_{1}-r_{2}}}
+%{
+%\begin{pmatrix}
+%1&0&0&0\\
+%0&1&0&0\\
+%0&0&0&1\\
+%0&0&0&0
+%\end{pmatrix}
+%}\\ &\xrightarrow{\substack{c_{3}\leftrightarrow c_{4}}}
+%{
+%\begin{pmatrix}
+%1&0&0&0\\
+%0&1&0&0\\
+%0&0&1&0\\
+%0&0&0&0
+%\end{pmatrix}
+%}
+%\end{align*}
+%\end{jie}
+
+\EX 设
+$
+A=
+\begin{pmatrix}
+2&-1&-4&-4\\
+2&0&-2&3\\
+-3&0&3&-4
+\end{pmatrix}
+$.用初等行变换把A变为一个阶梯型矩阵。
+
+\begin{jie}
+\begin{align*}
+A\xrightarrow{\substack{r_{2}-r_{1}\\ r_{3}+\frac{3}{2}r_{1}}}
+{
+\begin{pmatrix}
+2&-1&-4&-4\\
+0&1&2&7\\
+0&-\frac{3}{2}&-3&-10
+\end{pmatrix}
+}\xrightarrow{\substack{ r_{3}+\frac{3}{2}r_{2}}}
+{
+\begin{pmatrix}
+2&-1&-4&-4\\
+0&1&2&7\\
+0&0&0&\frac{1}{2}
+\end{pmatrix}
+}
+\end{align*}
+\end{jie}
+
+\EX 设
+$
+A=
+\begin{pmatrix}
+2&-1&-4&-4\\
+2&0&-2&3\\
+-3&0&3&-4
+\end{pmatrix}
+$.用初等行变换把A变为一个行简化阶梯型矩阵。
+
+\begin{jie}
+接上题：
+\begin{align*}
+\xrightarrow{\substack{ r_{1}\times \frac{1}{2}\\ r_3\times 2}}
+{
+\begin{pmatrix}
+1&-\frac{1}{2}&-2&-2\\
+0&1&2&7\\
+0&0&0&1
+\end{pmatrix}
+}\xrightarrow{\substack{ r_{2}-7r_3\\ r_1+2r_3}}
+{
+\begin{pmatrix}
+1&-\frac{1}{2}&-2&0\\
+0&1&2&0\\
+0&0&0&1
+\end{pmatrix}
+}\xrightarrow{\substack{ r_{1}+\frac{1}{2}r_2}}
+{
+\begin{pmatrix}
+1&0&-1&0\\
+0&1&2&0\\
+0&0&0&1
+\end{pmatrix}
+}
+\end{align*}
+\end{jie}
+
+\EX 请写出下面方程组的系数矩阵、常数项矩阵、未知量矩阵和增广矩阵。
+\begin{equation*}
+\begin{cases}
+x_{1}+x_{2}+x_{3} = 1&\\
+\hphantom{x_{1}} 2x_{2}+3x_{3} = 1&\\
+\hphantom{x_{1}+x_{2}}3^2x_{3} = 3&
+\end{cases}
+\end{equation*}
+
+\begin{jie}
+系数矩阵:
+$
+\begin{pmatrix}
+1&1&1\\ 0&2&3\\0&0&3^2
+\end{pmatrix}
+$,常数项矩阵$
+\begin{pmatrix}
+1\\ 1\\ 3
+\end{pmatrix}
+$,未知量矩阵：
+$
+\begin{pmatrix}
+x_1\\ x_2\\ x_3
+\end{pmatrix}
+$，增广矩阵
+$
+\begin{pmatrix}
+1&1&1&1\\ 0&2&3&1\\0&0&3^2&3
+\end{pmatrix}
+$
+\end{jie}
+
+\EX 求矩阵$A=
+\begin{pmatrix}
+2 &-1&4&-3&-4\\ 1&0&1&-1&-3\\ 3&1&1&0&1\\ 7&0&7&-3&3
+\end{pmatrix}
+$的最简阶梯型矩阵。
+
+\begin{jie}
+\begin{align*}
+A&\xrightarrow{\substack{r_2-\frac{1}{2}r_1\\ r_3-\frac{3}{2}r_1\\ r_4-\frac{7}{2}r_1}}
+{
+\begin{pmatrix}
+2 &-1&4&-3&-4\\ 0&\frac{1}{2}&-1&\frac{1}{2}&-1\\ 0&\frac{5}{2}&-5&\frac{9}{2}&7\\ 0&\frac{7}{2}&-7&\frac{15}{2}&17
+\end{pmatrix}
+}\xrightarrow{\substack{r_3-5r_2\\ r_4-7r_2}}
+{
+\begin{pmatrix}
+2 &-1&4&-3&-4\\ 0&\frac{1}{2}&-1&\frac{1}{2}&-1\\ 0&0&0&2&12\\ 0&0&0&4&24
+\end{pmatrix}
+}\xrightarrow{\substack{r_4-2r_3}}
+{
+\begin{pmatrix}
+2 &-1&4&-3&-4\\ 0&\frac{1}{2}&-1&\frac{1}{2}&-1\\ 0&0&0&2&12\\ 0&0&0&0&0
+\end{pmatrix}
+}\\ &\xrightarrow{\substack{r_1\times \frac{1}{2}\\ r_2\times 2\\ r_{3}\times\frac{1}{2}}}
+{
+\begin{pmatrix}
+1 &-\frac{1}{2}&2&-\frac{3}{2}&-2\\ 0&1&-2&1&-2\\ 0&0&0&1&6\\ 0&0&0&0&0
+\end{pmatrix}
+}\xrightarrow{\substack{r_2-r_{3}\\ r_1+\frac{3}{2}r_{3}}}
+{
+\begin{pmatrix}
+1 &-\frac{1}{2}&2&0&7\\ 0&1&-2&0&-8\\ 0&0&0&1&6\\ 0&0&0&0&0
+\end{pmatrix}
+}\xrightarrow{\substack{r_1+\frac{1}{2}r_{2}}}
+{
+\begin{pmatrix}
+1 &0&1&0&3\\ 0&1&-2&0&-8\\ 0&0&0&1&6\\ 0&0&0&0&0
+\end{pmatrix}
+}
+\end{align*}
+\end{jie}
+
+\EX 求线性方程组
+$
+\begin{cases}
+x_1+x_2+x_3=1\\
+2x_{1}+3_x{2}=2\\
+3x_{1}+4x_{2}+x_{3}=3
+\end{cases}
+$
+的解集。
+
+\begin{jie}
+由题得：增广矩阵
+\begin{align*}
+[A|B]=&
+\left(
+ \begin{array}{c:c}
+\begin{matrix}
+1 & 1 & 1 \\
+2 & 3 & 0 \\
+3 & 4 & 1
+\end{matrix}&
+\begin{matrix}
+1  \\
+ 2\\
+3
+\end{matrix}
+\end{array}
+\right)\xrightarrow{\substack{r_{2}-2r_{1}\\ r_{3}-3r_{1}}}
+{
+\left(
+ \begin{array}{c:c}
+\begin{matrix}
+1 & 1 & 1 \\
+0 & 1 & -2 \\
+0 & 1 & -2
+\end{matrix}&
+\begin{matrix}
+1  \\
+0 \\
+0
+\end{matrix}
+\end{array}
+\right)
+}\xrightarrow{\substack{r_{3}-r_{2}}}
+{
+\left(
+ \begin{array}{c:c}
+\begin{matrix}
+1 & 1 & 1 \\
+0 & 1 & -2 \\
+0 & 0 & 0
+\end{matrix}&
+\begin{matrix}
+1  \\
+0 \\
+0
+\end{matrix}
+\end{array}
+\right)
+}\\ &\xrightarrow{\substack{r_{1}-r_{2}}}
+{
+\left(
+ \begin{array}{c:c}
+\begin{matrix}
+1 & 0 & 3 \\
+0 & 1 & -2 \\
+0 & 1 & -2
+\end{matrix}&
+\begin{matrix}
+1  \\
+0 \\
+0
+\end{matrix}
+\end{array}
+\right)
+}
+\end{align*}
+所以：$x_1=1-3x_3,x_2=2x_3$，取$x_3=k,k\in R$:
+\begin{equation*}
+  x=\begin{pmatrix}
+     1-3k\\ 2k\\ k
+    \end{pmatrix}=
+\begin{pmatrix}
+1\\ 0\\ 0
+\end{pmatrix}
++k\begin{pmatrix}
+-3\\ 2\\ 1
+\end{pmatrix},k\in R
+\end{equation*}
+\end{jie}
+
+\EX 线性方程组
+$
+\begin{cases}
+x_1+5x_2+x_3+5x_4=1\\
+x_1+4x_2+x_3+4x_4=0\\
+x_1+3x_2+ax_3+3x_4=a
+\end{cases}
+$什么时候无解？什么时候有解？有解时，什么时候有唯一解，什么时候有无穷多组解？有解时，并将所有的解表示出来，其中$a$是常数。
+
+\begin{jie}
+由题得：增广矩阵
+\begin{align*}
+[A|B]=&
+\left(
+ \begin{array}{c:c}
+\begin{matrix}
+1 & 5 & 1 &5\\
+1 & 4 & 1 &4 \\
+1 & 3 & a &3
+\end{matrix}&
+\begin{matrix}
+1  \\
+0  \\
+a
+\end{matrix}
+\end{array}
+\right)\xrightarrow{\substack{r_{2}-r_{1}\\ r_{3}-r_{1}}}
+{
+\left(
+ \begin{array}{c:c}
+\begin{matrix}
+1 & 5 & 1 &5\\
+0 & -1 & 0 &-1 \\
+0 & -2 & a-1 &-2
+\end{matrix}&
+\begin{matrix}
+1  \\
+-1  \\
+a-1
+\end{matrix}
+\end{array}
+\right)
+}\xrightarrow{\substack{r_{3}-2r_{2}}}
+{
+\left(
+ \begin{array}{c:c}
+\begin{matrix}
+1 & 5 & 1 &5\\
+0 & -1 & 0 &-1 \\
+0 & 0 & a-1 &0
+\end{matrix}&
+\begin{matrix}
+1  \\
+-1  \\
+a+1
+\end{matrix}
+\end{array}
+\right)
+}
+\end{align*}
+
+讨论：
+
+当$a-1=0$且$a+1\neq 0$即$a=1$时存在矛盾方程,此时无解。
+
+当$a-1\neq 0$即$a\neq 1$时有解，由阶梯型矩阵可以看出$x_4$为自由变量，存在自由变量则有无穷解，所以不存在唯一解的情况。
+
+对上述阶梯型矩阵继续高斯消元：
+\begin{align*}
+\xrightarrow{\substack{r_{2}\times (-1)\\ r_3\times \frac{1}{a-1}}}
+{
+\left(
+ \begin{array}{c:c}
+\begin{matrix}
+1 & 5 & 1 &5\\
+0 & 1 & 0 &1 \\
+0 & 0 & 1 &0
+\end{matrix}&
+\begin{matrix}
+1  \\
+1  \\
+\frac{a+1}{a-1}
+\end{matrix}
+\end{array}
+\right)
+}\xrightarrow{\substack{r_{1}-r_3}}
+{
+\left(
+ \begin{array}{c:c}
+\begin{matrix}
+1 & 5 & 0 &5\\
+0 & 1 & 0 &1 \\
+0 & 0 & 1 &0
+\end{matrix}&
+\begin{matrix}
+\frac{-2}{a-1}  \\
+1  \\
+\frac{a+1}{a-1}
+\end{matrix}
+\end{array}
+\right)
+}\xrightarrow{\substack{r_{1}-5r_2}}
+{
+\left(
+ \begin{array}{c:c}
+\begin{matrix}
+1 & 0 & 0 &0\\
+0 & 1 & 0 &1 \\
+0 & 0 & 1 &0
+\end{matrix}&
+\begin{matrix}
+\frac{-2}{a-1}-5  \\
+1  \\
+\frac{a+1}{a-1}
+\end{matrix}
+\end{array}
+\right)
+}
+\end{align*}
+
+所以$x_1=\dfrac{3-5a}{a-1},x_2=1-x_4,x_{3}=\frac{a+1}{a-1}$,取$x_4=k,k\in R$
+\begin{equation*}
+x=
+\begin{pmatrix}
+\dfrac{3-5a}{a-1}\\[2pt]
+1-k\\
+\dfrac{a+1}{a-1}\\[2pt]
+k
+\end{pmatrix}=\begin{pmatrix}
+\dfrac{3-5a}{a-1}\\[2pt]
+1\\
+\dfrac{a+1}{a-1}\\[2pt]
+0
+\end{pmatrix}+k
+\begin{pmatrix}
+0\\
+-1\\
+0\\
+1
+\end{pmatrix},k\in R
+\end{equation*}
+
+综上所述：$a=1$时无解，不存在唯一解的情况，$a\neq 1$时有无穷多解，解为$\begin{pmatrix}
+\dfrac{3-5a}{a-1}\\[2pt]
+1\\
+\dfrac{a+1}{a-1}\\[2pt]
+0
+\end{pmatrix}+k
+\begin{pmatrix}
+0\\
+-1\\
+0\\
+1
+\end{pmatrix},k\in R$
+\end{jie}
+\chapter{第二次线性代数}
+\EX 计算：
+\begin{equation*}
+-2
+\begin{pmatrix}
+a&1&a\\ 1&b&-1
+\end{pmatrix}+3
+\begin{pmatrix}
+1&a&0\\ b&1&0
+\end{pmatrix}
+\end{equation*}
+
+\begin{jie}
+\begin{equation*}
+\text{原式}=\begin{pmatrix}
+-2a&-2&-2a\\ -2&-2b&2
+\end{pmatrix}+\begin{pmatrix}
+3&3a&0\\ 3b&3&0
+\end{pmatrix}=\begin{pmatrix}
+3-2a&3a-2&-2a\\ 3b-2&3-2b&2
+\end{pmatrix}
+\end{equation*}
+\end{jie}
+
+\EX 计算
+\begin{equation*}
+\begin{pmatrix}
+-1&0&1\\ 1&1&-1
+\end{pmatrix}\begin{pmatrix}
+1&0&0\\ 0&-1&2\\ 0&0&1
+\end{pmatrix}^{T}\begin{pmatrix}
+1&-1\\ 0&1\\ 2&-2
+\end{pmatrix}
+\end{equation*}
+
+\begin{jie}
+令$A=\begin{pmatrix}
+-1&0&1\\ 1&1&-1
+\end{pmatrix}$,$B=\begin{pmatrix}
+1&0&0\\ 0&-1&2\\ 0&0&1
+\end{pmatrix}^{T}=\begin{pmatrix}
+1&0&0\\ 0&-1&0\\ 0&2&1
+\end{pmatrix}$,$C=\begin{pmatrix}
+1&-1\\ 0&1\\ 2&-2
+\end{pmatrix}$,则
+\begin{equation*}
+  AB=\begin{pmatrix}
+-1&2&1\\ 1&-3&-1
+\end{pmatrix}~~~
+ABC=\begin{pmatrix}
+1&1\\ -1&-2
+\end{pmatrix}
+\end{equation*}
+\end{jie}
+
+\EX 判断下列说法是否正确，并说明理由。
+
+(3)设$A\neq 0$,且$AB=AC$。则$B=C$。
+
+(4)设$A,B$都是$n\times n$矩阵，则
+\begin{equation*}
+  (A+B)(A-B)=A^2-B^2
+\end{equation*}
+
+(5)如果$m\times n$矩阵$A$满足$A\beta=0$，其中$\beta$是任意的$n\times 1$矩阵，则$A=0$.
+
+\begin{jie}
+(3)错误，矩阵的乘法没有消去律。例：$A=
+\begin{pmatrix}
+1 &1\\ 0&0
+\end{pmatrix}
+,B=
+\begin{pmatrix}
+3 &1\\ 2&4
+\end{pmatrix},C=
+\begin{pmatrix}
+2&4\\ 3 &1
+\end{pmatrix}
+$
+
+(4)错误，矩阵的乘法没有交换律，即$AB\neq BA$,例$A=\begin{pmatrix}
+1 &1\\ 0&1
+\end{pmatrix}
+,B=\begin{pmatrix}
+1 &1\\ 1&1
+\end{pmatrix}
+,$
+
+(5)正确。对任意的矩阵$\beta=(b_1,b_2,\cdots,b_{n})^{T}$,设
+$
+\begin{pmatrix}
+a_{11}&a_{12}&\cdots&a_{1n}\\
+a_{21}&a_{22}&\cdots&a_{2n}\\
+\vdots&\vdots&\ddots&\vdots\\
+a_{m1}&a_{m2}&\cdots&a_{mn}
+\end{pmatrix}
+$，由题意，对于$A$的任意一行都有$a_{i1}b_1+a_{i2}b_2+\cdots+a_{in}b_n=0$,由于$b_i$取值的任意性，所以$a_{i1} = a_{i2}=\cdots=a_{in}0$，即$A=0$。
+\end{jie}
+
+\EX 设$\alpha$为3维列向量，$\alpha^T$是$\alpha$的转置，若$\alpha\alpha^T=
+\begin{pmatrix}
+1&-1&1\\
+-1&1&-1\\
+1&-1&1
+\end{pmatrix}
+$，则$\alpha^T\alpha=$\underline{\hphantom{~~~~~~~~~~~~~}}.
+
+\begin{jie}
+由题，设$\alpha=(x,y,z)^T$，依题意可列：
+\begin{equation*}
+\alpha\alpha^T=
+\begin{pmatrix}
+x\\ y\\z
+\end{pmatrix}\begin{pmatrix}
+x& y&z
+\end{pmatrix}=\begin{pmatrix}
+x^2 & xy & xz\\
+yx & y^2 & yz\\
+zx & zy & z^2
+\end{pmatrix}=\begin{pmatrix}
+1&-1&1\\
+-1&1&-1\\
+1&-1&1
+\end{pmatrix}
+\end{equation*}
+所以：
+\begin{equation*}
+\alpha\alpha^T=\begin{pmatrix}
+x& y&z
+\end{pmatrix}\begin{pmatrix}
+x\\ y\\z
+\end{pmatrix}=x^2+y^2+z^2=1+1+1=3
+\end{equation*}
+\end{jie}
+
+\EX 设$A$是$n\times n$矩阵，$tr(A)$表示$A$的全部$(i,i)-$元（此定义见课本15页定义1.3.1）的和。
+
+(1)对任意$n\times n$矩阵$A,B$，证明
+\begin{align*}
+&tr(A+B)=tr(A)+tr(B)\\
+&tr(kA)=k tr(A)\text{$k$是任意数}\\
+&tr(AB)=tr(BA)
+\end{align*}
+
+(2)设$A$是i$n\times n$实矩阵且$tr(A^TA)=0$，证明：$A=0$.
+
+\begin{zhengming}
+设$A=\begin{pmatrix}
+a_{11}&a_{12}&\cdots&a_{1n}\\
+a_{21}&a_{22}&\cdots&a_{2n}\\
+\vdots&\vdots&\ddots&\vdots\\
+a_{n1}&a_{n2}&\cdots&a_{nn}
+\end{pmatrix},B=\begin{pmatrix}
+b_{11}&b_{12}&\cdots&b_{1n}\\
+b_{21}&b_{22}&\cdots&b_{2n}\\
+\vdots&\vdots&\ddots&\vdots\\
+b_{n1}&b_{n2}&\cdots&b_{nn}
+\end{pmatrix}$.
+
+所以:
+\begin{equation*}
+A+B=
+\begin{pmatrix}
+a_{11}+b_{11}&a_{12}+b_{12}&\cdots&a_{1n}+b_{1n}\\
+a_{21}+b_{21}&a_{22}+b_{22}&\cdots&a_{2n}+b_{2n}\\
+\vdots&\vdots&\ddots&\vdots\\
+a_{n1}+b_{n1}&a_{n2}+b_{n2}&\cdots&a_{nn}+b_{nn}
+\end{pmatrix}
+\end{equation*}
+所以：
+\begin{equation*}
+tr(A+B)=(a_{11}+b_{11})+(a_{22}+b_{22})+\cdots+(a_{nn}+b_{nn})=(a_{11}+a_{22}+\cdots+a_{nn})+(b_{11}+b_{22}+\cdots+b_{nn})=tr(A)+tr(B)
+\end{equation*}
+
+\begin{equation*}
+  kA=\begin{pmatrix}
+ka_{11}&ka_{12}&\cdots&ka_{1n}\\
+ka_{21}&ka_{22}&\cdots&ka_{2n}\\
+\vdots&\vdots&\ddots&\vdots\\
+ka_{n1}&ka_{n2}&\cdots&ka_{nn}
+\end{pmatrix}
+\end{equation*}
+所以：
+\begin{equation*}
+tr(kA)=ka_{11}+ka_{22}+\cdots+ka_{nn}=k(a_{11}+a_{22}+\cdots+a_{nn})=ktr(A)
+\end{equation*}
+
+\begin{equation*}
+AB=
+\begin{pmatrix}
+a_{11}&a_{12}&\cdots&a_{1n}\\
+a_{21}&a_{22}&\cdots&a_{2n}\\
+\vdots&\vdots&\ddots&\vdots\\
+a_{n1}&a_{n2}&\cdots&a_{nn}
+\end{pmatrix}\begin{pmatrix}
+b_{11}&b_{12}&\cdots&b_{1n}\\
+b_{21}&b_{22}&\cdots&b_{2n}\\
+\vdots&\vdots&\ddots&\vdots\\
+b_{n1}&b_{n2}&\cdots&b_{nn}
+\end{pmatrix}=
+\begin{pmatrix}
+\sum_{i=1}^{n}(a_{1i}b_{i1})&\sum_{i=1}^{n}(a_{1i}b_{i2})&\cdots&\sum_{i=1}^{n}(a_{1i}b_{in})\\
+\sum_{i=1}^{n}(a_{2i}b_{i1})&\sum_{i=1}^{n}(a_{2i}b_{i2})&\cdots&\sum_{i=1}^{n}(a_{2i}b_{in})\\
+\vdots&\vdots&\ddots&\vdots\\
+\sum_{i=1}^{n}(a_{ni}b_{i1})&\sum_{i=1}^{n}(a_{ni}b_{i2})&\cdots&\sum_{i=1}^{n}(a_{ni}b_{in})\\
+\end{pmatrix}
+\end{equation*}
+
+\begin{equation*}
+BA=\begin{pmatrix}
+b_{11}&b_{12}&\cdots&b_{1n}\\
+b_{21}&b_{22}&\cdots&b_{2n}\\
+\vdots&\vdots&\ddots&\vdots\\
+b_{n1}&b_{n2}&\cdots&b_{nn}
+\end{pmatrix}
+\begin{pmatrix}
+a_{11}&a_{12}&\cdots&a_{1n}\\
+a_{21}&a_{22}&\cdots&a_{2n}\\
+\vdots&\vdots&\ddots&\vdots\\
+a_{n1}&a_{n2}&\cdots&a_{nn}
+\end{pmatrix}=
+\begin{pmatrix}
+\sum_{i=1}^{n}(b_{1i}a_{i1})&\sum_{i=1}^{n}(b_{1i}a_{i2})&\cdots&\sum_{i=1}^{n}(b_{1i}a_{in})\\
+\sum_{i=1}^{n}(b_{2i}a_{i1})&\sum_{i=1}^{n}(b_{2i}a_{i2})&\cdots&\sum_{i=1}^{n}(b_{2i}a_{in})\\
+\vdots&\vdots&\ddots&\vdots\\
+\sum_{i=1}^{n}(b_{ni}a_{i1})&\sum_{i=1}^{n}(b_{ni}a_{i2})&\cdots&\sum_{i=1}^{n}(b_{ni}aa_{in})\\
+\end{pmatrix}
+\end{equation*}
+
+可以得出：$tr(AB)$是所有$a_{ij}b_{ij}$的和，同理$tr(BA)$也是所有$a_{ij}b_{ij}$的和，即$tr(AB)=tr(BA)$.
+
+\begin{equation*}
+A^{T}T=\begin{pmatrix}
+a_{11}&a_{21}&\cdots&a_{n1}\\
+a_{12}&a_{22}&\cdots&a_{n2}\\
+\vdots&\vdots&\ddots&\vdots\\
+a_{1n}&a_{2n}&\cdots&a_{nn}
+\end{pmatrix}\begin{pmatrix}
+a_{11}&a_{12}&\cdots&a_{1n}\\
+a_{21}&a_{22}&\cdots&a_{2n}\\
+\vdots&\vdots&\ddots&\vdots\\
+a_{n1}&a_{n2}&\cdots&a_{nn}
+\end{pmatrix}=\begin{pmatrix}
+\sum_{i=1}^{n}a_{i1}^2&\sum_{i=1}^{n}a_{i1}a_{i2}&\cdots&\sum_{i=1}^{n}a_{i1}a_{in}\\
+\sum_{i=1}^{n}a_{i2}a_{i1}&\sum_{i=1}^{n}a_{i2}^2&\cdots&\sum_{i=1}^{n}a_{i2}a_{in}\\
+\vdots&\vdots&\ddots&\vdots\\
+\sum_{i=1}^{n}a_{in}a_{i1}&\sum_{i=1}^{n}a_{in}a_{i2}&\cdots&\sum_{i=1}^{n}a_{in}^2
+\end{pmatrix}
+\end{equation*}
+所以：$tr(A^{T}T)$是$A$每个元素平方的和，平方一定大于等于0，而$tr(A^{T}T)=0$，则$a_{ij}^2=0$，即$a_{ij}=0$，即$A=0$
+\end{zhengming}
+
+\EX 设
+$
+\begin{pmatrix}
+1&0&-1\\ -1&1&1\\ 0&1&-1
+\end{pmatrix}
+$，计算$A^2-2A+3I_{3}$。
+
+\begin{jie}
+$A^2=\begin{pmatrix}
+1&-1&0\\ -2&2&1\\ -1&0&2
+\end{pmatrix}$所以：
+\begin{align*}
+A^2-2A+3I_{3}=&\begin{pmatrix}
+1&-1&0\\ -2&2&1\\ -1&0&2
+\end{pmatrix}-2\begin{pmatrix}
+1&0&-1\\ -1&1&1\\ 0&1&-1
+\end{pmatrix}+3\begin{pmatrix}
+1&0&0\\ 0&1&0\\ 0&0&1
+\end{pmatrix}\\
+=&\begin{pmatrix}
+2&-1&2\\ 0&3&-1\\ -1&-2&7
+\end{pmatrix}
+\end{align*}
+\end{jie}
+
+\EX 设
+$
+A=
+\begin{pmatrix}
+0&1&0\\ 0&0&1\\ 0&0&1
+\end{pmatrix}
+$，求所有与$A$可交换的矩阵。
+
+\begin{jie}
+设$X=
+\begin{pmatrix}
+a&b&c\\ d&e&f\\ g&h&i
+\end{pmatrix}
+$与$A$可交换，则：$AX=XA$，所以：
+\begin{align*}
+&AX=
+\begin{pmatrix}
+0&1&0\\ 0&0&1\\ 0&0&1
+\end{pmatrix}\begin{pmatrix}
+a&b&d\\ c&e&f\\ g&h&i
+\end{pmatrix}=\begin{pmatrix}
+d&e&f\\ g&h&i\\ 0&0&0
+\end{pmatrix}\\
+&XA=\begin{pmatrix}
+a&b&d\\ c&e&f\\ g&h&i
+\end{pmatrix}\begin{pmatrix}
+0&1&0\\ 0&0&1\\ 0&0&1
+\end{pmatrix}=\begin{pmatrix}
+0&a&b\\ 0&d&e\\ 0&g&h
+\end{pmatrix}
+\end{align*}
+$AX=XA$，即：
+\begin{equation*}
+\begin{pmatrix}
+d&e&f\\ g&h&i\\ 0&0&0
+\end{pmatrix}=\begin{pmatrix}
+0&a&b\\ 0&d&e\\ 0&g&h
+\end{pmatrix}~~~~\Rightarrow~~~~
+\begin{cases}
+d=0~~a=e\hphantom{=0}~~b=f\\
+g=0~~h=d=0~~i=e=a\\
+0=0~~g=0\hphantom{=0}~~h=0
+\end{cases}
+\end{equation*}
+所以：$X=
+\begin{pmatrix}
+a&b&c\\ 0&a&b\\ 0&0&a
+\end{pmatrix},\text{其中}a\in R,b\in R,c\in R
+$。
+\end{jie}
+
+\EX 判断下列说法是否正确，并说明理由。
+
+(1)如果$A$满足$A^2=I_{n}$，则$A=I_{n}$或$A=-I_{n}$。
+
+(2)设$A,B$是$n$阶方阵，则
+\begin{equation*}
+(A-B)(A^2+AB+B^2)=A^3-B^3
+\end{equation*}
+
+\begin{jie}
+(1)错误，例：$A=
+\begin{pmatrix}
+0&1 \\ 1&0
+\end{pmatrix}
+$
+
+(2)错误。理由$(A-B)(A^2+AB+B^2)=A^3+A^2B+AB^2-BA^{2}-BAB-B^3$，由于矩阵乘法没有交换律，所以不能继续化简，即不等于$A^3-B^3$
+\end{jie}
+
+\EX 计算$2A-3B$，其中：
+\begin{equation*}
+A=
+\begin{pmatrix}
+1&2&2&4\\
+0&1&0&2\\
+1&4&4&0
+\end{pmatrix},B=
+\begin{pmatrix}
+1&1&1&1\\
+2&3&0&2\\
+2&3&1&2
+\end{pmatrix}
+\end{equation*}
+
+\begin{jie}
+\begin{equation*}
+2A-3B=2\begin{pmatrix}
+1&2&2&4\\
+0&1&0&2\\
+1&4&4&0
+\end{pmatrix}-3\begin{pmatrix}
+1&1&1&1\\
+2&3&0&2\\
+2&3&1&2
+\end{pmatrix}=
+\begin{pmatrix}
+-1&1&1&5\\
+-6&-7&0&-2\\
+-4&-1&5&-6
+\end{pmatrix}
+\end{equation*}
+\end{jie}
+
+\EX 已知
+\begin{equation*}
+A=
+\begin{pmatrix}
+-1 & 0 &-1\\ 1 &-4 &1
+\end{pmatrix},B=\begin{pmatrix}
+                  2&0\\ -1&-1\\ -1&0
+                \end{pmatrix}
+\end{equation*}
+判断运算$AB,BA$是否有意义，若有意义，算出结果。
+
+\begin{jie}
+$A$的列数等于$B$的行数，所以$AB$有意义，$AB=
+\begin{pmatrix}
+-1& 0\\ 5&4
+\end{pmatrix}
+$。
+
+$B$的列数等于$A$的行数，所以$BA$有意义，$BA=
+\begin{pmatrix}
+-2&0&-2\\ 0&4&0\\ 1&0&1
+\end{pmatrix}
+$。
+\end{jie}
+
+\EX 设$A_{3\times 2},B_{2\times 3},C_{3\times 3}$，则以下运算
+\begin{equation*}
+  AC,BC,ABC,AB-BC
+\end{equation*}
+哪些有意义？有意义时求出得到矩阵的大小。
+
+\begin{jie}
+$A$的列数不等于$C$的行数，$AC$无意义。
+
+$B$的列数等于$C$的行数，$BC$有意义，新矩阵的大小为$2\times 3$
+
+$A$的列数等于$B$的行数，所以$AB$有意义，该矩阵大小为$3\times 3$,其列数等于$C$的行数，所以$ABC$有意义，矩阵大小为$3\times 3$。
+
+$AB$大小为$3\times 3$，$BC$大小为$2\times 3$，两矩阵规模不同，无法进行加减运算，即$AB-BC$无意义。
+\end{jie}
+
+\EX 下列计算哪些是错误的：
+\begin{gather*}
+k\begin{pmatrix}
+   1&2\\ 3&4
+ \end{pmatrix}=\begin{pmatrix}
+   k&2k\\ 3k&4k
+ \end{pmatrix}\\
+\begin{pmatrix}
+   1&2\\ 3&4
+ \end{pmatrix}=2\begin{pmatrix}
+   1&1\\ 3&2
+ \end{pmatrix}\\
+ \begin{pmatrix}
+   1&2\\ 3&4
+ \end{pmatrix}+
+ \begin{pmatrix}
+   0&0
+ \end{pmatrix}=\begin{pmatrix}
+   1&2\\ 3&4
+ \end{pmatrix}\\
+  \begin{pmatrix}
+   1&2\\ 3&4
+ \end{pmatrix}+
+ \begin{pmatrix}
+   0&0
+ \end{pmatrix}=\begin{pmatrix}
+   0&0\\ 0&0
+ \end{pmatrix}
+\end{gather*}
+
+\begin{jie}
+(1)正确
+
+(2)错误，等式右边第一列错误
+
+(3),(4)错误，不同规模的矩阵不能相加减
+\end{jie}
+
+\EX 设$
+A=
+\begin{pmatrix}
+0&1&3\\
+0&0&2\\
+0&0&0
+\end{pmatrix}
+$,求$A^2=AA,A^3=A(A^2)$
+
+\begin{jie}
+\begin{align*}
+&A^2=AA=\begin{pmatrix}
+0&1&3\\
+0&0&2\\
+0&0&0
+\end{pmatrix}\begin{pmatrix}
+0&1&3\\
+0&0&2\\
+0&0&0
+\end{pmatrix}=\begin{pmatrix}
+0&0&2\\
+0&0&0\\
+0&0&0
+\end{pmatrix}\\
+&A^3=A(A^2)=\begin{pmatrix}
+0&1&3\\
+0&0&2\\
+0&0&0
+\end{pmatrix}\begin{pmatrix}
+0&0&2\\
+0&0&0\\
+0&0&0
+\end{pmatrix}=\begin{pmatrix}
+0&0&0\\
+0&0&0\\
+0&0&0
+\end{pmatrix}
+\end{align*}
+\end{jie}
+
+\begin{tips}
+由上可得出如下结论，若一个$n$阶方阵$A$的\textcolor[rgb]{1.00,0.00,0.00}{主对角线}及\textcolor[rgb]{1.00,0.00,0.00}{主对角线一侧}的元素\textcolor[rgb]{1.00,0.00,0.00}{全为0},那么一定有$A^{k}=0$，其中$k\geq n$，$n$为$A$的阶数。$A$形如以下两种形式：
+\begin{equation*}
+\begin{pmatrix}
+0&a_{12}&\cdots&a_{1n}\\
+0&0&\cdots&a_{1n}\\
+\vdots&\vdots&\ddots&\vdots\\
+0&0&\cdots&0
+\end{pmatrix},~~~
+\begin{pmatrix}
+0&0&\cdots&0\\
+a_{21}&0&\cdots&0\\
+\vdots&\vdots&\ddots&\vdots\\
+a_{n1}&a_{n2}&\cdots&0
+\end{pmatrix}
+\end{equation*}
+
+对于次对角线，该结论并不成立，请自行举例验证。
+\end{tips}
+
+\EX 设$\alpha,\beta$都是三维列向量，$\beta^T$表示$\beta$的转置，如果$\alpha\beta^T=
+\begin{pmatrix}
+1&-2&-3\\
+-2&4&6\\
+-3&6&9
+\end{pmatrix}
+$，求$\alpha^T\beta$与$(\alpha^T\beta)^2$,$(\alpha\beta^T)^2$。
+
+\begin{jie}
+设$\alpha=
+\begin{pmatrix}
+a_1&a_2&a_3
+\end{pmatrix}^T
+,\beta=
+\begin{pmatrix}
+b_1&b_2&b_3
+\end{pmatrix}^T$，由题得：
+\begin{equation*}
+\alpha\beta^T=\begin{pmatrix}
+a_1\\ a_2\\ a_3
+\end{pmatrix}\begin{pmatrix}
+b_1&b_2&b_3
+\end{pmatrix}=
+\begin{pmatrix}
+a_1b_1 & a_1b_2 & a_1b_3\\
+a_2b_1 & a_2b_2 & a_2b_3\\
+a_3b_1 & a_3b_2 & a_3b_3
+\end{pmatrix}=\begin{pmatrix}
+1&-2&-3\\
+-2&4&6\\
+-3&6&9
+\end{pmatrix}
+\end{equation*}
+所以：
+\begin{equation*}
+\alpha^T\beta=\begin{pmatrix}
+a_1&a_2&a_3
+\end{pmatrix}\begin{pmatrix}
+b_1\\ b_2\\ b_3
+\end{pmatrix}=a_1b_1+a_2b_2+a_3b_3=1+4+9=14
+\end{equation*}
+所以：$(\alpha^T\beta)^2=14^2=196$
+\begin{equation*}
+\beta^T\alpha=\begin{pmatrix}
+b_1&b_2&b_3
+\end{pmatrix}\begin{pmatrix}
+a_1\\ a_2\\ a_3
+\end{pmatrix}=b_1a_1+b_2a_2+b_3a_3=\alpha^T\beta
+\end{equation*}
+所以：
+\begin{equation*}
+  (\alpha\beta^T)^2=\alpha\beta^T\cdot\alpha\beta^T=\alpha(\beta^T\cdot\alpha)\beta^T=\alpha\cdot14\cdot\beta^T=14\alpha\beta^T=14\begin{pmatrix}
+1&-2&-3\\
+-2&4&6\\
+-3&6&9
+\end{pmatrix}
+\end{equation*}
+\end{jie}
+
+\begin{tips}
+由此题得出如下结论：对于任意方阵$A$，若该方阵能被两个列向量表出，即$A=\alpha\beta^T$,(该方阵秩为1，即$r(A)=1$，秩后边会学，请先记住此结论，秩实际上是把矩阵化为阶梯型后非零行的数目)记$A$的对角线元素为$tr(A)$，则$tr(A)=\alpha^T\beta=\beta^T\alpha$(证明见下一个题).那么：
+
+\begin{gather*}
+A^2=\alpha\beta^T\alpha\beta^T=\alpha(\beta^T\cdot\alpha)\beta^T=\alpha\cdot tr(A)\cdot\beta^T=tr(A)\alpha\beta^T=tr(A)A=[tr(A)]^{2-1}A\\
+A^3=A^2A=tr(A)AA=tr(A)A^2=[tr(A)][tr(A)]A=[tr(A)]^2A=[tr(A)]^{3-1}A\\
+\vdots\\
+A^n=[tr(A)]^{n-1}A
+\end{gather*}
+
+以后遇到某个方阵$A$求$m$（$m$为任意的正整数）次方，若发现其秩为1，即$r(A)=1$，则直接使用此处的结论。
+\end{tips}
+
+\EX 设$\alpha,\beta$均是$n$维列向量，证明$\alpha^T\beta=\beta^T\alpha$。
+
+\begin{zhengming}
+设$\alpha=
+\begin{pmatrix}
+a_1&a_2&\cdots&a_n
+\end{pmatrix}^T
+,\beta=
+\begin{pmatrix}
+b_1&b_2&\cdots&b_n
+\end{pmatrix}^T$，则：
+\begin{gather*}
+\alpha^T\beta=\begin{pmatrix}
+a_1&a_2&\cdots&a_n
+\end{pmatrix}\begin{pmatrix}
+b_1\\ b_2\\ \vdots\\ b_n
+\end{pmatrix}=a_1b_1+a_2b_2+\cdots+a_nb_n=\sum_{i=1}^{n}a_{i}b_{i}\\
+\beta^T\alpha=\begin{pmatrix}
+b_1&b_2&\cdots&b_n
+\end{pmatrix}\begin{pmatrix}
+a_1\\ a_2\\ \vdots\\ a_n
+\end{pmatrix}=b_1a_1+b_2a_2+\cdots+b_na_n=\sum_{i=1}^{n}b_ia_i
+\end{gather*}
+
+所以：$\alpha^T\beta=\beta^T\alpha$。
+\end{zhengming}
+\clearpage
+\section{第三次线性代数}
+\setcounter{Emp}{14}
+
+\EX 已知方程组
+$
+\begin{pmatrix}
+1&2&1\\
+2&3&a+2\\
+1&a&-2
+\end{pmatrix}
+\begin{pmatrix}
+x_1\\ x_2\\ x_3
+\end{pmatrix}=
+\begin{pmatrix}
+1\\ 3\\ 0
+\end{pmatrix}
+$无解，则$a=$\underline{\hphantom{~~~~~~~~~}}。
+
+\begin{jie}
+由题得：
+\begin{align*}
+[A|B]=&
+\left(
+ \begin{array}{c:c}
+\begin{matrix}
+1 & 2 & 1\\
+2 & 3 & a+2 \\
+1 & a & -2
+\end{matrix}&
+\begin{matrix}
+1  \\
+3 \\
+0
+\end{matrix}
+\end{array}
+\right)\xrightarrow{\substack{r_{2}-2r_{1}\\ r_{3}-r_{1}}}
+{
+\left(
+ \begin{array}{c:c}
+\begin{matrix}
+1 & 2 & 1\\
+0 & -1 & a \\
+0 & a-2 & -3
+\end{matrix}&
+\begin{matrix}
+1  \\
+1\\
+-1
+\end{matrix}
+\end{array}
+\right)
+}\xrightarrow{\substack{ r_{3}+(a-2)r_{2}}}
+{
+\left(
+ \begin{array}{c:c}
+\begin{matrix}
+1 & 2 & 1\\
+0 & -1 & a \\
+0 & 0 & (a+1)(a-3)
+\end{matrix}&
+\begin{matrix}
+1  \\
+1\\
+a-3
+\end{matrix}
+\end{array}
+\right)
+}
+\end{align*}
+若无解，则$(a+1)(a-3)=0$且$a-3=0$，解得$a=-1$。
+\end{jie}
+
+\EX 设$
+A=
+\begin{pmatrix}
+1&-1&0\\
+0&1&-2\\
+0&0&1
+\end{pmatrix},B=
+\begin{pmatrix}
+-1&1\\
+2&0\\
+1&-3
+\end{pmatrix}
+$，求矩阵$X$，使得$AX=B$。
+
+\begin{jie}
+由题得增广矩阵：
+\begin{align*}
+[A|B]=&
+\left(
+ \begin{array}{c:c}
+\begin{matrix}
+1&-1&0\\
+0&1&-2\\
+0&0&1
+\end{matrix}&
+\begin{matrix}
+-1&1\\
+2&0\\
+1&-3
+\end{matrix}
+\end{array}
+\right)\xrightarrow{\substack{r_{2}+2 r_{3}}}
+{
+\left(
+ \begin{array}{c:c}
+\begin{matrix}
+1&-1&0\\
+0&1&0\\
+0&0&1
+\end{matrix}&
+\begin{matrix}
+-1&1\\
+4&-6\\
+1&-3
+\end{matrix}
+\end{array}
+\right)
+}\xrightarrow{\substack{r_{1}+ r_{2}}}
+{
+\left(
+ \begin{array}{c:c}
+\begin{matrix}
+1&0&0\\
+0&1&0\\
+0&0&1
+\end{matrix}&
+\begin{matrix}
+3&-5\\
+4&-6\\
+1&-3
+\end{matrix}
+\end{array}
+\right)
+}
+\end{align*}
+由最简阶梯型矩阵可以看出：
+\begin{equation*}
+X=\begin{pmatrix}
+3&-5\\
+4&-6\\
+1&-3
+\end{pmatrix}
+\end{equation*}
+\end{jie}
+
+\EX 已知$X=AX+B$，其中，$A=
+\begin{pmatrix}
+0&1&0\\
+-1&1&1\\
+-1&0&-1
+\end{pmatrix},B=
+\begin{pmatrix}
+1&-1\\
+2&0\\
+5&-3
+\end{pmatrix}
+$，求矩阵$X$。
+
+\begin{jie}
+由$X=AX+B$得$(E-A)X+B$,其中
+\begin{equation*}
+E-A=\begin{pmatrix}
+1&0&0\\
+0&1&0\\
+0&0&1
+\end{pmatrix}-\begin{pmatrix}
+0&1&0\\
+-1&1&1\\
+-1&0&-1
+\end{pmatrix}=
+\begin{pmatrix}
+1&-1&0\\
+1&0&-1\\
+1&0&2
+\end{pmatrix}
+\end{equation*}
+增广矩阵：
+\begin{align*}
+(E-A|B)=&
+\left(
+ \begin{array}{c:c}
+\begin{matrix}
+1&-1&0\\
+1&0&-1\\
+1&0&2
+\end{matrix}&
+\begin{matrix}
+1&-1\\
+2&0\\
+5&-3
+\end{matrix}
+\end{array}
+\right)\xrightarrow{\substack{r_{2}- r_{1}\\ r_3-r_1}}
+{
+\left(
+ \begin{array}{c:c}
+\begin{matrix}
+1&-1&0\\
+0&1&-1\\
+0&1&2
+\end{matrix}&
+\begin{matrix}
+1&-1\\
+1&1\\
+4&-2
+\end{matrix}
+\end{array}
+\right)
+}\xrightarrow{\substack{r_3-r_2}}
+{
+\left(
+ \begin{array}{c:c}
+\begin{matrix}
+1&-1&0\\
+0&1&-1\\
+0&0&3
+\end{matrix}&
+\begin{matrix}
+1&-1\\
+1&1\\
+3&-3
+\end{matrix}
+\end{array}
+\right)
+}\\ &\xrightarrow{\substack{r_3\div 3}}
+{
+\left(
+ \begin{array}{c:c}
+\begin{matrix}
+1&-1&0\\
+0&1&-1\\
+0&0&1
+\end{matrix}&
+\begin{matrix}
+1&-1\\
+1&1\\
+1&-1
+\end{matrix}
+\end{array}
+\right)
+}\xrightarrow{\substack{r_2+r_3}}
+{
+\left(
+ \begin{array}{c:c}
+\begin{matrix}
+1&-1&0\\
+0&1&0\\
+0&0&1
+\end{matrix}&
+\begin{matrix}
+1&-1\\
+2&0\\
+1&-1
+\end{matrix}
+\end{array}
+\right)
+}\xrightarrow{\substack{r_1+r_2}}
+{
+\left(
+ \begin{array}{c:c}
+\begin{matrix}
+1&0&0\\
+0&1&0\\
+0&0&1
+\end{matrix}&
+\begin{matrix}
+3&-1\\
+2&0\\
+1&-1
+\end{matrix}
+\end{array}
+\right)
+}
+\end{align*}
+由最简阶梯型矩阵可以看出：
+\begin{equation*}
+ X=
+ \begin{pmatrix}
+3&-1\\
+2&0\\
+1&-1
+ \end{pmatrix}
+\end{equation*}
+\end{jie}
+
+\EX 判断下列说法是否正确，并说明理由。
+
+(5)如果矩阵$A,B$可以相乘，则它们的分块矩阵也能够相乘。
+
+\begin{jie}
+错误。理由：只有在$A$的列分法等于$B$的行分法时才可以相乘。
+\end{jie}
+
+\EX 用分块矩阵的乘法来表示$AB$的行向量和列向量。
+
+\begin{jie}
+把$A$按每一行分块得：$A=(\alpha_1,\alpha_2,\cdots,\alpha_n)^T$，将$B$分为一块，即$B=B$。
+
+那么，$AB$的行向量表示法为：
+
+\begin{equation*}
+  AB=
+  \begin{pmatrix}
+    \alpha_1\\ \alpha_2\\ \vdots\\ \alpha_n
+  \end{pmatrix}B=
+  \begin{pmatrix}
+    \alpha_1B\\ \alpha_2B\\ \vdots\\ \alpha_nB
+  \end{pmatrix}
+\end{equation*}
+
+同理，把$A$分为一块$A=A$，把$B$按每一列分块：$B=(\beta_1,\beta_2,\cdots,\beta_n)$.
+
+那么，$AB$的列向量表示法为：
+\begin{equation*}
+  AB=
+  A\begin{pmatrix}
+    \beta_1&\beta_2&\cdots&\beta_n
+  \end{pmatrix}=
+  \begin{pmatrix}
+    A\beta_1&A\beta_2&\cdots&A\beta_n
+  \end{pmatrix}
+\end{equation*}
+\end{jie}
+
+\EX 若$
+A=
+\begin{bmatrix}
+2&0&0&0\\
+1&2&0&0\\
+0&0&3&1\\
+0&0&0&3
+\end{bmatrix}
+$，求$A^{10}$。
+
+\begin{jie}
+复习一下\textcolor[rgb]{1.00,0.00,0.00}{第一次习题课}讲的\textcolor[rgb]{1.00,0.00,0.00}{二项式}定理。
+
+复习一下《第二次线性代数》作业答案\textcolor[rgb]{1.00,0.00,0.00}{例2.13}得出的\textcolor[rgb]{1.00,0.00,0.00}{结论}。
+
+由题得：可将$A$按如下方式进行分块。
+\begin{equation*}
+A=
+\begin{bmatrix}
+A_{11}&0\\
+0&A_{22}
+\end{bmatrix}
+\end{equation*}
+式中：$A_{11}=
+\begin{bmatrix}
+2&0\\
+1&2
+\end{bmatrix}
+,A_{22}=
+\begin{bmatrix}
+3&1\\
+0&3
+\end{bmatrix}$
+
+所以$A^n=
+\begin{bmatrix}
+A_{11}^n&0\\
+0&A_{22}^n
+\end{bmatrix}
+$.
+
+$A_{11} =
+\begin{bmatrix}
+2&0\\
+0&2
+\end{bmatrix}+
+\begin{bmatrix}
+0&0\\
+1&0
+\end{bmatrix}=2E_{2}+B
+$.($E_{2}$表示二阶单位阵).
+
+由作业的例2.13的结论有：$B^{k}=0,k\geq 2$
+
+由二项式定理：
+
+\begin{align*}
+A_{11}^{n}&=(2E+B)^n=C_{n}^{0}B^{0}(2E)^{n}+C_{n}^{1}B^{1}(2E)^{n-1}+C_{n}^{2}\textcolor[rgb]{1.00,0.00,0.00}{B^{2}}(2E)^{n-2}+\cdots+C_{n}^{n}\textcolor[rgb]{1.00,0.00,0.00}{B^{n}}(2E)^{0}\\
+&=2^nE+n2^{n-1}B=
+\begin{bmatrix}
+2^n&0\\
+n\cdot2^{n-1}&2^n
+\end{bmatrix}
+\end{align*}
+
+同理：$A_{22}=3E+
+\begin{bmatrix}
+0&1\\
+0&0
+\end{bmatrix}=3E+C
+$,$C^{k}=0,k\geq2$
+
+\begin{equation*}
+A_{22}^{n}=
+\begin{bmatrix}
+3^n&n\cdot3^{n-1}\\
+0&3^n
+\end{bmatrix}
+\end{equation*}
+所以：
+\begin{equation*}
+A^n=
+\begin{bmatrix}
+A_{11}^n&0\\
+0&A_{22}^n
+\end{bmatrix}=
+\begin{bmatrix}
+2^n&0&0&0\\
+n\cdot2^{n-1}&2^n&0&0\\
+0&0&3^n&n\cdot3^{n-1}\\
+0&0&0&3^n
+\end{bmatrix}
+\end{equation*}
+代入$n=10$得：\begin{equation*}
+A^10=
+\begin{bmatrix}
+2^{10}&0&0&0\\
+10\cdot2^{9}&2^{10}&0&0\\
+0&0&3^{10}&10\cdot3^{9}\\
+0&0&0&3^{10}
+\end{bmatrix}\end{equation*}
+\end{jie}
+
+\EX 设3阶矩阵$A=(\alpha_1,\alpha_2,\alpha_3)$，令：
+\begin{equation*}
+B=(\alpha_1+\alpha_2+\alpha_3,\alpha_1+2\alpha_2+3\alpha_3,\alpha_1+4\alpha_2+9\alpha_3)
+\end{equation*}
+求$C$使得$AC=B$.
+
+\begin{jie}
+由题得：$B$的第一列$(\alpha_1+\alpha_2+\alpha_3)=(\alpha_1,\alpha_2,\alpha_3)
+\begin{pmatrix}
+1\\ 1\\ 1
+\end{pmatrix}=A\begin{pmatrix}
+1\\ 1\\ 1
+\end{pmatrix}
+$，同理$\alpha_1+2\alpha_2+3\alpha_3=A(1,2,3)^T,\alpha_1+4\alpha_2+9\alpha_3=A(1,4,9)^T$.
+
+所以$C=
+\begin{pmatrix}
+1&1&1\\
+1&2&4\\
+1&3&9
+\end{pmatrix}
+$
+\end{jie}
+
+\EX 设$Q$是$n$阶矩阵，如果$Q^TQ=I$，我们称$Q$是正交矩阵，设$A=(\alpha_1,\alpha_2,\alpha_3)$是3阶正交阵，证明：
+\begin{equation*}
+\alpha_i\alpha_j=
+\begin{cases}
+1,~~i=j\\
+0,~~i\neq j
+\end{cases}
+\end{equation*}
+
+\begin{zhengming}
+由题可设：
+\begin{equation*}
+A=
+\begin{pmatrix}
+\alpha_{11}&\alpha_{12}&\alpha_{13}\\
+\alpha_{21}&\alpha_{22}&\alpha_{23}\\
+\alpha_{31}&\alpha_{32}&\alpha_{33}
+\end{pmatrix}=
+\begin{pmatrix}
+\alpha_1&\alpha_2&\alpha_3
+\end{pmatrix}
+\end{equation*}
+
+所以：$A^T=(\alpha_1^T,\alpha_2^T,\alpha_3^T)^T$
+
+$A$是正交矩阵，所以有
+\begin{equation*}A^TA
+\begin{pmatrix}
+\alpha_1^T\\ \alpha_2^T\\ \alpha_3^T
+\end{pmatrix}\begin{pmatrix}
+\alpha_1&\alpha_2&\alpha_3
+\end{pmatrix}=
+\begin{pmatrix}
+\alpha_1^T\alpha_1&\alpha_1^T\alpha_2&\alpha_1^T\alpha_3\\
+\alpha_2^T\alpha_1&\alpha_2^T\alpha_2&\alpha_2^T\alpha_3\\
+\alpha_3^T\alpha_1&\alpha_3^T\alpha_2&\alpha_3^T\alpha_3\\
+\end{pmatrix}=E_3=
+\begin{pmatrix}
+1&0&0\\
+0&1&0\\
+0&0&1
+\end{pmatrix}
+\end{equation*}
+由上述等式可以看出：$i=j$时，$\alpha_i^T\alpha_j=1$,$i\neq j$时，$\alpha_i^T\alpha_j=0$证毕。
+\end{zhengming}
+
+
+\clearpage
+\section{第四次线性代数}
+\EX 用初等变换把$
+A=
+\begin{pmatrix}
+0&0&0&3\\
+0&0&0&1\\
+3&5&0&0\\
+1&1&0&0
+\end{pmatrix}
+$化为标准型矩阵。
+
+\begin{jie}
+\begin{align*}
+A&\xrightarrow{\substack{r_{1}\leftrightarrow r_{4}}}
+{
+\begin{pmatrix}
+1&1&0&0\\
+0&0&0&1\\
+3&5&0&0\\
+0&0&0&3
+\end{pmatrix}
+}\xrightarrow{\substack{r_{3}-3r_{1}}}
+{
+\begin{pmatrix}
+1&1&0&0\\
+0&0&0&1\\
+0&2&0&0\\
+0&0&0&3
+\end{pmatrix}
+}\xrightarrow{\substack{r_{2}\leftrightarrow r_{3}}}
+{
+\begin{pmatrix}
+1&1&0&0\\
+0&2&0&0\\
+0&0&0&1\\
+0&0&0&3
+\end{pmatrix}
+}\\ &\xrightarrow{\substack{r_{4}-3r_{3}}}
+{
+\begin{pmatrix}
+1&1&0&0\\
+0&2&0&0\\
+0&0&0&1\\
+0&0&0&0
+\end{pmatrix}
+}\xrightarrow{\substack{r_{2}\times \frac{1}{2}}}
+{
+\begin{pmatrix}
+1&1&0&0\\
+0&1&0&0\\
+0&0&0&1\\
+0&0&0&0
+\end{pmatrix}
+}\xrightarrow{\substack{r_{1}-r_{2}}}
+{
+\begin{pmatrix}
+1&0&0&0\\
+0&1&0&0\\
+0&0&0&1\\
+0&0&0&0
+\end{pmatrix}
+}\\ &\xrightarrow{\substack{c_{3}\leftrightarrow c_{4}}}
+{
+\begin{pmatrix}
+1&0&0&0\\
+0&1&0&0\\
+0&0&1&0\\
+0&0&0&0
+\end{pmatrix}
+}
+\end{align*}
+\end{jie}
+
+\EX 判断下列说法是否正确，并说明理由。
+
+(1)设$A,B$都是$2\times3$矩阵且$r(A)=r(B)=2$，则$A+B$的秩可能为$2+2=4$。
+
+(2)设$A=
+\begin{pmatrix}
+1&2&-1\\
+0&0&0\\
+2&1&1
+\end{pmatrix},B=
+\begin{pmatrix}
+1&0\\
+0&-1\\
+0&0
+\end{pmatrix}
+$，则不存在矩阵$X$使得$AX=B$。
+
+\begin{jie}
+(1)错误。理由：因为$A,B$都是$2\times3$矩阵，所以$A+B$也是$2\times3$矩阵，根据矩阵的性质，$r(A+B)\leq \min\{2,3\}=2$，不可能为4.
+
+(2)正确。理由：计算可得到$r(A)\neq r(A,B)$，所以$AX=B$的解不存在，即不存在矩阵$X$使得$AX=B$。
+\end{jie}
+
+\EX 设$A=
+\begin{pmatrix}
+-1&3&5\\
+2&-4&7\\
+1&-1&12
+\end{pmatrix}
+$.问，下面的矩阵中，哪些是与$A$相抵的？说明理由。
+
+\begin{gather*}
+B_1=
+\begin{pmatrix}
+-1&3&2\\ 0&1&2
+\end{pmatrix},B_2=
+\begin{pmatrix}
+6&7&8\\
+3&-1&3\\
+3&8&5
+\end{pmatrix}\\
+B_3=
+\begin{pmatrix}
+1&0&0\\ 0&0&0\\ 0&0&1
+\end{pmatrix},B_4=
+\begin{pmatrix}
+1&2&0\\
+0&1&0\\
+0&0&0
+\end{pmatrix}
+\end{gather*}
+
+\begin{jie}
+\textcolor[rgb]{1.00,0.00,0.00}{矩阵相抵：课本100页定理3.2.3}.
+
+相抵首先要求同型（即两矩阵得行数列数相同），所以排出$B_1$。
+
+相抵矩阵的秩相等。
+
+\begin{align*}
+&A\xrightarrow{\substack{r_{2}+2r_1\\ r_3+r_1}}
+{
+\begin{pmatrix}
+-1&3&5\\
+0&2&17\\
+0&2&17
+\end{pmatrix}
+}\xrightarrow{\substack{r_{3}-r_2}}
+{
+\begin{pmatrix}
+-1&3&5\\
+0&2&17\\
+0&0&0
+\end{pmatrix}
+}~~~~\Rightarrow~~~r(A)=2\\
+&B_2\xrightarrow{\substack{r_{1}\leftrightarrow r_2}}
+{
+\begin{pmatrix}
+3&-1&3\\
+6&7&8\\
+3&8&5
+\end{pmatrix}
+}\xrightarrow{\substack{r_{2}-2 r_1\\ r_3-r_1}}
+{
+\begin{pmatrix}
+3&-1&3\\
+0&9&2\\
+0&9&2
+\end{pmatrix}
+}\xrightarrow{\substack{r_{3}-r_2}}
+{
+\begin{pmatrix}
+3&-1&3\\
+0&9&2\\
+0&0&0
+\end{pmatrix}
+}~~~~\Rightarrow~~~r(B_2)=2
+\end{align*}
+
+由题可直接看出：$r(B_3)=r(B_4)=2$,所以$A$与$B_2,B_3,B_4$相抵。
+\end{jie}
+
+\EX 设$n$阶方阵满足$A^2-6A+5I_{n}=0$，证明：
+\begin{equation*}
+  r(A-5I_{n})+r(A-I_{n})=n.
+\end{equation*}
+
+\begin{tips}
+矩阵秩的性质（很重要）：
+\begin{asparaenum}[(1)]
+\item 矩阵的秩$\leq$ 矩阵的行数与列数的最小值。即：$R(A_{m\times n})\leq \min\{m,n\}$。
+\item 转置不改变矩阵的秩。即$R(A)=R(A^{T})$。
+\item 等价矩阵的秩相同。即$A\~{}B$，则$R(A)=R(B)$。
+\item $A,B$是同型矩阵（行数和列数相同），$R(A)=R(B)$当且仅当$A\~{}B$。
+\item 子矩阵的秩$\leq$矩阵的秩，矩阵的秩$\leq$所有子矩阵的秩之和。
+即：$\max\{R(A),R(B)\}\leq R(A,B)\leq R(A)+R(B)$。
+\item 矩阵之和的秩$\leq$矩阵的秩之和。即：$R(A+B)\leq R(A)+R(B)$。
+\item 矩阵乘积的秩$\leq$乘积因子的秩之最小值。即：$R(AB)\leq \min\{R(A),R(B)\}$。
+\item 若$A_{m\times n}B_{n\times l}=0$,则$R(A)+R(B)\leq n$。
+\item 左乘或右乘可逆矩阵秩不变。（左乘列满秩矩阵不改变矩阵的秩，右乘行满秩矩阵不改变矩阵的秩。）
+\end{asparaenum}
+\hphantom{`}
+\end{tips}
+
+\begin{zhengming}
+由题得：$A^2-6A+5I=(A-5I)(A-I)=0$
+
+所以由第8条性质：$r(A-5I)+r(A-I)\leq n$。
+
+由第6条性质：$r((A-5I)-(A-I))\leq r(A-5I)+r(-(A-I))$。
+
+数乘不改变矩阵的秩：$r(A)=r(kA),k\leq 0$。所以
+\begin{equation*}
+r((A-5I)-(A-I))=r(-4I)=r(I)=n\leq r(A-5I)+r(-(A-I))=r(A-5I)+r(A-I)\leq n
+\end{equation*}
+$n\leq r(A-5I)+r(A-I)\leq n$所以$r(A-5I)+r(A-I)$只能等于$n$。
+\end{zhengming}
+
+\EX 判断下列说法是否正确，并说明理由。
+
+(3) 准上三角阵
+$\begin{pmatrix}
+  A & B \\ 0&C
+ \end{pmatrix}
+$的秩等于$r(A)+r(C)$
+。
+
+\begin{jie}
+错误。例如:$A=
+\begin{pmatrix}
+1&0\\0&0
+\end{pmatrix},B=
+\begin{pmatrix}
+1&0\\0&1
+\end{pmatrix},C=
+\begin{pmatrix}
+1&0\\0&0
+\end{pmatrix}
+$,则$r(A)=1,r(C)=1,$而准上三角阵的秩为3，不等于$r(A)+r(C)$。准三角阵的秩应该等于$\max\{r(A),r(B)\}+r(C)$。
+\end{jie}
+
+\EX 设$A$是$4\times 3$矩阵，且$A$的秩为$r(A)=2$,而$B=
+\begin{pmatrix}
+1&0&2\\
+0&2&0\\
+-1&0&3
+\end{pmatrix}
+$则$r(AB)=$\underline{\hphantom{~~~~~~~}}。
+
+\begin{jie}
+计算得$r(B)=3$，所以$B$是一个行满秩矩阵，因为$B$是方阵，所以也是列满秩矩阵。由例2.26中给的性质9有$r(AB)=r(A)=2$
+\end{jie}
+
+\EX 求矩阵
+$
+\begin{pmatrix}
+0&2&0&1\\ -1&3&-1&2\\ 2&-10&2&-6\\ 1&-7&1&5
+\end{pmatrix}
+$的秩。
+
+\begin{jie}
+由题得：
+\begin{align*}
+A&\xrightarrow{\substack{r_{1}\leftrightarrow r_2}}{
+\begin{pmatrix}
+-1&3&-1&2\\ 0&2&0&1\\ 2&-10&2&-6\\ 1&-7&1&5
+\end{pmatrix}
+}\xrightarrow{\substack{r_{3}+2r_1 \\ r_4+r_1}}{
+\begin{pmatrix}
+-1&3&-1&2\\ 0&2&0&1\\ 0&-4&0&-2\\ 0&-4&0&7
+\end{pmatrix}
+}\xrightarrow{\substack{r_{3}+2r_2 \\ r_4+2r_2}}{
+\begin{pmatrix}
+-1&3&-1&2\\ 0&2&0&1\\ 0&0&0&0\\ 0&0&0&9
+\end{pmatrix}
+}\\
+&\xrightarrow{\substack{r_{3}\leftrightarrow r_4}}{
+\begin{pmatrix}
+-1&3&-1&2\\ 0&2&0&1\\  0&0&0&9\\0&0&0&0
+\end{pmatrix}
+}
+\end{align*}
+所以$r(A)=3$.
+\end{jie}
+
+\EX 设矩阵$A$的每个$(i,j)-$元都是同一个数$a$。求$r(A)$。
+
+\begin{jie}
+(1) $a=0$时，矩阵$A$为零矩阵，$r(A)=0$.
+
+(2)$a\neq 0$时，矩阵$A$的其他行减去第一行后剩余一行，$r(A)=1$。
+\end{jie}
+
+\EX 设线性方程组的系数矩阵为$A$，增广矩阵为$\widetilde{A}$。证明:$r(A)=r(\widetilde{A})$，或者$r(A)=r(\widetilde{A})-1$
+
+\begin{zhengming}
+$A$是$\widetilde{A}$的前$n$列构成的子矩阵，所以$r(\widetilde{A})\leq r(A)+1$;因此，如果$r(A)\neq r(\widetilde{A})$，则必然有$r(A)=r(\widetilde{A})-1$。
+\end{zhengming}
+
+\EX 设$A$是任意的$m\times n$型矩阵。任意取定$A$的$m'$行和$n'$列，设$B$是由$A$的这些行和这些列的交叉处的元按在$A$中的位置而构成的$m'\times n'$矩阵。证明:$r(B)<r(A)$。
+
+\begin{zhengming}
+任取$B$的列向量组的一个极大线性无关组$(1)$，该子组含有$r(B)$个列向量，这$r(B)$个列向量在$A$中的列向量所构成的向量组$(2)$是$(1)$的一个伸长组，从而由(1)线性无关可以得到$(2)$线性无关。即$A$的列向量中至少有$r(B)$个是线性无关的，所以$r(A)\geq r(B)$。
+\end{zhengming}
+
+\EX 设$a_{ij}$是常数。设有齐次线性方程组
+\begin{equation*}
+  (\uppercase\expandafter{\romannumeral1})
+\begin{cases}
+a_{11}x_1+a_{12}x_2+a_{13}a_3+a_{14}x_{4}=0\\
+a_{21}x_1+a_{22}x_2+a_{23}a_3+a_{24}x_{4}=0\\
+a_{31}x_1+a_{32}x_2+a_{33}a_3+a_{34}x_{4}=0\\
+a_{41}x_1+a_{42}x_2+a_{43}a_3+a_{44}x_{4}=0
+\end{cases}
+\end{equation*}
+和\begin{equation*}
+  (\uppercase\expandafter{\romannumeral2})
+\begin{cases}
+a_{11}x_1+a_{21}x_2+a_{31}a_3+a_{41}x_{4}=0\\
+a_{12}x_1+a_{22}x_2+a_{32}a_3+a_{42}x_{4}=0\\
+a_{13}x_1+a_{23}x_2+a_{33}a_3+a_{43}x_{4}=0\\
+a_{14}x_1+a_{24}x_2+a_{34}a_3+a_{44}x_{4}=0
+\end{cases}
+\end{equation*}
+证明：(\uppercase\expandafter{\romannumeral1})有非零解$\Leftrightarrow$(\uppercase\expandafter{\romannumeral2})有非零解.
+
+\begin{zhengming}
+记\uppercase\expandafter{\romannumeral1}的系数矩阵为$A$，\uppercase\expandafter{\romannumeral2}的系数矩阵为$B$，则$A$的列向量组为$B$的行向量组，所以$r(A)=r(B)$。又因为\uppercase\expandafter{\romannumeral1}和\uppercase\expandafter{\romannumeral2}的未知个数都是4，所以有\uppercase\expandafter{\romannumeral1}有非零解$\Leftrightarrow r(A)<4\Leftrightarrow r(B)<4 \Leftrightarrow$\uppercase\expandafter{\romannumeral2}有非零解.
+\end{zhengming}
+
+\EX 判断方程组
+\begin{equation*}
+\begin{cases}
+2x_1-x_2+4x_3-3x_4=-4\\
+x_1+x_3-x_4=-3\\
+3x_1+x_2+x_3=1\\
+7x_1+7x_3-3x_4=3
+\end{cases}
+\end{equation*}
+是否有解；如果有解，是唯一解还是无穷多解。
+
+\begin{jie}
+由题得增广矩阵：
+\begin{align*}
+\widetilde{A}&=
+\begin{pmatrix}
+2&-1&4&-3&-4\\
+1&0&1&-1&-3\\
+3&1&1&0&1\\
+7&0&7&-3&3
+\end{pmatrix}\xrightarrow{\substack{r_1 \Leftrightarrow r_2}}{
+\begin{pmatrix}
+1&0&1&-1&-3\\
+2&-1&4&-3&-4\\
+3&1&1&0&1\\
+7&0&7&-3&3
+\end{pmatrix}
+}\xrightarrow{\substack{r_2-2r_1\\ r_3-3r_1\\ r_4-7r_1}}{
+\begin{pmatrix}
+1&0&1&-1&-3\\
+0&-1&2&-1&2\\
+0&1&-2&3&10\\
+0&0&0&4&24
+\end{pmatrix}
+}\\
+&\xrightarrow{\substack{r_3+r_2}}{
+\begin{pmatrix}
+1&0&1&-1&-3\\
+0&-1&2&-1&2\\
+0&0&0&2&12\\
+0&0&0&4&24
+\end{pmatrix}
+}\xrightarrow{\substack{r_4-2r_3}}{
+\begin{pmatrix}
+1&0&1&-1&-3\\
+0&-1&2&-1&2\\
+0&0&0&2&12\\
+0&0&0&0&0
+\end{pmatrix}
+}
+\end{align*}
+由阶梯型矩阵可以看出：$r(A)=r(\widetilde{A})<4$，所以原方程有无穷多解。
+\end{jie}
+
+\EX 判断方程组
+\begin{equation*}
+\begin{cases}
+x_1+2x_2+2x_3=0\\
+x_1+x_2+x_3=0\\
+x_1+5x_2+5x_3=0\\
+\end{cases}
+\end{equation*}
+是否只有零解。
+
+\begin{jie}
+由题得系数矩阵：
+\begin{equation*}
+A=
+\begin{pmatrix}
+1&2&2\\
+1&1&1\\
+1&5&5
+\end{pmatrix}
+\xrightarrow{\substack{r_2-r_1\\ r_3-r_1}}{
+\begin{pmatrix}
+1&2&2\\
+0&-1&-1\\
+0&3&3
+\end{pmatrix}
+}\xrightarrow{\substack{r_3+3r_2}}{
+\begin{pmatrix}
+1&2&2\\
+0&-1&-1\\
+0&0&0
+\end{pmatrix}
+}
+\end{equation*}
+由阶梯型矩阵可以看出：$r(A)=2<3$，有无穷多解。
+\end{jie}
+
+\EX 已知$\lambda$为常数，线性方程组
+\begin{equation*}
+\begin{cases}
+x_1+x_2+x_3-x_4=2\\
+3x_1+x_2-x_3+2x_4=3\\
+2x_1+2\lambda x_2-2x_3+3x_4=\lambda
+\end{cases}
+\end{equation*}
+在$\lambda$为何值时无解，有唯一解，有无穷多个解？
+
+\begin{jie}
+(1)由于方程的个数少于未知数的个数，所以不存在有唯一解的情况。
+
+(2)由题列增广矩阵：
+\begin{equation*}
+\widetilde{A}=
+\begin{pmatrix}
+1&1&1&-1&2\\
+3&1&-1&2&3\\
+2&2\lambda&-2&3&\lambda
+\end{pmatrix}
+\xrightarrow{\substack{r_2-3r_1\\ r_3-2r_1}}{
+\begin{pmatrix}
+1&1&1&-1&2\\
+0&-2&-4&5&-3\\
+0&2\lambda-2&-4&5&\lambda-4
+\end{pmatrix}
+}\xrightarrow{\substack{r_3-r_2}}{
+\begin{pmatrix}
+1&1&1&-1&2\\
+0&-2&-4&5&-3\\
+0&2\lambda&0&0&\lambda-1
+\end{pmatrix}
+}
+\end{equation*}
+
+由阶梯型矩阵可以看出：
+
+$\lambda = 0$时，$r(A)=2,r(\widetilde{A})=3,r(A)\neq r(\widetilde{A})$，即此时无解。
+
+$\lambda\neq 0$时，$r(A)=r(\widetilde{A})=3<4$，此时线性方程组有无穷多解。
+
+综上所诉：该方程组不存在唯一解的情况，$\lambda=0$时，线性方程组无解，$\lambda\neq 0$时，线性方程组有无穷解。
+\end{jie}
+
+\EX 设一个非齐次方程组和一个齐次线性方程组的系数矩阵都是矩阵$A$.
+
+(1)证明:如果该非齐次方程组有且仅有一个解,则该齐次方程组只有零解。
+
+(2)如果该齐次方程组有无穷多个解,那么该非齐次方程组是否也有无穷多个解？说明理由。
+
+\begin{zhengming}
+记该非齐次线性方程组为$(\uppercase\expandafter{\romannumeral1})$，未知数个数为$n$，记$(\uppercase\expandafter{\romannumeral1})$的增广矩阵为$\widetilde{A}$，记以$A$为系数矩阵的齐次线性方程组为$(\uppercase\expandafter{\romannumeral2})$.
+
+(1)若(\uppercase\expandafter{\romannumeral1})有且仅有一个解，则$r(A)=r(\widetilde{A})=n$，从而(\uppercase\expandafter{\romannumeral2})只有零解。
+
+(2)若(\uppercase\expandafter{\romannumeral2})有无穷多解，则$r(A)<n$，但$r(A)$不一定与$r(\widetilde{A})$相等。因此，(\uppercase\expandafter{\romannumeral1})可能无解，可能有解，且在有解时会有无穷多解。
+\end{zhengming}
+
+\EX 矩阵方程$AX = B$什么时候无解?什么时候有解?有解的时候，什么时候有唯一的一组解,什么时候有无穷多组解?
+
+\begin{jie}
+设该矩阵方程有n个未知数。
+
+(1)若$B$为0矩阵，则一定有解。
+\begin{itemize}
+\item $r(A)=n$，只有零解。
+\item $r(A)<n$，有无穷解
+\end{itemize}
+
+(2)若$B$不为0矩阵。
+\begin{itemize}
+  \item $r(A)\neq r(A,B)$，无解
+  \item $r(A)= r(A,B)=n$，唯一解
+  \item $r(A)= r(A,B)<n$，无穷解
+\end{itemize}
+\end{jie}
+\clearpage
+\section{第五次线性代数}
+\setcounter{Emp}{39}
+\EX 设$
+B=
+\begin{pmatrix}
+1&0&0\\
+0&0&0\\
+0&0&-1
+\end{pmatrix},
+P=
+\begin{pmatrix}
+1&0&0\\
+2&-1&0\\
+2&1&1
+\end{pmatrix},$又已知$AP=PB$，求矩阵$A,A^5$。
+
+\begin{jie}
+由题可列：
+\begin{align*}
+[P|E]=&
+\left(
+ \begin{array}{c:c}
+\begin{matrix}
+1&0&0\\
+2&-1&0\\
+2&1&1
+\end{matrix}&
+\begin{matrix}
+1&0&0\\
+0&1&0\\
+0&0&1
+\end{matrix}
+\end{array}
+\right)\xrightarrow{\substack{r_{2}-2 r_{1}\\ r_3-2r_1}}
+{
+\left(
+ \begin{array}{c:c}
+\begin{matrix}
+1&0&0\\
+0&-1&0\\
+0&1&1
+\end{matrix}&
+\begin{matrix}
+1&0&0\\
+-2&1&0\\
+-2&0&1
+\end{matrix}
+\end{array}
+\right)
+}\xrightarrow{\substack{r_{3}+r_2}}
+{
+\left(
+ \begin{array}{c:c}
+\begin{matrix}
+1&0&0\\
+0&-1&0\\
+0&0&1
+\end{matrix}&
+\begin{matrix}
+1&0&0\\
+-2&1&0\\
+-4&1&1
+\end{matrix}
+\end{array}
+\right)
+}\\
+&\xrightarrow{\substack{r_{2}\times(-1)}}
+{
+\left(
+ \begin{array}{c:c}
+\begin{matrix}
+1&0&0\\
+0&1&0\\
+0&0&1
+\end{matrix}&
+\begin{matrix}
+1&0&0\\
+2&-1&0\\
+-4&1&1
+\end{matrix}
+\end{array}
+\right)
+}
+\end{align*}
+所以$P$可逆，且$P^{-1}=
+\begin{pmatrix}
+1&0&0\\
+2&-1&0\\
+-4&1&1
+\end{pmatrix}
+$。
+
+因为$AP=PB$，所以等式两边同时右乘$P^{-1}$得$A=PBP^{-1}$
+
+\begin{align*}
+A=PBP^{-1}=
+\begin{pmatrix}
+1&0&0\\
+2&-1&0\\
+2&1&1
+\end{pmatrix}
+\begin{pmatrix}
+1&0&0\\
+0&0&0\\
+0&0&-1
+\end{pmatrix}
+\begin{pmatrix}
+1&0&0\\
+2&-1&0\\
+-4&1&1
+\end{pmatrix}=
+\begin{pmatrix}
+1&0&0\\
+2&0&0\\
+2&0&-1
+\end{pmatrix}
+\begin{pmatrix}
+1&0&0\\
+2&-1&0\\
+-4&1&1
+\end{pmatrix}=
+\begin{pmatrix}
+1&0&0\\
+2&0&0\\
+6&-1&-1
+\end{pmatrix}
+\end{align*}
+
+$A^2=
+(PBP^{-1})(PBP^{-1})=PB\textcolor[rgb]{1.00,0.00,0.00}{(P^{-1}P)}BP^{-1}=PB^2P^{-1}
+$，同理可以推出$A^n=PB^nP^{-1}$.
+
+因为$B$为对角阵，所以$B^5
+=\begin{pmatrix}
+1^5&0&0\\
+0&0&0\\
+0&0&(-1)^5
+ \end{pmatrix}=
+ \begin{pmatrix}
+ 1&0&0\\
+0&0&0\\
+0&0&-1
+ \end{pmatrix}=B
+$，所以$A^5=PB^5P^{-1}=PBP^{-1}=A$。
+\end{jie}
+
+\EX 设$M=
+\begin{pmatrix}
+A&0\\
+C&B
+\end{pmatrix}
+$是准下三角阵，证明：$M$可逆$\Leftrightarrow A$和$B$都可逆，并求$M^{-1}$。
+
+\begin{zhengming}
+详见课本101页例3.2.23.
+\end{zhengming}
+
+\EX 判断矩阵$
+A=
+\begin{pmatrix}
+0&2&-1\\
+1&-3&2\\
+1&-1&2
+\end{pmatrix}
+$是否可逆，如果可逆，求$A^{-1}$。
+
+\begin{jie}
+由题得：
+\begin{align*}
+[A|E]=&
+\left(
+ \begin{array}{c:c}
+\begin{matrix}
+0&2&-1\\
+1&-3&2\\
+1&-1&2
+\end{matrix}&
+\begin{matrix}
+1&0&0\\
+0&1&0\\
+0&0&1
+\end{matrix}
+\end{array}
+\right)\xrightarrow{\substack{r_{1}\Leftrightarrow r_2}}
+{
+\left(
+ \begin{array}{c:c}
+\begin{matrix}
+1&-3&2\\
+0&2&-1\\
+1&-1&2
+\end{matrix}&
+\begin{matrix}
+0&1&0\\
+1&0&0\\
+0&0&1
+\end{matrix}
+\end{array}
+\right)
+}\xrightarrow{\substack{r_{3}-r_1}}
+{
+\left(
+ \begin{array}{c:c}
+\begin{matrix}
+1&-3&2\\
+0&2&-1\\
+0&2&0
+\end{matrix}&
+\begin{matrix}
+0&1&0\\
+1&0&0\\
+0&-1&1
+\end{matrix}
+\end{array}
+\right)
+}\\
+&\xrightarrow{\substack{r_{3}-r_2}}
+{
+\left(
+ \begin{array}{c:c}
+\begin{matrix}
+1&-3&2\\
+0&2&-1\\
+0&0&1
+\end{matrix}&
+\begin{matrix}
+0&1&0\\
+1&0&0\\
+-1&-1&1
+\end{matrix}
+\end{array}
+\right)
+}\xrightarrow{\substack{r_{2}+r_3\\ r_1-2r_3}}
+{
+\left(
+ \begin{array}{c:c}
+\begin{matrix}
+1&-3&0\\
+0&2&0\\
+0&0&1
+\end{matrix}&
+\begin{matrix}
+2&3&-2\\
+0&-1&1\\
+-1&-1&1
+\end{matrix}
+\end{array}
+\right)
+}\\
+&\xrightarrow{\substack{r_{2}\times\frac{1}{2}}}
+{
+\left(
+ \begin{array}{c:c}
+\begin{matrix}
+1&-3&0\\
+0&1&0\\
+0&0&1
+\end{matrix}&
+\begin{matrix}
+2&3&-2\\
+0&-\frac{1}{2}&\frac{1}{2}\\
+-1&-1&1
+\end{matrix}
+\end{array}
+\right)
+}\xrightarrow{\substack{r_{1}+3r_2}}
+{
+\left(
+ \begin{array}{c:c}
+\begin{matrix}
+1&0&0\\
+0&1&0\\
+0&0&1
+\end{matrix}&
+\begin{matrix}
+2&\frac{3}{2}&-\frac{1}{2}\\
+0&-\frac{1}{2}&\frac{1}{2}\\
+-1&-1&1
+\end{matrix}
+\end{array}
+\right)
+}
+\end{align*}
+所以$A$可逆，且$A^{-1}=
+\begin{pmatrix}
+2&\frac{3}{2}&-\frac{1}{2}\\
+0&-\frac{1}{2}&\frac{1}{2}\\
+-1&-1&1
+\end{pmatrix}
+$
+\end{jie}
+
+\EX 设$n$阶方阵$A$满足$A^3=0$，证明$A-2I$可逆。
+
+\begin{zhengming}
+由立方差公式得：
+\begin{align*}
+(A-2I)(A^2+2A+4I)=A^3-8I=-8I
+\end{align*}
+
+所以$A-2I$可逆，且$(A-2I)^{-1}=-\dfrac{A^2+2A+4I}{8}$
+\end{zhengming}
+
+\chapter{第六次线性代数}
+
+\clearpage
+\section{第七次线性代数}
+
+\chapter{第八次线性代数}
+\EX 计算：
+\begin{equation*}
+\frac{1}{2}
+\begin{pmatrix}
+-2\\ 1\\ -3
+\end{pmatrix}-3
+\begin{pmatrix}
+0\\ -1\\ 2
+\end{pmatrix}+
+\begin{pmatrix}
+1\\ -1\\ -3
+\end{pmatrix}
+\end{equation*}
+
+\begin{jie}
+原式=
+\begin{equation*}
+\begin{pmatrix}
+-1\\ 0.5\\ -1.5
+\end{pmatrix}-
+\begin{pmatrix}
+0\\ -3\\ 6
+\end{pmatrix}+
+\begin{pmatrix}
+1\\ -1\\ -3
+\end{pmatrix}=\begin{pmatrix}
+0\\ 2.5\\ -10.5
+\end{pmatrix}
+\end{equation*}
+\end{jie}
+
+\EX 写出如下矩阵的行向量组和列向量组。
+\begin{equation*}
+A=
+\begin{pmatrix}
+-1 &0&2&1\\ -3& 1&1&-2\\ 0&0&-1&2
+\end{pmatrix},~~B=
+\begin{pmatrix}
+-1&2\\ 3&-2\\ 4&-5
+\end{pmatrix}
+\end{equation*}
+
+\begin{jie}
+$A$行向量组：
+\begin{equation*}
+\begin{pmatrix}
+-1&0&2&1
+\end{pmatrix},
+\begin{pmatrix}
+-3& 1&1&-2
+\end{pmatrix},
+\begin{pmatrix}
+0&0&-1&2
+\end{pmatrix}
+\end{equation*}
+
+$A$列向量组：
+\begin{equation*}
+\begin{pmatrix}
+-1\\ -3\\ 0
+\end{pmatrix},
+\begin{pmatrix}
+0\\ 1\\ 0
+\end{pmatrix},
+\begin{pmatrix}
+2\\ 1\\ -1
+\end{pmatrix},
+\begin{pmatrix}
+1\\ -2\\ 2
+\end{pmatrix}
+\end{equation*}
+
+$B$行向量组：
+\begin{equation*}
+\begin{pmatrix}
+-1&2
+\end{pmatrix},
+\begin{pmatrix}
+3&-2
+\end{pmatrix},
+\begin{pmatrix}
+4&-5
+\end{pmatrix}
+\end{equation*}
+
+$B$列向量组：
+\begin{equation*}
+\begin{pmatrix}
+-1\\ 3\\ 4
+\end{pmatrix},
+\begin{pmatrix}
+2\\ -2\\ -5
+\end{pmatrix}
+\end{equation*}
+\end{jie}
+
+\EX 设$\beta$可以由$\alpha_1,\alpha_2,\alpha_3$线性表出，而每个$\alpha_i$都可以由$\gamma_1,\gamma_2$线性表出。证明$\beta$可以由$\gamma_1,\gamma_2$线性表出。
+
+\begin{zhengming}
+$\beta$可以由$\alpha_1,\alpha_2,\alpha_3$线性表出，即存在一组不全为0的数$k_i(1\leq i\leq3)$，使得：
+\begin{equation*}
+\beta = k_1\alpha_1+k_2\alpha_2+\k_3\alpha_3\tag{1}
+\end{equation*}
+同理，存在一组不全为0的数$l_{ij}(1\leq i\leq 3,1\leq j\leq 2)$使得：
+\begin{equation*}
+  \begin{cases}
+    \alpha_1=l_{11}\gamma_{1}+l_{12}\gamma_{2}\\
+    \alpha_2=l_{21}\gamma_{1}+l_{22}\gamma_{2}\\
+    \alpha_3=l_{31}\gamma_{1}+l_{32}\gamma_{2}
+  \end{cases}\tag{2}
+\end{equation*}
+把(2)代入(1)得：
+\begin{equation*}
+\beta=(k_1l_{11}+k_2l_{21}+k_3l_{31})\gamma_{1}+(k_1l_{12}+k_2l_{22}+k_3l_{32})\gamma_{2}
+\end{equation*}
+所以$\beta$可以由$\gamma_1,\gamma_2$线性表出。
+\end{zhengming}
+
+\EX 设$\alpha_1,\alpha_2,\alpha_3,\alpha_4$是3维向量，证明：3维零向量$0$由$\alpha_1,\alpha_2,\alpha_3,\alpha_4$线性表出的方式有无穷多。
+
+\begin{zhengming}
+对于线性方程组：
+\begin{equation*}
+\alpha_1x_1+\alpha_2x_2+\alpha_3x_3+\alpha_4x_4=0\tag{1}
+\end{equation*}
+$r(\alpha_1,\alpha_2,\alpha_3,\alpha_4)\leq\min\{3,4\}=3$，所以$(1)$有无穷多组解，即3维零向量$0$由$\alpha_1,\alpha_2,\alpha_3,\alpha_4$线性表出的方式有无穷多。
+\end{zhengming}
+
+\EX 设$\alpha_1,\alpha_2,\alpha_3$是3维向量，且3维零向量$0$由$\alpha_1,\alpha_2,\alpha_3$线性表出的方式是唯一的。在每个$\alpha_i$的第3个分量后任意添加两个分量，得到5维向量$\widetilde{\alpha}_{i}(1\leq i\leq 3)$.证明：5维零向量$0$由$\widetilde{\alpha}_{1},\widetilde{\alpha}_{2},\widetilde{\alpha}_{3}$线性表出的方式仍然是唯一的。
+
+\begin{zhengming}
+课本36页命题2.2.1和例题2.2.3.
+
+考虑齐次线性方程组：
+  %\uppercase\expandafter{\romannumeral1}
+\begin{gather*}
+\alpha_1x_1+\alpha_2x_2+\alpha_3x_3=0\tag{1}\\
+\widetilde{\alpha} _{1}x_1+\widetilde{\alpha}_{2}x_2+\widetilde{\alpha}_{3}x_3=0\tag{2}
+\end{gather*}
+(1)中的每个方程都是(2)的方程，所以(2)的解集是(1)的解集的子集，对于任意齐次方程，其一定有零解。
+
+由题得，线程方程组(1)只有零解，因此(2)也只有零解，即5维零向量$0$由$\widetilde{\alpha}_{1},\widetilde{\alpha}_{2},\widetilde{\alpha}_{3}$线性表出的方式仍然是唯一的。
+\end{zhengming}
+
+\EX 设$\alpha_1,\alpha_2,\alpha_3$是向量组，设
+\begin{gather*}
+  \beta_1=-\alpha_1+2\alpha_2-3\alpha_3 \\
+  \beta_2=3\alpha_1-4\alpha_2+6\alpha_3 \\
+  \beta_3=2\alpha_1-2\alpha_2+3\alpha_3
+\end{gather*},判断$\beta_1,\beta_2,\beta_3$是否线性相关。
+
+\begin{jie}
+方法一：
+
+由题得：$\beta_3=\beta_1+\beta_2$，所以$\beta_1,\beta_2,\beta_3$线性相关。
+
+方法二：通用解法
+
+设：$x_1\beta_1+x_2\beta_2+x_3\beta_3=0$，若该线性方程组有非零解，则线性相关，否则线性无关。
+\begin{align*}
+&x_1\beta_1+x_2\beta_2+x_3\beta_3=x_1(-\alpha_1+2\alpha_2-3\alpha_3)+x_2(3\alpha_1-4\alpha_2+6\alpha_3)+x_3(2\alpha_1-2\alpha_2+3\alpha_3)\\
+=&(-x_1+3x_2+2x_3)\alpha_1+(2x_1-4x_2-2x_3)\alpha_2+(-3x_1+6x_2+3x_3)\alpha_3=0
+\end{align*}
+即解如下线性方程组：
+\begin{equation*}
+\begin{cases}
+-x_1+3x_2+2x_3=0\\
+2x_1-4x_2-2x_3=0\\
+-3x_1+6x_2+3x_3=0
+\end{cases}
+\end{equation*}
+高斯消元（步骤略）得：
+\begin{equation*}
+\begin{cases}
+x_1+x_3=0\\
+x_2+x_3=0\\
+0=0
+\end{cases}
+\end{equation*}
+有自由变量即该线性方程组有非零解，即$\beta_1,\beta_2,\beta_3$线性相关。取$x_3=k,k\neq 0$，则：$k\beta_3=k\beta_1+k\beta_2$
+\end{jie}
+
+\EX 举例说明，把两个线性无关的$m$维向量组放在一起，得到的向量组可以是线性无关的，也可以是线性相关的。
+
+\begin{jie}
+$\alpha_1=
+\begin{pmatrix}
+1\\ 0
+\end{pmatrix}
+,\alpha_2=
+\begin{pmatrix}
+0\\ 1
+\end{pmatrix},\alpha_3=
+\begin{pmatrix}
+1\\ 0
+\end{pmatrix},\alpha_4=
+\begin{pmatrix}
+1\\ 1
+\end{pmatrix}$.
+
+(1)向量组1为$(\alpha_1,\alpha_2)$,向量组2为$(\alpha_3,\alpha_4)$，显然向量组1是线性无关的，向量组2是线性无关的，把两个向量组放在一起：$(\alpha_1,\alpha_2，\alpha_3,\alpha_4)$，线性相关（向量组的维数大于向量的维数）。
+
+(2)向量组3为$(\alpha_1)$，向量组4为$(\alpha_2)$，向量组3线性无关，向量组4线性无关，把两个向量组放到一起即向量组1，线性无关。
+\end{jie}
+
+\EX 已知向量组$\alpha_1,\alpha_2,\alpha_3,\alpha_4$线性无关，则下列说法正确的是哪些，并说明理由。
+
+(A)向量组$\alpha_1+\alpha_2,\alpha_2+\alpha_3,\alpha_3+\alpha_4,\alpha_4+\alpha_1$线性无关。
+
+(B)向量组$\alpha_1-\alpha_2,\alpha_2-\alpha_3,\alpha_3-\alpha_4,\alpha_4-\alpha_1$线性无关。
+
+(C)向量组$\alpha_1+\alpha_2,\alpha_2+\alpha_3,\alpha_3+\alpha_4,\alpha_4-\alpha_1$线性无关。
+
+(D)向量组$\alpha_1+\alpha_2,\alpha_2+\alpha_3,\alpha_3-\alpha_4,\alpha_4-\alpha_1$线性无关。
+
+\begin{jie}
+
+由题得：
+
+(A)$(\alpha_1+\alpha_2)+ (\alpha_3+\alpha_4)=(\alpha_2+\alpha_3)+(\alpha_4+\alpha_1)$,即线性相关。
+
+(B)$(\alpha_1-\alpha_2)+ (\alpha_2-\alpha_3) =-(\alpha_3-\alpha_4)-(\alpha_4-\alpha_1)$,即线性相关。
+
+(C)设$k_1(\alpha_1+\alpha_2)+k_2(\alpha_2+\alpha_3)+k_3(\alpha_3+\alpha_4)+k_4(\alpha_4-\alpha_1)=0$，则
+\begin{equation*}
+  (k_1-k_4)\alpha_1+(k_1+k_2)\alpha_2+(k_2+k_3)\alpha_3+(k_3+k_4)\alpha_4=0
+\end{equation*}
+因为$\alpha_1,\alpha_2,\alpha_3,\alpha_4$线性无关，所以：
+\begin{equation*}
+\begin{cases}
+k_1-k_4=0\\
+k_1+k_2=0\\
+k_2+k_3=0\\
+k_3+k_4
+\end{cases}
+\end{equation*}
+解得：$k_1=k_2=k_3=k_4=0$，即$\alpha_1+\alpha_2,\alpha_2+\alpha_3,\alpha_3+\alpha_4,\alpha_4-\alpha_1$线性无关。
+
+(D)$(\alpha_1+\alpha_2)+(\alpha_4-\alpha_1)=(\alpha_2+\alpha_3)-(\alpha_3-\alpha_4)$即线性相关。
+\end{jie}
+
+\EX 设有三维列向量
+\begin{gather*}
+\alpha_1=
+\begin{pmatrix}
+1+\lambda&1&1
+\end{pmatrix}^T,\alpha_2=
+\begin{pmatrix}
+1&1+\lambda&1
+\end{pmatrix}^T\\
+\alpha_3=
+\begin{pmatrix}
+1&1&1+\lambda
+\end{pmatrix}^T,\beta=
+\begin{pmatrix}
+0&\lambda&\lambda^2
+\end{pmatrix}^T
+\end{gather*}
+问$\lambda$取何值时：
+
+(1)$\beta$可由$\alpha_1,\alpha_2,\alpha_3$线性表出，且表达式唯一。
+
+(2)$\beta$可由$\alpha_1,\alpha_2,\alpha_3$线性表出，且表达式不唯一。
+
+(3)$\beta$不可由$\alpha_1,\alpha_2,\alpha_3$线性表出。
+
+\begin{jie}
+记$A=\begin{pmatrix}
+  \alpha_1&\alpha_2&\alpha_3
+\end{pmatrix}$,则：
+\begin{align*}
+|A|=&\begin{vmatrix}
+1+\lambda&1&1\\
+1&1+\lambda&1\\
+1&1&1+\lambda
+\end{vmatrix}\xlongequal{c_{1}+c_{2}+c_3}
+\begin{vmatrix}
+3+\lambda&1&1\\
+3+\lambda&1+\lambda&1\\
+3+\lambda&1&1+\lambda
+\end{vmatrix}=(3+\lambda)
+\begin{vmatrix}
+1&1&1\\
+1&1+\lambda&1\\
+1&1&1+\lambda
+\end{vmatrix}\\
+\xlongequal{\substack{r_2-r_1 \\ r_3-r_1}}&
+(3+\lambda)\begin{vmatrix}
+1&1&1\\
+0&\lambda&0\\
+0&0&\lambda
+\end{vmatrix}=\lambda^2(3+\lambda)
+\end{align*}
+
+(1)当$|A|\neq 0$时，$r(A)=r(A,\beta)$，即$\beta$可由$\alpha_1,\alpha_2,\alpha_3$线性表出，且表达式唯一。此时$\lambda\neq0$且$\lambda\neq -3$
+
+(2)当$\lambda=0$时,$r(A)=r(A,\beta)=1<3$，此时$\beta$可由$\alpha_1,\alpha_2,\alpha_3$线性表出，且表达式不唯一。
+
+(3)当$\lambda=-3$时，$r(A)=1,r(A,\beta)=2$,$r(A)\neq r(A,\beta)$，此时$\beta$不可由$\alpha_1,\alpha_2,\alpha_3$线性表出。
+\end{jie}
+
+\EX 设$\alpha_1,\alpha_2,\alpha_3$线性相关，$\alpha_2,\alpha_3，\alpha_4$线性无关。问：
+
+(1)$\alpha_1$能否由$\alpha_2,\alpha_3$线性表出？证明你的结论。
+
+(2)$\alpha_4$能否由$\alpha_1,\alpha_2,\alpha_3$线性表出，证明你的结论。
+
+\begin{zhengming}
+(1)
+因为$\alpha_2,\alpha_3，\alpha_4$线性无关,所以$\alpha_2,\alpha_3$线性无关，又因为$\alpha_1,\alpha_2,\alpha_3$线性相关，所以$\alpha_1$能由$\alpha_2,\alpha_3$线性表出且表出方式是唯一的。
+
+(2)不能。
+
+由(1)可得：$\alpha_1=k_1\alpha_2+k_2\alpha_3$。假设$\alpha_4$能由$\alpha_1,\alpha_2,\alpha_3$线性表出，则$\alpha_4=l_1\alpha_1+l_2\alpha_2+l_3\alpha_3=l_1(k_1\alpha_2+k_2\alpha_3)+l_2\alpha_2+l_3\alpha_3$，即$\alpha_4$可由$\alpha_2,\alpha_3$线性表出，即$\alpha_2,\alpha_3，\alpha_4$线性相关，与题目矛盾，所以假设不成立，即$\alpha_4$不能由$\alpha_1,\alpha_2,\alpha_3$线性表出。
+\end{zhengming}
+
+\EX 设
+$\alpha_1=
+\begin{pmatrix}
+1&4&0&2
+\end{pmatrix}^T,
+\alpha_2=
+\begin{pmatrix}
+2&7&1&3
+\end{pmatrix}^T,
+\alpha_3=
+\begin{pmatrix}
+0&1&-1&a
+\end{pmatrix}^T
+$及
+$
+\beta=
+\begin{pmatrix}
+3&10&b&4
+\end{pmatrix}^T
+$.
+
+(1)$a,b$为何值时，$\beta$不能表示成$\alpha_1,\alpha_2,\alpha_3$的线性组合？
+
+(2)$a,b$为何值时，$\beta$可由$\alpha_1,\alpha_2,\alpha_3$线性表示？并写出该表示式。
+
+\begin{jie}
+记$A=(\alpha_1,\alpha_2,\alpha_3)$,设$Ax=\beta$，则：
+\begin{align*}
+(A|\beta)=
+&
+\left(
+ \begin{array}{c:c}
+\begin{matrix}
+1 & 2 & 0\\
+4 & 7 & 1 \\
+0 & 1 & -1\\
+2 & 3 & a
+\end{matrix}&
+\begin{matrix}
+3  \\
+10  \\
+b \\
+4
+\end{matrix}
+\end{array}
+\right)\xrightarrow{\substack{r_{2}-4r_{1}\\ r_{4}-2r_{1}}}
+{
+\left(
+ \begin{array}{c:c}
+\begin{matrix}
+1 & 2 & 0\\
+0 & -1 & 1 \\
+0 & 1 & -1\\
+0 & -1 & a
+\end{matrix}&
+\begin{matrix}
+3  \\
+-2  \\
+b \\
+-2
+\end{matrix}
+\end{array}
+\right)
+}\xrightarrow{\substack{r_{3}-r_{2}\\ r_{4}-r_{2}}}
+{
+\left(
+ \begin{array}{c:c}
+\begin{matrix}
+1 & 2 & 0\\
+0 & -1 & 1 \\
+0 & 0 & 0\\
+0 & 0 & a-1
+\end{matrix}&
+\begin{matrix}
+3  \\
+-2  \\
+b-2 \\
+0
+\end{matrix}
+\end{array}
+\right)}\\
+&\xrightarrow{\substack{r_{3}\leftrightarrow r_{4}}}
+{
+\left(
+ \begin{array}{c:c}
+\begin{matrix}
+1 & 2 & 0\\
+0 & -1 & 1 \\
+0 & 0 & a-1\\
+0 & 0 & 0
+\end{matrix}&
+\begin{matrix}
+3  \\
+-2  \\
+0\\
+b-2
+\end{matrix}
+\end{array}
+\right)
+}
+\end{align*}
+
+(1)由阶梯矩阵可以看出，$b\neq 2$时，$r(A,\beta)\neq r(A)$,此时$\beta$不能表示成$\alpha_1,\alpha_2,\alpha_3$的线性组合。
+
+(2)当$b=2$时，$r(A,\beta)= r(A)$，$\beta$可由$\alpha_1,\alpha_2,\alpha_3$线性表示。
+
+$a-1=0$即$a=1$时，继续对上述阶梯矩阵进行化简：\begin{equation*}
+\xrightarrow{\substack{r_{1}+2 r_{2}}}
+{
+\left(
+ \begin{array}{c:c}
+\begin{matrix}
+1 & 0 & 2\\
+0 & -1 & 1 \\
+0 & 0 & 0\\
+0 & 0 & 0
+\end{matrix}&
+\begin{matrix}
+-1 \\
+-2  \\
+0\\
+0
+\end{matrix}
+\end{array}
+\right)
+}\xrightarrow{\substack{r_{2}\times(-1)}}
+{
+\left(
+ \begin{array}{c:c}
+\begin{matrix}
+1 & 0 & 2\\
+0 & 1 & -1 \\
+0 & 0 & 0\\
+0 & 0 & 0
+\end{matrix}&
+\begin{matrix}
+-1 \\
+2  \\
+0\\
+0
+\end{matrix}
+\end{array}
+\right)
+}
+\end{equation*}
+由最简阶梯型矩阵可以看出：$x_1=-1-2x_3,x_2=2+x_3$，取$x_3=k$所以$\beta=(-1-2k)\alpha_{1}+(2+k)\alpha_{2}+k\alpha_3,(k\in R)$。
+
+$a-1\neq 0$时：
+\begin{equation*}
+\xrightarrow{\substack{r_{2}\times(-1)\\r_{3}\times \frac{1}{a-1}}}
+{
+\left(
+ \begin{array}{c:c}
+\begin{matrix}
+1 & 2 & 0\\
+0 & 1 & -1 \\
+0 & 0 & 1\\
+0 & 0 & 0
+\end{matrix}&
+\begin{matrix}
+3 \\
+2  \\
+0\\
+0
+\end{matrix}
+\end{array}
+\right)
+}\xrightarrow{\substack{r_{2}+r_{3}}}
+{
+\left(
+ \begin{array}{c:c}
+\begin{matrix}
+1 & 2 & 0\\
+0 & 1 & 0 \\
+0 & 0 & 1\\
+0 & 0 & 0
+\end{matrix}&
+\begin{matrix}
+3 \\
+2  \\
+0\\
+0
+\end{matrix}
+\end{array}
+\right)
+}\xrightarrow{\substack{r_{1}-2r_{2}}}
+{
+\left(
+ \begin{array}{c:c}
+\begin{matrix}
+1 & 0 & 0\\
+0 & 1 & 0 \\
+0 & 0 & 1\\
+0 & 0 & 0
+\end{matrix}&
+\begin{matrix}
+-1 \\
+2  \\
+0\\
+0
+\end{matrix}
+\end{array}
+\right)
+}
+\end{equation*}
+由最简阶梯型矩阵可以看出，$x_1=-1,x_2=2,x_3=0$，所以$\beta=-\alpha_1+2\alpha_2$。
+\end{jie}
+
+\EX 设3阶矩阵
+$
+A=
+\begin{pmatrix}
+1&2&-2\\ 2&1&2\\ 3&0&4
+\end{pmatrix}
+$，三维列向量$\alpha=
+\begin{pmatrix}
+a&1&1
+\end{pmatrix}^T
+$。已知$A\alpha$与$\alpha$线性相关，求$a$。
+
+\begin{jie}
+由题得：
+\begin{equation*}
+A\alpha=\begin{pmatrix}
+1&2&-2\\ 2&1&2\\ 3&0&4
+\end{pmatrix}\begin{pmatrix}
+a\\ 1\\ 1
+\end{pmatrix}=\begin{pmatrix}
+a\\ 2a+3 \\ 3a+4
+\end{pmatrix}
+\end{equation*}
+$A\alpha$与$\alpha$线性相关，即$A\alpha$与$\alpha$对应元素成比例：
+\begin{equation*}
+\frac{a}{a}=\frac{1}{2a+3}=\frac{1}{3a+4}~~~~\Rightarrow~~~~a=-1
+\end{equation*}
+\end{jie}
+
+\EX 设向量组
+$
+\begin{pmatrix}
+2&1&1&1
+\end{pmatrix},
+\begin{pmatrix}
+2&1&a&a
+\end{pmatrix},
+\begin{pmatrix}
+3&2&1&a
+\end{pmatrix},
+\begin{pmatrix}
+4&3&2&1
+\end{pmatrix}
+$线性相关，且$a\neq 1$，则$a=$\underline{\hphantom{~~~~~~~~}}。
+
+\begin{jie}
+分别记题目中的四个向量为$\alpha_1,\alpha_2,\alpha_3,\alpha_4$，记$A=
+\begin{pmatrix}
+\alpha_1^T&\alpha_2^T&\alpha_3^T&\alpha_4^T
+\end{pmatrix}
+$。
+
+方法1：求秩。向量组线性相关，有$r(A)<4$。
+\begin{equation*}
+A\xrightarrow{\substack{r_{2}-\frac{1}{2}r_{1}\\ r_{3}-\frac{1}{2}r_{1}\\ r_{4}-\frac{1}{2}r_{1}}}
+{
+\begin{pmatrix}
+2& 2&3&4\\ 0&0&\frac{1}{2}&1\\ 0&a-1&-\frac{1}{2}&0\\ 0&a-1&a-\frac{3}{2}&-1
+\end{pmatrix}
+}\xrightarrow{\substack{r_{4}-r_{3}}}
+{
+\begin{pmatrix}
+2& 2&3&4\\ 0&0&\frac{1}{2}&1\\ 0&a-1&-\frac{1}{2}&0\\ 0&0&a-1&-1
+\end{pmatrix}
+}
+\end{equation*}
+要使$r(A)<4$，则第二行第四行成比例，即
+\begin{equation*}
+\begin{cases}
+\frac{\frac{1}{2}}{a-1}=\frac{1}{-1}\\
+a\neq 1
+\end{cases}~~~a=0.5
+\end{equation*}
+
+方法2：$r(A)<4$，即$|A|=0$。
+
+\begin{align*}
+|A|&\xlongequal{\substack{r_1-r_4 \\ r_2-r_4\\ r_3-r_4}}
+\begin{vmatrix}
+0&2(1-a)&3-2a&2\\ 0&1-a&2-a&2\\ 0&0&1-a&1\\ 1&a&a&1
+\end{vmatrix}
+\xlongequal{\substack{r_1-2r_2}}
+\begin{vmatrix}
+0&0&-1&-2\\ 0&1-a&2-a&2\\ 0&0&1-a&1\\ 1&a&a&1
+\end{vmatrix}=-\begin{vmatrix}
+0&-1&-2\\ 1-a&2-a&2\\ 0&1-a&1
+\end{vmatrix}\\ &=(1-a)\begin{vmatrix}
+-1&-2\\ 1-a&1
+\end{vmatrix}=(1-a)[-1+2(1-a)]=0
+\end{align*}
+又因为$a\neq 1$，所以$-1+2(1-a)=0$，解得$a=\dfrac{1}{2}$.
+\end{jie}
+
+\EX 判断下列说法是否正确,并简要说明理由.
+
+(1)因为
+$
+\begin{pmatrix}
+0\\ 0
+\end{pmatrix},\begin{pmatrix}
+               0\\ 4\\ -2
+              \end{pmatrix}
+$含有零向量,所以，线性相关.
+
+(2)在一个线性相关的向量组中,每个向量都可以由其余的向量线性表出.
+
+(3) 设$\alpha_1,\alpha_2,\alpha_3,\alpha_4$线性相关，则$\alpha_4,\alpha_2,\alpha_1,\alpha_3$也是线性相关的.
+
+(4)如果一个向量组去掉它的任意一个向量后得到的向量组都是线性无关的，则该向量组是线性无关的.
+\begin{jie}
+(1)错误，理由：线性相关无关的前提是向量的维数一致。
+
+(2)错误，例如对于向量组$\alpha_1=
+\begin{pmatrix}
+1\\ 0
+\end{pmatrix}
+,\alpha_2=
+\begin{pmatrix}
+0\\ 1
+\end{pmatrix},\alpha_3=
+\begin{pmatrix}
+1\\ 0
+\end{pmatrix}$，线性相关，但$\alpha_2$不能由其他向量线性表出。
+
+(3)正确。理由：向量组线性相关无关与该向量组中各向量所处的位置无关。
+
+(4)错误。例如向量组$\alpha_1=
+\begin{pmatrix}
+1\\ 0
+\end{pmatrix}
+,\alpha_2=
+\begin{pmatrix}
+0\\ 1
+\end{pmatrix},\alpha_3=
+\begin{pmatrix}
+1\\ 1
+\end{pmatrix}$，不难验证，去掉其中任意一个向量后向量组线性无关，而原向量组是线性相关的。
+\end{jie}
+
+\EX 判断下列说法是否正确,并简要说明理由.
+
+(5)如果存在不全为$0$的数$k_1,\cdots,k_s$使得
+\begin{equation*}
+  k_1\alpha_1+\cdots+k_s\alpha_s\neq0
+\end{equation*}
+则$\alpha_1,\cdots,\alpha_s$线性无关.
+
+(6)如果一个向量组的分量不成比例，则一定线性无关.
+
+(7)向量组$
+\begin{pmatrix}
+a_1\\ a_2\\ a_3
+\end{pmatrix},\begin{pmatrix}
+b_1\\ b_2\\ b_3
+\end{pmatrix},\begin{pmatrix}
+c_1\\ c_2\\ c_3
+\end{pmatrix},\begin{pmatrix}
+d_1\\ d_2\\ d_3
+\end{pmatrix}
+$
+有可能是线性无关的。
+
+\begin{tips}
+区分向量的维数和向量组的维数：
+
+向量的维数：一个向量中所含元素的个数。
+
+向量组的维数：一个向量组中所含向量的个数。
+\end{tips}
+
+\begin{jie}
+(5)错误。例如对于$\alpha_1=
+\begin{pmatrix}
+1\\ 1
+\end{pmatrix}
+,\alpha_2=
+\begin{pmatrix}
+2\\ 2
+\end{pmatrix}$，有$\alpha_1+\alpha_2\neq 0$，但 $\alpha_1,\alpha_2$线性相关。
+
+(6)错误。例如$
+\begin{pmatrix}
+1\\ 0\\ 1
+\end{pmatrix}
+,\alpha_2=
+\begin{pmatrix}
+0\\ 1 \\2
+\end{pmatrix},\alpha_3=
+\begin{pmatrix}
+1\\ 1 \\3
+\end{pmatrix}$，显然这些向量不成比例，但$\alpha_3=\alpha_1+\alpha_2$，即线性相关。
+
+(7)错误。理由：向量组的维数大于向量的维数向量组一定线性相关。
+\end{jie}
+\EX 判断下列说法是否正确，并简要说明理由。
+
+(1) 设向量组(\uppercase\expandafter{\romannumeral1}) 可以由(\uppercase\expandafter{\romannumeral2})的一个子组线性表出,则(\uppercase\expandafter{\romannumeral1}) 可以由(\uppercase\expandafter{\romannumeral2}) 线性表出.
+
+(2)设向量组(\uppercase\expandafter{\romannumeral1})可以由(\uppercase\expandafter{\romannumeral2}) 线性表出.如果(\uppercase\expandafter{\romannumeral1}) 线性相关，则(\uppercase\expandafter{\romannumeral1}) 所包含的向量个数大于(\uppercase\expandafter{\romannumeral2}) 所包含的向量个数.
+
+(3)如果两个向量组是等价的,则它们要么都是线性相关的,要么都是线性无关的.
+
+(4)如果一个向量组线性无关,那么它不可能与它的任意真子组等价. (真子组是除去若干个向量后得到的子组.)
+
+(5) 如果$\alpha_1,\cdots,\alpha_n$与$\beta_1,\cdots,\beta_n$是等价的，则齐次线性方程组$x_1\alpha_1+\cdots+x_n\alpha_n=0$与
+$x_1\beta_1+\cdots+x_n\beta_n$的解集相同.
+
+\begin{jie}
+(1)正确。理由：(\uppercase\expandafter{\romannumeral1}) 可以由(\uppercase\expandafter{\romannumeral2})的一个子组(\uppercase\expandafter{\romannumeral3})线性表出，而(\uppercase\expandafter{\romannumeral3})可以由(\uppercase\expandafter{\romannumeral2})线性表出，线性表出具有传递性，所以(\uppercase\expandafter{\romannumeral1}) 可以由(\uppercase\expandafter{\romannumeral2}) 线性表出。
+
+(2)错误。理由：向量组(\uppercase\expandafter{\romannumeral1})$\alpha_1=
+\begin{pmatrix}
+1\\ 0\\ 1
+\end{pmatrix}
+,\alpha_2=
+\begin{pmatrix}
+2\\ 0 \\2
+\end{pmatrix}$，向量组(\uppercase\expandafter{\romannumeral2})$\beta_1=
+\begin{pmatrix}
+1\\ 0\\ 0
+\end{pmatrix}
+,\beta_2=
+\begin{pmatrix}
+0\\ 1 \\0
+\end{pmatrix},\beta_3=
+\begin{pmatrix}
+0\\ 0 \\1
+\end{pmatrix}$，可以看出向量组(\uppercase\expandafter{\romannumeral1})可以由(\uppercase\expandafter{\romannumeral2}) 线性表出且(\uppercase\expandafter{\romannumeral1}) 线性相关，但(\uppercase\expandafter{\romannumeral1}) 所包含的向量个数小于(\uppercase\expandafter{\romannumeral2}) 所包含的向量个数.
+
+(3)错误。理由：向量组等价，只能得到秩相等，但两向量组包含的向量个数未必相等。例如假设向量组(\uppercase\expandafter{\romannumeral1})和(\uppercase\expandafter{\romannumeral2})等价且都线性无关，此时向(\uppercase\expandafter{\romannumeral2})添加若干列零向量，此时(\uppercase\expandafter{\romannumeral1})和(\uppercase\expandafter{\romannumeral2})仍然等价，但(\uppercase\expandafter{\romannumeral2})变为了线性相关。
+
+(4)正确。理由：反证法，假设该向量组可以与其一个真子组等价，依据等价的定义，该向量组中的向量可以由该真子组线性表出，即线性相关与向量组线性无关相矛盾，所以假设不成立，即该向量组不能与其任意真子组等价。
+
+(5)错误。例如：取向量组(\uppercase\expandafter{\romannumeral1})$\alpha_1=
+\begin{pmatrix}
+1\\ 0
+\end{pmatrix}
+,\alpha_2=
+\begin{pmatrix}
+0 \\0
+\end{pmatrix}$，向量组(\uppercase\expandafter{\romannumeral2})$\beta_1=
+\begin{pmatrix}
+0\\ 0
+\end{pmatrix}
+,\beta_2=
+\begin{pmatrix}
+1 \\0
+\end{pmatrix}$则向量组(\uppercase\expandafter{\romannumeral1})与(\uppercase\expandafter{\romannumeral2})等价。但$x_1\alpha_1+x_2\alpha_2=0$解集是$x_1=(0,k),k\in R$，而$x_1\beta_1+x_2\beta_2=0$解集是$x_2=(k,0),k\in R$，显然$x_1\neq x_2$
+\end{jie}
+\clearpage
+\section{第九次线性代数}
+\EX 求向量组
+\begin{equation*}
+\alpha_1=
+\begin{pmatrix}
+1\\ -1\\ 2\\ -1
+\end{pmatrix},
+\alpha_2=
+\begin{pmatrix}
+-3\\ 2\\ -1\\ 0
+\end{pmatrix},
+\alpha_3=
+\begin{pmatrix}
+2\\ -1\\-1\\ 1
+\end{pmatrix},
+\alpha_4=
+\begin{pmatrix}
+-1\\ 1\\ -2\\ 1
+\end{pmatrix}
+\end{equation*}
+的秩和一个极大线性无关组。
+
+\begin{jie}
+令$A=
+\begin{pmatrix}
+\alpha_1\\ \alpha_2\\ \alpha_3\\ \alpha_4
+\end{pmatrix}
+$则：
+\begin{align*}
+A\xrightarrow{\substack{r_{2}+r_1 \\ r_3-2r_1\\ r_4+r_1}}{
+\begin{pmatrix}
+1&-3&2&-1\\ 0&-1&1&0\\ 0&5&-5&0\\ 0&-3&3&0
+\end{pmatrix}
+}\xrightarrow{\substack{r_{3}+5r_2 \\ r_4-3r_2}}{
+\begin{pmatrix}
+1&-3&2&-1\\ 0&-1&1&0\\ 0&0&0&0\\ 0&0&0&0
+\end{pmatrix}
+}
+\end{align*}
+
+所以该向量组的秩为2，极大线性无关组为
+$(\alpha_1,\alpha_2),(\alpha_1,\alpha_3),(\alpha_2,\alpha_3),(\alpha_2,\alpha_4),(\alpha_3,\alpha_4)$。 （依题意，任写一个即可。）
+\end{jie}
+
+\EX 判断下列说法是否正确，并简要说明理由.
+
+(1) 如果一个向量组有且仅有一个极大无关组,则该向量组必然线性无关。
+
+(2)在求向量组的秩时，如果该向量组含有零向量,则可以去掉零向量。
+
+(3)在求向量组的秩时,如果该向量组含有一个可以由其余的向量线性表出的向量,则可以去掉这
+个向量。
+
+(4)在求向量组的秩时,如果该向量组含有线性相关的子组，则可以去掉线性相关的子组。
+
+(5) 如果一个向量组含有$r$个线性无关的向量,则该向量组的秩至少是$r$。
+
+
+
+\begin{jie}
+(1)错误。例如向量组：
+$\alpha_1=
+\begin{pmatrix}
+1\\ 0
+\end{pmatrix},\alpha_2=
+\begin{pmatrix}
+0\\ 0
+\end{pmatrix}
+$只有一个极大无关组$\alpha_1$,但该向量组线性相关。
+
+(2)正确。极大线性无关组中一定不含零向量，极大线性无关组中向量的个数为秩，所以去掉零向量对求秩无影响。
+
+(3)正确。极大线性无关组中向量一定线性无关，所以去掉该向量对极大线性无关组无影响。
+
+(4)错误。例如：
+$\alpha_1=
+\begin{pmatrix}
+1\\ 0
+\end{pmatrix},\alpha_2=
+\begin{pmatrix}
+0\\ 0
+\end{pmatrix},\alpha_3=
+\begin{pmatrix}
+0\\ 0
+\end{pmatrix}
+$,若去掉线性相关的子组$\alpha_1,\alpha_2$，就只剩余$\alpha_3=0$，与原向量组的秩不相等了。
+
+(5)正确。因为极大线性无关组包含了线性无关向量的最大个数，所以$r$小于等于该数，而极大线性无关组向量的个数即为秩，即秩大于等于$r$。
+\end{jie}
+
+\EX 判断下列说法是否正确，并简要说明理由.
+
+(6) 如果一个向量组含有$r+1$个线性相关的向量,则该向量组的秩不超过$r$。
+
+(7) 设$\alpha_1,\cdots,\alpha_n$是线性无关的$m$维向量.如果$n< m$,则存在$\alpha_{n+1},\cdots,\alpha_{m}$使得$\alpha_1,\cdots,\alpha_n,\alpha_{n+1},\cdots,\alpha_{m}$线性无关。
+
+\begin{jie}
+(6)错误。例如：$\alpha_1=
+\begin{pmatrix}
+1\\ 0
+\end{pmatrix},\alpha_2=
+\begin{pmatrix}
+0\\ 1
+\end{pmatrix},\alpha_3=
+\begin{pmatrix}
+0\\ 1
+\end{pmatrix}
+$可以看出该向量组含有两个线性相关的向量$\alpha_1,\alpha_2$，即$r+1=2,r=1$，但向量组的秩为2.
+
+(7)正确。（\textcolor[rgb]{0.50,1.00,0.00}{ps:此题不会。}）
+\end{jie}
+\EX 设向量组$\alpha_1=(1,4,0,2)^T,\alpha_2=(2,7,1,3)^T,\alpha_3=(0,1,-1,a)^T,\alpha_4=(3,10,b,4)^T$.已知$\alpha_1,\alpha_2,\alpha_3$是该向量组的一个极大无关组。求$a,b$的值，并把$\alpha_4$用$\alpha_1,\alpha_2,\alpha_3$线性表出。
+
+\begin{jie}
+由题得：$r(\alpha_1,\alpha_2,\alpha_3,\alpha_4)=r(\alpha_1,\alpha_2,\alpha_3)=3$.
+\begin{equation*}
+(\alpha_1,\alpha_2,\alpha_3,\alpha_4)
+\xrightarrow{\substack{r_{2}-4r_{1}\\ r_4-2r_1}}
+{
+\begin{pmatrix}
+1&2&0&3\\
+0&-1&1&-2\\
+0&1&-1&b\\
+0&-1&a&-2
+\end{pmatrix}
+}\xrightarrow{\substack{r_{3}+r_{2}\\ r_4-r_2}}
+{
+\begin{pmatrix}
+1&2&0&3\\
+0&-1&1&-2\\
+0&0&0&b-2\\
+0&0&a-1&0
+\end{pmatrix}
+}\xrightarrow{\substack{r_{3}\leftrightarrow r_4}}
+{
+\begin{pmatrix}
+1&2&0&3\\
+0&-1&1&-2\\
+0&0&a-1&0\\
+0&0&0&b-2
+\end{pmatrix}
+}
+\end{equation*}
+因为$r(\alpha_1,\alpha_2,\alpha_3,\alpha_4)=r(\alpha_1,\alpha_2,\alpha_3)=3$，所以$b-2=0,a-1\neq0$.
+
+把$a\neq1,b=2$代入上边继续高斯消元：
+\begin{equation*}
+\xrightarrow{\substack{r_2\times(-1)\\ r_{3}\times\frac{1}{a-1}}}
+{
+\begin{pmatrix}
+1&2&0&3\\
+0&1&-1&2\\
+0&0&1&0\\
+0&0&0&0
+\end{pmatrix}
+}\xrightarrow{\substack{r_2+ r_{3}}}
+{
+\begin{pmatrix}
+1&2&0&3\\
+0&1&0&2\\
+0&0&1&0\\
+0&0&0&0
+\end{pmatrix}
+}\xrightarrow{\substack{r_1- 2r_{2}}}
+{
+\begin{pmatrix}
+1&0&0&-1\\
+0&1&0&2\\
+0&0&1&0\\
+0&0&0&0
+\end{pmatrix}
+}
+\end{equation*}
+记$A=(\alpha_1,\alpha_2,\alpha_3)$,则$Ax=\alpha_4$的解为$x_1=-1,x_2=2,x_3=0$，即$\alpha_4=2\alpha_2-\alpha_1$
+\end{jie}
+
+\EX 已知向量组$\beta_1=(0,1,-1)^T,\beta_2=(a,2,1)^T,\beta_3=(b,1,0)^T$与
+$\alpha_1= (1,2,-3)^T,\alpha_2=(3,0,1)^T,\alpha_3=(9,6,-7)^T$具有相同的秩，且$\beta_3$可由$\alpha_1,\alpha_2,\alpha_3$线性表出，求$a,b$的取值。
+
+\begin{jie}
+由题得：
+\begin{equation*}
+(\alpha_1,\alpha_2,\alpha_3,\beta_3)
+\xrightarrow{\substack{r_2- 2r_{1}\\ r_3+3r_1}}
+{\begin{pmatrix}
+1&3&9&b\\
+0&-6&-12&1-2b\\
+0&10&20&3b\end{pmatrix}
+}\xrightarrow{\substack{ r_3+\frac{10}{6}r_2}}
+{\begin{pmatrix}
+1&3&9&b\\
+0&-6&-12&1-2b\\
+0&0&0&3b+\frac{5}{3}(1-2b)\end{pmatrix}
+}
+\end{equation*}
+因为$\beta_3$可由$\alpha_1,\alpha_2,\alpha_3$线性表出，所以：
+$r(\alpha_1,\alpha_2,\alpha_3)=r(\alpha_1,\alpha_2,\alpha_3,\beta_3)=2$，所以$3b+\frac{5}{3}(1-2b)=0$，解得$b=5$.
+
+\begin{equation*}
+(\beta_1,\beta_2,\beta_3)
+\xrightarrow{\substack{r_1\leftrightarrow r_3}}
+{
+\begin{pmatrix}
+-1&1&0\\
+1&2&1\\
+0&a&5
+\end{pmatrix}
+}\xrightarrow{\substack{r_2+r_1}}
+{
+\begin{pmatrix}
+-1&1&0\\
+0&3&1\\
+0&a&5
+\end{pmatrix}
+}
+\end{equation*}
+因为$r(\beta_1,\beta_2,\beta_3)=r(\alpha_1,\alpha_2,\alpha_3)=2$所以上述矩阵的第二第三行非零元素成比例：$
+\frac{3}{a}=\frac{1}{5}
+$,解得$a=15$。
+
+综上所述：$a=15,b=5$。
+\end{jie}
+
+\EX 设向量组
+$
+\alpha_1=(2,2,-4,1)^T,\alpha_2=(4,2,-6,2)^T,\alpha_3=(6,3,-9,3)^T,\alpha_4=(1,1,1,1)^T
+$求该向量组的秩和所有的极大线性无关组。
+
+\begin{jie}
+由题得：
+\begin{equation*}
+(\alpha_1,\alpha_2,\alpha_3,\alpha_4)
+\xrightarrow{\substack{r_{2}-r_{1}\\ r_3+2r_1\\ r_1-\frac{1}{2}r_1}}
+{
+\begin{pmatrix}
+2&4&6&1\\
+0&-2&-3&0\\
+0&2&3&3\\
+0&0&0&0.5
+\end{pmatrix}
+}\xrightarrow{\substack{r_3+r_2}}
+{
+\begin{pmatrix}
+2&4&6&1\\
+0&-2&-3&0\\
+0&0&0&3\\
+0&0&0&0.5
+\end{pmatrix}
+}\xrightarrow{\substack{r_4-\frac{1}{6}r_3}}
+{
+\begin{pmatrix}
+2&4&6&1\\
+0&-2&-3&0\\
+0&0&0&3\\
+0&0&0&0
+\end{pmatrix}
+}
+\end{equation*}
+所以$(\alpha_1,\alpha_2,\alpha_3,\alpha_4)=3$,极大线性无关组为：$(\alpha_1,\alpha_2,\alpha_4)(\alpha_1,\alpha_3,\alpha_4)$.（注：$\alpha_2,\alpha_3$是线性相关的。）
+\end{jie}
+
+\EX 设矩阵$A$的每个$(i,j)-$元都是同一个数$a$。求$r(A)$。
+
+\begin{jie}
+(1) $a=0$时，矩阵$A$为零矩阵，$r(A)=0$.
+
+(2)$a\neq 0$时，矩阵$A$的其他行减去第一行后剩余一行，$r(A)=1$。
+\end{jie}
+
+\EX 设四元线性方程组(\uppercase\expandafter{\romannumeral1})为
+\begin{equation*}
+\begin{cases}
+x_1+x_2=0\\
+x_2-x_4=0
+\end{cases}
+\end{equation*}
+又已知某线性其次方程组(\uppercase\expandafter{\romannumeral2})的通解为：
+\begin{equation*}
+k_1(0,1,1,0)^T + k_2(-1,2,2,1)^T
+\end{equation*}
+
+(1)求线性方程组(\uppercase\expandafter{\romannumeral1})的基础解系。
+
+(2)问线性方程组(\uppercase\expandafter{\romannumeral1})和(\uppercase\expandafter{\romannumeral2})是否有非零公共解？若有，则求出所有的非零公共解。若没有，则说明理由。
+
+\begin{jie}
+(1)由题得：
+\begin{equation*}
+\begin{pmatrix}
+1&1&0&0\\
+0&1&0&-1
+\end{pmatrix}
+\xrightarrow{\substack{r_1-r_2}}
+{
+\begin{pmatrix}
+1&0&0&1\\
+0&1&0&-1
+\end{pmatrix}
+}
+\end{equation*}
+解得$x_1=-x_4,x_2=x_4,x_3\in R$,分别取$(x_3,x_4)^T=(0,1)^T,(1,0)^T$得$\xi_1=(-1,1,0,1)^T,\xi_2=(0,0,1,0)^T$，$\xi_1,\xi_2$即为所求。
+
+(2)假设有非零公共解，依题意可列：（式中：$l_1,l_2\in R$）
+\begin{equation*}
+l_1\xi_1+l_2\xi_2=k_1(0,1,1,0)^T + k_2(-1,2,2,1)^T~~\Rightarrow~~(-l_1,l_1,l_2,l_1)^T=(-k_2,k_1+2k_2,k_1+2k_2,k_2)^T
+\end{equation*}
+解得：$l_1=l_2=-k_1=k_2$，取$l_1=t,t\in R$,则公共解为：
+\begin{equation*}
+l_1\xi_1+l_2\xi_2=t(\xi_1+\xi_2)=t(-1,1,1,1)^T,t\in R
+\end{equation*}
+\end{jie}
+
+\EX 已知方程组$
+\begin{cases}
+x_1+2x_2+3x_3=0\\
+2x_1+3x_2+5x_3=0\\
+x_1+x_2+ax_3=0
+\end{cases}
+$与
+$
+\begin{cases}
+x_1+bx_2+cx_3=0\\
+2x_1+b^2x_2+(c+1)x_3=0
+\end{cases}
+$同解。求$a,b,c$的值。
+
+\begin{jie}
+记第1个方程组为(\uppercase\expandafter{\romannumeral1})，第2个方程组为(\uppercase\expandafter{\romannumeral2})。分别记这两个方程组的增广矩阵为$\widetilde{A}_1,\widetilde{A}_2$.
+
+由题得:$r(\widetilde{A}_2)\leq\min\{3,2\}=2<3$，所以(\uppercase\expandafter{\romannumeral2})有无穷多解，又因为同解，所以(\uppercase\expandafter{\romannumeral1})也有无穷多解，所以$r(\widetilde{A}_1)<3$
+
+\begin{equation*}
+\widetilde{A}_1\xrightarrow{\substack{r_2-2r_1\\ r_3-r_1}}
+{\begin{pmatrix}
+1&2&3\\
+0&-1&-1\\
+0&-1&a-3\end{pmatrix}
+}\xrightarrow{\substack{r_3-r_2}}
+{\begin{pmatrix}
+1&2&3\\
+0&-1&-1\\
+0&0&a-2\end{pmatrix}
+}
+\end{equation*}
+因为$r(\widetilde{A}_1)<3$，所以$a-2=0$，即$a=2$。
+
+代入继续高斯消元：
+\begin{equation*}
+\xrightarrow{\substack{r_1+2r_2}}
+{
+\begin{pmatrix}
+1&0&1\\
+0&-1&-1\\
+0&0&0
+\end{pmatrix}
+}\xrightarrow{\substack{r_2\times(-1)}}
+{
+\begin{pmatrix}
+1&0&1\\
+0&-1&-1\\
+0&0&0
+\end{pmatrix}
+}
+\end{equation*}
+所以：$x_1=-x_3,x_2=-x_3$，取$x_3=-1$。则基础解系为$\xi_1=(1,1,-1)^T$的一个基础解系。
+
+(\uppercase\expandafter{\romannumeral1})、(\uppercase\expandafter{\romannumeral2})同解，所以把该基础解系代入(\uppercase\expandafter{\romannumeral2})有：
+\begin{equation*}
+\begin{cases}
+1+b-c=0\\
+2+b^2-(c+1)=0
+\end{cases}~~~\Rightarrow~~~
+\begin{cases}
+b=0\\
+c=1
+\end{cases}\text{或}
+\begin{cases}
+b=1\\
+c=2
+\end{cases}
+\end{equation*}
+
+把$b=0,c=1$代入(\uppercase\expandafter{\romannumeral2})得：
+\begin{equation*}
+\begin{cases}
+x_1+x_3=0\\
+2x_1+2x_3=0
+\end{cases}~~~\Rightarrow~~\begin{cases}
+                             x_1=-x_3\\
+                             x_2\in R
+                           \end{cases}
+\end{equation*}
+有两个自由变量即有两个基础解系，与(\uppercase\expandafter{\romannumeral1})不同解，所以$b=0,c=1$不合题意。
+
+把$b=1,c=2$代入(\uppercase\expandafter{\romannumeral2})：
+
+\begin{equation*}
+\begin{cases}
+x_1+x_2+2x_3=0\\
+2x_1+x_2+2x_3=0
+\end{cases}
+\end{equation*}
+可以推出与(\uppercase\expandafter{\romannumeral1})同解(步骤自己写一下，这里略)，综上所述：
+$a=2,b=1,c=2$
+\end{jie}
+
+\EX 分别求下述两个齐次线性方程组的基础解系。
+\begin{align*}
+&(\uppercase\expandafter{\romannumeral1})~~~ x_1+x_2+x_3+x_4=0\\
+&(\uppercase\expandafter{\romannumeral2}) ~~~
+\begin{cases}
+x_1-x_2+x_3-x_4=0\\
+2x_1-2x_2+2x_3-3x_4=0\\
+x_1-x_2+x_3-2x_4=0
+\end{cases}
+\end{align*}
+
+\begin{jie}
+(\uppercase\expandafter{\romannumeral1})$x_1=-x_2-x_3-x_4$
+分别取$
+\begin{pmatrix}
+x_2&x_3&x_4
+\end{pmatrix}^T
+=\begin{pmatrix}
+1&0&0
+\end{pmatrix}^T,\begin{pmatrix}
+0&1&0
+\end{pmatrix}^T,\begin{pmatrix}
+0&0&1
+\end{pmatrix}^T$
+得：
+$\xi_1
+=\begin{pmatrix}
+-1&1&0&0
+\end{pmatrix}^T,\xi_2
+=\begin{pmatrix}
+-1&0&1&0
+\end{pmatrix}^T,\xi_3
+=\begin{pmatrix}
+-1&0&0&1
+\end{pmatrix}^T$.
+
+$\xi_1,\xi_2,\xi_3$即为所求。
+
+(\uppercase\expandafter{\romannumeral1})
+由题得：
+\begin{equation*}
+A\xrightarrow{\substack{r_2-2r_1\\ r_3-r_1}}{\begin{pmatrix}
+1&-1&1&-1\\
+0&0&0&-1\\
+0&0&0&-1\end{pmatrix}
+}\xrightarrow{\substack{ r_3-r_2}}{\begin{pmatrix}
+1&-1&1&-1\\
+0&0&0&-1\\
+0&0&0&0\end{pmatrix}
+}\xrightarrow{\substack{ r_1-r_2}}{\begin{pmatrix}
+1&-1&1&0\\
+0&0&0&-1\\
+0&0&0&0\end{pmatrix}
+}
+\end{equation*}
+由阶梯型矩阵可以得出：
+$x_1=x_2-x_3,x_4=0$,分别取$\begin{pmatrix}x_2&x_3\end{pmatrix}^T=\begin{pmatrix}1&0\end{pmatrix}^T,\begin{pmatrix}0&1\end{pmatrix}^T$得
+$
+\xi_1=
+\begin{pmatrix}
+1&1&0&0
+\end{pmatrix}^T,\xi_2=
+\begin{pmatrix}
+-1&0&1&0
+\end{pmatrix}^T
+$。
+
+$\xi_1,\xi_2$即为所求。
+\end{jie}
+
+\EX 判断下列说法是否正确,并说明理由.
+
+(1) 两个齐次线性方程组的解集相同$\Leftrightarrow$它们的基础解系等价。
+
+(2) 设一个$5$元齐次线性方程组的系数矩阵的秩为$3$.则该方程组可能有$3$个线性无关的解。
+
+(3)当一个线性方程组有无穷多个解时一定有基础解系。
+
+\begin{jie}
+(1) 正确。$\Rightarrow$，解集相同，则基础解系可以相互线性表出。
+
+$\Leftarrow$基础解系等价，由于任意解向量都是基础解系的线性组合，所以解集相同。
+
+(2)错误。齐次线性方程组线性无关的解的个数不超过基础解系所包含的向量的个数：5-3=2.
+
+(3)错误。基础解系只针对齐次线性方程组来说的。
+\end{jie}
+
+\EX 判断下列说法是否正确,并说明理由.
+(4)设
+$
+\xi_1=
+\begin{pmatrix}
+1\\-1 \\1
+\end{pmatrix},\xi_2=
+\begin{pmatrix}
+1\\1 \\1
+\end{pmatrix}
+$是某个齐次线性方程组的一个基础解系，则$
+\eta_1=
+\begin{pmatrix}
+1\\0 \\1
+\end{pmatrix},\eta_2=
+\begin{pmatrix}
+0\\1 \\0
+\end{pmatrix}
+$也是该线性方程组的一个基础解系。
+
+(5)向量组$
+\xi_1=\begin{pmatrix}
+1\\0 \\1
+\end{pmatrix},\xi_2=
+\begin{pmatrix}
+0\\1 \\1
+\end{pmatrix}
+$一定是某个齐次线性方程组的某个基础解系。
+
+\begin{jie}
+(4)正确。$\eta_1=\frac{1}{2}(\xi_1+\xi_2),\eta_2=\frac{1}{2}(\xi_2+\xi_1)$，即$\xi_1,\xi_2$和$\eta_1,\eta_2$可以相互表出，所以$\xi_1,\xi_2$和$\eta_1,\eta_2$等价。即$\eta_1,\eta_2$也是该线性方程组的一个基础解系。
+
+(5)正确。例如该向量组是$x_1+x_2-x_3=0$的基础解系。
+\end{jie}
+
+\EX 解齐次线性方程组。
+\begin{equation*}
+\begin{cases}
+x_1-3x_2+6x_3=0\\
+4x_1-x_2+x_3=0\\
+3x_1+2x_2+x_3=0
+\end{cases}
+\end{equation*}
+
+\begin{jie}
+由题得：
+\begin{equation*}
+A=
+\begin{pmatrix}
+1&-3&6\\
+4&-1&1\\
+3&2&1
+\end{pmatrix}
+\xrightarrow{\substack{r_2-4r_1\\ r_3-3r_1}}{
+\begin{pmatrix}
+1&-3&6\\
+0&11&-23\\
+0&11&-17
+\end{pmatrix}
+}\xrightarrow{\substack{r_3-r_2}}{
+\begin{pmatrix}
+1&-3&6\\
+0&11&-23\\
+0&0&6
+\end{pmatrix}
+}
+\end{equation*}
+所以$r(A)=3$，该线性方程组只有零解。
+\end{jie}
+
+\EX 解齐次线性方程组
+\begin{equation*}
+\begin{cases}
+x_1-3x_2+2x_3-x_4=0\\
+-2x_1+6x_2-4x_3+3x_4=0\\
+3x_1-9x_2+6x_3-4x_4=0
+\end{cases}
+\end{equation*}
+
+\begin{jie}
+由题得：
+\begin{align*}A&=
+\begin{pmatrix}
+1&-3&2&-1\\
+-2&6&-4&3\\
+3&-9&6&-4
+\end{pmatrix}
+\xrightarrow{\substack{r_2+2r_1\\ r_3-3r_1}}{
+\begin{pmatrix}
+1&-3&2&-1\\
+0&0&0&1\\
+0&0&0&-1
+\end{pmatrix}
+}\xrightarrow{\substack{ r_3+r_2}}{
+\begin{pmatrix}
+1&-3&2&-1\\
+0&0&0&1\\
+0&0&0&0
+\end{pmatrix}
+}\\
+&\xrightarrow{\substack{ r_1+r_2}}{
+\begin{pmatrix}
+1&-3&2&0\\
+0&0&0&1\\
+0&0&0&0
+\end{pmatrix}
+}
+\end{align*}
+由最简阶梯型矩阵得：$x_1=3x_2-2x_3,x_4=0$,分别取$
+\begin{pmatrix}
+x_2&x_3
+\end{pmatrix}^T=\begin{pmatrix}
+1&0
+\end{pmatrix}^T,\begin{pmatrix}
+0&1
+\end{pmatrix}^T
+$得$
+\xi_1=
+\begin{pmatrix}
+3&1&0&0
+\end{pmatrix}^T
+,\xi_2=
+\begin{pmatrix}
+-2&0&1&0
+\end{pmatrix}^T
+$，通解为
+$
+x=k_1\xi_1+k_2\xi_2,k_1\in R,k_2\in R
+$
+\end{jie}
+
+\EX 判断下列说法是否正确,并说明理由。
+
+(1) 如果一个非齐次方程组的导出组有基础解系，则该非齐次线性方程组一定有无穷多个解。
+
+(2)如果一个非齐次线性方程组有无穷多个解,则它的导出组一定有基础解系。
+
+(3)一个非齐次线性方程组的任意解都不可能由它的导出组的任意基础解系线性表出。
+
+(4) 设一个$5$元非齐次线性方程组的系数矩阵和增广矩阵的秩都是$3$. 则该方程组一定有$3$个线性无关的解。
+
+(5)设一个$5$元非齐次线性方程组的系数矩阵和增广矩阵的秩都是$3$.则它的通解的任意表达式中一定含有$2$个任意常数。
+
+\begin{jie}
+记$n$为方程组中未知数的个数,$A$为系数矩阵，$\widetilde{A}$为增广矩阵。
+
+(1)错误。导出组有基础解系，只能得出系数矩阵的秩小于未知数的个数。但对于非齐次方程组，系数矩阵的值可能会与增广矩阵的秩不相等，即可能存在无解的情况。
+
+(2)正确。非齐次线性方程组有无穷多解，则有$r(A)=r(\widetilde{A})<n$，所以导出组有基础解系，基础解系的个数$n-r(A)$。
+
+(3)正确。非齐次线性方程组的解是由一个特解和导出组的基础解系组成的，该特解不可能是导出组的解，即非齐次线性方程组的任意解都不可能由它的导出组的任意基础解系线性表出。
+
+(4)正确。系数矩阵和增广矩阵的秩都是$3$，所以导出组有$5-3=2$个基础解系$\xi_1,\xi_2$。设$\eta$是该方程组的解，则$\xi_1+\eta,\xi_2+\eta$是也原方程组的解。不难验证$\eta，\xi_1+\eta,\xi_2+\eta$线性无关。（线性无关的证明方法）。
+
+(5)正确。系数矩阵和增广矩阵的秩都是$3$，所以导出组有$5-3=2$个基础解系$\xi_1,\xi_2$。设$\mu$是该方程组的特解，则通解为$\mu+k_1\xi_1+k_2\xi_2$.由通解可以看出，有两个任意常数。
+\end{jie}
+
+\EX 解线性方程组
+\begin{equation*}
+\begin{cases}
+x_1-2x_2+x_3-x_4=1\\
+2x_1+2x_2+x_3+2x_4=-1\\
+x_1+4x_2-3x_4=0
+\end{cases}
+\end{equation*}
+
+\begin{jie}
+由题得增广矩阵：
+\begin{align*}
+\widetilde{A}&=
+\begin{pmatrix}
+1&-2&1&-1&1\\
+2&2&1&2&-1\\
+1&4&0&-3&0
+\end{pmatrix}
+\xrightarrow{\substack{ r_2-2r_1\\ r_3-r_1}}{
+\begin{pmatrix}
+1&-2&1&-1&1\\
+0&6&-1&4&-3\\
+0&6&-1&-2&-1
+\end{pmatrix}
+}\xrightarrow{\substack{ r_3-r_2}}{
+\begin{pmatrix}
+1&-2&1&-1&1\\
+0&6&-1&4&-3\\
+0&0&0&-6&2
+\end{pmatrix}
+}\\
+&\xrightarrow{\substack{ r_2\times\frac{1}{6}\\ r_3\times\left(-\frac{1}{6}\right)}}{
+\begin{pmatrix}
+1&-2&1&-1&1\\
+0&1&-\frac{1}{6}&\frac{2}{3}&-\frac{1}{2}\\
+0&0&0&1&-\frac{1}{3}
+\end{pmatrix}
+}\xrightarrow{\substack{ r_2-\frac{2}{3}r_3\\ r_1+r_3}}{
+\begin{pmatrix}
+1&-2&1&0&\frac{2}{3}\\
+0&1&-\frac{1}{6}&0&-\frac{5}{18}\\
+0&0&0&1&-\frac{1}{3}
+\end{pmatrix}
+}\xrightarrow{\substack{  r_1+2r_2}}{
+\begin{pmatrix}
+1&0&\frac{2}{3}&0&\frac{1}{9}\\
+0&1&-\frac{1}{6}&0&-\frac{5}{18}\\
+0&0&0&1&-\frac{1}{3}
+\end{pmatrix}
+}
+\end{align*}
+所以：
+$x_1=\frac{1}{9}-\frac{2}{3}x_3,x_2=\frac{1}{6}x_3-\frac{5}{18},x_4=-\frac{1}{3}$,令$x_3=t,t\in R$，所以：
+\begin{equation*}
+x=
+\begin{pmatrix}
+\frac{1}{9}&-\frac{5}{18}&0&-\frac{1}{3}
+\end{pmatrix}+t
+\begin{pmatrix}
+-\frac{2}{3}&\frac{1}{6}&1&0
+\end{pmatrix},t\in R
+\end{equation*}
+\end{jie}
+
+\EX 解线性方程组
+\begin{equation*}
+\begin{cases}
+x_1-2x_2+x_3=1\\
+2x_1+2x_2+x_3=-1\\
+x_1+4x_2-x_3=0\\
+x_1-2x_2+2x_3=-1
+\end{cases}
+\end{equation*}
+
+\begin{jie}
+由题得增广矩阵：
+\begin{align*}
+\widetilde{A}&=
+\begin{pmatrix}
+1&-2&1&1\\
+2&2&1&-1\\
+1&4&-1&0\\
+1&-2&2&-1
+\end{pmatrix}
+\xrightarrow{\substack{r_2-2r_1\\ r_3-r_1\\ r_4-r_1}}{
+\begin{pmatrix}
+1&-2&1&1\\
+0&6&-1&-3\\
+0&6&-2&-1\\
+0&0&1&-2
+\end{pmatrix}
+}\xrightarrow{\substack{r_3-r_2}}{
+\begin{pmatrix}
+1&-2&1&1\\
+0&6&-1&-3\\
+0&0&-1&2\\
+0&0&1&-2
+\end{pmatrix}
+}\\
+&\xrightarrow{\substack{r_4+r_3\\ r_2-r3\\ r_1+r_3}}{
+\begin{pmatrix}
+1&-2&0&3\\
+0&6&0&-5\\
+0&0&-1&2\\
+0&0&0&0
+\end{pmatrix}
+}\xrightarrow{\substack{r_2\times\frac{1}{6}\\ r_3\times(-1)}}{
+\begin{pmatrix}
+1&-2&0&3\\
+0&1&0&-\frac{5}{6}\\
+0&0&1&-2\\
+0&0&0&0
+\end{pmatrix}
+}\xrightarrow{\substack{r_1+2r_2}}{
+\begin{pmatrix}
+1&0&0&\frac{4}{3}\\
+0&1&0&-\frac{5}{6}\\
+0&0&1&-2\\
+0&0&0&0
+\end{pmatrix}
+}
+\end{align*}
+所以：
+\begin{equation*}
+x=
+\begin{pmatrix}
+\frac{4}{3}&-\frac{5}{6}&-2
+\end{pmatrix}^T
+\end{equation*}
+\end{jie}
+
+\EX 解线性方程组
+\begin{equation*}
+\begin{cases}
+x_1-x_2-x_3+x_4=1\\
+2x_1-2x_2-x_3+x_4=-2\\
+3x_1-3x_2-2x_3+2x_4=-1\\
+5x_1-5x_2-3x_3+3x_4=-3
+\end{cases}
+\end{equation*}
+
+\begin{jie}
+由题得增广矩阵：
+\begin{equation*}
+\widetilde{A}=
+\begin{pmatrix}
+1&-1&-1&1&1\\
+2&-2&-1&1&-2\\
+3&-3&-2&2&-1\\
+5&-5&-3&3&-3
+\end{pmatrix}
+\xrightarrow{\substack{r_2-2r_1\\ r_3-3r_1\\ r_4-5r_1}}{
+\begin{pmatrix}
+1&-1&-1&1&1\\
+0&0&1&-1&-4\\
+0&0&1&-1&-4\\
+0&0&2&-2&-8
+\end{pmatrix}
+}
+\xrightarrow{\substack{r_1+r_2\\ r_3-r_2\\ r_4-2r_2}}{
+\begin{pmatrix}
+1&-1&0&0&-3\\
+0&0&1&-1&-4\\
+0&0&0&0&0\\
+0&0&0&0&0
+\end{pmatrix}
+}
+\end{equation*}
+所以$x_1=x_2-3,x_3=x_4-4$.所以：
+\begin{equation*}
+x=
+\begin{pmatrix}
+-3&0&-4&0
+\end{pmatrix}^T+k_{1}
+\begin{pmatrix}
+1&1&0&0
+\end{pmatrix}^T+k_{2}
+\begin{pmatrix}
+0&0&1&1
+\end{pmatrix}^T,k_1,k_2\in R
+\end{equation*}
+\end{jie}
+
+\EX 设某个线性方程组的通解为
+\begin{equation*}
+\begin{pmatrix}
+-2+3s-2t\\
+1-2s+3t\\
+-1+s\\
+2+t
+\end{pmatrix},s,t\text{是任意数}
+\end{equation*}
+
+(1)证明：该方程不是齐次线性方程组。
+
+(2)求该方程组的系数矩阵的秩，并写出它的导出组的一个基础解系。
+
+\begin{jie}
+(1)任取通解中的一个解$x
+=\begin{pmatrix}
+-2+3s-2t\\
+1-2s+3t\\
+-1+s\\
+2+t
+\end{pmatrix}
+$。对于齐次方程一定有零解（充要条件），所以假设$x=0$，则有
+\begin{equation*}
+\begin{cases}
+-2+3s-2t=0\\
+1-2s+3t=0\\
+-1+s=0\\
+2+t=0
+\end{cases}~~\Rightarrow ~~s=1,t=-2
+\end{equation*}
+代入到$-2+3s-2t=0$得：$5=0$,产生了矛盾，所以假设不成立，即$x\neq 0$，所以该方程不是齐次线性方程组。
+
+(2)$\begin{pmatrix}
+-2+3s-2t\\
+1-2s+3t\\
+-1+s\\
+2+t
+\end{pmatrix}=
+\begin{pmatrix}
+-2\\ 0\\ -1\\ 2
+\end{pmatrix}+s\begin{pmatrix}
+3\\ -2\\ 1\\ 0
+\end{pmatrix}+t\begin{pmatrix}
+-2\\ 3\\ 0\\ 1
+\end{pmatrix}
+$
+
+可以看出有两个自由变量，所以原方程组的秩为$r=$未知数的个数$-$自由变量的个数=$4-2=2$。
+
+导出组的基础解系为：
+$\xi_1=\begin{pmatrix}
+3& -2& 1& 0
+\end{pmatrix}^T,\xi_2=\begin{pmatrix}
+-2& 3&0&1
+\end{pmatrix}^T$。
+\end{jie}
+
+\EX 设某个$5$元非齐次线性方程组的系数矩阵秩为3，且有无穷多个解。证明：存在该方程组的3个线性无关的解$\gamma_1,\gamma_2,\gamma_3$，使得该方程组的任意解$\gamma$都可以由$\gamma_1,\gamma_2,\gamma_3$线性表出。
+
+\begin{zhengming}
+导出组基础解系的个数$=$未知数个数$-$秩$=5-3=2$。记为$\xi_1,\xi_2$。
+
+任取原方程组的一个解$\eta$，则$\gamma_1=\eta,\gamma_2=\eta+\xi_1,\gamma_3=\eta+\xi_2$为原方程组的一组线性无关的解。
+
+那么该方程组的任意一个解$\gamma = \eta+c_1\xi_1+c_2\xi_2=(1-c_1-c_2)\eta+c_1(\xi_1+\eta)+c_2(\xi_2+\eta)=(1-c_1-c_2)\gamma_1+c_1\gamma_2+c_2\gamma_3,c_1,c_2\in R$，即$\gamma$都可以由$\gamma_1,\gamma_2,\gamma_3$线性表出。
+\end{zhengming}
+
+\EX 设齐次线性方程组
+\begin{equation*}
+\begin{cases}
+\lambda x_1+x_2+x_3=0\\
+x_1+\lambda x_2+x_3=0\\
+x_1+x_2+x_3=0
+\end{cases}
+\end{equation*}
+只有零解，$\lambda$应满足的条件是\underline{\hphantom{~~~~~~~~~~~~~~}}。
+
+\begin{jie}
+解法一：
+
+系数矩阵为方阵，对于齐次线性方程组只有零解即系数矩阵行列式不为0.
+\begin{equation*}
+\begin{vmatrix}
+\lambda&1&1\\
+1&\lambda&1\\
+1&1&1
+\end{vmatrix}\xlongequal{r_2-r_1\\ r_3-r_1}
+\begin{vmatrix}
+\lambda&1&1\\
+1-\lambda&\lambda-1&0\\
+1-\lambda&0&0
+\end{vmatrix}=(1-\lambda)^2\neq 0~~~\Rightarrow~~~\lambda\neq1
+\end{equation*}
+
+
+解法二：
+由题得：
+\begin{equation*}
+A=
+\begin{pmatrix}
+\lambda&1&1\\
+1&\lambda&1\\
+1&1&1
+\end{pmatrix}
+\xrightarrow{\substack{r_1\leftrightarrow r_3}}
+{
+\begin{pmatrix}
+1&1&1\\
+1&\lambda&1\\
+\lambda&1&1
+\end{pmatrix}
+}\xrightarrow{\substack{r_2-r_1\\ r_3-\lambda r_1}}
+{
+\begin{pmatrix}
+1&1&1\\
+0&\lambda-1&0\\
+0&1-\lambda&1-\lambda
+\end{pmatrix}
+}\xrightarrow{\substack{r_3+2r_2}}
+{
+\begin{pmatrix}
+1&1&1\\
+0&\lambda-1&0\\
+0&0&1-\lambda
+\end{pmatrix}
+}
+\end{equation*}
+线性方程组只有零解，则$r(A)=3$，即$\lambda-1\neq 0$
+\end{jie}
+\end{document} 
