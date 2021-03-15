@@ -4,7 +4,7 @@
 \contentsline {section}{\numberline {2.2}第四次线性代数}{18}{section.2.2}% 
 \contentsline {section}{\numberline {2.3}第五次线性代数}{23}{section.2.3}% 
 \contentsline {chapter}{\numberline {第三章\hspace {.3em}}第六次线性代数}{28}{chapter.3}% 
-\contentsline {section}{\numberline {3.1}第七次线性代数}{29}{section.3.1}% 
-\contentsline {chapter}{\numberline {第四章\hspace {.3em}}第八次线性代数}{30}{chapter.4}% 
-\contentsline {section}{\numberline {4.1}第九次线性代数}{36}{section.4.1}% 
+\contentsline {section}{\numberline {3.1}第七次线性代数}{35}{section.3.1}% 
+\contentsline {chapter}{\numberline {第四章\hspace {.3em}}第八次线性代数}{39}{chapter.4}% 
+\contentsline {section}{\numberline {4.1}第九次线性代数}{45}{section.4.1}% 
 \contentsfinish 

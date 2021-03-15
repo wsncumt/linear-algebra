@@ -3754,9 +3754,994 @@ $。
 
 \chapter{第六次线性代数}
 
+\EX 计算下列行列式。
+
+\begin{equation*}
+(1)
+\begin{vmatrix}
+0&2&-5\\
+2&1&-3\\
+2&3&5
+\end{vmatrix}~~~(2)
+\begin{vmatrix}
+a&0&0&b\\
+0&a&b&0\\
+0&b&a&0\\
+b&0&0&a
+\end{vmatrix}
+\end{equation*}
+
+\begin{jie}
+(1)
+\begin{equation*}
+\text{原式}\xlongequal{r_2-r_3}
+\begin{vmatrix}
+0&2&-5\\
+0&-2&-8\\
+2&3&5
+\end{vmatrix}=2\times(-1)^{3+1}\times
+\begin{vmatrix}
+2&-5\\
+-2&-8\\
+\end{vmatrix}=-52
+\end{equation*}
+
+(2)按第一列展开：
+\begin{align*}
+\text{原式}&=a\times(-1)^{1+1}\times
+\begin{vmatrix}
+a&b&0\\
+b&a&0\\
+0&0&a
+\end{vmatrix}+b\times(-1)^{4+1}
+\begin{vmatrix}
+0&0&b\\
+a&b&0\\
+b&a&0
+\end{vmatrix}=a\times a\times(-1)^{3+3}
+\begin{vmatrix}
+a&b\\
+b&a
+\end{vmatrix}
+-b\times b\times(-1)^{1+3}
+\begin{vmatrix}
+a&b\\
+b&a
+\end{vmatrix}\\
+&=(a^2-b^2)(a^2-b^2)=(a^2-b^2)^2
+\end{align*}
+\end{jie}
+
+\EX 判断下列说法是否正确，并说明理由。
+
+(2)对任意数$a$和任意的正整数$n$,都存在一个$n$阶方阵$A$
+使得$|A|=a$。
+
+(3)如果$n$阶方阵$A$的每个$(i,j)-$元都是整数，则$|A|$一定
+是整数。
+
+(4) 设$A$是任意$n$阶方阵.则$|-A|=-|A|$。
+
+(5)设$A$,$B$是$n$阶方阵且$A\neq B$.则$|A|\neq |B|$。
+
+\begin{jie}
+(2)正确。例如：
+$
+\begin{vmatrix}
+ a&&&\\
+ &1&&\\
+ &&\ddots&\\
+ &&&1
+\end{vmatrix}$
+
+(3)正确。由于每个元素都是整数，所以$|A|$的定义式中的每一项都是整数，因此它们的和也是整数。
+
+(4)错误。由行列式的性质：$|kA|=k^{n}|A|$，所以$|-A|=(-1)^n|A|$，$n$为偶数时，才有$|-A|=-|A|$。
+
+(5)错误。例如：$A=
+\begin{pmatrix}
+1&0\\
+0&0
+\end{pmatrix},B=
+\begin{pmatrix}
+0&0\\
+0&1
+\end{pmatrix}
+$,$A\neq B$但是$|A|=|B|=0$
+\end{jie}
+
+\EX 用行列式的定义计算$n$阶行列式：
+\begin{equation*}
+|A|=
+\begin{vmatrix}
+a_{11}&a_{12}&\cdots&a_{1,n-1}&a_{1n}\\
+a_{21}&a_{22}&\cdots&a_{1,n-1}&0\\
+a_{31}&a_{32}&\cdots&0&0\\
+\vdots&\vdots&&\vdots&\vdots\\
+a_{n1}&0&\cdots&0&0\\
+\end{vmatrix}
+\end{equation*}
+
+\begin{jie}
+参照课本109页例3.3.7.
+
+任取$A$的行列式的定义式（107页式3.3.3或108页命题3.3.1，这里按3.3.3式来）中的一项：
+\begin{equation*}
+(-1)^{\tau(i_1i_2\cdots i_{n})}A(1,i_1)A(2,i_2)\cdots A(n-1,i_{n-1}),A(n,i_n)
+\end{equation*}
+
+假设$i_n\neq 1$，则$A(n,i_n)$一定为0，则该项也一定为0，所以不妨取$i_n=1$。
+
+由$n$元排列的定义，$i_{n-1}$只能从$2\sim n$中进行选取，假设$i_{n-1}\neq 2$，则$A(n-1,i_{n-1})$一定为0，则该项也一定为0，所以不妨取$i_{n-1}=2$。
+
+重复上述的讨论，如果$i_1i_2\cdots i_n\neq n(n-1)\cdots 321$时，其对应的行列式中的那一项一定为0.
+
+该排列所对应的逆序对共有$
+\dfrac{n(n-1)}{2}
+$（106页例3.3.2的结论）
+
+所以：$|A|=(-1)^{\tau(n(n-1)\cdots321)}a_{1n}a_{2,n-1}\cdots a_{n1}=(-1)^{\frac{n(n-1)}{2}}a_{1n}a_{2,n-1}\cdots a_{n1}$
+\end{jie}
+
+\EX 设$A$是$n$阶反对称矩阵，即$A^T=-A$。证明：如果$|A|\neq 0$,则$n$必然是偶数。
+
+\begin{zhengming}
+有行列式的性质：转置不改变行列式即$|A^T|=|A|$。对题目中的等式两端同时求行列式：
+$|A^T|=|A|=|-A|=(-1)^n|A|$。因为$|A|\neq 0$，所以$(-1)^n=1$，即$n$为偶数。
+\end{zhengming}
+
+\EX 判断下列说法是否正确，并说明理由。
+
+(1)设$A,B$是$n$阶方阵且$|A|>0$, $|B|>0$.则$|A+B|>0$。
+
+(2)设$A,B$是$n$阶方阵且$|A-B|=0$.则$|A|=|B|$。
+
+(3) 设$A$是$n$阶方阵，$n>1$,$k$是不等于$1$的数.则$|kA|=
+k|A|$一定不成立。
+
+(4)设$A,B$是$n$阶方阵.由于$A,B$不一定可交换，所以，
+$|AB|$与$|BA|$不一定相等。
+
+(5)设$A$是可逆的$n$阶方阵.则由$Ax=0$得$|A||x|=0$,从
+而$x=0$。
+
+\begin{jie}
+(1)错误。例如：$A=
+\begin{pmatrix}
+1&0\\
+0&1
+\end{pmatrix}
+,B=
+\begin{pmatrix}
+-1&0\\
+0&-1
+\end{pmatrix}$.
+
+(2)错误。例如：
+$
+A=\begin{pmatrix}
+1&0\\
+0&1
+\end{pmatrix},B=\begin{pmatrix}
+1&0\\
+0&-1
+\end{pmatrix}
+$
+
+(3)错误。$k=-1$且$n$为偶数时该等式成立。
+
+(4)错误。由行列式的性质：$|AB|=|A|\cdot|B|,|BA|=|B|\cdot |A|$，而行列式是数，数的乘法具有交换律即$|A|\cdot|B|=|B|\cdot |A|$，即$|AB|=|BA|$.
+
+(5)错误。此题是过程错误，而非结论错误。当$n>1$时，$x$为多行一列而非方阵，只有方阵才能谈论行列式，所以$|Ax|$是不存在行列式的。正确的做法是：$A$可逆所以$r(A)=n$，齐次方程，所以只有零解。
+\end{jie}
+
+\EX 设$A$是$n$阶方阵。证明：齐次线性方程组$Ax=0$有非零解$\Leftrightarrow$齐次线性方程组$A^kx=0$有非零解。其中$k$是任意的正整数。
+
+\begin{zhengming}
+\begin{align*}
+Ax=0\text{有非零解}~\Leftrightarrow~&r(A)<n~\Leftrightarrow~|A|=0\\
+~\Leftrightarrow~&|A|^k=0~\Leftrightarrow~|A^k|=0\\
+~\Leftrightarrow~&r(A^k)<0~\Leftrightarrow~A^{k}x=0\text{有非零解}
+\end{align*}
+\end{zhengming}
+
+\EX 判断下列说法是否正确，并说明理由。
+
+(1)用初等变换把方阵$A$变为上三角阵$J$,则$|A|$等于$J$的
+全部对角元的乘积。
+
+(2)设矩阵$A$的秩为$3$.则$A$的所有$3$阶子式都不为$0$。
+
+(3) 设非零矩阵$A$的所有$4$阶子式都为$0$,则$A$的秩一定是
+$3$。
+
+(7) 设线性方程组$Ax= \beta$的系数矩阵$A$是$n$阶方阵.如果
+$|A|=0$,则该方程组没有解。
+
+\begin{jie}
+(1)错误。例如：
+$A=
+\begin{pmatrix}
+0&1\\
+1&0
+\end{pmatrix}\rightarrow J=\begin{pmatrix}
+1&0\\
+0&1
+\end{pmatrix}
+$，但$|A|=-1$而$J$的对角元素的乘积为1.
+
+(2)错误。例如：
+$A=
+\begin{pmatrix}
+1&0&0&0\\
+0&1&0&0\\
+0&0&1&0\\
+0&0&0&0
+\end{pmatrix}
+$，秩为3，但是$A$的第$2,3,4$列和$2,3,4$行对应的三阶子式为0.
+
+(3)错误。例如：
+$A=
+\begin{pmatrix}
+1&0&0&0\\
+0&1&0&0\\
+0&0&0&0\\
+0&0&0&0
+\end{pmatrix}
+$，$A$的所有的四阶子式都为0，但$r(A)=2$。
+
+(7)错误。若$\beta=0$即该方程组为齐次线性方程组时，一定有解。
+\end{jie}
+
+\EX 记行列式
+$
+\begin{vmatrix}
+x-2&x-1&x-2&x-3\\
+2x-2&2x-1&2x-2&2x-3\\
+3x-3&3x-2&4x-5&3x-5\\
+4x&4x-3&5x-7&4x-3
+\end{vmatrix}
+$为$f(x)$。则方程$f(x)=0$的根的个数为\underline{\hphantom{~~~~~~~~}}。
+
+\begin{jie}
+由题得：
+\begin{align*}
+\text{原式}\xlongequal{\substack{ c_2-c_1\\ c_3-c_1\\ c_4-c_1}}
+\begin{vmatrix}
+x-2&1&0&-1\\
+2x-2&1&0&-1\\
+3x-3&1&x-2&-2\\
+4x&-3&x-7&-3
+\end{vmatrix}\xlongequal{\substack{ c_4+c_2}}
+\begin{vmatrix}
+x-2&1&0&0\\
+2x-2&1&0&0\\
+3x-3&1&x-2&-2\\
+4x&-3&x-7&-3
+\end{vmatrix}=\begin{vmatrix}
+               D_{11}&0\\
+               D_{21}&D_{22}
+              \end{vmatrix}
+\end{align*}
+式中：$D_{11}=
+\begin{vmatrix}
+x-2&1\\
+2x-2&1\\
+\end{vmatrix},D_{21}=
+\begin{vmatrix}
+3x-3&1\\
+4x&-3
+\end{vmatrix},D_{22}=
+\begin{vmatrix}
+x-2&-2\\
+x-7&-3
+\end{vmatrix}
+$，下三角阵的行列式计算公式为：
+\begin{equation*}
+D_{11}D_{22}=
+\begin{vmatrix}
+x-2&1\\
+2x-2&1\\
+\end{vmatrix}\begin{vmatrix}
+x-2&-2\\
+x-7&-3
+\end{vmatrix}=[(x-2)-2(x-1)][-3(x-2)+2(x-7)]=5x(x-1)
+\end{equation*}
+所以$f(x)$有两个根。
+\end{jie}
+
+\EX 设$f(x)=
+\begin{vmatrix}
+x-1 &1&-1&1\\
+-1&x+1&-1&1\\
+-1&1&x-1&1\\
+-1&1&-1&x+1
+\end{vmatrix}
+$，求$f(x)=0$的根。
+
+\begin{jie}
+由题得：
+\begin{align*}
+f(x)&\xlongequal{r_1-r_2}
+\begin{vmatrix}
+x &-x&0&0\\
+-1&x+1&-1&1\\
+-1&1&x-1&1\\
+-1&1&-1&x+1
+\end{vmatrix}\\ &\xlongequal{c_2+c_1}\begin{vmatrix}
+x &0&0&0\\
+-1&x&-1&1\\
+-1&0&x-1&1\\
+-1&0&-1&x+1
+\end{vmatrix}
+=x\begin{vmatrix}
+x&-1&1\\
+0&x-1&1\\
+0&-1&x+1
+\end{vmatrix}
+=x^2\begin{vmatrix}
+x-1&1\\
+-1&x+1
+\end{vmatrix}=x^4=0
+\end{align*}
+所以$f(x)=0$的根为$x_1=x_2=x_3=x_4=0$.
+\end{jie}
+
+\EX 求$f(\lambda)=
+\begin{vmatrix}
+\lambda &-2&2\\
+-2&\lambda-4&-4\\
+2&-4&\lambda+3
+\end{vmatrix}=0
+$的根。
+
+\begin{jie}
+由题得：
+\begin{equation*}
+f(\lambda)\xlongequal{r_3-2r_1}
+\begin{vmatrix}
+\lambda &-2&2\\
+-2&\lambda-4&-4\\
+2-2\lambda&0&\lambda-1
+\end{vmatrix}\xlongequal{c_1+2c_{3}}
+\begin{vmatrix}
+\lambda &-2&2\\
+-2&\lambda-4&-4\\
+0&0&\lambda-1
+\end{vmatrix}=(\lambda-1)[(\lambda+4)(\lambda-4)-20]=0
+\end{equation*}
+解得：$\lambda_1=1,\lambda_2=6,\lambda_3=-6$.
+\end{jie}
+
+\EX 设$f(x)=
+\begin{vmatrix}
+2x&x&1&2\\
+1&x-1&1&-1\\
+3&2&x&1\\
+1&1&1&x
+\end{vmatrix}
+$,求$f(x)$中$x^3$的系数。
+
+\begin{jie}
+把$f(x)$按第一行展开（或者其他行其他列展开）。可以看出，第一行第三列元素的代数余子式不含$x^3$，同理第一行第四列元素的代数余子式也不含该项。
+
+所以秩考虑前两个元素：
+\begin{equation*}
+2x\begin{vmatrix}
+x-1&1&-1\\
+2&x&1\\
+1&1&x
+\end{vmatrix}-x\begin{vmatrix}
+1&1&-1\\
+3&x&1\\
+1&1&x
+\end{vmatrix}
+\end{equation*}
+对上式中的第一项按第一行展开，发现只有第一行第一列元素对应的有$x^3$项（注意不要忘了乘系数$2x$）即：$2x(x-1)(x\cdot x-1)=-2x^{3}+(\text{其他不含$x^3$的项})$。
+
+同理对上式第二项按第一行第一列展开发现只有第一行第一列元素对应的有$x^3$项（注意不要忘了乘系数$-x$）：$-x\cdot 1\cdot(x\cdot x-1)=-x^3+(\text{其他不含$x^3$的项})$。
+
+所以$f(x)$中$x^3$的系数为$-3$。
+\end{jie}
+
+\EX 设$4$阶矩阵$A=(\alpha,\gamma_2,\gamma_3,\gamma_4),B=(\beta,\gamma_2,\gamma_3,\gamma_4)$，其中$\alpha,\beta,\gamma_2,\gamma_3,\gamma_4$均为$4$维列向量，且已知行列式$|A|=4,|B|=1$，则行列式$|A+B|=$\underline{\hphantom{~~~~~~~~~~~~}}。
+
+\begin{jie}
+由题得：$A+B=(\alpha+\beta,2\gamma_2,2\gamma_3,2\gamma_4)$。所以：(行列式的线性性质，课本111页引理3.3.3)
+\begin{equation*}
+|A+B|=|\alpha,2\gamma_2,2\gamma_3,2\gamma_4|+|\beta,2\gamma_2,2\gamma_3,2\gamma_4|=8|\alpha,\gamma_2,\gamma_3,\gamma_4|+8|\beta,\gamma_2,\gamma_3,\gamma_4|=8(|A|+|B|)=40
+\end{equation*}
+\end{jie}
+
+\EX 计算$n$阶行列式$
+D_n=
+\begin{vmatrix}
+5&3&&&\\
+2&5&3&&\\
+&2&5&\ddots&\\
+&&\ddots&\ddots&3\\
+&&&2&5
+\end{vmatrix}
+$，其中没有写出来的元素为零。
+
+\begin{jie}由题得：$D_1=5,D_{2}=
+\begin{vmatrix}
+5&3\\
+2&5
+\end{vmatrix}=19
+$
+按第一行展开：
+\begin{align*}
+D_n=5\begin{vmatrix}
+5&3&&\\
+2&5&\ddots&\\
+&\ddots&\ddots&3\\
+&&2&5
+\end{vmatrix}_{n-1}-3
+\begin{vmatrix}
+2&3&&\\
+&5&\ddots&\\
+&\ddots&\ddots&3\\
+&&2&5
+\end{vmatrix}_{n-1}=5D_{n-1}-3\times 2\begin{vmatrix}
+5&3&\\
+&\ddots&3\\
+&2&5
+\end{vmatrix}_{n-2}=5D_{n-1}-6D_{n-2}
+\end{align*}
+所以：$D_{3}=5D_{2}-6D_{1}=65$，$D_{n}-2D_{n-1}=3(D_{n-1}-2D_{n-2})$，从而
+\begin{equation*}
+D_{n}-2D_{n-1}=3^{n-2}(D_2-2D_1)=3^{n}
+\end{equation*}
+所以：
+\begin{align*}
+D_{n}&=3^{n}+2D_{n-1}=3^{n}+2(3^{n-1}+2D_{n-2})\\
+&=3^n+2\times 3^{n-1}+2^2D_{n-2}=3^n+2\times 3^{n-1}+2^2(3^{n-2}+2D_{n-3})=\cdots=\sum_{i=0}^{n-2}2^i3^{n-i}+2^{n-1}D_{1}\\
+&=\sum_{i=0}^{n-2}2^i3^{n-i}+2^{n-1}\times 3+2^n\\
+&=\sum_{i=0}^{n}2^i3^{n-i}\xlongequal{\text{等比数列求和}}3^{n+1}-2^{n+1}
+\end{align*}
+\end{jie}
+
+\EX 计算行列式$
+D=
+\begin{vmatrix}
+1&1&1&1\\
+1&2&0&0\\
+1&0&3&0\\
+1&0&0&4
+\end{vmatrix}
+$.
+
+\begin{jie}
+爪型行列式，求解如下（爪型行列式的求解方式一样）：
+\begin{align*}
+D\xlongequal{r_1-\frac{1}{4}r_4}
+\begin{vmatrix}
+\frac{3}{4}&1&1&\textcolor[rgb]{1.00,0.00,0.00}{0}\\
+1&2&0&0\\
+1&0&3&0\\
+1&0&0&4
+\end{vmatrix}\xlongequal{r_1-\frac{1}{3}r_3}
+\begin{vmatrix}
+\frac{5}{12}&1&\textcolor[rgb]{1.00,0.00,0.00}{0}&\textcolor[rgb]{1.00,0.00,0.00}{0}\\
+1&2&0&0\\
+1&0&3&0\\
+1&0&0&4
+\end{vmatrix}\xlongequal{r_1-\frac{1}{2}r_2}
+\begin{vmatrix}
+-\frac{1}{12}&\textcolor[rgb]{1.00,0.00,0.00}{0}&\textcolor[rgb]{1.00,0.00,0.00}{0}&\textcolor[rgb]{1.00,0.00,0.00}{0}\\
+1&2&0&0\\
+1&0&3&0\\
+1&0&0&4
+\end{vmatrix}=-\frac{1}{12}\times 2\times 3\times4=-2
+\end{align*}
+\end{jie}
+
+\EX 计算$n$阶行列式
+$D_{n}
+=\begin{vmatrix}
+a_1+b&a_2&\cdots&a_{n}\\
+a_1&a_2+b&\cdots&a_{n}\\
+\vdots&\vdots&\ddots&\vdots\\
+a_1&a_2&\cdots&a_{n}+b
+ \end{vmatrix}
+$。
+
+\begin{jie}
+\begin{align*}
+D_{n}&\xlongequal{c_1+c_2+\cdots+c_n}
+\begin{vmatrix}
+a_1+a_2+\cdots+a_{n}+b&a_2&\cdots&a_{n}\\
+a_1+a_2+\cdots+a_{n}+b&a_2+b&\cdots&a_{n}\\
+\vdots&\vdots&\ddots&\vdots\\
+a_1+a_2+\cdots+a_{n}+b&a_2&\cdots&a_{n}+b
+ \end{vmatrix}\\
+ &\xlongequal{\substack{r_2-r_1\\ r_3-r_1\\ \vdots\\r_n-r_1}}
+ \begin{vmatrix}
+a_1+a_2+\cdots+a_{n}+b&a_2&\cdots&a_{n}\\
+0&b&\cdots&0\\
+\vdots&\vdots&\ddots&\vdots\\
+0&0&\cdots&b
+ \end{vmatrix}=(a_1+a_2+\cdots+a_{n}+b)b^{n-1}\\
+ &=b+b^{n-1}\sum_{i=1}^{n}a_i
+\end{align*}
+\end{jie}
+
+\EX 计算$n$阶行列式$
+D_{n}=
+\begin{vmatrix}
+1&x_1&\cdots&x_1^{n-1}\\
+1&x_2&\cdots&x_2^{n-1}\\
+\vdots&\vdots&\ddots&\vdots\\
+1&x_n&\cdots&x_n^{n-1}\\
+\end{vmatrix}
+$.
+
+\begin{jie}
+范德蒙行列式，原式$=
+(x_{n}-x_{n-1})(x_{n}-x_{n-2})\cdots(x_{2}-x_{1})=\prod\limits_{1\leq j<i\leq n}(x_i-x_j)
+$
+\end{jie}
+
+\EX 计算$n$阶行列式$D=
+\begin{vmatrix}
+a_1&b_1&0&\cdots&0&0\\
+0&a_2&b_2&\cdots&0&0\\
+0&0&a_3&\cdots&0&0\\
+\vdots&\vdots&\ddots&\ddots&\ddots&\vdots\\
+0&0&0&\cdots&a_{n-1}&b_{n-1}\\
+b_{n}&0&0&\cdots&0&a_n
+\end{vmatrix}
+$.
+
+\begin{jie}
+按第一列展开：
+\begin{align*}
+D&=a_{1}
+\begin{vmatrix}
+a_2&b_2&\cdots&0&0\\
+0&a_3&\cdots&0&0\\
+\vdots&\ddots&\ddots&\ddots&\vdots\\
+0&0&\cdots&a_{n-1}&b_{n-1}\\
+0&0&\cdots&0&a_n
+\end{vmatrix}+b_{n}(-1)^{n+1}
+\begin{vmatrix}
+b_1&0&\cdots&0&0\\
+a_2&b_2&\cdots&0&0\\
+0&a_3&\cdots&0&0\\
+\vdots&\ddots&\ddots&\ddots&\vdots\\
+0&0&\cdots&a_{n-1}&b_{n-1}
+\end{vmatrix}\\
+&=a_1a_2\cdots a_{n}+(-1)^{n+1}b_1b_2\cdots b_n\\
+&=\prod_{i=1}^{n}a_i+(-1)^{n+1}\prod_{i=1}^{n}b_i
+\end{align*}
+\end{jie}
+
+\EX 计算行列式$
+D=\begin{vmatrix}
+a_1+x&a_2&a_3&a_4\\
+-x&x&0&0\\
+0&-x&x&0\\
+0&0&-x&x
+  \end{vmatrix}
+$。
+
+\begin{jie}
+按第一列展开：
+\begin{align*}
+D=
+(a_1+x)
+\begin{vmatrix}
+x&0&0\\
+-x&x&0\\
+0&-x&x
+\end{vmatrix}-x\cdot(-1)^{2+1}
+\begin{vmatrix}
+a_2&a_3&a_4\\
+-x&x&0\\
+0&-x&x
+\end{vmatrix}=(a_1+x)x^3-x\cdot(-1)^{2+1}
+\begin{vmatrix}
+a_2&a_3&a_4\\
+-x&x&0\\
+0&-x&x
+\end{vmatrix}
+\end{align*}
+上式中第二项:
+\begin{equation*}
+\xlongequal{c_2+c_3}\begin{vmatrix}
+a_2&a_3+a_4&a_4\\
+-x&x&0\\
+0&0&x
+\end{vmatrix}=x
+\begin{vmatrix}
+a_2&a_3+a_4\\
+-x&x
+\end{vmatrix}=x(a_2x+x(a_3+a_4))
+\end{equation*}
+代入$D$中得：$D=(a_1+a_2+a_3+a_4)x^3+x^4=\left(x+\sum\limits_{i=1}^{4}a_i\right)x^3$
+\end{jie}
+
+\EX 计算行列式$
+D=
+\begin{vmatrix}
+x&-1\\
+&x&-1\\
+&&\ddots&\ddots\\
+&&&\ddots&\ddots\\
+&&&&x&-1\\
+a_{n}&a_{n-1}&\cdots&\cdots&a_2&a_1+x
+\end{vmatrix}
+$，其中没有写出来的元素为0.
+
+\begin{jie}
+\begin{align*}
+D&\xlongequal{c_2+\frac{c_1}{x}}
+\begin{vmatrix}
+x&\textcolor[rgb]{1.00,0.00,0.00}{0}\\
+&x&-1\\
+&&\ddots&\ddots\\
+&&&\ddots&\ddots\\
+&&&&x&-1\\
+a_{n}&\textcolor[rgb]{1.00,0.00,0.00}{a_{n-1}+\frac{a_n}{x}}&\cdots&\cdots&a_2&a_1+x
+\end{vmatrix}\\ &\xlongequal{c_3+\frac{c_2}{x}}
+\begin{vmatrix}
+x&\textcolor[rgb]{1.00,0.00,0.00}{0}\\
+&x&\textcolor[rgb]{1.00,0.00,0.00}{0}\\
+&&\ddots&\ddots\\
+&&&\ddots&\ddots\\
+&&&&x&-1\\
+a_{n}&\textcolor[rgb]{1.00,0.00,0.00}{a_{n-1}+\frac{a_n}{x}}&\textcolor[rgb]{1.00,0.00,0.00}{a_{n-2}+\frac{a_n}{x^2}+\frac{a_{n-1}}{x}}&\cdots&a_2&a_1+x
+\end{vmatrix}
+\\
+\hphantom{~~~~~~~~~~~~~~~~~~}\vdots
+\\
+&=\begin{vmatrix}
+x\\
+&x\\
+&&\ddots\\
+&&&\ddots\\
+&&&&\ddots&\\
+a_{n}&\textcolor[rgb]{1.00,0.00,0.00}{a_{n-1}+\frac{a_n}{x}}&\textcolor[rgb]{1.00,0.00,0.00}{a_{n-2}+\frac{a_n}{x^2}+\frac{a_{n-1}}{x}}&\cdots&\cdots&a_1+a_2x^{-1}+a_{3}x^{-2}+\cdots+a_nx^{-(n-1)}+x
+\end{vmatrix}
+\\
+&=x^{n-1}(a_1+a_2x^{-1}+a_{3}x^{-2}+\cdots+a_nx^{-(n-1)}+x)\\
+&=a_1x^{n-1}+a_2x_{n-2}+\cdots+a_nx^{n-n}+x^{n}\\
+&=x^{n}+\sum_{i=1}^{n}a_ix^{n-i}
+\end{align*}
+\end{jie}
 \clearpage
 \section{第七次线性代数}
+\EX 判断下列说法是否正确，并说明理由。
 
+(1)设$A$为$n$阶方阵。任意给定两个$n$元排列$i_1i_2\cdots i_n$和$j_1j_2\cdots j_n$，则乘积
+\begin{equation*}
+A(i_1,j_1)A(i_2,j_2)\cdots A(i_n,j_n)
+\end{equation*}
+一定出现在$n$阶行列式$|A|$的定义式中 。
+
+\begin{jie}
+(1)正确。理由：数的乘法满足交换律，而$i_1i_2\cdots i_n$是行指标的一个排列，所以：
+\begin{equation*}
+A(i_1,j_1)A(i_2,j_2)\cdots A(i_n,j_n)=A(1,k_1)A(2,k_2)\cdots A(n,k_n)
+\end{equation*}
+其中$k_1k_2\cdots k_n$是列指标的一个排列。所以结论成立，且乘积在行列式的定义式中带符号$(-1)^{\tau(k_1k_2\cdots k_n)}$。
+\end{jie}
+
+\EX 设$A$是$m$阶方阵，$B$是$n$阶方阵，且$|A|=a$,$|B|=b$,$
+C=
+\begin{pmatrix}
+0&A\\
+B&0
+\end{pmatrix}
+$.求$|C|$。
+
+\begin{jie}
+设$A$的列向量组为$\alpha_1,\cdots,\alpha_m$。先交换$C$的第$n+1$列与第$n$列，再交换第$n$列与第$n-1$列，$\cdots$，再交换第二列与第一列，即$|C|=
+(-1)^n
+\begin{vmatrix}
+\alpha_1&0&\alpha_2&\cdots&a_m\\
+0&B&0&\cdots&0
+\end{vmatrix}
+$，同理按照上述方法，把$C$的$n+2$列交换到$C$的第二列，依次类推，这样的步骤共要执行$m$次，每次都进行了$n$次交换，所以最终的结果为：
+\begin{equation*}
+  |C|=(-1)^{nm}
+  \begin{vmatrix}
+   A&0\\
+   0&B
+  \end{vmatrix}=(-1)^{nm}|A|\cdot|B|=(-1)^{nm}ab
+\end{equation*}
+\end{jie}
+
+\EX 设三阶方阵$A,B$满足$A^2B-A-B=E$，其中$E$为三阶单位矩阵，若$
+A=
+\begin{pmatrix}
+1&0&1\\
+0&2&0\\
+-2&0&1
+\end{pmatrix}
+$，则$|B|=$\underline{\hphantom{~~~~~~~~~~}}。
+
+\begin{jie}
+由题得：$A^2B-B=A+E~\rightarrow~(A^2-E)B=A+E~\rightarrow~(A+E)(A-E)B=A+E$。
+
+\begin{equation*}
+|A+E|=
+\begin{vmatrix}
+2&0&1\\
+0&3&0\\
+-2&0&2
+\end{vmatrix}=18\neq 0
+\end{equation*}
+所以$A+E$可逆，等式两边同左乘$(A+E)^{-1}$：$(A-E)B=E$，所以$|(A-E)B|=|A-E|\cdot|B|=|E|=1$.所以：
+\begin{equation*}|B|=
+\begin{vmatrix}
+0&0&1\\
+0&1&0\\
+-2&0&1
+\end{vmatrix}^{-1}=\frac{1}{2}
+\end{equation*}
+\end{jie}
+
+\EX 设$\alpha_1,\alpha_2,\alpha_3$均为三维列向量，记矩阵$A=
+(\alpha_1,\alpha_2,\alpha_3)
+$,$B=(\alpha_1+\alpha_2+\alpha_3,\alpha_1+2\alpha_2+3\alpha_3,\alpha_1+4\alpha_2+9\alpha_3)$，如果$|A|=1$,则$|B|=$\underline{\hphantom{~~~~~~~~~~}}。
+
+\begin{jie}
+作业\textcolor[rgb]{1.00,0.00,0.00}{第三次线性代数}例2.21。
+
+\begin{align*}
+C\xlongequal{\substack{r_2-r_1\\ r_3-r_1}}
+\begin{pmatrix}
+1&1&1\\
+0&1&3\\
+0&2&8
+\end{pmatrix}=2
+\end{align*}
+所以$|B|=|AC|=|A||C|=2$
+\end{jie}
+
+\EX 判断下列说法是否正确，并说明理由。
+
+(4)两个不相等的$n$阶方阵的伴随矩阵也不相等。
+
+(5)存在$3$阶方阵，使得其伴随矩阵的秩为$2$。
+
+(6)设线性方程组$Ax= \beta$的系数矩阵$A$是$n$阶方阵。如果
+$|A|\neq 0$,则该方程组有唯一解$x=\dfrac{1}{|A|}A^*\beta$。
+
+\begin{tips}
+伴随矩阵的性质：
+
+\begin{asparaenum}[(1)]
+\item $A$可逆当且仅当$A^*$可逆.
+\item 如果$A$可逆，则$A^*=|A|A^{-1}$
+\item 对于$A^*$的秩有（证明见课本121页例3.3.23）
+\begin{equation*}
+r(A^*)
+  \begin{cases}
+    n,~~r(A)=n;\\
+    1,~~r(A)=n-1;\\
+    0,~~r(A)<n-1
+  \end{cases}
+\end{equation*}
+\item $|A^*|=|A|^{n-1}$
+\item $(kA)^*=k^{n-1}A^*$
+\item 若$A$可逆，则$(A^{-1})^*=(A^*)^{-1}$
+\item $(A^T)^*=(A^*)^T$
+\item $(AB)^*=B^*A^*$
+\item $AA^*=A^*A=|A|E$
+\end{asparaenum}
+\hphantom{.}
+\end{tips}
+
+\begin{jie}
+(4)错误。例如：$A=
+\begin{pmatrix}
+1&0&0\\
+0&0&0\\
+0&0&0
+\end{pmatrix},B=\begin{pmatrix}
+0&0&0\\
+0&1&0\\
+0&0&0
+\end{pmatrix}
+$
+
+(5)错误。理由：课本121页例3.3.23.
+
+(6)正确。理由：$A$的行列式不为0，则可逆，等式两边同时左乘$A^{-1}$：$x=A^{-1}\beta=\dfrac{1}{|A|}A^*\beta$。(性质2)
+\end{jie}
+
+\EX 设$A$是$3$阶方阵且$|A|=2$分别求$|(A^{-1})^*|$ 和
+$|(A^*)^*|$的值.
+
+\begin{jie}
+此题说的性质指的是例3.24中给出的性质。
+
+由性质6和性质2得：
+\begin{equation*}
+(A^{-1})^*=(A^*)^{-1}=(|A|A^{-1})^{-1}=\frac{A}{2}~~\Rightarrow~~|(A^{-1})^*|=\left|\frac{A}{2}\right|=\left(\frac{1}{2}\right)^3|A|=\frac{1}{4}
+\end{equation*}
+
+由性质2得：$(A^*)^*=(|A|A^{-1})^*=(2A^{-1})^*$，由性质5得：
+\begin{equation*}
+  (2A^{-1})^*=2^{3-1}(A^{-1})^*=4(A^{-1})^*~~~\Rightarrow~~~|(A^*)^*|=|4(A^{-1})^*|=4^3\times\frac{1}{4}=16
+\end{equation*}
+\end{jie}
+
+\EX 设$A$是3阶方阵且它的伴随矩阵为：$A^*=
+\begin{pmatrix}
+1&-1&2\\
+-1&1&-2\\
+3&-3&6
+\end{pmatrix}$，求齐次线性方程组$Ax=0$的通解。
+
+\begin{jie}
+此题说的性质指的是例3.24中给出的性质。
+
+由题得：$r(A^*)=1$，所以由性质3得：$r(A)=2<3$，所以$|A|=0$。
+
+所以$Ax=0$有无穷多解。由性质9得：$AA^*=|A|I=0$，所以$A^*$中的每一列向量均为$Ax=0$的解。任取$A^*$中的一列（以第一列为例）$\xi=(1,-1,3)^T$，则$Ax=0$的通解为$x=k\xi,k\in R$。
+\end{jie}
+
+\EX 设矩阵$A,B$满足$A^*BA=2BA-8E$，其中$E$是3阶单位矩阵，$A^*$是$A$的伴随矩阵，$
+A=
+\begin{pmatrix}
+1&0&0\\
+0&-2&0\\
+0&0&1
+\end{pmatrix}
+$，则矩阵$B=$\underline{\hphantom{~~~~~~~~}}。
+
+\begin{jie}
+$|A|=-2,A^*=|A|A^{-1}=-2A^{-1}$。所以：
+\begin{align*}
+A^*BA=-2A^{-1}BA=2BA-8E~\rightarrow~2BA+2A^{-1}BA=8E~\rightarrow~(E+A^{-1})BA=4E
+\end{align*}
+等式两边同时左乘$(E+A^{-1})$，右乘$A^{-1}$：(下式中用到了可逆矩阵的性质：$(AB)^{-1}=B^{-1}A^{-1}$)
+%\begin{equation*}
+%  |(E+A)^{-1}BA|=|(E+A)^{-1}||B||A|=|E+A|^{-1}|B||A|=4
+%\end{equation*}
+%式中：
+\begin{equation*}
+B=4(E+A^{-1})^{-1}A^{-1}=4[A(E+A^{-1})]^{-1}=4(A+E)^{-1}
+\end{equation*}
+\begin{equation*}
+A+E=
+\begin{pmatrix}
+2\\
+&-1\\
+&&2
+\end{pmatrix}
+\end{equation*}
+对角阵的逆等于对角线上每个元素的倒数，所以：
+\begin{equation*}
+B=4(A+E)^{-1}=4
+\begin{pmatrix}
+\frac{1}{2}\\
+&-1\\
+&&\frac{1}{2}
+\end{pmatrix}=
+\begin{pmatrix}
+2\\
+&-4\\
+&&2
+\end{pmatrix}
+\end{equation*}
+\end{jie}
+
+\EX 设3阶方阵$A,B$满足$(A^*)^{-1}B=ABA+2A^2$，已知$
+A=
+\begin{pmatrix}
+1&2&0\\
+2&3&0\\
+1&2&3
+\end{pmatrix}
+$，求$B$。
+
+\begin{jie}
+由题得$|A|=3\times (1\times 3-2\times 2)=-3\neq 0$，所以$A$可逆。所以$A^*=|A|A^{-1}=-3A^{-1}$。所以：
+\begin{equation*}
+(A^*)^{-1}B=(-3)^{-1}AB=ABA+2A^2~\Rightarrow~AB\left(-\frac{1}{3}E-A\right)=2A^2~\Rightarrow~B=2A\left(-\frac{1}{3}E-A\right)^{-1}=-6A(3A+E)^{-1}
+\end{equation*}
+所以（求逆的过程略）：
+\begin{equation*}
+3A+E=
+\begin{pmatrix}
+4&6&0\\
+6&10&0\\
+3&6&10
+\end{pmatrix}~~\Rightarrow~(3A+E)^{-1}=
+\begin{pmatrix}
+2.5&-1.5&0\\
+-1.5&1&0\\
+0.15&-0.15&0.1
+\end{pmatrix}~\Rightarrow~B=-6A(3A+E)^{-1}=
+\begin{pmatrix}
+-3&-3&0\\
+-3&0&0\\
+0.3&-0.3&-1.8
+\end{pmatrix}
+\end{equation*}
+\end{jie}   
+
+\EX 设$A$是$n(n\geq2)$阶可逆矩阵，交换$A$的第$1$行与
+第$2$行得矩阵$B$,$A^*$,$B^*$分别为$A$,$B$的伴随矩阵，则下列说
+法正确的是( )
+
+(A)交换$A^*$的第1列与第2列得$B^*$.
+
+(B)交换$A^*$的第1行与第2行得$B^*$.
+
+(C)交换$A^*$的第1列与第2列得$-B^*$.
+
+(D)交换$A^*$的第1行与第2行得$-B^*$.
+
+\begin{jie}
+由课本83页定理3.1.1得：$B=E_{12}A$，所以$
+B^*=(E_{12}A)^*=A^*E_{12}^*
+$.式中：
+\begin{equation*}
+E_{12}=
+\begin{pmatrix}
+0&1&0\\
+1&0&0\\
+0&0&1
+\end{pmatrix}\Rightarrow~|E_{12}|=-1~~\Rightarrow~E_{12}^*=|E_{12}|E_{12}^{-1}=-E_{12}^{-1}=-E_{12}
+\end{equation*}
+所以$B^*=A^*(-E_{12})=-A^*E_{12}$，即选项C。
+\end{jie}
+
+\EX 已知$Q=
+\begin{pmatrix}
+1&2&3\\
+2&4&t\\
+3&6&9
+\end{pmatrix}
+$,
+$P$为3阶非零矩阵，且满足
+$PQ=0$.则下列说法正确的是( )
+
+(A) $t=6$时，$P$的秩必为1.
+
+(B) $t=6$时,$P$的秩必为2.
+
+(C)$t\neq 6$时，$P$的秩必为1.
+
+(D)$t\neq6$时，$P$的秩必为2.
+
+\begin{jie}
+$P$为非零矩阵，则必有$r(P)\geq 1$。
+
+因为$PQ=0$,所以$r(P)+r(Q)\leq n=3$。（矩阵秩的性质，第4次线性代数作业答案例2.26中给出的第8条）
+
+(1)$t=6$时，$r(Q)=1$,代入上边两个不等式：$1\leq r(P)\leq 3-1=2$，所以$r(P)=1$或$2$。
+
+(2)$t\neq 6$时，$r(Q)=2$，代入上边两个不等式：$1\leq r(P)\leq 3-2=1$，所以$r(P)=1$。
+
+综上，选$C$。
+\end{jie}
+
+\EX 设$A=
+\begin{pmatrix}
+1&2&-2\\
+4&t&3\\
+3&-1&1
+\end{pmatrix}
+$,$B$为3阶非零矩阵，且$AB=0$。则$t=$\underline{\hphantom{~~~~~~~~}}。
+
+\begin{jie}
+由题得：$B$为非零矩阵，而$AB=0$，说明$B$的非零列向量为$Ax=0$的非零解，即$Ax=0$有非零解，即$|A|=0$。
+\begin{equation*}
+|A|\xlongequal{r_1+2r_3}
+\begin{vmatrix}
+7&0&0\\
+4&t&3\\
+3&-1&1
+\end{vmatrix}=7(t+3)=0~~~\Rightarrow~~t=-3
+\end{equation*}
+\end{jie}
 \chapter{第八次线性代数}
 \EX 计算：
 \begin{equation*}
