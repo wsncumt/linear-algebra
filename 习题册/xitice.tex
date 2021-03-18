@@ -227,7 +227,7 @@ x_1\hphantom{+x_2-x_3}=3\\
 \end{cases}
 $
 
-(2))$
+(2)$
 \begin{cases}
 x_1+\hphantom{2} x_2-2x_3+\hphantom{2}x_4=1\\
 \hphantom{x_1}-2x_2+\hphantom{2}x_3-2x_4=2\\
@@ -1257,7 +1257,7 @@ A&\xrightarrow{\substack{r_{1}\leftrightarrow r_2}}{
 \begin{jie}
 令$A=
 \begin{pmatrix}
-\alpha_1\\ \alpha_2\\ \alpha_3\\ \alpha_4
+\alpha_1& \alpha_2& \alpha_3& \alpha_4
 \end{pmatrix}
 $则：
 \begin{align*}
@@ -1530,7 +1530,7 @@ $\xi_1
 
 $\xi_1,\xi_2,\xi_3$即为所求。
 
-(\uppercase\expandafter{\romannumeral1})
+(\uppercase\expandafter{\romannumeral2})
 由题得：
 \begin{equation*}
 A\xrightarrow{\substack{r_2-2r_1\\ r_3-r_1}}{\begin{pmatrix}
@@ -2591,7 +2591,7 @@ $同解。求$a,b,c$的值。
 \end{pmatrix}
 }
 \end{equation*}
-所以：$x_1=-x_3,x_2=-x_3$，取$x_3=-1$。则基础解系为$\xi_1=(1,1,-1)^T$的一个基础解系。
+所以：$x_1=-x_3,x_2=-x_3$，取$x_3=-1$。则基础解系为$\xi_1=(1,1,-1)^T$。
 
 (\uppercase\expandafter{\romannumeral1})、(\uppercase\expandafter{\romannumeral2})同解，所以把该基础解系代入(\uppercase\expandafter{\romannumeral2})有：
 \begin{equation*}
@@ -2688,7 +2688,13 @@ ABC=\begin{pmatrix}
 \end{equation*}
 \end{jie}
 
-\EX
+\EX 利用线性方程组的向量形式重新证明引理2.4.1.
+
+引理2.4.1:设一个非齐次方程组有无穷多个解。任意取定它的一个解$\gamma_0$，则该方程组的全部解为$\gamma_0+\gamma$,其中$\gamma$为导出组的任意一个解。
+
+\begin{zhengming}
+导出组为$Ax=0$，$\gamma$为$Ax=0$的解，即$A\gamma=0$,$\gamma_0$为$Ax=\beta$的解，即$A\gamma_0=\beta$，所以$A(\gamma_0+\gamma)=A\gamma_0+A\gamma=0+\beta=\beta$，即$(\gamma_0+\gamma)$为$Ax=\beta$的解。
+\end{zhengming}
 
 \EX 判断下列说法是否正确，并说明理由。
 
@@ -2752,7 +2758,22 @@ a_{m1}&a_{m2}&\cdots&a_{mn}
 \end{pmatrix}
 $，由题意，对于$A$的任意一行都有$a_{i1}b_1+a_{i2}b_2+\cdots+a_{in}b_n=0$,由于$b_i$取值的任意性，所以$a_{i1} = a_{i2}=\cdots=a_{in}0$，即$A=0$。
 \end{jie}
-\EX
+
+\EX 已知$\beta_1,\beta_2$是非齐次线性方程组$Ax=b$的两个不同的解，$\alpha_1,\alpha_2$是对应的齐次行线方程组$Ax=0$的基础解系，$k_1,k_2$为任意常数，则方程组$Ax=b$的通解必是（\hphantom{~~~~~~~~~~~~~}）。
+
+(A)$k_1\alpha_1+k_2(\alpha_1+\alpha_2)+\dfrac{\beta_1-\beta_2}{2}$;
+
+(B)$k_1\alpha_1+k_2(\alpha_1-\alpha_2)+\dfrac{\beta_1+\beta_2}{2}$;
+
+(C)$k_1\alpha_1+k_2(\beta_1+\beta_2)+\dfrac{\beta_1-\beta_2}{2}$;
+
+(D)$k_1\alpha_1+k_2(\beta_1-\beta_2)+\dfrac{\beta_1+\beta_2}{2}$;
+
+\begin{jie}
+非齐次的通解为$Ax=b$的特解+$Ax=0$的通解，同时还要满足$Ax=b$的特解与$Ax=0$的通解中的各向量组成的向量组线性无关。
+
+把$A,B,C,D$选项代入$Ax=b$后发现$A,C$不符合要求，排除。$D$选项中，$\beta_1-\beta_2$为$Ax=0$的一个基础解系，但其可能与$\alpha_1$线性相关。（由题目并不能得出这两个向量是否线性相关，也就是有线性相关的可能性），所以排除$D$。
+\end{jie}
 
 \EX 已知方程组
 $
@@ -3636,6 +3657,8 @@ $的秩等于$r(A)+r(C)$
 
 (4)设$A,B$是$n$阶方阵，则$A,B$可交换$\Leftrightarrow A^{-1},B^{-1}$可交换。
 
+(5)如果矩阵$A,B$可以相乘，则它们的分块矩阵也能够相乘。
+
 \begin{jie}
 (1)错误，例：$A=
 \begin{pmatrix}
@@ -3662,6 +3685,8 @@ $,则$r(A)=1,r(C)=1,$而准上三角阵的秩为3，不等于$r(A)+r(C)$。准�
 $\Rightarrow$:$A,B$可交换，则有$AB=BA$，两边同时求逆，即$(AB)^{-1}=(BA)^{-1}$,由可逆矩阵的性质$(AB)^{-1}=\textcolor[rgb]{1.00,0.00,0.00}{B^{-1}A^{-1}}=(BA)^{-1}=\textcolor[rgb]{1.00,0.00,0.00}{A^{-1}B^{-1}}$。即$A^{-1},B^{-1}$可交换。
 
 $\Leftarrow$:思路同$\Rightarrow$,过程略。
+
+(5)错误。理由：只有在$A$的列分法等于$B$的行分法时才可以相乘。
 \end{jie}
 
 \EX 设$n$阶方阵$A$不是数量阵且满足$A^2-5A+6I_n=0$，$a$是数。证明$A-aI_n$可逆$\Leftrightarrow$ $a\neq 2$且$a\neq3$。
@@ -4366,7 +4391,146 @@ $，所以$A=
 $。
 \end{jie}
 
-\EX
+\EX 已知$X=AX+B$，其中，$A=
+\begin{pmatrix}
+0&1&0\\
+-1&1&1\\
+-1&0&-1
+\end{pmatrix},B=
+\begin{pmatrix}
+1&-1\\
+2&0\\
+5&-3
+\end{pmatrix}
+$，求矩阵$X$。
+
+\begin{jie}
+由$X=AX+B$得$(E-A)X+B$,其中
+\begin{equation*}
+E-A=\begin{pmatrix}
+1&0&0\\
+0&1&0\\
+0&0&1
+\end{pmatrix}-\begin{pmatrix}
+0&1&0\\
+-1&1&1\\
+-1&0&-1
+\end{pmatrix}=
+\begin{pmatrix}
+1&-1&0\\
+1&0&-1\\
+1&0&2
+\end{pmatrix}
+\end{equation*}
+增广矩阵：
+\begin{align*}
+(E-A|B)=&
+\left(
+ \begin{array}{c:c}
+\begin{matrix}
+1&-1&0\\
+1&0&-1\\
+1&0&2
+\end{matrix}&
+\begin{matrix}
+1&-1\\
+2&0\\
+5&-3
+\end{matrix}
+\end{array}
+\right)\xrightarrow{\substack{r_{2}- r_{1}\\ r_3-r_1}}
+{
+\left(
+ \begin{array}{c:c}
+\begin{matrix}
+1&-1&0\\
+0&1&-1\\
+0&1&2
+\end{matrix}&
+\begin{matrix}
+1&-1\\
+1&1\\
+4&-2
+\end{matrix}
+\end{array}
+\right)
+}\xrightarrow{\substack{r_3-r_2}}
+{
+\left(
+ \begin{array}{c:c}
+\begin{matrix}
+1&-1&0\\
+0&1&-1\\
+0&0&3
+\end{matrix}&
+\begin{matrix}
+1&-1\\
+1&1\\
+3&-3
+\end{matrix}
+\end{array}
+\right)
+}\\ &\xrightarrow{\substack{r_3\div 3}}
+{
+\left(
+ \begin{array}{c:c}
+\begin{matrix}
+1&-1&0\\
+0&1&-1\\
+0&0&1
+\end{matrix}&
+\begin{matrix}
+1&-1\\
+1&1\\
+1&-1
+\end{matrix}
+\end{array}
+\right)
+}\xrightarrow{\substack{r_2+r_3}}
+{
+\left(
+ \begin{array}{c:c}
+\begin{matrix}
+1&-1&0\\
+0&1&0\\
+0&0&1
+\end{matrix}&
+\begin{matrix}
+1&-1\\
+2&0\\
+1&-1
+\end{matrix}
+\end{array}
+\right)
+}\xrightarrow{\substack{r_1+r_2}}
+{
+\left(
+ \begin{array}{c:c}
+\begin{matrix}
+1&0&0\\
+0&1&0\\
+0&0&1
+\end{matrix}&
+\begin{matrix}
+3&-1\\
+2&0\\
+1&-1
+\end{matrix}
+\end{array}
+\right)
+}
+\end{align*}
+由最简阶梯型矩阵可以看出：
+\begin{equation*}
+ X=
+ \begin{pmatrix}
+3&-1\\
+2&0\\
+1&-1
+ \end{pmatrix}
+\end{equation*}
+\end{jie}
+
 
 \EX 设3阶方阵$A,B$满足$A^{-1}BA=6A+BA$,且$A
 \begin{pmatrix}
@@ -4827,7 +4991,7 @@ $，求$B$。
 0.3&-0.3&-1.8
 \end{pmatrix}
 \end{equation*}
-\end{jie}  
+\end{jie}
 
 \EX 设$A$是$n(n\geq2)$阶可逆矩阵，交换$A$的第$1$行与
 第$2$行得矩阵$B$,$A^*$,$B^*$分别为$A$,$B$的伴随矩阵，则下列说
@@ -4856,7 +5020,88 @@ E_{12}=
 所以$B^*=A^*(-E_{12})=-A^*E_{12}$，即选项C。
 \end{jie}
 
-\EX
+\EX 已知$a,b$是常数，解线性方程组.
+\begin{equation*}
+\begin{cases}
+ax_1+x_2+x_3=4\\
+ax_1+x_2+2x_3=2\\
+x_1+x_2+bx_3=1
+\end{cases}
+\end{equation*}
+
+\begin{jie}
+由题得增广矩阵：
+\begin{equation*}
+\widetilde{A}=
+\begin{pmatrix}
+a&1&1&4\\
+a&1&2&2\\
+1&1&b&1
+\end{pmatrix}\xrightarrow{\substack{r_2-r_1}}
+{
+\begin{pmatrix}
+a&1&1&4\\
+0&0&1&-2\\
+1&1&b&1
+\end{pmatrix}
+}
+\end{equation*}
+可以得出：$x_3=-2$。把$x_3=-2$代入原方程组得：
+\begin{equation*}
+\begin{cases}
+ax_1+x_2-2=4\\
+ax_1+x_2-4=2\\
+x_1+x_2-2b=1
+\end{cases}~~~\Rightarrow~~~
+\begin{cases}
+ax_1+x_2=6\\
+x_1+x_2=1+2b
+\end{cases}
+\end{equation*}
+对新方程组列增广矩阵并进行高斯消元：
+\begin{align*}
+\widetilde{A}'=
+\begin{pmatrix}
+a&1&6\\
+1&1&1+2b
+\end{pmatrix}\xrightarrow{\substack{r_2\leftrightarrow r_1}}
+{
+\begin{pmatrix}
+1&1&1+2b\\
+a&1&6
+\end{pmatrix}
+}\xrightarrow{\substack{r_2-a r_1}}
+{
+\begin{pmatrix}
+1&1&1+2b\\
+0&1-a&6-a(1+2b)
+\end{pmatrix}
+}
+\end{align*}
+当$a-1=0$且$6-a(1+2b)\neq 0$时，$r(A')\neq r(\widetilde{A}')$,此时线性方程组无解。即$a=1,b\neq 2.5$.
+
+当$a-1=0$且$6-a(1+2b)=0$时，$r(A')=r(\widetilde{A}')<2$,此时线性方程组有无穷解。即$a=1,b= 2.5$.代入原阶梯形矩阵后得：
+$x_1=6-x_2$，取$x_2=k$，所以原方程组的解为(注意别忘了$x_3$)：
+\begin{equation*}
+  x=
+  \begin{pmatrix}
+   6-k\\ k\\ -2
+  \end{pmatrix}=
+  \begin{pmatrix}
+    6\\ 0\\ -2
+  \end{pmatrix}+k\begin{pmatrix}
+                  -1\\ 1\\ 0
+                \end{pmatrix},k\in R
+\end{equation*}
+
+当$a-1\neq 0$时，$r(A')=r(\widetilde{A}')=2$，此时线性方程组有唯一解。把$a-1$代入上述阶梯矩阵后进行高斯消元（高斯消元步骤略），解得（同样别忘了写$x_3$）$x
+=\begin{pmatrix}
+\dfrac{5-2b}{a-1}\\[2pt] \dfrac{a+2ab-6}{a-1}\\[2pt] -2
+ \end{pmatrix}
+$.
+
+综上所述：……
+\end{jie}
 
 \EX 已知$Q=
 \begin{pmatrix}
@@ -4908,10 +5153,102 @@ $,$B$为3阶非零矩阵，且$AB=0$。则$t=$\underline{\hphantom{~~~~~~~~}}。
 \end{equation*}
 \end{jie}
 
-\EX
+\EX 设有三维列向量
+\begin{gather*}
+\alpha_1=
+\begin{pmatrix}
+1+\lambda&1&1
+\end{pmatrix}^T,\alpha_2=
+\begin{pmatrix}
+1&1+\lambda&1
+\end{pmatrix}^T\\
+\alpha_3=
+\begin{pmatrix}
+1&1&1+\lambda
+\end{pmatrix}^T,\beta=
+\begin{pmatrix}
+0&\lambda&\lambda^2
+\end{pmatrix}^T
+\end{gather*}
+问$\lambda$取何值时：
+
+(1)$\beta$可由$\alpha_1,\alpha_2,\alpha_3$线性表出，且表达式唯一。
+
+(2)$\beta$可由$\alpha_1,\alpha_2,\alpha_3$线性表出，且表达式不唯一。
+
+(3)$\beta$不可由$\alpha_1,\alpha_2,\alpha_3$线性表出。
+
+\begin{jie}
+记$A=\begin{pmatrix}
+  \alpha_1&\alpha_2&\alpha_3
+\end{pmatrix}$,则：
+\begin{align*}
+|A|=&\begin{vmatrix}
+1+\lambda&1&1\\
+1&1+\lambda&1\\
+1&1&1+\lambda
+\end{vmatrix}\xlongequal{c_{1}+c_{2}+c_3}
+\begin{vmatrix}
+3+\lambda&1&1\\
+3+\lambda&1+\lambda&1\\
+3+\lambda&1&1+\lambda
+\end{vmatrix}=(3+\lambda)
+\begin{vmatrix}
+1&1&1\\
+1&1+\lambda&1\\
+1&1&1+\lambda
+\end{vmatrix}\\
+\xlongequal{\substack{r_2-r_1 \\ r_3-r_1}}&
+(3+\lambda)\begin{vmatrix}
+1&1&1\\
+0&\lambda&0\\
+0&0&\lambda
+\end{vmatrix}=\lambda^2(3+\lambda)
+\end{align*}
+
+(1)当$|A|\neq 0$时，$r(A)=r(A,\beta)$，即$\beta$可由$\alpha_1,\alpha_2,\alpha_3$线性表出，且表达式唯一。此时$\lambda\neq0$且$\lambda\neq -3$
+
+(2)当$\lambda=0$时,$r(A)=r(A,\beta)=1<3$，此时$\beta$可由$\alpha_1,\alpha_2,\alpha_3$线性表出，且表达式不唯一。
+
+(3)当$\lambda=-3$时，$r(A)=1,r(A,\beta)=2$,$r(A)\neq r(A,\beta)$，此时$\beta$不可由$\alpha_1,\alpha_2,\alpha_3$线性表出。
+\end{jie}
 
 
-\EX
+\EX 已知向量组$\alpha_1,\alpha_2,\alpha_3,\alpha_4$线性无关，则下列说法正确的是哪些，并说明理由。
+
+(A)向量组$\alpha_1+\alpha_2,\alpha_2+\alpha_3,\alpha_3+\alpha_4,\alpha_4+\alpha_1$线性无关。
+
+(B)向量组$\alpha_1-\alpha_2,\alpha_2-\alpha_3,\alpha_3-\alpha_4,\alpha_4-\alpha_1$线性无关。
+
+(C)向量组$\alpha_1+\alpha_2,\alpha_2+\alpha_3,\alpha_3+\alpha_4,\alpha_4-\alpha_1$线性无关。
+
+(D)向量组$\alpha_1+\alpha_2,\alpha_2+\alpha_3,\alpha_3-\alpha_4,\alpha_4-\alpha_1$线性无关。
+
+\begin{jie}
+
+由题得：
+
+(A)$(\alpha_1+\alpha_2)+ (\alpha_3+\alpha_4)=(\alpha_2+\alpha_3)+(\alpha_4+\alpha_1)$,即线性相关。
+
+(B)$(\alpha_1-\alpha_2)+ (\alpha_2-\alpha_3) =-(\alpha_3-\alpha_4)-(\alpha_4-\alpha_1)$,即线性相关。
+
+(C)设$k_1(\alpha_1+\alpha_2)+k_2(\alpha_2+\alpha_3)+k_3(\alpha_3+\alpha_4)+k_4(\alpha_4-\alpha_1)=0$，则
+\begin{equation*}
+  (k_1-k_4)\alpha_1+(k_1+k_2)\alpha_2+(k_2+k_3)\alpha_3+(k_3+k_4)\alpha_4=0
+\end{equation*}
+因为$\alpha_1,\alpha_2,\alpha_3,\alpha_4$线性无关，所以：
+\begin{equation*}
+\begin{cases}
+k_1-k_4=0\\
+k_1+k_2=0\\
+k_2+k_3=0\\
+k_3+k_4
+\end{cases}
+\end{equation*}
+解得：$k_1=k_2=k_3=k_4=0$，即$\alpha_1+\alpha_2,\alpha_2+\alpha_3,\alpha_3+\alpha_4,\alpha_4-\alpha_1$线性无关。
+
+(D)$(\alpha_1+\alpha_2)+(\alpha_4-\alpha_1)=(\alpha_2+\alpha_3)-(\alpha_3-\alpha_4)$即线性相关。
+\end{jie}
 
 \EX 记行列式
 $
@@ -5402,15 +5739,102 @@ a_{n}&\textcolor[rgb]{1.00,0.00,0.00}{a_{n-1}+\frac{a_n}{x}}&\textcolor[rgb]{1.0
 \end{jie}
 
 \chapter{矩阵的相似}
-\EX 
+\section{矩阵的相似}
+\EX 设$A,B$是$3\times2$的矩阵，问$A,B$能够相似吗？说明理由。
 
-\EX
+\begin{jie}
+不能，只有方阵才能讨论是否相似。
+\end{jie}
 
-\EX 
+\EX 设$A\sim B$，证明$3A^3+2A-5I_{n}\sim 3B^2+2B-5I_n$。
 
-\EX 
+\begin{zhengming}
+$A\sim B$，依定义，一定存在一个可逆矩阵$P$使得$P^{-1}AP=B$。
 
-\EX 
+所以
+\begin{align*}
+&B^3=(P^{-1}AP)(P^{-1}AP)(P^{-1}AP)=P^{-1}A^3P\\
+&P^{-1}2AP=2P^{-1}AP=2B
+\end{align*}
+所以$P^{-1}(3A^3+2A-5I_{n})P=3P^{-1}A^3P+2P^{-1}AP-5P^{-1}I_nP=3B^2+2B-5I_n$，即
+$3A^3+2A-5I_{n}\sim 3B^2+2B-5I_n$。
+\end{zhengming}
+
+\EX 设$A\sim B$，$C\sim D$。问是否有$A+C\sim B+D$？说明理由。
+
+\begin{jie}
+否。理由：
+
+\begin{align*}
+&A=
+\begin{pmatrix}
+1&1\\ 0&1
+\end{pmatrix},~~~B=
+\begin{pmatrix}
+1&0\\ 0&1
+\end{pmatrix},~~~A\sim B\\
+&C=
+\begin{pmatrix}
+1&0\\ 1&-1
+\end{pmatrix},~~~D=
+\begin{pmatrix}
+1&0\\ 0&-1
+\end{pmatrix},~~~C\sim D\\
+& A+C=
+\begin{pmatrix}
+2&1\\ 1&0
+\end{pmatrix},B+D=
+\begin{pmatrix}
+2&0\\
+1&0
+\end{pmatrix}\\
+&|A+C|=-1,|B+D|=0
+\end{align*}
+因为相似矩阵具有相同的行列式，所以$A+C$与$B+D$不相似。
+\end{jie}
+
+\EX 设$A\sim
+\begin{pmatrix}
+1&-1&2\\
+1&1&0\\
+2&0&2
+\end{pmatrix}
+$，求$|A|$和$r(A)$。
+
+\begin{jie}
+相似矩阵具有相同的秩、行列式和特征值。由题得
+\begin{equation*}
+\begin{pmatrix}
+1&-1&2\\
+1&1&0\\
+2&0&2
+\end{pmatrix}\xrightarrow{\substack{r_{2}-r_{1}\\ r_3-2r_1}}
+{
+\begin{pmatrix}
+1&-1&2\\
+0&2&-2\\
+0&2&-2
+\end{pmatrix}
+}\xrightarrow{\substack{ r_3-r_2}}
+{
+\begin{pmatrix}
+1&-1&2\\
+0&2&-2\\
+0&0&0
+\end{pmatrix}
+}
+\end{equation*}
+所以$r(A)=2<3$，则$|A|=0$。
+\end{jie}
+
+\EX 设$A\sim B$。证明：$A$可逆$\Leftrightarrow B$可逆；且当$A$可逆时有$A^{-1}\sim B^{-1}$。
+
+\begin{zhengming}
+$A\sim B$，所以$r(A)=r(B)$，$A$可逆，则$r(A)=n=r(B)$，所以$B$可逆。反之同理。
+
+$A$可逆时：$A\sim B$，所以存在一个可逆矩阵$P$，$A=P^{-1}BP$，两边同时求逆，$A^{-1}=(P^{-1}BP)^{-1}=P^{-1}B^{-1}(P^{-1})^{-1}=P^{-1}B^{-1}P$，即$A^{-1}\sim B^{-1}$。
+\end{zhengming}
+
 \EX 对于任意方阵$A$,称$A$的对角元的和为$A$的迹，记为$tr(A)$。证明：如果$A\sim B$，则$tr(A)=tr(B)$，并举例说明逆命题不成立。
 
 \begin{zhengming}
@@ -5429,5 +5853,2357 @@ a_{n}&\textcolor[rgb]{1.00,0.00,0.00}{a_{n-1}+\frac{a_n}{x}}&\textcolor[rgb]{1.0
 $，可以看出$tr(A)=tr(B)$，但根据相似的定义，单位矩阵只能跟自己相似，即逆命题不成立。
 \end{zhengming}
 
+\EX 设$A_1\sim B_1$,$A_2\sim B_2$，证明：
+\begin{equation*}
+\begin{pmatrix}
+A_1\\
+&A_2
+\end{pmatrix}\sim \begin{pmatrix}
+B_1\\
+&B_2
+\end{pmatrix}
+\end{equation*}
 
+\begin{zhengming}
+$A_i\sim B_i$，则存在可逆矩阵$P_i$，使得$A_i=P_i^{-1}B_iP_i$，式中$i=1,2$。
+
+取$
+P=
+\begin{pmatrix}
+P_1\\
+&P_2
+\end{pmatrix}
+$，则$P$可逆，所以：
+\begin{align*}
+P^{-1}\begin{pmatrix}
+A_1\\
+&A_2
+\end{pmatrix}P&=
+\begin{pmatrix}
+P_1^{-1}\\
+&P_2^{-1}
+\end{pmatrix}\begin{pmatrix}
+A_1\\
+&A_2
+\end{pmatrix}\begin{pmatrix}
+P_1\\
+&P_2
+\end{pmatrix}=
+\begin{pmatrix}
+P_1^{-1}A_1\\
+&P_2^{-1}A_2
+\end{pmatrix}\begin{pmatrix}
+P_1\\
+&P_2
+\end{pmatrix}\\&=\begin{pmatrix}
+P_1^{-1}A_1P_1\\
+&P_2^{-1}A_2P_2
+\end{pmatrix}=\begin{pmatrix}
+B_1\\
+&B_2
+\end{pmatrix}
+\end{align*}
+证毕。
+\end{zhengming}
+
+\EX 设$A=
+\begin{pmatrix}
+1&1\\0&a
+\end{pmatrix},\begin{pmatrix}
+-1&1\\b&3
+\end{pmatrix}
+$，设$A\sim B$。求$a,b$的值。
+
+\begin{jie}
+相似矩阵具有相同的行列式和迹，所以：
+\begin{equation*}
+\begin{cases}
+1+a=-1+3\\
+a=-3-b
+\end{cases}~~~\Rightarrow~~
+\begin{cases}
+a=1\\ b=-4
+\end{cases}
+\end{equation*}
+\end{jie}
+
+\EX 设$A\sim B$，$S_1,S_2$分别是齐次线性方程组$Ax=0$和$Bx=0$的解集，证明：存在从$S_1$到$S_2$的一一映射。
+
+\begin{zhengming}
+$A\sim B$，则存在一个可逆矩阵$P$，使得$P^{-1}AP=B$。
+
+对任意的$x\in S_1$，即$Ax=0$，令$f(x)=P^{-1}x$，则$Bf(x)=BP^{-1}x=P^{-1}PBP^{-1}x=P^{-1}Ax=0$，所以$f(x)\in S_2$。
+
+所以我们可以得到一个映射：$f:S_1\rightarrow S_2,f(x)=P^{-1}x$。
+
+反之，对任意的$y\in S_2$，令$g(y)=Py$，则$Ag(y)=APy=PP^{-1}APy=PBy=0$，即$g(y)\in S_1$.所以$g:S_2\rightarrow S_1:g(y)=Py$。
+
+由于$(f\circ g)(y)=P^{-1}(Py)$，所以$(f\circ g)$是$S_2$上的恒等映射，同理，$(g\circ f)$是$S_1$上的恒等映射，综上所述，$f$是一个从$S_1$到$S_2$的一一映射。
+\end{zhengming}
+
+\EX 用矩阵相似的定义验证：$
+\begin{pmatrix}
+1&1\\0&1
+\end{pmatrix}\sim
+\begin{pmatrix}
+1&0\\1&1
+\end{pmatrix}
+$.
+
+\begin{zhengming}
+设$A=\begin{pmatrix}
+1&1\\0&1
+\end{pmatrix},B=\begin{pmatrix}
+1&0\\1&1
+\end{pmatrix}$。
+
+假设存在可逆矩阵$P=
+\begin{pmatrix}
+x_1&x_2\\
+x_3&x_4
+\end{pmatrix}
+$，使得$P^{-1}AP=B$，即$AP=PB$：
+\begin{align*}
+&AP=\begin{pmatrix}
+1&1\\0&1
+\end{pmatrix}\begin{pmatrix}
+x_1&x_2\\
+x_3&x_4
+\end{pmatrix}=\begin{pmatrix}
+x_1+x_3&x_2+x_4\\
+x_3&x_4
+\end{pmatrix}\\
+&PB=\begin{pmatrix}
+x_1&x_2\\
+x_3&x_4
+\end{pmatrix}\begin{pmatrix}
+1&0\\1&1
+\end{pmatrix}=
+\begin{pmatrix}
+x_1+x_2&x_2\\
+x_3+x_4&x_4
+\end{pmatrix}\\
+&AP=PB~~\Rightarrow~~
+\begin{cases}
+x_1+x_3=x_1+x_2\\
+x_2+x_4=x_2\\
+x_3=x_3+x_4\\
+x_4=x_4
+\end{cases}~~~\Rightarrow~~~
+\begin{cases}
+x_1\in R\\
+x_2=x_3\\
+x_4=0
+\end{cases}
+\end{align*}
+取$x_1=k_1,x_3=k_2$，则：
+$
+P=
+\begin{pmatrix}
+k_1&k_2\\
+k_2&0
+\end{pmatrix}
+$，因为$P$可逆，所以$|P|\neq 0$，即$k_2\neq0,k_1\in R$。所以$A\sim B$，证毕。
+\end{zhengming}
+
+\clearpage
+\section{可对角化、特征值与特征向量}
+\EX 设$A$可逆且$\lambda$为$A$的一个特征值。证明：$\lambda\neq0$且$\dfrac{1}{\lambda}$是$A^{-1}$的一个特征值。
+
+\begin{zhengming}
+$A$可逆，则$|A|\neq 0$，$r(A)=n$（$n$为$A$的阶数）
+
+设$\lambda$对应的特征值为$\alpha$，则$\alpha\neq 0$，$A\alpha =\lambda \alpha$。
+
+假设$\lambda =0$，则$A\alpha=0$，特征向量不为0，即$\alpha\neq0$，所以$\alpha$为$Ax=0$的一个非零解，即$Ax=0$有非零解，即$r(A)< n$，这与最开始的$r(A)=n$矛盾，所以假设不成立，即$\lambda =0$。
+
+$A\alpha=\lambda\alpha$，两边同时左乘$\dfrac{1}{\lambda}A^{-1}$，有$\dfrac{1}{\lambda}\alpha=A^{-1}\alpha$。
+
+证毕。
+\end{zhengming}
+
+\EX 设$\xi,\eta$是$A$的分别属于$\lambda,\mu$的特征向量，且$\lambda\neq \mu$。证明：$\xi+\eta$不可能是$A$的特征向量。
+
+\begin{zhengming}
+依题意有$A\xi=\lambda\xi,A\eta=\lambda\eta$。
+
+假设$\xi+\eta$是$A$的特征向量，其对应的特征值为$a$。则：$A(\xi+\eta)=A\xi+A\eta=\lambda\xi+\mu\eta=a(\xi+\eta)$.
+
+即$(\lambda-a)\xi+(\mu-a)\eta=0$，因为$\xi,\eta$是属于不同特征值的不同向量，所以$\xi,\eta$线性无关，所以$\lambda-a=\mu-a=0$，即$\lambda=\mu$，与题目中$\lambda=\mu$矛盾。所以假设不成立，即$\xi+\eta$不可能是$A$的特征向量。
+\end{zhengming}
+
+\EX 设$a$是$n$阶方阵$A$的一个特征值。证明$a^3-2a+2$是$A^3-2A+2I_n$的一个特征值。
+
+\begin{zhengming}
+设$a$对应的特征向量为$\alpha$，则$\alpha\neq 0$且$A\alpha=a\alpha$。所以：
+\begin{align*}
+&A^2\alpha=A(A\alpha)=A(a\alpha)=a(A\alpha)=a^2\alpha\\
+&A^3\alpha=A(A^2\alpha)=A(a^2\alpha)=a^2A\alpha=a^3\alpha\\
+&-2A\alpha=-2a\alpha
+\end{align*}
+所以：$(A^3-2A+2I_n)\alpha=a^3\alpha-2a\alpha+2\alpha=(a^3-2a+2)\alpha$，所以$a^3-2a+2$是$A^3-2A+2I_n$的一个特征值。
+\end{zhengming}
+
+\EX 求$A=
+\begin{pmatrix}
+1&2\\0&1
+\end{pmatrix}
+$的全部特征值和特征向量。
+
+\begin{jie}
+由题得：
+\begin{equation*}
+|\lambda E-A|=
+\begin{vmatrix}
+\lambda-1&2\\
+0&\lambda-1
+\end{vmatrix}=(\lambda-1)^2=0~~~\Rightarrow~~\lambda_1=\lambda=2=1
+\end{equation*}
+把该特征值代入$[\lambda E-A]$高斯消元得最简阶梯型矩阵：$
+\begin{pmatrix}
+0&1\\0&0
+\end{pmatrix},
+$所以$x_2=0,x_1\in R$，取$x_1=1$得$(\lambda E-A)x=0$的基础解系为：$(1,0)^T$。所以$A$的特征值$1$对应的特征向量为$(k_1,0)^T,k_1\neq 0$.
+\end{jie}
+
+
+\EX 设$A=(a_{ij})$是对角元相同且至少有一个非对角元不为0的$n$阶上三角阵，证明：$A$不可对角化。
+
+\begin{zhengming}
+设$A$的对角元都同为$a$，因为$A$为上三角阵，所以$A$的特征值为对角元的值$a$，因为至少有1个非对角元不为0，所以$(i,j)-$元$\neq=0(i<j)$。所以$(\lambda E-A)x=(aE-A)x=0$的系数矩阵的秩$r(aE-A)\geq 1$。
+
+所以解向量个数为$n-r(aE-A)\leq n-1$，即$A$的线性无关的特征向量至多有$n-1$个线性无关的特征向量，所以$A$不可以对角化。
+\end{zhengming}
+
+\EX 设$n$阶方阵$A$可对角化，证明$A^4-2A^2+5I_{n}$也可对角化，进一步假设$A$可逆，证明$A^{-1}$也可对角化。
+
+\begin{zhengming}
+设$A$可对角化为$\Lambda$，则$A\sim \Lambda$，所以$A^4-2A^2+5I_n\sim \Lambda^4-2\Lambda^2+5I_n$，而$\Lambda^4-2\Lambda^2+5I_n$是对角阵，所以$A^4-2A^2+5I_{n}$可对角化。
+
+若$A$可逆，由相似的性质，$\Lambda$可逆，且$A^{-1}\sim \Lambda$，而$\Lambda$为对角阵，所以$A^{-1}$也可对角化。
+\end{zhengming}
+
+\EX 设$n$阶方阵$A$可对角化，证明$A$的特征多项式可以分解为$n$个一次式的乘积，举例说明逆命题不成立。
+
+\begin{zhengming}
+设$A$可对角化为$\Lambda$，则$A\sim \Lambda$，设$\Lambda$的对角元为$a_1,a_2,\cdots,a_n$。所以$\Lambda$的特征多项式为$(\lambda-a_1)(\lambda-a_2)\cdots(\lambda-a_n)=\prod\limits_{i=1}^{n}(\lambda-a_i)=0$，因为相似矩阵具有相同的特征多项式，所以$A$的特征多项式也为该式，所以$A$的特征多项式可以分解为$n$个一次式的乘积。
+
+逆命题：$n$阶方阵$A$的特征多项式可以分解为$n$个一次式的乘积，则$A$可对角化。
+
+例如：$A=
+\begin{pmatrix}
+1&1\\0&1
+\end{pmatrix}
+$，$|\lambda E-A|=(\lambda-1)^2=0$，即$A$的特征多项式可以分解为$2$个一次式的乘积，不难算出，$A$只有一个线性无关的特征向量，即$A$不可对角化。所以逆命题不成立。
+\end{zhengming}
+
+\EX 设方阵$A$的特征多项式为$f(\lambda)=(\lambda-1)(\lambda+1)^2$。设$A^*$是$A$的伴随矩阵，求$(A^*)^3-2A-I_3$的行列式。
+
+\begin{jie}
+由题得：$A$的特征值为$1,-1,-1$，所以$|A|=1\neq 0$，所以$A$可逆且$|A^{-1}|=1$。
+
+由伴随矩阵的性质：$A^*=|A|A^{-1}=A^{-1}$.所以$(A^*)^3-2A-I_3=(A^{-1})^3-2A-I$，由特征值的性质，该矩阵的特征值对应为：$(\lambda_{i}^{-1})^3-2\lambda_{i}-1$（式中$\lambda_i$为$A$的第$i$个特征值。）所以其行列式：
+\begin{equation*}
+\prod_{i=1}^{3}\left[(\lambda_{i}^{-1})^3-2\lambda_{i}-1\right]=0
+\end{equation*}
+\end{jie}
+
+\EX 设$
+A=
+\begin{pmatrix}
+3&2&-1\\
+-2&-2&2\\
+3&6&-1
+\end{pmatrix}
+$，对任意的正整数$n$，求$A^{n}$。
+
+\begin{jie}
+由题得：$|\lambda E-A|=
+\begin{vmatrix}
+\lambda-3&-2&1\\
+2&\lambda+2&-2\\
+-3&-6&\lambda+1
+\end{vmatrix}=(\lambda-2)^{2}(\lambda+4)=0~~\rightarrow~~\lambda_1=\lambda_2=,\lambda_3=4
+$.
+
+$\lambda=2$时，代入$[\lambda E-A]$后高斯消元得：$x_1=-2x_2+x_3$,分别取$[x_2,x_3]^T=[0,1]^T,[1,0]^T$有$
+\alpha_1=[1,0,1]^T,\alpha_2=[-2,1,0]^T
+$。
+
+$\lambda=-4$时，代入$[\lambda E-A]$后高斯消元得：$x_1=\frac{1}{3}x_3,x_2=-\frac{2}{3}x_3$，取$x_3=3$有$\alpha_3=[1,-2,3]^T$。
+
+令$P=[\alpha_1,\alpha_2,\alpha_3]=
+\begin{pmatrix}
+1&-2&1\\
+0&1&-2\\
+1&0&3
+\end{pmatrix}
+$使得$P^{-1}AP=\Lambda=
+\begin{pmatrix}
+2\\&2\\&&-4
+\end{pmatrix}
+$，所以$A=P\Lambda P^{-1}$.求得(过程略)$P^{-1}=\dfrac{1}{6}
+\begin{pmatrix}
+3&6&3\\
+-2&2&2\\
+-1&-2&1
+\end{pmatrix}
+$，所以由相似的性质：
+\begin{align*}
+A^n&=P\Lambda^nP^{-1}=
+\dfrac{1}{6}\begin{pmatrix}
+1&-2&1\\
+0&1&-2\\
+1&0&3
+\end{pmatrix}\begin{pmatrix}
+2^n\\&2^n\\&&(-4)^n
+\end{pmatrix}\begin{pmatrix}
+3&6&3\\
+-2&2&2\\
+-1&-2&1
+\end{pmatrix}\\&=
+\dfrac{1}{6}
+\begin{pmatrix}
+7\cdot 2^{n}-(-4)^{n}&2^{n+1}-2(-4)^{n}&-2^{n}+(-4)^{n}\\
+-2^{n+1}+2(-4)^{n}&2^{n+1}+4(-4)^{n}&2^{n+1}-2(-4)^{n}\\
+3\cdot 2^{n}-3(-4)^{n}&6\cdot2^{n}-6(-4)^{n}&3\cdot2^{n}+3(-4)^{n}
+\end{pmatrix}
+\end{align*}
+\end{jie}
+
+\EX 设$n$阶方阵$A$满足$A^2-3A+2I_n=0$。证明：$A$可对角化。
+
+\begin{zhengming}
+设$A$的特征值为$a$，其对应的特征向量为$\alpha$，则$A\alpha=a\alpha,\alpha\neq0$.所以：
+\begin{equation*}
+(A^2-3A+2I_n)\alpha=(a^2-3a+2)\alpha=0~~~\rightarrow~~a^2-3a+2=0~~\rightarrow~~a=1\text{或}a=2
+\end{equation*}
+即$a=1$或$a=2$为$A$的特征值。
+
+又因为$(aI-A)x=0$的基础解系包含的向量的个数为$n-r(aI-A)$。
+
+$a=1$时为$n-r(I-A)$，$a=2$时为$n-r(2I-A)$，要证明$A$可相似对角化，需证明$A$有$n$个线性无关的特征向量，即证明$(n-r(I-A))+(n-r(2I-A))=n$即可。即证明$r(I-A)+r(2I-A)=n$。（第四次线性代数例2.26）
+
+因为$A^3-3A+2I=0$，所以$(A-I)(A-2I)=0$，所以$r(A-2I)+r(A-I)\leq n$，即$r(I-A)+r(2I-A)\leq n$。
+
+由$I=(A-2I)+(-(A-I))$得：$n=r(I)\leq r(A-I)+r(A-2I)=r(I-A)+r(2I-A)$
+
+综上两个不等式得$r(I-A)+r(2I-A)=n$,即$A$可对角化。
+\end{zhengming}
+
+\EX 若$4$阶矩阵$A$与$B$相似，矩阵$A$的特征值为$
+\dfrac{1}{2},\dfrac{1}{3},\dfrac{1}{4},\dfrac{1}{5},
+$则行列式$|B^{-1}-E|=$\underline{\hphantom{~~~~~~~}}。(E是单位阵)
+
+\begin{jie}
+相似矩阵具有相同的特征值，所以$A$与$B$的特征值一样。由特征值的性质$B^{-1}-E$的特征值为$\lambda_{i}^{-1}-1$，式中$\lambda_i$表示$B$的第$i$个特征值。由特征值和行列式的关系：
+\begin{equation*}
+|B^{-1}-E|=\prod_{i=1}^{4}(\lambda_{i}^{-1}-1)=24
+\end{equation*}
+\end{jie}
+
+\EX 矩阵$A=
+\begin{pmatrix}
+0&-2&-2\\
+2&2&-2\\
+-2&-2&2
+\end{pmatrix}
+$的非零特征值是\underline{\hphantom{~~~~~~~}}。
+
+\begin{jie}
+\begin{equation*}
+|\lambda E-A|=
+\begin{vmatrix}
+\lambda&2&2\\
+-2&\lambda-2&2\\
+2&2&\lambda-2
+\end{vmatrix}\xlongequal{r_2+r_3}
+\begin{vmatrix}
+\lambda&2&2\\
+0&\lambda&\lambda\\
+2&2&\lambda-2
+\end{vmatrix}\xlongequal{c_2-c_3}
+\begin{vmatrix}
+\lambda&0&2\\
+0&0&\lambda\\
+2&4-\lambda&\lambda-2
+\end{vmatrix}=-(4-\lambda)\lambda^{2}
+\end{equation*}
+所以$A$的非零特征值是$4$。
+\end{jie}
+
+\EX 设矩阵$
+A=
+\begin{pmatrix}
+-1&2&2\\
+2&-1&-2\\
+2&-2&-1
+\end{pmatrix}
+$.
+
+(1)求矩阵$A$的特征值；
+
+(2)利用(1)的结果，求矩阵$E+A^{-1}$的特征值，其中$E$是3阶单位矩阵。
+
+(3)利用(1)的结果，求矩阵$E+A^{*}$的特征值，其中$A^{*}$是$A$的伴随矩阵。
+
+\begin{jie}
+(1)
+\begin{align*}
+|\lambda E-A|&=
+\begin{vmatrix}
+\lambda+1&-2&-2\\
+-2&\lambda+1&2\\
+-2&2&\lambda+1
+\end{vmatrix}
+\xlongequal{c_2-c_3}
+\begin{vmatrix}
+\lambda&0&-2\\
+-2&\lambda-1&2\\
+-2&1-\lambda&\lambda+1
+\end{vmatrix}\xlongequal{r_2+r_3}
+\begin{vmatrix}
+\lambda&0&-2\\
+-4&0&\lambda+3\\
+-2&1-\lambda&\lambda+1
+\end{vmatrix}\\&=-(1-\lambda)[(\lambda+3)(\lambda+1)-8]=0~~\lambda_1=\lambda_2=1,\lambda_3=-5
+\end{align*}
+
+(2)由(1)得$E+A^{-1}$的特征值为$1+\lambda_{i}^{-1}$，即$2,2,\dfrac{4}{5}$.
+
+(3)由(1)得：$|A|=\prod\limits_{i=1}^{3}\lambda_i=-5\neq0$，所以$A$可逆，所以$A^*=|A|A^{-1}=-5A^{-1}$，所以$E+A^*=E-5A^{-1}$,特征值为$1-5\lambda_{i}^{-1}$，即$-4,-4,2$。
+\end{jie}
+
+\EX 设$
+A=
+\begin{pmatrix}
+3&2&2\\
+2&3&2\\
+2&2&3
+\end{pmatrix},P=
+\begin{pmatrix}
+0&1&0\\
+1&0&1\\
+0&0&1
+\end{pmatrix}
+,B=P^{-1}A^{*}P$，其中$A^{*}$是$A$的伴随矩阵，$E$为3阶单位矩阵。求$B+2E$的特征值与特征向量。
+
+\begin{jie}
+由题可以求出：
+\begin{equation*}
+P^{-1}=
+\begin{pmatrix}
+0&1&-1\\
+1&0&0\\
+0&0&1
+\end{pmatrix},~~~A^*=
+\begin{pmatrix}
+5&-2&-2\\
+-2&5&-2\\
+-2&-2&5
+\end{pmatrix}
+\end{equation*}
+所以$C=B+2E=
+\begin{pmatrix}
+9&0&0\\
+-2&7&-4\\
+-2&-2&5
+\end{pmatrix}
+$,其特征多项式为
+\begin{equation*}
+|C|=
+\begin{vmatrix}
+ \lambda-9&0&0\\
+2& \lambda-7&4\\
+2&2& \lambda-5
+\end{vmatrix}=(\lambda-9)[(\lambda-7)(\lambda-5)-8]=0~~\Rightarrow~~\lambda_1=\lambda_2=9,\lambda_3=3
+\end{equation*}
+对于特征值$9$,$(\lambda E-C)x=0$的系数矩阵经高斯消元后得：$x_1=-x_2-2x_3$，分别取$[x_2,x_3]^T=[1,0]^T,[0,1]^T$得到基础解系：$\alpha_1=[-1,1,0]^T,\alpha_2=[-2,0,1]^T$，所以$B+2E$的属于$9$的全部特征向量为$k_1\alpha_1+k_2\alpha_2$，其中$k_1,k_2$不全为0.
+
+同理，对于特征值3，$(\lambda E-C)x=0$的系数矩阵经高斯消元后得：$x_1=0,x_2=x_3$，取$x_3=1$得基础解系$\alpha_3=[0,1,1]^T$，即$B+2E$的属于$3$的全部特征向量为$k_3\alpha_3(k_3\neq 0)$.
+
+综上所述：……
+\end{jie}
+
+\EX 设$\alpha=(a_1,\cdots,a_n),\beta=(b_1,\cdots,b_2)^T$都是非零向量，且满足条件$\alpha^T\beta=0$。记$n$阶矩阵$A=\alpha\beta^T$，求
+
+(1)$A^2$；
+
+(2)矩阵$A$的特征值和特征向量。
+
+\begin{jie}
+(1) $A^2=(\alpha\beta^T)(\alpha\beta^T)=0$（注：不难验证，$\alpha^T\beta=\beta^T\alpha$）
+
+(2)设$\lambda$是$A$的任意特征值，则$\lambda^2$是$A^2$的特征值，由(1)得$\lambda=0$，所以$A$的全部特征值都是0.由于$\alpha,\beta$都是非零向量，所以$A=\alpha\beta^T$是非零矩阵，所以$1\leq r(A)\leq \min\{r(\alpha),r(\beta^T)\}\leq=1$，即$r(A)=1$。所以$A$的属于特征值0的线性无关的特征向量的个数为$n-1$。设$\xi$是$\beta^Tx=b_1x_1+\cdots+b_nx_n=0$的任意非零解，则$A\xi=\alpha\beta^T\xi=0\alpha=0$，即$\xi$是$A$的属于特征值$0$的特征向量。任取$\beta^Tx=0$的一个基础解系：$\xi_1,\cdots,\xi_{n-1}$，则$A$属于特征值0的全部特征向量为$c_1\xi_1+\cdots+c_{n-1}\xi_{n-1}$。其中$c_1,\cdots,c_n$不全为0.
+\end{jie}
+
+\EX 令$\alpha=(1,1,0)^T$，实对称矩阵$A=\alpha\alpha^T$。
+
+(1)求可逆矩阵$P$使得$P^{-1}AP$是对角阵，并写出这个对角阵；
+
+(2)求$|I-A^{2017}|$，其中$I$是三阶方阵。
+
+\begin{jie}
+由题得：$\alpha^T\alpha=1+1=2$，所以$A\alpha=\alpha\alpha^T\alpha=2\alpha$,所以$2$为$A$的一个特征值，计算得$r(A)=1$，因为$A$为实对称矩阵，所以一定可以对角化。即$A\sim \Lambda=
+\begin{pmatrix}
+2\\&\lambda_2\\&&\lambda_3
+\end{pmatrix}
+$，相似矩阵具有相同的秩，所以$r(\Lambda)=1$，所以$\lambda_2=\lambda_3=0$。
+
+对于特征值0，代入$(\lambda E-A)x=0$的系数矩阵后高斯消元得：$x_1=-x_2,x_3\in R$，所以分别取$[x_2,x_3]^T=[1,0]^T,[0,1]^T$得基础解系$\alpha_1=[-1,1,0]^T,\alpha_2=[0,0,1]^T$。
+
+同理对于特征值2，代入$(\lambda E-A)x=0$的系数矩阵后高斯消元得：$x_1=x_2,x_3=0$，取$x_2=1$得基础解系$\alpha_3=[1,1,0]^T$。令$
+P=[\alpha_3,\alpha_1,\alpha_2]=
+\begin{pmatrix}
+1&-1&0\\
+1&1&0\\
+0&0&1
+\end{pmatrix}
+$,则$P^{-1}AP=\Lambda$。
+
+(2)由特征值的性质以及特征值与行列式的关系有$
+|I-A^{2017}|=\prod\limits_{i=1}^3(1-\lambda^{2017})=1-2^{2017}
+$
+\end{jie}
+
+\EX 已知$
+\xi=
+\begin{pmatrix}
+1&1&-1
+\end{pmatrix}
+$是$A=
+\begin{pmatrix}
+2&-1&2\\
+5&a&3\\
+-1&b&-2
+\end{pmatrix}
+$的一个特征向量。
+
+(1)试确定参数$a,b$及特征向量$\xi$所对应的特征值；
+
+(2)问$A$能否相似于对角阵?说明理由。
+
+\begin{jie}
+(1)由题设$\xi$对应的特征值为$\lambda$，则$A\xi=\lambda\xi$：
+\begin{equation*}
+  \begin{cases}
+    2-1-2=\lambda\\
+    5+a-3=\lambda\\
+    -1+b-2=-\lambda
+  \end{cases}~~\Rightarrow~~
+\begin{cases}
+\lambda=-1\\
+a=3\\b=0
+\end{cases}
+\end{equation*}
+
+(2)由(1)知：
+\begin{equation*}
+|\lambda E-A|=
+\begin{vmatrix}
+\lambda-2&1&-2\\
+-5&\lambda+3&-3\\
+1&0&\lambda+2
+\end{vmatrix}=(\lambda+1)^3=0~~~\Rightarrow~~~\lambda_1=\lambda_2=\lambda_3=-1
+\end{equation*}
+把$-1$代入$(\lambda E-A)x=0$的系数矩阵后化简得$r(\lambda E-A)=2$，所以其对应的基础解系的个数为1，即$A$线性无关的特征向量只有1个，因此不能对角化。
+\end{jie}
+
+\EX 已知矩阵$
+A=
+\begin{pmatrix}
+2&0&0\\
+0&0&1\\
+0&1&x
+\end{pmatrix}
+$与对角阵$
+B=
+\begin{pmatrix}
+2&0&0\\
+0&y&0\\
+0&0&-1
+\end{pmatrix}
+$相似。
+
+(1)求$x,y$的值；
+
+(2)求一个满足$P^{-1}AP=B$的可逆矩阵$P$。
+
+\begin{jie}
+(1)相似矩阵具有相同的迹和行列式：
+\begin{equation*}
+  \begin{cases}
+   2+x=2+y-1\\
+   -2=-2y
+  \end{cases}~~\Rightarrow~~
+  \begin{cases}
+   x=0\\
+   y=-1
+  \end{cases}
+\end{equation*}
+
+(2)$A\sim B$，所以$A$的特征值为$2,1,-1$。
+
+对于特征值2，代入$(\lambda E-A)x=0$的系数矩阵后高斯消元得：
+$x_1\in R,x_2=x_3=0$，取$x_1=1$得基础解系$\alpha_1=[1,0,0]^T$。
+
+对于特征值1，代入$(\lambda E-A)x=0$的系数矩阵后高斯消元得：
+$x_1=0,x_2=x_3$，取$x_3=1$得基础解系$\alpha_2=[0,1,1]^T$。
+
+对于特征值-1，代入$(\lambda E-A)x=0$的系数矩阵后高斯消元得：
+$x_1=0,x_2=-x_3$，取$x_3=1$得基础解系$\alpha_3=[0,-1,1]^T$。
+
+令$
+P=[\alpha_1,\alpha_2,\alpha_3]^T=
+\begin{pmatrix}
+1&0&0\\
+0&1&-1\\
+0&1&1
+\end{pmatrix}
+$，则$P^{-1}AP=B$。
+\end{jie}
+
+\EX 设$A=
+\begin{pmatrix}
+0&0&1\\
+x&1&y\\
+1&0&0
+\end{pmatrix}
+$有三个线性无关的特征向量，求$x$和$y$应满足的条件。
+
+\begin{jie}
+由题得：$|\lambda E-A|=
+\begin{vmatrix}
+\lambda&0&-1\\
+-x&\lambda-1&-y\\
+-1&0&\lambda
+\end{vmatrix}=(\lambda+1)(\lambda-1)^2=0~~\Rightarrow~~\lambda_1=-1,\lambda_2=\lambda_3=1
+$.
+
+当$\lambda=1$时，$[\lambda E-A]\Rightarrow
+\begin{pmatrix}
+1&0&-1\\
+-x&0&-y\\
+0&0&0
+\end{pmatrix}$当$r(\lambda E-A)=1$时，$\lambda=1$对应的特征向量有2个，此时$A$有三个线性无关的特征向量，所以$
+\frac{1}{-x}=\frac{1}{-y}
+$，即$x+y=0$。
+\end{jie}
+
+\EX 设矩阵$A=
+\begin{pmatrix}
+1&2&-3\\-1&4&-3\\1&a&5
+\end{pmatrix}
+$的特征方程有一个二重根，求$a$的值，并讨论$A$是否可相似对角化。
+
+\begin{jie}
+由题得：
+\begin{equation*}
+f(\lambda)=|\lambda E-A|=(\lambda-2)(\lambda^2-8\lambda+18+3a)
+\end{equation*}
+
+(1)$2$是二重根，则$2^2-8\times 2+18+3a=0$，即$a=-2$，此时$f(\lambda)=(\lambda-2)^2(\lambda-6)$符合要求，继续计算（验证是否可以相似对角化）$6E-A$的秩为2，所以$A$的特征值$6$的特征向量只有一个，$2E-A$的秩为1，所以$A$的特征值$2$的特征向量有两个，所以此时$A$可以对角化。
+
+(2)$2$不是二重根，则$\lambda^2-8\lambda+18+3a=0\Rightarrow
+\lambda^2-8\lambda+16=-2-3a
+$，所以$-2-3a=0$，此时$f(\lambda)=(\lambda-4)^2(\lambda-2)$，符合要求。继续计算：计算得$r(2E-A)=2$,所以$A$的特征值$2$的特征向量有一个，计算得$r(4E-A)=2$,所以$A$的特征值$4$的特征向量有一个，此时$A$的线性无关的特征向量的个数为$1+1=2\leq 3$，所以$A$不可对角化。
+
+综上所述，$a=-2$,此时$A$可以对角化,$a=-\dfrac{2}{3}$,此时$A$不可对角化。
+\end{jie}
+
+\EX 设$n$阶矩阵$
+A=
+\begin{pmatrix}
+1&b&\cdots&b\\
+b&1&\cdots&b\\
+\vdots&\vdots&\ddots&\vdots\\
+b&b&\cdots&1
+\end{pmatrix}
+$.
+
+(1)求$A$的特征值和特征向量；
+
+(2)求可逆矩阵$P$，使得$P^{-1}AP$为对角矩阵。
+
+\begin{tips}
+设$A=[a_{ij}]$是三阶矩阵，则(该式不做推导，感兴趣的可以自己算一下)
+\begin{equation*}|\lambda E-A|=
+  \begin{bmatrix}
+    \lambda-a_{11} & -a_{12} &-a_{13} \\
+-a_{21} & \lambda-a_{22} &-a_{23} \\
+-a_{31} & -a_{32} &\lambda-a_{33}
+  \end{bmatrix}=\lambda^{3}-\lambda^2\sum a_{ii}+S_{2}\lambda-|A|
+\end{equation*}
+式中：$S_{2}=
+\begin{vmatrix}
+  a_{11} & a_{12} \\
+  a_{21} & a_{22}
+\end{vmatrix}+\begin{vmatrix}
+  a_{11} & a_{13} \\
+  a_{31} & a_{33}
+\end{vmatrix}+\begin{vmatrix}
+  a_{22} & a_{23} \\
+  a_{32} & a_{33}
+\end{vmatrix}
+$。
+
+若$r(A)=1$，则$|A|=0,S_{2}=0$,代入到上式有
+\begin{equation*}
+|\lambda E-A|=\lambda^{3}-\sum a_{ii}\lambda^2=\lambda^2\left(\lambda-\sum a_{ii}\right)
+\end{equation*}
+
+做推广，对于$n$阶矩阵$A$，若$r(A)=1$,则$|\lambda E-A|=\lambda^{n-1}\left(\lambda-\sum a_{ii}\right)$
+
+例题：已知$a\neq 0$，求矩阵
+\begin{equation*}
+  \begin{bmatrix}
+    1 & a & a& a\\
+    a & 1& a& a\\
+    a& a& 1& a\\
+    a& a& a& 1
+  \end{bmatrix}
+\end{equation*}
+的特征值、特征向量。
+
+\begin{jie}
+方法一：（直接计算）
+
+由特征多项式：
+\begin{equation*}
+  \begin{vmatrix}
+\lambda E-A
+  \end{vmatrix}
+  =\begin{vmatrix}
+     \lambda-1 & -a& -a& -a \\
+     -a& \lambda-1& -a& -a\\
+     -a& -a& \lambda-1& -a\\
+     -a& -a& -a& \lambda-1
+   \end{vmatrix}=\left[\lambda-(3a+1)\right]\left(\lambda+a-1\right)^{3}
+\end{equation*}
+得$A$的特征值是$3a+1,1-a$。
+
+当$\lambda=3a+1$时，由$[(3a+1)E-A]=0$，即
+\begin{align*}
+\begin{bmatrix}
+3a & -a& -a& -a \\
+-a& 3a& -a& -a\\
+-a& -a& 3a& -a\\
+-a& -a& -a& 3a
+\end{bmatrix}\rightarrow
+\begin{bmatrix}
+3 & -1& -1& -1 \\
+-1& 3& -1& -1\\
+-1& -1& 3& -1\\
+-1& -1& -1& 3
+\end{bmatrix}\rightarrow
+\begin{bmatrix}
+1 & -3& 1& 1 \\
+1& 1& -3& 1\\
+1& 1& 1& -3\\
+0&0& 0& 0
+\end{bmatrix}\rightarrow
+\begin{bmatrix}
+1 & 0& 0& -1 \\
+0& 1& 0& -1\\
+0& 0& 1& -1\\
+0&0& 0& 0
+\end{bmatrix}
+\end{align*}
+可得基础解系为$\alpha_{1}=(1,1,1,1)^T$，所以$\lambda=3a+1$的特征向量为$k_{1}\alpha_1,(k_1\neq 0)$。
+
+当$\lambda=1-a$时，由$[(1-a)E-A]=0$，即
+\begin{equation*}
+  \begin{bmatrix}
+-a & -a & -a& -a\\
+-a & -a & -a& -a\\
+-a & -a & -a& -a\\
+-a & -a & -a& -a
+  \end{bmatrix}\rightarrow
+  \begin{bmatrix}
+    1 & 1 & 1& 1\\
+    0 & 0& 0& 0\\
+    0 & 0& 0& 0\\
+    0 & 0& 0& 0
+  \end{bmatrix}
+\end{equation*}
+得基础解系$\alpha_2=(-1,1,0,0)^T,\alpha_3=(-1,0,1,0)^T\alpha_4=(-1,0,0,1)^T$,所以$\lambda=1-a$的特征向量为$k_2\alpha_2+k_3\alpha_3+k_4\alpha_4$,式中$k_2,k_3,k_4$是不全为0的任意常数。
+
+方法二：（转换法）
+
+由题得：
+\begin{equation*}A=
+  \begin{bmatrix}
+    a & a& a& a \\
+    a & a& a& a \\
+    a & a& a& a \\
+    a & a& a& a
+  \end{bmatrix}+
+   \begin{bmatrix}
+    1-a & 0& 0& 0 \\
+    0 & 1-a& 0& 0 \\
+    0 & 0& 1-a& 0 \\
+    0 & 0& 0& 1-a
+  \end{bmatrix}=B+(1-a)E
+\end{equation*}
+由于$r(B)=1$，所以有
+\begin{equation*}
+  |\lambda E -B|=\lambda^{4-1}\left(\lambda-\sum\limits_{i=1}^{4}a_{ii}\right)=
+  \lambda^{3}\left(\lambda-4a\right)
+\end{equation*}
+所以矩阵$B$的特征值为$0,0,0,4a$,所以由特征值的性质，$A$的特征值为$3a+1,1-a,1-a,1-a$。
+
+下边同方法一。
+\end{jie}
+\hphantom{.}
+\end{tips}
+
+\begin{jie}
+由题得：$A
+=
+(1-b)E_{n}+b
+\begin{pmatrix}
+1&1&\cdots&1\\
+1&1&\cdots&1\\
+\vdots&\vdots&\ddots&\vdots\\
+1&1&\cdots&1
+\end{pmatrix}=(1-b)E_{n}+bC
+$。单位矩阵的特征值为$1$，$r(C)=1$由上边的结论可以得出$C$的特征值为$n,0,0,\cdots,0$，由特征值的性质得$A$的特征值为$(1-b)\times 1+b\lambda_{ci}$，即$\lambda_1=1-b+nb=1+(n-1)b,\lambda_2=\lambda_3=\cdots\lambda_n=1-b$
+
+由上边的例题可知：
+
+$\lambda=1-b$，代入$(\lambda E-A)$后得基础解系：$
+\alpha_1=[-1,1,0,\cdots,0]^T,\alpha_2=[-1,0,1,0,\cdots,0],\cdots,\alpha_{n-1}=[-1,0,\cdots,0,1]^T
+$，所以其特征向量为$k_1\alpha_1+k_2\alpha_2+\cdots+k_{n-1}\alpha_{n-1},(k_1,\cdots,k_{n-1}\text{不全为0})$.
+
+$\lambda=1-(n-1)b$时，基础解系为$[1,1,\cdots,1]^T$，所以其对应的特征向量为$\alpha_n=k_{n}[1,1,\cdots,1]^T,k_n\neq 0$。
+
+(2)$b=0$时，$A=E_n$，任取可逆矩阵$P$都可以使$A$对角化。
+
+$b\neq 0$时，令$P=
+\begin{pmatrix}
+\alpha_1&\alpha_2&\cdots&\alpha_n
+\end{pmatrix}
+$，则$\Lambda=P^{-1}AP=
+\begin{pmatrix}
+1-b\\
+&1-b\\
+&&\ddots\\
+&&&1-b\\
+&&&&1+(n-1)b
+\end{pmatrix}
+$.
+\end{jie}
+
+\EX 设3阶矩阵$A$的特征值为$\lambda_1=1,\lambda_2=2,\lambda_3=3$，对应的特征向量依次为$
+\xi_1=
+\begin{pmatrix}
+1\\1\\1
+\end{pmatrix},\xi_2=
+\begin{pmatrix}
+1\\2\\4
+\end{pmatrix},\xi_3=
+\begin{pmatrix}
+1\\3\\9
+\end{pmatrix}
+$，又向量$
+\beta=
+\begin{pmatrix}
+1\\1\\3
+\end{pmatrix}
+$.
+
+(1)将$\beta$用$\xi_1,\xi_2,\xi_3$线性表出。
+
+(2)求$A^{n}\beta$(n为自然数).
+
+\begin{jie}
+(1)由题得：
+\begin{align*}
+(\xi_1,\xi_2,\xi_3,\beta)&=
+\begin{pmatrix}
+1&1&1&1\\
+1&2&3&1\\
+1&4&9&3
+\end{pmatrix}\xrightarrow{\substack{r_2-r_1\\ r_{3}-r_1}}
+{
+\begin{pmatrix}
+1&1&1&1\\
+0&1&2&0\\
+0&3&8&2
+\end{pmatrix}
+}\xrightarrow{\substack{r_{3}-3r_2}}
+{
+\begin{pmatrix}
+1&1&1&1\\
+0&1&2&0\\
+0&0&2&2
+\end{pmatrix}
+}\\
+&\xrightarrow{\substack{r_{3}\div 2}}
+{
+\begin{pmatrix}
+1&1&1&1\\
+0&1&2&0\\
+0&0&1&1
+\end{pmatrix}
+}\xrightarrow{\substack{r_{2}-2r_3\\ r_1-r_3}}
+{
+\begin{pmatrix}
+1&1&0&0\\
+0&1&0&-2\\
+0&0&1&1
+\end{pmatrix}
+}\xrightarrow{\substack{r_1-r_2}}
+{
+\begin{pmatrix}
+1&0&0&2\\
+0&1&0&-2\\
+0&0&1&1
+\end{pmatrix}
+}
+\end{align*}
+由最简阶梯型可以看出：$\beta=2\xi_1-2\xi_2+\xi_3$。
+
+(2)\begin{align*}
+   A^n\beta=A^{n}(2\xi_1-2\xi_2+\xi_3)=2A^n\xi_1-2A^n\xi_2+A^n\xi_3
+   \end{align*}
+   由特征值的性质：
+\begin{align*}
+2A^n\xi_1-2A^n\xi_2+A^n\xi_3&=2\lambda_{1}^n\xi_1-2\lambda_{2}^n\xi_2+\lambda_{3}^n\xi_3=2\xi_1-2^{n+1}\xi_2+3^n\xi_3\\
+&=(2-2^{n+1}+3^n,2-2^{n+2}+3^{n+1},2-2^{n+3}+3^{n+2})^T
+\end{align*}
+\end{jie}
+
+\EX 某试验性生产线每年一月份进行熟练工与非熟练工的人数统计，然后将六分之一的熟练工支援其他生产部门，其缺额由招收新的非熟练工补齐。新、老非熟练工经过培训及实践至年终考核有五分之二成为熟练工。设第$n$年一月份统计的熟练工和非熟练工所占百分比分别为$x_n,y_n$，记成向量$
+\begin{pmatrix}
+x_n\\ y_n
+\end{pmatrix}
+$。
+
+(1)求$
+\begin{pmatrix}
+x_{n+1}\\ y_{n+1}
+\end{pmatrix}
+$与$
+\begin{pmatrix}
+x_n\\ y_n
+\end{pmatrix}
+$的关系式并写成矩阵形式：
+$
+\begin{pmatrix}
+x_{n+1}\\ y_{n+1}
+\end{pmatrix}=A
+\begin{pmatrix}
+x_n\\ y_n
+\end{pmatrix}
+$;
+
+(2)验证$\eta_1=
+\begin{pmatrix}
+4\\1
+\end{pmatrix},\eta_2=
+\begin{pmatrix}
+-1\\1
+\end{pmatrix}
+$是$A$的两个线性无关的特征向量，并求出相应的特征值；
+
+(3)当$
+\begin{pmatrix}
+x_{1}\\ y_{2}
+\end{pmatrix}=A
+\begin{pmatrix}
+\dfrac{1}{2}\\[4pt] \dfrac{1}{2}
+\end{pmatrix}
+$，求$
+\begin{pmatrix}
+x_{n+1}\\ y_{n+1}
+\end{pmatrix}
+$。
+
+\begin{jie}
+(1)由题可设：$x_{n+1}=\dfrac{5}{6}x_n+\dfrac{2}{5}\left(\dfrac{1}{6}x_n+y_n\right),y_{n+1},y_{n+1}=\dfrac{3}{5}\left(\dfrac{1}{6}x_n+y_n\right)$，即：
+\begin{equation*}
+\begin{pmatrix}
+x_{n+1}\\ y_{n+1}
+\end{pmatrix}=\frac{1}{10}
+\begin{pmatrix}
+9&4\\1&6
+\end{pmatrix}\begin{pmatrix}
+x_{n}\\ y_{n}
+\end{pmatrix}
+\end{equation*}
+令$
+A=\frac{1}{10}
+\begin{pmatrix}
+9&4\\1&6
+\end{pmatrix}
+$，则$
+\begin{pmatrix}
+x_{n+1}\\ y_{n+1}
+\end{pmatrix}=A
+\begin{pmatrix}
+x_n\\ y_n
+\end{pmatrix}
+$。
+
+(2)令$B=\begin{pmatrix}
+9&4\\1&6
+\end{pmatrix}$
+\begin{equation*}
+B\eta_1=\begin{pmatrix}
+9&4\\1&6
+\end{pmatrix}\begin{pmatrix}
+4\\1
+\end{pmatrix}=10\begin{pmatrix}
+4\\1
+\end{pmatrix},~~~~~~B\eta_2=\begin{pmatrix}
+9&4\\1&6
+\end{pmatrix}\begin{pmatrix}
+-1\\1
+\end{pmatrix}=5\begin{pmatrix}
+-1\\1
+\end{pmatrix}
+\end{equation*}
+所以：$\eta_1,\eta_2$是$B$对应于特征值$10,5$的特征向量。
+
+因为$A=\dfrac{1}{10}B$，所以$\eta_1,\eta_2$是对应于特征值$1,0.5$的特征向量。
+
+(3)由(1)得$
+\begin{pmatrix}
+x_{n+1}\\ y_{n+1}
+\end{pmatrix}=A
+\begin{pmatrix}
+x_n\\ y_n
+\end{pmatrix}
+,\begin{pmatrix}
+x_n\\ y_n
+\end{pmatrix}
+=A\begin{pmatrix}
+x_{n-1}\\ y_{n-1}
+\end{pmatrix}\cdots,\begin{pmatrix}
+x_{n+1}\\ y_{n+1}
+\end{pmatrix}=A^n
+\begin{pmatrix}
+x_1\\ y_1
+\end{pmatrix}$.
+
+由(2)得$
+\begin{pmatrix}
+ x_1\\ x_2
+\end{pmatrix}=\begin{pmatrix}
+               \dfrac{1}{2}\\[4pt]\dfrac{1}{2}
+              \end{pmatrix}=\dfrac{1}{5}\eta_1+\dfrac{3}{10}\eta_2
+$,所以：
+\begin{equation*}
+\begin{pmatrix}
+x_{n+1}\\ y_{n+1}
+\end{pmatrix}=A^n\left(\dfrac{1}{5}\eta_1+\dfrac{3}{10}\eta_2\right)=\dfrac{1}{5}A^{n}\eta_1+\dfrac{3}{10}A^{n}\eta_2=
+\begin{pmatrix}
+\dfrac{4}{5}-\dfrac{3}{10\cdot 2^n}\\[4pt]\dfrac{1}{5}+\dfrac{3}{10\cdot 2^n}
+\end{pmatrix}
+\end{equation*}
+\end{jie}
+
+\clearpage
+\section{内积、正交阵与实对称矩阵}
+\EX 设$\xi_1=
+\begin{pmatrix}
+1\\ -2\\0
+\end{pmatrix},\xi_2=
+\begin{pmatrix}
+1\\ 0\\-1
+\end{pmatrix}
+$，求所有与$\xi_1,\xi_2$都正交的向量。
+
+\begin{jie}
+设该正交向量为$\xi=
+(x_1,x_2,x_3)^T
+$，依正交的定义：$\xi^T\xi_{1}=0,\xi^{T}\xi_{2}=0$即：
+\begin{equation*}
+  \begin{cases}
+    x_1-2x_2=0\\ x_1-x_3=0
+  \end{cases}~~\Rightarrow~~
+  \begin{cases}
+    x_1=x_3\\
+    x_2=0.5x_3
+  \end{cases}
+\end{equation*}
+取$x_3=2k,k\in R$，所以$\xi=(2k,k,2k)^T,k\in R$
+\end{jie}
+
+\EX 设$n$维向量$\xi$与$n$个线性无关的$n$维向量正交。证明$\xi=0$。
+
+\begin{zhengming}
+设$
+\xi=
+\begin{pmatrix}
+x_1\\x_2\\ \vdots\\x_n
+\end{pmatrix}
+$，设$\alpha_1,\cdots,\alpha_n$线性无关，其中$
+\alpha_i=
+\begin{pmatrix}
+a_{i1}\\a_{i2}\\ \vdots\\a_{in}
+\end{pmatrix}
+$，则$\xi$与$\alpha_1,\cdots,\alpha_n$都正交等价于$\xi$是方程组
+$
+\begin{cases}
+a_{11}x_{1}+a_{12}x_{2}+\cdots+a_{1n}x_{n}=0\\
+a_{21}x_{1}+a_{22}x_{2}+\cdots+a_{2n}x_{n}=0\\
+\cdots\\
+a_{n1}x_{1}+a_{n2}x_{2}+\cdots+a_{nn}x_{n}=0 \end{cases}
+$的解。可以看出该齐次线性方程组的系数矩阵的行向量为$\alpha_1,\cdots,\alpha_n$，因为$\alpha_1,\cdots,\alpha_n$线性无关，所以该系数矩阵秩为$n$，所以该齐次方程组只有零解，所以$\xi=0$。
+\end{zhengming}
+
+\EX 设$\xi_1=
+\begin{pmatrix}
+1\\1\\0\\1
+\end{pmatrix},\xi_2=
+\begin{pmatrix}
+1\\0\\1\\0
+\end{pmatrix},\xi_3=
+\begin{pmatrix}
+1\\0\\0\\1
+\end{pmatrix},
+$求一个与$\xi_1,\xi_2,\xi_3$等价的两两正交的向量组。
+
+\begin{jie}
+$r(\xi_1,\xi_2,\xi_3)=3$，所以$\xi_1,\xi_2,\xi_3$线性无关的，使用施密特正交化方法：
+\begin{align*}
+&\eta_1=\xi_1\\
+&\eta_2=\xi_2-
+\frac{\xi_2^T\eta_1}{\eta_1^T\eta_1}\eta_1=
+\begin{pmatrix}
+0.5\\-0.5\\1\\0
+\end{pmatrix}\\
+&\eta_3=\xi_3-\sum_{i=1}^{2}\left(
+\frac{\xi_3^T\eta_i}{\eta_i^T\eta_i}\eta_i\right)=
+\begin{pmatrix}
+\frac{1}{3}\\-\frac{1}{3}\\-\frac{1}{3}\\1
+\end{pmatrix}
+\end{align*}
+$\eta_1,\eta_2,\eta_3$即为所求。
+\end{jie}
+
+\EX 设$A$是$n$阶方阵。
+
+(1)设存在$n$维非零列向量$\xi$使得$A\xi=2\xi$。证明：$A$不可能是正交阵。
+
+(2)假设$A$是正交阵。证明：$2I_{n}-A$是可逆矩阵。
+
+\begin{zhengming}
+(1)假设$A$是正交阵，则由课本146页命题4.3.2有$(A\xi)^T(A\xi)=\xi^T\xi$，又因为$A\xi=2\xi$，所以$(A\xi)^T(A\xi)= (2\xi^T)(2\xi)=4\xi^T\xi$，因为$\xi$非零，所以$(A\xi)^T(A\xi)= \xi^T\xi=4\xi^T\xi$矛盾，所以假设不成立，即$A$不是正交阵。
+
+(2)$A$是正交矩阵，由(1)得，$2$不是$A$的特征值。所以$2I_n-A$的特征值不可能有0，由特征值和行列式的关系知，$2I_{n}-A$的行列式不会为0，即可逆。
+\end{zhengming}
+
+\EX 设$A=
+\begin{pmatrix}
+4&-1&-1&1\\
+-1&4&1&-1\\
+-1&1&4&1\\
+1&-1&-1&4
+\end{pmatrix}$，问$A$能否对角化？若能对角化，求一个与$A$相似的对角阵。
+
+\begin{jie}
+实对称矩阵一定可以对角化。
+
+\begin{align*}
+|\lambda E-A|=
+\begin{vmatrix}
+\lambda-4&1&1&-1\\
+1&\lambda-4&-1&1\\
+1&-1&\lambda-4&-1\\
+-1&1&1&\lambda-4
+\end{vmatrix}\xlongequal{\substack{r_{2}+r_{4}\\ r_{3}+r_{4}}}
+\begin{vmatrix}
+\lambda-4&1&1&-1\\
+0&\lambda-3&0&\lambda-3\\
+0&0&\lambda-3&\lambda-3\\
+-1&1&1&\lambda-4
+\end{vmatrix}=(\lambda-3)^3(\lambda-7)=0
+\end{align*}
+所以得到的对称矩阵为：$\Lambda=
+\begin{pmatrix}
+3\\&3\\&&3\\&&&7
+\end{pmatrix}
+$
+\end{jie}
+
+\EX 设$A=
+\begin{pmatrix}
+1&-2&-4\\
+-2&4&-2\\
+-4&-2&1
+\end{pmatrix}
+$，求正交矩阵$P$使得$P^{-1}AP$是对角阵，并写出一个这样的对角阵。
+
+\begin{tips}
+解题步骤：(以3阶为例)
+
+(1)求矩阵$A$的特征值$\lambda_1,\lambda_2,\lambda_3;$
+
+(2)求出矩阵的特征向量$\alpha_1,\alpha_2,\alpha_3$;
+
+(3)把(2)特征向量改造（施密特正交化，单位化）为$\gamma_1,\gamma_2,\gamma_3$;（实对称矩阵的不同特征值对应的特征向量是正交的，如果三个特征值不同，则三个特征值对应的特征向量组成的向量组就是正交的，此时直接单位化各向量即可。）
+
+(4)构造正交矩阵$P=[\gamma_1,\gamma_2,\gamma_3]$
+\end{tips}
+
+\begin{jie}
+由题得：
+\begin{align*}
+|\lambda E-A|&=
+\begin{vmatrix}
+\lambda-1&2&4\\
+2&\lambda-4&2\\
+4&2&\lambda-1
+\end{vmatrix}\xlongequal{r_1-r_3}
+\begin{vmatrix}
+\lambda-5&0&5-\lambda\\
+2&\lambda-4&2\\
+4&2&\lambda-1
+\end{vmatrix}\xlongequal{c_3+c_1}
+\begin{vmatrix}
+\lambda-5&0&0\\
+2&\lambda-4&4\\
+4&2&\lambda-3
+\end{vmatrix}\\&=(\lambda-5)[(\lambda-4)(\lambda-3)-8]~~~\Rightarrow~~~\lambda_{1}=\lambda_{2}=5,\lambda_3=-4
+\end{align*}
+
+对于$\lambda=5$，用高斯消元化简$(5E-A)x=0$的系数矩阵后得：$x_1=-\frac{1}{2}x_2-x_3$，分别取$[x_2,x_3]^T=[0,1]^T,[2,0]^T$得$\alpha_1=[-1,0,1]^T,\alpha_2=[-1,2,0]^T$，施密特正交化得：$\xi_1=\alpha_1,\xi_2=\alpha_2
+-\dfrac{\alpha_2^T\xi_1}{\xi_1^T\xi}\xi_1=-\dfrac{1}{2}[1,-4,1]^T
+$，单位化：$\eta_1=\dfrac{1}{\sqrt{2}}[-1,0,1]^T,\eta_{2}=-\dfrac{\sqrt{2}}{6}[1,-4,1]^T$。
+
+对于$\lambda=-4$，用高斯消元化简$(5E-A)x=0$的系数矩阵后得：$x_1=x_3,x_2=0.5x_3$，取$x_3=2$得$\alpha_3=[2,1,2]^T$，对于实对称矩阵，不同的特征值对应的特征向量是正交的，即$\alpha_3$与$\eta_1,\eta_2$一定是正交的，只需对$\alpha_3$单位化：$\eta_3=\dfrac{1}{3}[2,1,2]^T$。
+
+令$P=
+(\eta_1,\eta_2,\eta_3)
+$，则$P^{-1}AP=
+\begin{pmatrix}
+5\\&5\\&&-4
+\end{pmatrix}
+$.
+\end{jie}
+
+\EX 设$A$是$n$阶实对称矩阵且$A^2=0$。证明$A=0$。
+
+\begin{zhengming}
+$A$是实对称矩阵，所以可设：
+\begin{equation*}
+A=
+\begin{pmatrix}
+a_{11}&a_{12}&\cdots&a_{1n}\\
+a_{12}&a_{22}&\cdots&a_{2n}\\
+\vdots&\vdots&\ddots&\vdots\\
+a_{1n}&a_{2n}&\cdots&a_{nn}
+\end{pmatrix}
+\end{equation*}
+因为$A^2=0$，我们考察$A^2$的对角线上元素：$A^2(1,1)=\sum\limits_{i=1}^{n}a_{1i}^2=0$，任何数的平方只能大于等于0，所以得出$a_{1i}=0,i=1,\cdots,n$，同理也可以推出$A$的其他行的每一个元素为0.证毕。
+\end{zhengming}
+
+\EX 设$A$是$n$阶实对称矩阵，且它的特征值都是正数。证明：存在$n$阶实对称阵$B$使得$A=B^2$。
+
+\begin{zhengming}
+$A$是$n$阶实对称矩阵，所以存在正交阵$P$使得：
+\begin{equation*}
+A=P^{-1}
+\begin{pmatrix}
+\lambda_1\\
+&\lambda_2\\
+&&\ddots\\
+&&&\lambda_n
+\end{pmatrix}P
+\end{equation*}
+式中$\lambda_i$是$A$的特征值，又因为$A$的特征值都是正数，所以可设$B=
+P^{-1}
+\begin{pmatrix}
+\sqrt{\lambda_1}\\
+&\sqrt{\lambda_2}\\
+&&\ddots\\
+&&&\sqrt{\lambda_n}
+\end{pmatrix}P
+$，$P$是正交矩阵，所以有$P^T=P^{-1}$,所以：$(P^{-1})^T=P$,对$B$取转置(注意转置的性质：$(AB)^T=B^TA^T$)：
+\begin{align*}
+B^T&=P^T
+\begin{pmatrix}
+\sqrt{\lambda_1}\\
+&\sqrt{\lambda_2}\\
+&&\ddots\\
+&&&\sqrt{\lambda_n}
+\end{pmatrix}^T(P^{-1})^T\\
+&=P^{-1}
+\begin{pmatrix}
+\sqrt{\lambda_1}\\
+&\sqrt{\lambda_2}\\
+&&\ddots\\
+&&&\sqrt{\lambda_n}
+\end{pmatrix}P=B
+\end{align*}
+
+即$B$是实对称矩阵，且：
+\begin{equation*}
+B^2=P^{-1}
+\begin{pmatrix}
+\sqrt{\lambda_1}\\
+&\sqrt{\lambda_2}\\
+&&\ddots\\
+&&&\sqrt{\lambda_n}
+\end{pmatrix}^2P=A
+\end{equation*}
+所以存在$n$阶实对称阵$B$使得$A=B^2$。
+\end{zhengming}
+
+\EX 设$A,B$是$n$阶实对称阵，满足：对任意$n$维向量$\xi$都有$\xi^TA\xi=\xi^TB\xi$。证明：$A=B$。
+
+\begin{zhengming}
+设$C=A-B$，要证$A=B$，只需证$C=0$即可，$A,B$是$n$阶实对称阵,实对称矩阵加减后仍是实对称矩阵，$C$也是实对称矩阵。且对于任意的$n$维列向量$\eta$有：
+\begin{equation*}
+\eta^TC\eta=\eta^T(A-B)\eta=\eta^TA\eta-\eta^TB\eta=0\tag{*}
+\end{equation*}
+由于$C$是实对称矩阵，所以存在正交矩阵$P$使得：
+\begin{equation*}
+P^{-1}CP=D
+=\begin{pmatrix}
+\lambda_1\\
+&\lambda_2\\
+&&\ddots\\
+&&&\lambda_n
+\end{pmatrix}
+\end{equation*}
+其中$\lambda_i$是$A$的特征值。对任意的$n$维列向量$\xi$,由$P^{-1}=P^T$和式(*)得：令$\eta=P\xi$
+\begin{equation*}
+  0=(P\xi)^TC(P\xi)=\xi^T(P^TCP)\xi=\xi^T(P^TCP)\xi=\xi^{T}(P^{-1}CP)\xi
+\end{equation*}
+对于任意$\xi=
+\begin{pmatrix}
+x_1\\x_2\\ \vdots\\x_n
+\end{pmatrix}
+$，都有$0=\xi^T(P^{-1}CP)\xi=\xi^TD\xi=\lambda_1x_1^2+\cdots+\lambda_nx_n^2$
+
+对于每个$i$，取$x_i=1$，其余的$x_j$为0，得$\lambda_i=0$，即$D=0$,从而$C=PDP^{-1}=P0P^{-1}=0$。
+\end{zhengming}
+
+\EX 设$P,Q$是$n$阶正交矩阵，且$|P|=1,|Q|=-1$。证明：$|P+Q|=0$。
+
+\begin{zhengming}
+$P,Q$是$n$阶正交矩阵，所以$P^{-1}=P^T,Q^{-1}=Q^{T}$。所以：（注：转置不改变行列式，转置的性质：$(A+B)^T=A^T+B^T$）
+\begin{align*}
+|P+Q|&=|P(I_n+P^{-1}Q)|=|P(Q^{-1}Q+P^{-1}Q)|=|P(Q^{-1}+P^{-1})Q|\\
+&=|P(Q^T+P^T)Q|=|P(Q+P)^TQ|=|P||(P+Q)^T||Q|=-|P+Q|
+\end{align*}
+所以：$|P+Q|=0$。
+\end{zhengming}
+
+\EX 已知实对称矩阵$A$的秩为2，且
+\begin{equation*}
+A\begin{pmatrix}
+1&1\\
+0&0\\
+-1&1
+ \end{pmatrix}=
+ \begin{pmatrix}
+-1&1\\
+0&0\\
+1&1
+ \end{pmatrix}
+\end{equation*}
+
+(1)求矩阵$A$的所有特征值与特征向量；
+
+(2)求矩阵$A$。
+
+\begin{jie}
+(1)令$\xi_1=(1,0,-1)^T,\xi_2=(1,0,1)^T$，由题目中的等式得$A(\xi_1,\xi_2)=(-\xi_1,\xi_2)$，所以$A\xi_1=-\xi_1,A\xi_2=\xi_2$，所以$A$的其中两个特征值为$-1,1$，又因为$r(A)=2$,即$|A|=0$，所以$A$的另一个特征值为0.
+
+实对称矩阵不同特征值对应的特征向量相交，所以设特征值$0$的特征向量为$\xi_3=[\xi_1,\xi_2,\xi_3]^T$，所以:
+\begin{equation*}
+\begin{cases}
+\xi_1^T\xi_3=0\\
+\xi_2^T\xi_3=0
+\end{cases}~~\Rightarrow
+\begin{cases}
+x_1=x_3=0\\
+x_2\in R
+\end{cases}~~~\Rightarrow~~\xi_3=[0,1,0]^T
+\end{equation*}
+综上所述：$A$的特征值为1对应的特征向量为$k_1[1,0,1]^T,k_1\neq 0$，$A$的特征值为-1对应的特征向量为$k_2[1,0,-1]^T,k_2\neq 0$，$A$的特征值为0对应的特征向量为$k_3[0,1,0]^T,k_3\neq 0$.
+
+(2)取$P=(\xi_1,\xi_2,\xi_3)$，则$P^{-1}AP=\Lambda=
+\begin{pmatrix}
+-1\\&1\\&&0
+\end{pmatrix}
+$，计算得：$
+P^{-1}=
+\begin{pmatrix}
+0.5&0&-0.5\\0.5&0&0.5\\0&1&0
+\end{pmatrix}
+$，所以：
+\begin{equation*}
+A=P\Lambda P^{-1}=
+\begin{pmatrix}
+0&0&1\\0&0&0\\1&0&0
+\end{pmatrix}
+\end{equation*}
+\end{jie}
+
+\EX 设矩阵$A
+\begin{pmatrix}
+1&1&a\\
+1&a&1\\
+a&1&1
+\end{pmatrix},
+\beta=
+\begin{pmatrix}
+1\\1\\-2
+\end{pmatrix}
+$。已知线性方程组$Ax=\beta$有解但不唯一，试求：
+
+(1) $a$的值；
+
+(2)正交矩阵$Q$，使$Q^TAQ$为对角矩阵。
+
+\begin{jie}
+(1)由题得$|A|=-(a+2)(a-1)^2$因为$Ax=\beta$解不唯一，所以$r(A)<3,|A|=0,$即$a=-2$或$a=1$。
+
+$a=-2$时$r(A)=r(A,\beta)=2$,$a=1$时，$r(A)\neq r(A,\beta)$。所以$a=-2$。
+
+(2)
+\begin{align*}
+|\lambda E-A|&=
+\begin{vmatrix}
+\lambda -1&-1&2\\
+-1&\lambda+2&-1\\
+2&-1&\lambda -1
+\end{vmatrix}
+\xlongequal{c_1+c_2+c_3}
+\begin{vmatrix}
+\lambda&-1&2\\
+\lambda&\lambda+2&-1\\
+\lambda&-1&\lambda -1
+\end{vmatrix}\xlongequal{\substack{r_2-r_1\\ r_3-r_1}}
+\begin{vmatrix}
+\lambda&-1&2\\
+0&\lambda+3&-3\\
+0&0&\lambda -3
+\end{vmatrix}\\&=\lambda(\lambda-3)(\lambda+3)~~\Rightarrow~~\lambda_1=0,\lambda_2=3,\lambda_3=-3
+\end{align*}
+
+对于$\lambda=0$，用高斯消元化简$(0E-A)x=0$的系数矩阵后得：$x_1=x_3,x_2=x_3$，所以$\alpha_1=[1,1,1]^T$，单位化：$\eta_1=\dfrac{1}{\sqrt{3}}[1,1,1]^T$。
+
+对于$\lambda=3$，用高斯消元化简$(3E-A)x=0$的系数矩阵后得：$x_1=-x_3,x_2=0$，所以$\alpha_2=[-1,0,1]^T$，单位化：$\eta_2=\dfrac{1}{\sqrt{2}}[-1,0,1]^T$。
+
+对于$\lambda=-3$，用高斯消元化简$(-3E-A)x=0$的系数矩阵后得：$x_1=x_3,x_2=-2x_3$，所以$\alpha_3=[1,-2,1]^T$，单位化：$\eta_3=\dfrac{1}{\sqrt{6}}[1,-2,1]^T$。
+
+所以：$Q=[\eta_1,\eta_2,\eta_3]$，此时$Q^TAQ=
+\begin{pmatrix}
+0\\&3\\&&-3
+\end{pmatrix}
+$.
+\end{jie}
+
+\chapter{二次型与正定阵}
+\section{二次型的矩阵与标准型}
+\EX 设$A$与$B$合同。证明：
+
+(1)$r(A)=r(B)$。
+
+(2)$|A|$与$|B|$同为正，或同为负，或同为0.
+
+(3)设$A$可逆，则$B$可逆，且$A^{-1}$与$B^{-1}$合同。
+
+\begin{zhengming}
+$A$与$B$合同，所以存在可逆矩阵$P$使得$A=P^TBP$。
+
+(1)由于$P$可逆，并且左乘或右乘可逆矩阵不改变矩阵的秩，所以$r(A)=r(B)$。
+
+(2)对$A=P^TBP$两边同时求行列式：$|A|=|P^TBP|=|P^T||B||P|=|P|^2|B|$，因为$P$可逆，所以$|P|\neq 0$，所以$|P|^2>0$，所以$|A|$与$|B|$同号或同为0.
+
+(3)$A$可逆，则由(1)得$r(A)=n=r(B)$，即$B$可逆。
+
+对$A=P^TBP$两边同时求逆：$A^{-1}=(P^TBP)^{-1}=P^{-1}B^{-1}(P^{T})^{-1}=((P^{-1})^T)^TB^{-1}(P^{-1})^{T}$.
+
+因为$P$可逆，所以$P^{-1}$可逆，所以$(P^{-1})^T$可逆，记$Q=(P^{-1})^T$，则$A^{-1}=Q^TB^{-1}Q$
+即$A^{-1}$与$B^{-1}$合同。
+\end{zhengming}
+
+\EX 设$A$与$B$合同，$C$与$D$合同。证明：$
+\begin{pmatrix}
+A&0\\
+0&C
+\end{pmatrix}
+$与$\begin{pmatrix}
+B&0\\
+0&D
+\end{pmatrix}
+$合同。
+
+\begin{zhengming}
+$A$与$B$合同，则存在可逆矩阵$P$使得$A=P^TBP$，同理存在可逆矩阵$Q$使得$C=Q^TDQ$。则存在可逆矩阵$
+\begin{pmatrix}
+P&0\\
+0&Q
+\end{pmatrix}
+$使得：
+\begin{align*}
+&\begin{pmatrix}
+P&0\\
+0&Q
+\end{pmatrix}^T\begin{pmatrix}
+B&0\\
+0&D
+\end{pmatrix}\begin{pmatrix}
+P&0\\
+0&Q
+\end{pmatrix}\\=&
+\begin{pmatrix}
+P^T&0\\
+0&Q^T
+\end{pmatrix}\begin{pmatrix}
+B&0\\
+0&D
+\end{pmatrix}\begin{pmatrix}
+P&0\\
+0&Q
+\end{pmatrix}\\=&
+\begin{pmatrix}
+P^TBP&0\\
+0&Q^TDQ
+\end{pmatrix}=\begin{pmatrix}
+A&0\\
+0&C
+\end{pmatrix}
+\end{align*}
+所以$
+\begin{pmatrix}
+A&0\\
+0&C
+\end{pmatrix}
+$与$\begin{pmatrix}
+B&0\\
+0&D
+\end{pmatrix}
+$合同。
+\end{zhengming}
+
+\EX 设$f(x_1,x_2,x_3)=(x_1-2x_3)^2-3x_2^{2}$。通过换元：$
+\begin{cases}
+y_1=x_1-2x_3\\y_2=x_2
+\end{cases}$可以得到$f(x_1,x_2,x_3)=y_1^2-3y_2^2$。问：这里的换元是否是非退化线性替换？若不是，请写出正确的非退化线性替换。
+
+\begin{jie}
+不是。由$
+\begin{cases}
+y_1=x_1-2x_3\\
+y_2=x_2\\
+y_3=x_3
+\end{cases}
+$得：$
+\begin{cases}
+x_1=y_1+2y_3\\x_2=y_2\\x_3=y_3
+\end{cases}$，所以所作的非退化线性替换应为$x=cy$，其中$C=
+\begin{pmatrix}
+1&0&2\\0&1&0\\0&0&1
+\end{pmatrix}
+$是可逆矩阵。
+\end{jie}
+
+\EX 举例说明：当$A$与$B$合同时，不一定有$A\sim B$；当$A\sim B$时不一定有$A$与$B$合同。
+
+\begin{jie}
+(1)$A$与$B$合同时，不一定有$A\sim B$:
+
+由课本157页定理5.1.1,得：
+$
+A=\begin{pmatrix}
+   1\\&1
+  \end{pmatrix},B=\begin{pmatrix}
+                   1\\&2
+                  \end{pmatrix}
+$，由相似矩阵定义，单位矩阵只与自身相似，即$A$与$B$相似。
+
+(2)当$A\sim B$时不一定有$A$与$B$合同.
+
+$
+A=\begin{pmatrix}
+   1\\&-3
+  \end{pmatrix},B=\begin{pmatrix}
+   1&0\\2&-3
+  \end{pmatrix}
+$,$B$的特征值为$1,-3$互不相同，一定可以对角化，因此有$A\sim B$。由课本156页例5.1.5(4)得出，与$A$合同的只能是对称阵，而$B$非对称，即不能合同。
+\end{jie}
+
+\EX 设$A$与$B$都是$n$阶实对称矩阵。证明：如果$A\sim B$则$A$与$B$合同。
+
+\begin{zhengming}
+因为$A$与$B$相似，所以他们的特征值完全相同，所以他们的正负惯性指数相等，又因为$A$和$B$都是实对称矩阵，所以$A$与$B$合同。
+\end{zhengming}
+
+
+\EX 设二次型$f(x_1,x_2,x_3)$的矩阵$A$可逆。证明：
+
+(1)如果$d_1y_1^2+d_2y_2^2+d_3y_3^2$是$f(x_1,x_2,x_3)$的一个标准型，则：$
+\dfrac{1}{d_1}y_1^2+\dfrac{1}{d_2}y_2^2+\dfrac{1}{d_3}y_3^2
+$是二次型$g(x_1,x_2,x_3)=x^TA^{-1}x$的一个标准型。
+
+(2)二次型$h(x_1,x_2,x_3)=y_1^2+y_2^2+y_3^2$.
+
+\begin{zhengming}
+由$A$可逆可知，$A$的特征值不为0.设$A$的正惯性指数为$p$,则其负惯性指数为$3-p$.
+
+如果$\lambda$是$A$的一个特征值，由特征值的性质$\frac{1}{\lambda}$是$A^{-1}$的一个特征值。$\lambda$与$\frac{1}{\lambda}$同号。所以$A$与$A^{-1}$的正惯性指数都为$p$,负惯性指数都为$3-p$。
+
+(1)若$d_1y_1^2+d_2y_2^2+d_3y_3^2$是$f(x_1,x_2,x_3)$的一个标准型，则$d_1,d_2,d_3$中有$p$个正数，$3-p$个负数.从而$\frac{1}{d_1},\frac{1} {d_2},\frac{1} {d_3}$中有$p$个正数，$3-p$个负数，即由惯性定理，对角阵
+$
+\begin{pmatrix}
+\frac{1} {d_1}\\&\frac{1} {d_2}\\&&\frac{1} {d_3}
+\end{pmatrix}
+$与$A^{-1}$合同，所以结论成立。
+
+(2)$A$的特征值不为0,所以$A^2$的特征值大于0，从而$A^2$的正惯性指数为$3$，所以结论成立。
+\end{zhengming}
+
+\EX 设3元实二次型$g(x_1,x_2,x_3)$的矩阵是$A$。方阵$B$的特征多项式为$f(\lambda)=(\lambda-1)(\lambda+2)^2$，且$B$与$A$合同。证明：对任意的$x
+=\begin{pmatrix}
+x_1\\ x_2\\x_3
+ \end{pmatrix}
+$都有：
+$-2(x_1^2+x_2^2+x_3^2)\leq x^TBx\leq(x_1^2+x_2^2+x_3^2)$。
+
+\begin{zhengming}
+由于$A$是实二次型矩阵，所以$A$是实对称矩阵，又因为$A$与$B$合同，所以$B$也是实对称矩阵，因此$B$可以对角化，由题可得$B$的特征值为$1,-2,-2$，所以存在正交阵$P$使得
+\begin{equation*}
+P^{-1}BP=P^TBP=
+\begin{pmatrix}
+1\\&-2\\&&-2
+\end{pmatrix}
+\end{equation*}
+对于任意的$x=
+\begin{pmatrix}
+x_1\\x_2\\x_3
+\end{pmatrix}
+$，令$
+y=\begin{pmatrix}
+y_1\\y_2\\y_3
+  \end{pmatrix}=P^{-1}x
+$，则：
+\begin{align*}
+x^TBx=&(Py)^TB(Py)=y^T(P^TBP)y\\
+=&\begin{pmatrix}
+y_1&y_2&y_3
+  \end{pmatrix}\begin{pmatrix}
+1\\&-2\\&&-2
+\end{pmatrix}\begin{pmatrix}
+y_1\\ y_2\\ y_3
+  \end{pmatrix}\\=&
+  y_1^2-2y_2^2-2y_3^2
+\end{align*}
+
+由此式可得：\begin{equation*}-2(y_1^2+y_2^2+y_3^2)\leq x^TBx\leq(y_1^2+y_2^2+y_3^2)\tag{*}\end{equation*}
+因为$P$是正交矩阵，所以$x^Tx=x_1^2+x_2^2+x_3^2=(Py)^{T}(Py)=y^TP^TPy=y^Ty=y_1^2+y_2^2+y_3^2$。代入$(*)$式即可得证。
+\end{zhengming}
+
+\EX 用配方法求二次型
+\begin{equation*}
+f(x_1,x_2,x_3)=x_2^2+x_3^2-2x_1x_2+4x_2x_3
+\end{equation*}的标准型。
+
+\begin{jie}
+\textcolor[rgb]{1.00,0.00,0.00}{配方法：课本161页。}
+
+标准型不唯一，所以答案不唯一。但正负惯性指数是不变的。
+
+\begin{align*}
+f&=x_2^2+x_3^2-2x_1x_2+4x_2x_3=(x_3+2x_2)^2-4x_2^2+x_2^2-2x_1x_2\\
+&=(x_3+2x_2)^2-3x_2^2-2x_1x_2=(x_3+2x_2)^2-3(x_2^2+\frac{2}{3}x_1x_2)\\
+&=(x_3+2x_2)^2-3(x_2+\frac{1}{3}x_1)^2+\frac{1}{3}x_1^2
+\end{align*}
+所以$f(x_1,x_2,x_3)$的一个标准型为$(x_3+2x_2)^2-3(x_2+\frac{1}{3}x_1)^2+\frac{1}{3}x_1^2$
+\end{jie}
+
+\EX 设$
+A=
+\begin{pmatrix}
+-1&1&-3\\
+1&-2&-2\\
+-3&-2&2
+\end{pmatrix}
+$.用合同变换求可逆矩阵$C$使得$C^TAC$为对角阵，并求$A$的正惯性指数和负惯性指数。
+
+\begin{jie}
+\textcolor[rgb]{1.00,0.00,0.00}{合同变换：课本162页。}
+\begin{align*}
+&\left( \begin{array}{c}
+A\\
+\hdashline[2pt/3pt]
+E_3
+\end{array}
+\right)=
+\left(
+ \begin{array}{ccc}
+-1&1&-3\\
+1&-2&-2\\
+-3&-2&2\\
+\hdashline[2pt/3pt]
+1 &0&0 \\
+0 &1&0 \\
+0&0&1\\
+\end{array}
+\right)
+\xrightarrow{\substack{ r_2+r_1}}{
+\left(
+ \begin{array}{ccc}
+-1&1&-3\\
+0&-1&-5\\
+-3&-2&2\\
+\hdashline[2pt/3pt]
+1 &0&0 \\
+0 &1&0 \\
+0&0&1\\
+\end{array}
+\right)
+}\xrightarrow{\substack{ c_2+c_1}}{
+\left(
+ \begin{array}{ccc}
+-1&0&-3\\
+0&-1&-5\\
+-3&-5&2\\
+\hdashline[2pt/3pt]
+1 &1&0 \\
+0 &1&0 \\
+0&0&1\\
+\end{array}
+\right)
+}\\&\xrightarrow{\substack{ r_3-3r_1}}{
+\left(
+ \begin{array}{ccc}
+-1&0&-3\\
+0&-1&-5\\
+0&-5&11\\
+\hdashline[2pt/3pt]
+1 &1&0 \\
+0 &1&0 \\
+0&0&1\\
+\end{array}
+\right)
+}\xrightarrow{\substack{ c_3-3c_1}}{
+\left(
+ \begin{array}{ccc}
+-1&0&0\\
+0&-1&-5\\
+0&-5&11\\
+\hdashline[2pt/3pt]
+1 &1&-3 \\
+0 &1&0 \\
+0&0&1\\
+\end{array}
+\right)
+}\xrightarrow{\substack{ r_3-5r_2}}{
+\left(
+ \begin{array}{ccc}
+-1&0&0\\
+0&-1&-5\\
+0&0&36\\
+\hdashline[2pt/3pt]
+1 &1&-3 \\
+0 &1&0 \\
+0&0&1\\
+\end{array}
+\right)
+}\\&
+\xrightarrow{\substack{ c_3-5c_2}}{
+\left(
+ \begin{array}{ccc}
+-1&0&0\\
+0&-1&0\\
+0&0&36\\
+\hdashline[2pt/3pt]
+1 &1&-8 \\
+0 &1&-5 \\
+0&0&1\\
+\end{array}
+\right)
+}=\left( \begin{array}{c}
+D\\
+\hdashline[2pt/3pt]
+C
+\end{array}
+\right)
+\end{align*}
+所以：$
+C=\begin{pmatrix}
+1 &1&-8 \\
+0 &1&-5 \\
+0&0&1
+  \end{pmatrix}
+$，则$C^TAC=
+\begin{pmatrix}
+-1\\&-1\\&&36
+\end{pmatrix}
+$，正惯性指数为1，负惯性指数为2.
+\end{jie}
+
+\EX 用正交变换求二次型：
+\begin{equation*}
+f(x_1,x_2,x_3)=2x_1^2+5x_2^2+2x_3^2-4x_1x_2-8x_1x_3-4x_2x_3
+\end{equation*}的标准型。并求$f(x_1,x_2,x_3)$的正惯性指数和负惯性指数。
+
+\begin{tips}
+正交变换化二次型为标准型的步骤：(以3阶为例)
+
+(1)写出二次型矩阵$A$;
+
+(2)求矩阵$A$的特征值$\lambda_1,\lambda_2,\lambda_3;$
+
+(3)求出矩阵的特征向量$\alpha_1,\alpha_2,\alpha_3$;
+
+(4)把(3)特征向量改造（施密特正交化，单位化）为$\gamma_1,\gamma_2,\gamma_3$;（实对称矩阵的不同特征值对应的特征向量是正交的，如果三个特征值不同，则三个特征值对应的特征向量组成的向量组就是正交的，此时直接单位化各向量即可。）
+
+(5)构造正交矩阵$Q=[\gamma_1,\gamma_2,\gamma_3]$,经坐标变换$x=Qy$得：
+\begin{equation*}
+  x^TAx=y^T\Lambda y=\lambda_1y_1^2+\lambda_2y_2^2+\lambda_3y_3^2
+\end{equation*}
+
+应当注意：$\Lambda$中特征值的顺序应与$Q$中对应的向量顺序一致。
+\end{tips}
+
+\begin{jie}
+\textcolor[rgb]{1.00,0.00,0.00}{正交变换：课本163页。}
+
+由题得：$f$的矩阵$
+A=\begin{pmatrix}
+    2&-2&-4\\
+    -2&5&-2\\
+    -4&-2&2
+  \end{pmatrix}
+$，所以：
+\begin{equation*}
+|\lambda E-A|\xlongequal{c_1+c_2+c_3}
+\begin{vmatrix}
+\lambda+4&2&4\\
+\lambda-1&\lambda-5&2\\
+\lambda+4&2&\lambda-2
+\end{vmatrix}\xlongequal{r_3-r_1}
+\begin{vmatrix}
+\lambda+4&2&4\\
+\lambda-1&\lambda-5&2\\
+0&0&\lambda-6
+\end{vmatrix}=(\lambda-6)[(\lambda+4)(\lambda-5)-2(\lambda-1)]=0
+\end{equation*}
+所以$\lambda_1=\lambda_2=6,\lambda=-3$。
+
+所以$f$的正惯性指数为2，负惯性指数为1.
+
+
+对于$\lambda=6$，用高斯消元化简$(6E-A)x=0$的系数矩阵后得：$x_1=-\frac{1}{2}x_2-x_3$,即$\alpha_1=[1,-2,0]^T,\alpha_2=[1,0,-1]$。施密特正交化后单位化：（步骤略）$\eta_1=\frac{1}{\sqrt{5}}[1,-2,0]^T,\eta_2=\frac{\sqrt{5}}{5}[-\frac{4}{5},-\frac{3}{5},1]^T$。
+
+对于$\lambda=-3$，用高斯消元化简$(6E-A)x=0$的系数矩阵后得：$
+x_1=x_3,x_2=\frac{1}{2}x_3
+$，即$\alpha_3=[2,1,2]^T$单位化：$\eta_{3}=\frac{1}{3}[2,1,2]$。
+
+令$Q=[\eta_1,\eta_2,\eta_3]$，在正交变换$x=Qy$下得到一个标准型为$f=6y_1^{2}+6y_2^{2}-3y_3^{2}$。
+\end{jie}
+
+\EX 二次型$f(x_1,x_2,x_3)=(x_1+x_2)^2+(x_2-x_3)^2+(x_3+x_1)^2$的秩为\underline{\hphantom{~~~~~~~~~~}}。
+
+\begin{jie}
+由题得：$f(x_1,x_2,x_3)=2x_1^2+2x_2^2+2x_3^2+2x_1x_2-2x_2x_3+2x_1x_3$。所以：
+\begin{equation*}
+A=
+\begin{pmatrix}
+2&1&1\\
+1&2&-1\\
+1&-1&2
+\end{pmatrix}\rightarrow
+\begin{pmatrix}
+1&2&-1\\
+0&1&-1\\
+0&0&0
+\end{pmatrix}
+\end{equation*}
+所以$r(A)=2$。
+\end{jie}
+
+\EX 已知实二次型$f(x_1,x_2,x_3)=a(x_1^2+x_2^2+x_3^2)+4x_1x_2+4x_2x_3+4x_1x_3$经正交变换$x=Py$可化成标准型$f=6y_1^2$，则$a=$\underline{\hphantom{~~~~~~~~~~}}。
+
+\begin{jie}
+由题得：$A=
+\begin{pmatrix}
+a&2&2\\
+2&a&2\\
+2&2&a
+\end{pmatrix},P^TAP=P^{-1}AP
+\begin{pmatrix}
+  6\\&0\\&&0
+\end{pmatrix}=\Lambda
+$，相似矩阵迹相同：$tr(A)=tr(\Lambda)$即$3a=6,a=2$。
+\end{jie}
+
+\EX 已知二次型$f(x_1,x_2,x_3)=4x_2^2-3x_3^2+4x_1x_2+8x_2x_3-4x_1x_3$.
+
+(1)写出二次型$f$的矩阵表达式；
+
+(2)用正交变换把二次型$f$化为标准型，并写出相应的正交矩阵。
+
+\begin{jie}
+(1)
+由题得：$
+A=
+\begin{pmatrix}
+0&2&-2\\
+2&4&4\\
+-2&4&-3
+\end{pmatrix}x=(x_1,x_2,x_3)^T
+$，所以$f=x^TAx$。
+
+(2)
+\begin{align*}
+|\lambda E-A|&\xlongequal{r_2+r_3}
+\begin{vmatrix}
+\lambda&-2&2\\
+0&\lambda-8&\lambda-1\\
+2&-4&\lambda+3
+\end{vmatrix}\xlongequal{c_2+c_3}
+\begin{vmatrix}
+\lambda&0&2\\
+0&2\lambda-9&\lambda-1\\
+2&\lambda-1&\lambda+3
+\end{vmatrix}\\&=\lambda[(2\lambda-9)(\lambda+3)-(\lambda-1)^2]-4(2\lambda-9)\\
+&=\lambda^3-\lambda^2-36\lambda+36=(\lambda^2-36)(\lambda-1)
+\end{align*}
+解得$\lambda_1=6,\lambda_2=-6,\lambda_3=1$。
+
+对于$\lambda=6$，用高斯消元化简$(6E-A)x=0$的系数矩阵后得：$x_1=\frac{1}{2}x_3,x_2=\frac{5}{2}x_3$，即$\alpha_1=[1,5,2]^T$，单位化：$\eta_1=\frac{1}{\sqrt{30}}
+[1,5,2]^T
+$。
+
+对于$\lambda=-6$，用高斯消元化简$(-6E-A)x=0$的系数矩阵后得：$x_1=\frac{1}{2}x_3,x_2=-\frac{1}{2}x_3$，即$\alpha_2=[1,-1,2]^T$，单位化：$\eta_2=\frac{1}{\sqrt{6}}
+[1,-1,2]^T
+$。
+
+对于$\lambda=1$，用高斯消元化简$(E-A)x=0$的系数矩阵后得：$x_1=-2x_3,x_2=0$，即$\alpha_3=[-2,0,1]^T$，单位化：$\eta_2=\frac{1}{\sqrt{5}}
+[-2,0,1]^T
+$。
+
+令$Q=
+\begin{pmatrix}
+\frac{1}{\sqrt{30}}&\frac{1}{\sqrt{6}}&-\frac{2}{\sqrt{5}}\\
+\frac{5}{\sqrt{30}}&-\frac{1}{\sqrt{6}}&0\\
+\frac{2}{\sqrt{30}}&\frac{2}{\sqrt{6}}&\frac{1}{\sqrt{5}}
+\end{pmatrix}
+$,则$Q$为一个正交矩阵，令$x=Qy$，标准型为$f=6y_1^2-6y_2^2+y_3^2$。
+\end{jie}
+
+\EX 设矩阵$
+A=
+\begin{pmatrix}
+0&1&0&0\\
+1&0&0&0\\
+0&0&y&1\\
+0&0&1&2
+\end{pmatrix}
+$.
+
+(1)已知$A$的一个特征值为$3$，试求$y$;
+
+(2)求可逆矩阵$P$，使得$(AP)^T(AP)$为对角阵。
+
+\begin{jie}
+(1)由题得：$|3E-A|=
+\begin{vmatrix}
+3&-1&0&0\\
+-1&3&0&0\\
+0&0&3-y&-1\\
+0&0&-1&1
+\end{vmatrix}=8(3-y-1)=0
+$,解得$y=2$。
+
+(2)不能使用第一问的结论。
+
+$(AP)^T(AP)=P^TA^TAP=P^TBP$，式中$B=A^TA$。
+\begin{align*}
+A^TA=\begin{pmatrix}
+0&1&0&0\\
+1&0&0&0\\
+0&0&y&1\\
+0&0&1&2
+\end{pmatrix}\begin{pmatrix}
+0&1&0&0\\
+1&0&0&0\\
+0&0&y&1\\
+0&0&1&2
+\end{pmatrix}=\begin{pmatrix}
+0&1&0&0\\
+1&0&0&0\\
+0&0&y^2+1&y+2\\
+0&0&y+2&5
+\end{pmatrix}=
+\begin{pmatrix}
+I_2\\&B_{22}
+\end{pmatrix}
+\end{align*}
+式中$I_2$为二阶单位矩阵，$B_{22}=
+\begin{pmatrix}
+y^2+1&y+2\\
+y+2&5
+\end{pmatrix}
+$，对$B_{22}$做合同变换：
+\begin{align*}
+&\left( \begin{array}{c}
+B_{22}\\
+\hdashline[2pt/3pt]
+E_2
+\end{array}
+\right)=
+\left(
+ \begin{array}{ccc}
+y^2+1&y+2\\
+y+2&5\\
+\hdashline[2pt/3pt]
+1 &0 \\
+0 &1
+\end{array}
+\right)
+\xrightarrow{\substack{ r_2\leftrightarrow r_1}}{
+\left(
+ \begin{array}{ccc}
+y+2&5\\
+y^2+1&y+2\\
+\hdashline[2pt/3pt]
+1 &0 \\
+0 &1
+\end{array}
+\right)
+}\xrightarrow{\substack{ c_2\leftrightarrow c_1}}{
+\left(
+ \begin{array}{ccc}
+5&y+2\\
+y+2&y^2+1\\
+\hdashline[2pt/3pt]
+0 &1\\
+1 &0
+\end{array}
+\right)
+}\xrightarrow{\substack{r_2-\frac{y+2}{5}r_1}}{
+\left(
+ \begin{array}{ccc}
+5&y+2\\
+0&\frac{(2y-1)^2}{5}\\
+\hdashline[2pt/3pt]
+0 &1\\
+1 &0
+\end{array}
+\right)
+}\\
+&\xrightarrow{\substack{c_2-\frac{y+2}{5}c_1}}{
+\left(
+ \begin{array}{ccc}
+5&0\\
+0&\frac{(2y-1)^2}{5}\\
+\hdashline[2pt/3pt]
+0 &1\\
+1 &-\frac{y+2}{5}
+\end{array}
+\right)
+}
+\end{align*}
+所以令$
+P=
+\begin{pmatrix}
+I_2\\
+&P_1
+\end{pmatrix}
+$，其中$P_1=
+\begin{pmatrix}
+5&0\\
+0&\frac{(2y-1)^2}{5}
+\end{pmatrix}
+$，则$(AP)^T(AP)$为对角阵$
+\begin{pmatrix}
+1\\&1\\&&5\\&&&\frac{(2y-1)^2}{5}
+\end{pmatrix}$。
+\end{jie}
+
+\EX 设二次型
+\begin{equation*}
+f(x_1,x_2,x_3)=x_1^2+x_2^2+x_3^2+2ax_1x_2+2bx_2x_3+2x_1x_3
+\end{equation*}
+经正交变换$x=Py$化为$f=y_2^2+2y_3^2$，其中$x=(x_1,x_2,x_3)^T$和$y=(y_1,y_2,y_3)^T$是三维列向量，$P$是3阶正交矩阵。试求$a,b$的取值。
+
+\begin{jie}
+由题得：
+$
+A=
+\begin{pmatrix}
+1&a&1\\
+a&1&b\\
+1&b&1
+\end{pmatrix},\Lambda
+=\begin{pmatrix}
+0\&1\\&&2
+ \end{pmatrix}
+$且$A$与$\Lambda$相似。
+
+相似矩阵具有相同的秩和行列式和特征值：$|A|=|\Lambda|$,$tr(A)=tr(\Lambda),\lambda_A=\lambda_{\Lambda}$。
+
+$|\lambda E-A|=(\lambda-1)^3-2ab-(\lambda-1)-(a^2+b^2)(\lambda-1)=0$.把$\lambda=0,1,2$分别代入该等式得：
+\begin{equation*}
+\begin{cases}
+a^2+b^2-2ab=0\\
+2ab=0\\
+a^2+b^2+2ab=0
+\end{cases}~~~\rightarrow~~~
+\begin{cases}
+a=0\\
+b=0
+\end{cases}
+\end{equation*}
+\end{jie}
+
+\EX 设$A$为$n$阶实对称矩阵，$r(A)=n,A_{ij}$是$A=(a_{ij})$中的元素$a_{ij}$的代数余子式$(i,j=1,2,\cdots,n)$。二次型$
+f(x_1,x_2,\cdots,x_n)=\sum\limits_{i=1}^{n}\sum\limits_{j=1}^{n}\dfrac{A_{ij}}{|A|}x_ix_j.
+$
+
+(1)记$x=(x_1,x_2,\cdots,x_n)^T$，把$f(x_1,x_2,\cdots,x_n)$写出矩阵形式，并证明二次型$f(x)$的矩阵为$A^{-1}$。
+
+(2)二次型$g(x)=x^TAx$与$f(x)$的规范型是否相同？并说明理由。
+
+\begin{zhengming}
+(1)设$B=
+\frac{1}{|A|}A^*=A^{-1}
+$，其中$A^*$是$A$的伴随矩阵，则$f(x_1,\cdots,x_n)=x^TBx$.为证明这就是$f$的矩阵形式，只需验证$B$是对称矩阵。
+
+因为$A$是对称矩阵，所以有$(A^T)^{-1}=A^{-1}=(A^{-1})^T$，所以$A^{-1}$是对称阵，所以二次型$f(x)$的矩阵为$A^{-1}$。
+
+(2)$g$的矩阵是$A$，其特征值为$\lambda$,因为$r(A)=n$，所以$|A|\neq0$，所以$\lambda\neq0$。由(1)知，$A$的矩阵是$A^{-1}$,所以其特征值为$\frac{1}{\lambda}$，所以$A$与$A^{-1}$的特征值相同，即它们的正负惯性指数相同，所以规范型一致。
+\end{zhengming}
+
+\clearpage
+\section{正定二次型和正定阵}
+\EX 二次型$f(x_1,x_2,x_3)=(x_1-2x_2+3x_3)^2$是否正定？说明理由。
+
+\begin{jie}
+若该二次型正定，则它对应的矩阵各阶顺序主子式均大于0.由题得该二次型矩阵：
+\begin{align*}
+f(x_1,x_2,x_3)=x_1^2+4x_2^2+9x_3^2+4x_1x_2-12x_2x_3-6x_1x_3~~\rightarrow~~A=
+\begin{pmatrix}
+1&2&-3\\
+2&4&-6\\
+-3&-6&9
+\end{pmatrix}
+\end{align*}
+显然$A$的各行成比例，由行列式的性质：$|A|=0$，所以该二次型不是正定的。
+\end{jie}
+
+\EX 设二次型$f(x_1,x_2,x_3)$是正定的。证明：对任意正数$a$,二次型$af(x_1,x_2,x_3)$也是正定的。
+
+\begin{zhengming}
+对于任意的$x_1,x_2,x_3$，由于$f$正定，且$a>0$，所以$af\geq 0$.
+
+若$af=0$,由于$a>0$，所以$f=0$。由166页定义5.2.1得$x_1=x_2=x_3=0$.综上所述，$af(x_1,x_2,x_3)$是正定的。
+\end{zhengming}
+
+\EX 判断二次型
+\begin{equation*}
+f(x_1,x_2,x_3)=x_1^2+3x_2^2+6x_3^2-2x_1x_2-2x_1x_3
+\end{equation*}
+是否正定。
+
+\begin{jie}
+由题得：$A=
+\begin{pmatrix}
+1&-1&-1\\
+-1&3&0\\
+-1&0&6
+\end{pmatrix}
+$，则
+\begin{equation*}
+\triangle_1=1>0,~~\triangle_2=\begin{vmatrix}
+                               1&-1\\
+-1&3
+                              \end{vmatrix}
+=4>0,~~\triangle_3=|A|=21>0
+\end{equation*}
+所以是正定的。
+\end{jie}
+
+\EX 设$A$是任意实对称矩阵。证明：$A^2+2A+2I_n$是正定阵。
+
+\begin{zhengming}
+$A$为实对称矩阵，所以$A^2+2A+2I_n$也为实对称矩阵，设$\lambda_1,\cdots,\lambda_n$为$A$的特征值，则$\lambda_i^2+\lambda_i+2$为$A^2+2A+2I_n$的任意特征值。
+
+对于任意$\lambda$均有$\lambda^2+\lambda+2=\left(\lambda+\dfrac{1}{2}\right)^2+\dfrac{7}{4}\geq \dfrac{7}{4}>0$。
+
+由课本169页推论5.2.2知：$A^2+2A+2I_n$是正定阵。
+\end{zhengming}
+
+\EX 设$A$是正定阵。证明：$A$可逆，且$A^{-1}$也是正定阵。
+
+\begin{zhengming}
+由课本169页推论5.2.2知：$A$正定，则其全部特征值为正数，所以$A^{-1}$的全部特征值也为正数。正定阵一定是对称阵，即$A$对称，所以$A^{-1}$也为对称阵，综上所述$A^{-1}$是正定阵。
+\end{zhengming}
+
+\EX 设$A$是$n$阶正定阵。证明：对于任意非负数$a$都有：$A+aI_n$可逆。
+
+\begin{zhengming}
+$A$是$n$阶正定阵,设其任意特征值为$\lambda$，所以$\lambda>0$。因为$a$非负，所以$A+aI_{n}$的特征值$\lambda+a>0$，所以$|A+a_I|=\prod\limits_{i=1}^{n}>0$,即$|A+aI_n|\neq0$，即$A+aI_n$可逆。
+\end{zhengming}
+
+\EX 设二次型$f(x_1,x_2,x_3,x_4)$是正定的且其矩阵为$A=(a_{ij})$,设$B$是由$A$的第二、三、四行和第二、三、四列所构成的子矩阵。证明$B$也是正定的。
+
+\begin{zhengming}
+由题知$B$是三阶实对称矩阵。其次，令$g(x_2,x_3,x_4)=f(0,x_2,x_3,x_4)$，则$g$是关于$x_2,x_3,x_4$的三元实二次型，且$g$的矩阵就是$B$。
+
+首先$g(x_2,x_3,x_4)=f(0,x_2,x_3,x_4)\geq 0$.
+
+其次，若$g(x_2,x_3,x_4)=0$,则$0=g(x_2,x_3,x_4)=f(0,x_2,x_3,x_4)$,从而由$f$正定得：$x_2=x_3=x_4=0$。综上所述，$g$是正定的三元实二次型，所以$B$是正定矩阵。
+\end{zhengming}
+
+\EX 如果二次型$f(x_1,x_2,\cdots,x_n)$的值域是$[0,+\infty)$,则称$f(x_1,x_2,\cdots,x_n)$是半正定的。设二次型$f(x_1,x_2,x_3)$是半正定的，且其矩阵是$A$。
+
+(1)证明：$|A|\geq 0$;
+
+(2)设$B$是正定的三阶方阵。证明：$|A+B|> 0$。
+
+\begin{zhengming}
+(1)设$A$的特征值为$\lambda_1,\lambda_2,\lambda_3$，假设至少有一个特征值是负数，不妨设$\lambda_1<0$。
+
+取正交变换：$x=Py$使得：
+\begin{equation*}
+f(x_1,x_2,x_3)\xlongequal{x=Py}\lambda_1y_1^2+\lambda_2y_2^2+\lambda_3y_3^2
+\end{equation*}
+取$y_0=(1,0,0)^T$，则$x_0=Py_0\neq0$且$f$在$x_0$的函数值为$\lambda_1$，但$\lambda_1<0$，与$f$半正定矛盾。所以$\lambda_i\geq0,1\leq i\leq3$，所以$|A|\geq0$。
+
+(2)由于$B$是正定阵，所以存在可逆矩阵$Q$使得$Q^TBQ=D_1$和$Q^TAQ=D_2$都是对角阵。
+
+由于$B$是正定的，所以$D_1$的对角元都是正数，$A$是半正定的，所以$D_2$的对角元非负，所以$D_1+D_2$的对角元都是正数，所以$|Q^T(B+A)Q|=|Q|^2|B+A|=|Q|^2|D_1+D_2|$，因为$Q$可逆，所以$|Q|\neq0$，即$|Q|^2>0$，所以$|Q|^2|B+A|=|Q|^2|D_1+D_2|>0$，所以$|A+B|>0$。
+\end{zhengming}
+
+\EX 如果二次型$f(x_1,\cdots,x_n)$的值域是$(-\infty,0]$,且只有当$x_1=\cdots=x_n=0$时才有$f(x_1,\cdots,x_n)=0$则称$f(x_1,x_2,\cdots,x_n)$是负定的。设$f(x_1,x_2,x_3)=x^TAx$，其中，$A$是3阶实对称矩阵，$\triangle_1,\triangle_2,\triangle_3$是$A$的顺序主子式。证明：$f(x_1,x_2,x_3)$是负定的$\Leftrightarrow~~\triangle_1<0,\triangle_2>0,\triangle_3<0$。
+
+\begin{zhengming}
+设$g(x_1,x_2,x_3)=-f(x_1,x_2,x_3)$，则$g$的矩阵是：$
+-A=
+\begin{pmatrix}
+-a_{11}&-a_{12}&-a_{13}\\
+-a_{21}&-a_{22}&-a_{23}\\
+-a_{31}&-a_{32}&-a_{33}\\
+\end{pmatrix}
+$,所以：
+\begin{align*}
+&f\text{是负定的}\Leftrightarrow g\text{是正定的}\\
+\Leftrightarrow&0<-a_{11}=-\triangle_1,0<
+\begin{vmatrix}
+-a_{11}&-a_{12}\\
+-a_{21}&-a_{22}
+\end{vmatrix}=\triangle_2,0<\begin{vmatrix}
+-a_{11}&-a_{12}&-a_{13}\\
+-a_{21}&-a_{22}&-a_{23}\\
+-a_{31}&-a_{32}&-a_{33}\\
+\end{vmatrix}=-\triangle_3\\
+\Leftrightarrow&\triangle_1<0,\triangle_2>0,\triangle_3<0
+\end{align*}
+\end{zhengming}
+
+\EX 求实数$a$的取值范围，使得二次型
+\begin{equation*}
+f(x_1,x_2,x_3)=ax_1^2+2x_2^2+3x_3^2+2x_1x_2+2ax_1x_3+2x_2x_3
+\end{equation*}是正定的。
+
+\begin{jie}
+由题得：
+$
+A=
+\begin{pmatrix}
+a&1&a\\
+1&2&1\\
+a&1&3
+\end{pmatrix}
+$，要使其正定，则各阶顺序主子式均大于0：
+\begin{equation*}
+\begin{cases}
+\triangle_1=a>0\\
+\triangle_2=\begin{vmatrix}
+              a&1\\
+1&2
+            \end{vmatrix}=2a-1>0\\
+\triangle_3=
+\begin{vmatrix}
+a&1&a\\
+1&2&1\\
+a&1&3
+\end{vmatrix}=(1-2a)(3-a)>0
+\end{cases}~~\Rightarrow~~
+\frac{1}{2}<a<3
+\end{equation*}
+\end{jie}
+
+\EX 已知二次型$f=x_1^2+4x_2^2+4x_3^2+2\lambda x_1x_2-2x_1x_3+4x_2x_3$，$f$为正定二次型，求$\lambda$取值范围。
+
+\begin{jie}
+由题得：$
+A=
+\begin{pmatrix}
+1&\lambda&-1\\
+\lambda&4&2\\
+-1&2&4
+\end{pmatrix}
+$，要使其正定，则各阶顺序主子式均大于0：
+\begin{equation*}
+\begin{cases}
+\triangle_1=1>0\\
+\triangle_2=\begin{vmatrix}
+1&\lambda\\
+\lambda&4
+            \end{vmatrix}=4-\lambda^2>0\\
+\triangle_3=
+\begin{vmatrix}
+1&\lambda&-1\\
+\lambda&4&2\\
+-1&2&4
+\end{vmatrix}=3(4-\lambda^2)-(\lambda+2)^2>0
+\end{cases}~~\Rightarrow~~
+-2<\lambda<1
+\end{equation*}
+\end{jie}
+
+\EX 设$A$为$m\times n$实矩阵，$E$为$n$阶单位矩阵。已知矩阵$B
+=\lambda E+A^TA
+$.试证：当$\lambda>0$时，矩阵$B$为正定矩阵。
+
+\begin{zhengming}
+对于任意实数$x_i$，令$x=(x_1,\cdots,x_n)^T$，则：
+\begin{align*}
+x^TBx=x^T(\lambda E+A^TA)x=\lambda x^Tx+x^TA^TAx=\lambda x^Tx+(Ax)^T(Ax)\geq \lambda x^Tx\geq0
+\end{align*}
+如果$x^TBx=0$，则由$\lambda x^tx\geq0$和$(Ax)^T(Ax)\geq0$可知$\lambda x^Tx=0$，但$\lambda>0$，所以必然有$x=0$。
+
+综上所述，矩阵$B$为正定矩阵。
+\end{zhengming}
+
+\EX 设有$n$元实二次型$f(x_1,x_2,\cdots,x_n)=(x_1+a_1x_2)^2+(x_2+a_2x_3)^2+\cdots+(x_{n-1}+a_{n-1}x_n)^2+(x_{n}+a_{n}x_1)^2$,其中$a_i(i=1,2,\cdots,n)$为实数。试问：当$a_1,a_2,\cdots,a_n$满足何种条件时，二次型为正定二次型。
+
+\begin{zhengming}
+对任意的$x=(x_1,\cdots,x_n)^T$，$x_i$为实数，都有$f(x_1,x_2,\cdots,x_n)\geq 0$，所以$f$正定等价于齐次线性方程组
+\begin{equation*}
+  \begin{cases}
+x_1+a_1x_2=0\\
+x_2+a_2x_3=0\\
+\vdots\\
+x_{n-1}+a_{n-1}x_n=0\\
+x_{n}+a_{n}x_1=0
+  \end{cases}
+\end{equation*}只有零解，等价于系数矩阵
+\begin{equation*}
+A=
+\begin{pmatrix}
+1&a_1&0&\cdots&0&0\\
+0&1&a_2&\cdots&0&0\\
+0&0&1&\cdots&0&0\\
+\vdots&\vdots&\vdots&\ddots&\vdots&\vdots\\
+0&0&0&\cdots&1&a_{n-1}\\
+a_n&0&0&\cdots&0&1
+\end{pmatrix}
+\end{equation*}
+的行列式非0.按第一列展开可得$|A|=1+(-1)^{n+1}a_1a_2\cdots a_n$，所以原二次型正定当且仅当$1+(-1)^{n+1}a_1a_2\cdots a_n\neq 0$。
+\end{zhengming}
 \end{document} 

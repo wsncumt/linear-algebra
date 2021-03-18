@@ -55,8 +55,13 @@
 \pagenumbering{Roman}%设置目录页码
 \clearpage
 \pagenumbering{arabic}%设置正文页码
+\setcounter{chapter}{1}
+%\chapter{第一次线性代数}
 
-\chapter{第一次线性代数}
+\hphantom{~~}\hfill {\zihao{3}\heiti 第一次线性代数} \hfill\hphantom{~~}
+\addcontentsline{toc}{section}{\protect\numberline {}第一次线性代数}
+
+\hphantom{~~}
 %\section{基本概念、阶梯型方程组}
 \EX 写出一个只有零解的齐次线性方程组的例子。写出一个有非零解的齐次线性方程组的例子。
 
@@ -1090,7 +1095,17 @@ k
 1
 \end{pmatrix},k\in R$
 \end{jie}
-\chapter{第二次线性代数}
+
+\clearpage
+
+\hphantom{~~}\hfill {\zihao{3}\heiti 第二次线性代数} \hfill\hphantom{~~}
+\addcontentsline{toc}{section}{\protect\numberline {}第二次线性代数}
+%\chapter{第二次线性代数}
+
+
+\hphantom{~~}
+
+\stepcounter{chapter}
 \EX 计算：
 \begin{equation*}
 -2
@@ -1234,7 +1249,7 @@ x\\ y\\z
 &tr(AB)=tr(BA)
 \end{align*}
 
-(2)设$A$是i$n\times n$实矩阵且$tr(A^TA)=0$，证明：$A=0$.
+(2)设$A$是$n\times n$实矩阵且$tr(A^TA)=0$，证明：$A=0$.
 
 \begin{zhengming}
 设$A=\begin{pmatrix}
@@ -1709,8 +1724,13 @@ a_1\\ a_2\\ \vdots\\ a_n
 所以：$\alpha^T\beta=\beta^T\alpha$。
 \end{zhengming}
 \clearpage
-\section{第三次线性代数}
+\hphantom{~~}\hfill {\zihao{3}\heiti 第三次线性代数} \hfill\hphantom{~~}
+\addcontentsline{toc}{section}{\protect\numberline {}第三次线性代数}
+%\section{第三次线性代数}
 \setcounter{Emp}{14}
+
+
+\hphantom{~~}
 
 \EX 已知方程组
 $
@@ -2001,7 +2021,7 @@ E-A=\begin{pmatrix}
 (5)如果矩阵$A,B$可以相乘，则它们的分块矩阵也能够相乘。
 
 \begin{jie}
-错误。理由：只有在$A$的列分法等于$B$的行分法时才可以相乘。
+(5)错误。理由：只有在$A$的列分法等于$B$的行分法时才可以相乘。
 \end{jie}
 
 \EX 用分块矩阵的乘法来表示$AB$的行向量和列向量。
@@ -2210,7 +2230,12 @@ $A$是正交矩阵，所以有
 
 
 \clearpage
-\section{第四次线性代数}
+\hphantom{~~}\hfill {\zihao{3}\heiti 第四次线性代数} \hfill\hphantom{~~}
+\addcontentsline{toc}{section}{\protect\numberline {}第四次线性代数}
+
+\hphantom{~~}
+
+%\section{第四次线性代数}
 \EX 用初等变换把$
 A=
 \begin{pmatrix}
@@ -2701,7 +2726,11 @@ $\lambda\neq 0$时，$r(A)=r(\widetilde{A})=3<4$，此时线性方程组有无�
 \end{itemize}
 \end{jie}
 \clearpage
-\section{第五次线性代数}
+\hphantom{~~}\hfill {\zihao{3}\heiti 第五次线性代数} \hfill\hphantom{~~}
+\addcontentsline{toc}{section}{\protect\numberline {}第五次线性代数}
+
+\hphantom{~~}
+
 \setcounter{Emp}{39}
 \EX 设$
 B=
@@ -3753,7 +3782,14 @@ $，所以$A=
 $。
 \end{jie}
 
-\chapter{第六次线性代数}
+\stepcounter{chapter}
+\clearpage
+\hphantom{~~}\hfill {\zihao{3}\heiti 第六次线性代数} \hfill\hphantom{~~}
+%\chapter{第六次线性代数}
+\addcontentsline{toc}{section}{\protect\numberline {}第六次线性代数}
+
+
+\hphantom{~~}
 
 \EX 计算下列行列式。
 
@@ -4412,7 +4448,13 @@ a_{n}&\textcolor[rgb]{1.00,0.00,0.00}{a_{n-1}+\frac{a_n}{x}}&\textcolor[rgb]{1.0
 \end{align*}
 \end{jie}
 \clearpage
-\section{第七次线性代数}
+
+\hphantom{~~}\hfill {\zihao{3}\heiti 第七次线性代数} \hfill\hphantom{~~}
+
+\hphantom{~~}
+
+%\section{第七次线性代数}
+\addcontentsline{toc}{section}{\protect\numberline {}第七次线性代数}
 \EX 判断下列说法是否正确，并说明理由。
 
 (1)设$A$为$n$阶方阵。任意给定两个$n$元排列$i_1i_2\cdots i_n$和$j_1j_2\cdots j_n$，则乘积
@@ -4549,7 +4591,7 @@ r(A^*)
 \end{pmatrix}
 $
 
-(5)错误。理由：课本121页例3.3.23.
+(5)错误。理由：由性质3可看出。
 
 (6)正确。理由：$A$的行列式不为0，则可逆，等式两边同时左乘$A^{-1}$：$x=A^{-1}\beta=\dfrac{1}{|A|}A^*\beta$。(性质2)
 \end{jie}
@@ -4743,7 +4785,15 @@ $,$B$为3阶非零矩阵，且$AB=0$。则$t=$\underline{\hphantom{~~~~~~~~}}。
 \end{vmatrix}=7(t+3)=0~~~\Rightarrow~~t=-3
 \end{equation*}
 \end{jie}
-\chapter{第八次线性代数}
+
+\stepcounter{chapter}
+\clearpage
+\hphantom{~~}\hfill {\zihao{3}\heiti 第八次线性代数} \hfill\hphantom{~~}
+\addcontentsline{toc}{section}{\protect\numberline {}第八次线性代数}
+
+\hphantom{~~}
+
+%\chapter{第八次线性代数}
 \EX 计算：
 \begin{equation*}
 \frac{1}{2}
@@ -5377,6 +5427,7 @@ $含有零向量,所以，线性相关.
 (3) 设$\alpha_1,\alpha_2,\alpha_3,\alpha_4$线性相关，则$\alpha_4,\alpha_2,\alpha_1,\alpha_3$也是线性相关的.
 
 (4)如果一个向量组去掉它的任意一个向量后得到的向量组都是线性无关的，则该向量组是线性无关的.
+
 \begin{jie}
 (1)错误，理由：线性相关无关的前提是向量的维数一致。
 
@@ -5518,7 +5569,12 @@ $x_1\beta_1+\cdots+x_n\beta_n$的解集相同.
 \end{pmatrix}$则向量组(\uppercase\expandafter{\romannumeral1})与(\uppercase\expandafter{\romannumeral2})等价。但$x_1\alpha_1+x_2\alpha_2=0$解集是$x_1=(0,k),k\in R$，而$x_1\beta_1+x_2\beta_2=0$解集是$x_2=(k,0),k\in R$，显然$x_1\neq x_2$
 \end{jie}
 \clearpage
-\section{第九次线性代数}
+\hphantom{~~}\hfill {\zihao{3}\heiti 第九次线性代数} \hfill\hphantom{~~}
+\addcontentsline{toc}{section}{\protect\numberline {}第九次线性代数}
+
+\hphantom{~~}
+
+%\section{第九次线性代数}
 \EX 求向量组
 \begin{equation*}
 \alpha_1=
@@ -5543,7 +5599,7 @@ $x_1\beta_1+\cdots+x_n\beta_n$的解集相同.
 \begin{jie}
 令$A=
 \begin{pmatrix}
-\alpha_1\\ \alpha_2\\ \alpha_3\\ \alpha_4
+\alpha_1& \alpha_2& \alpha_3& \alpha_4
 \end{pmatrix}
 $则：
 \begin{align*}
@@ -5612,7 +5668,8 @@ $,若去掉线性相关的子组$\alpha_1,\alpha_2$，就只剩余$\alpha_3=0$�
 
 (6) 如果一个向量组含有$r+1$个线性相关的向量,则该向量组的秩不超过$r$。
 
-(7) 设$\alpha_1,\cdots,\alpha_n$是线性无关的$m$维向量.如果$n< m$,则存在$\alpha_{n+1},\cdots,\alpha_{m}$使得$\alpha_1,\cdots,\alpha_n,\alpha_{n+1},\cdots,\alpha_{m}$线性无关。
+(7) 设$\alpha_1,\cdots,\alpha_n$是线性无关的$m$维向量.如果$n< m$,则存在$\alpha_{n+1},\cdots,\alpha_{m}$使得\\
+$\alpha_1,\cdots,\alpha_n,\alpha_ {n+1},\cdots,\alpha_{m}$线性无关。
 
 \begin{jie}
 (6)错误。例如：$\alpha_1=
@@ -5906,7 +5963,7 @@ $同解。求$a,b,c$的值。
 \end{pmatrix}
 }
 \end{equation*}
-所以：$x_1=-x_3,x_2=-x_3$，取$x_3=-1$。则基础解系为$\xi_1=(1,1,-1)^T$的一个基础解系。
+所以：$x_1=-x_3,x_2=-x_3$，取$x_3=-1$。则基础解系为$\xi_1=(1,1,-1)^T$。
 
 (\uppercase\expandafter{\romannumeral1})、(\uppercase\expandafter{\romannumeral2})同解，所以把该基础解系代入(\uppercase\expandafter{\romannumeral2})有：
 \begin{equation*}
@@ -5986,7 +6043,7 @@ $\xi_1
 
 $\xi_1,\xi_2,\xi_3$即为所求。
 
-(\uppercase\expandafter{\romannumeral1})
+(\uppercase\expandafter{\romannumeral2})
 由题得：
 \begin{equation*}
 A\xrightarrow{\substack{r_2-2r_1\\ r_3-r_1}}{\begin{pmatrix}
@@ -6593,9 +6650,11 @@ A=
 
 \EX 当$a$的值是多少时，线性方程组
 \begin{equation*}
+\begin{cases}
 x_1+2x_2+x_3=1\\
 2x_1+3x_2+(a+2)x_3=3\\
 x_1+ax_2-2x_3=0
+\end{cases}
 \end{equation*}
 无解，有唯一解，有无穷多个解。当有无穷多解时，试用一个特解及导出组的基础解系表示其全部解。
 
@@ -6687,7 +6746,14 @@ $r(A)=2$，所以
 所以$x=[1,-1,0,0]^T+k_{1}[0,2,1,0]^T+k_2[0,1,0,1]^T,k_1,k_2\in R$。
 \end{jie}
 
-\chapter{第十次线性代数}
+\clearpage
+\stepcounter{chapter}
+\hphantom{~~}\hfill {\zihao{3}\heiti 第十次线性代数} \hfill\hphantom{~~}
+\addcontentsline{toc}{section}{\protect\numberline {}第十次线性代数}
+%\chapter{第十次线性代数}
+
+\hphantom{~~}
+
 \EX 设$A,B$是$3\times2$的矩阵，问$A,B$能够相似吗？说明理由。
 
 \begin{jie}
@@ -7636,8 +7702,7 @@ $，则$\Lambda=P^{-1}AP=
 &&&1-b\\
 &&&&1+(n-1)b
 \end{pmatrix}
-$
-%以你最简阶梯形矩阵的第一行为例，是不是可以写成$x_1+\frac{3} {5}x_3=\frac{a_1+2a_2}{5}$,也就是$x_1=-\frac{3}{5}x_3+\frac{a_1+2a_2}{5}$
+$。
 \end{jie}
 
 \EX 设3阶矩阵$A$的特征值为$\lambda_1=1,\lambda_2=2,\lambda_3=3$，对应的特征向量依次为$
@@ -7651,7 +7716,7 @@ $
 \begin{pmatrix}
 1\\3\\9
 \end{pmatrix}
-$，又因为向量$
+$，又向量$
 \beta=
 \begin{pmatrix}
 1\\1\\3
@@ -7851,7 +7916,12 @@ x_{n+1}\\ y_{n+1}
 \end{jie}
 
 \clearpage
-\section{第十一次线性代数}
+\hphantom{~~}\hfill {\zihao{3}\heiti 第十一次线性代数} \hfill\hphantom{~~}
+\addcontentsline{toc}{section}{\protect\numberline {}第十一次线性代数}
+
+\hphantom{~~}
+
+%\section{第十一次线性代数}
 \EX 设$\xi_1=
 \begin{pmatrix}
 1\\ -2\\0
@@ -8247,7 +8317,14 @@ $a=-2$时$r(A)=r(A,\beta)=2$,$a=1$时，$r(A)\neq r(A,\beta)$。所以$a=-2$。
 $.
 \end{jie}
 
-\chapter{第十二次线性代数}
+\stepcounter{chapter}
+\clearpage
+\hphantom{~~}\hfill {\zihao{3}\heiti 第十二次线性代数} \hfill\hphantom{~~}
+\addcontentsline{toc}{section}{\protect\numberline {}第十二次线性代数}
+
+\hphantom{~~}
+
+%\chapter{第十二次线性代数}
 \EX 设$A$与$B$合同。证明：
 
 (1)$r(A)=r(B)$。

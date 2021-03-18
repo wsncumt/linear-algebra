@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2020.4.27)  16 MAR 2021 09:10
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2020.4.27)  18 MAR 2021 14:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1178,17 +1178,17 @@ m/it/10.53937 ; ^^K[] \OT1/cmr/m/n/10.53937 = [][] \OML/cmm/m/it/10.53937 ; ^^K
 第三章
 [25
 
-] [26] [27] [28] [29
+] [26] [27] [28] [29] [30
 
-] [30]
+] [31]
 
-LaTeX Warning: Command \~ invalid in math mode on input line 3594.
+LaTeX Warning: Command \~ invalid in math mode on input line 3615.
 
 
-LaTeX Warning: Command \~ invalid in math mode on input line 3595.
+LaTeX Warning: Command \~ invalid in math mode on input line 3616.
 
-[31] [32] [33] [34]
-Overfull \hbox (4.46849pt too wide) detected at line 4403
+[32] [33] [34] [35] [36]
+Overfull \hbox (4.46849pt too wide) detected at line 4567
 \OML/cmm/m/it/9.03374 A[] []  [] \OMS/cmsy/m/n/9.03374 )  []\OML/cmm/m/it/9.033
 74 A[] \OMS/cmsy/m/n/9.03374 ^^@ \OML/cmm/m/it/9.03374 E \OT1/cmr/m/n/9.03374 =
  []  [] \OMS/cmsy/m/n/9.03374 )  []\OT1/cmr/m/n/9.03374 (\OML/cmm/m/it/9.03374 
@@ -1198,26 +1198,76 @@ A[] \OMS/cmsy/m/n/9.03374 ^^@ \OML/cmm/m/it/9.03374 E\OT1/cmr/m/n/9.03374 )[] =
 E\OT1/cmr/m/n/9.03374 )[] = []
  []
 
-[35] [36
+[37] [38
 
-] [37] [38] [39] [40] [41] [42] [43]
-Underfull \vbox (badness 3601) has occurred while \output is active []
+] [39] [40] [41] [42] [43] [44] [45]
+Underfull \vbox (badness 1009) has occurred while \output is active []
 
- [44]
-[45]
+ [46]
+[47] [48]
 第四章
-[46
+
+Overfull \hbox (4.62491pt too wide) in paragraph at lines 5835--5836
+[]$\OML/cmm/m/it/9.03374 A$ \TU/KaiTi(0)/m/n/9.03374 可 逆 时：| $\OML/cmm/m/it/9.0
+3374 A \OMS/cmsy/m/n/9.03374 ^^X \OML/cmm/m/it/9.03374 B$\TU/KaiTi(0)/m/n/9.033
+74 ，|  所 以 存 在 一 个 可 逆 矩 阵 $\OML/cmm/m/it/9.03374 P$\TU/KaiTi(0)/m/n/9.03374 ，|
+ $\OML/cmm/m/it/9.03374 A \OT1/cmr/m/n/9.03374 = \OML/cmm/m/it/9.03374 P[]BP$\T
+U/KaiTi(0)/m/n/9.03374 ，|  两 边 同 时 求 逆，| $\OML/cmm/m/it/9.03374 A[] \OT1/cmr/m/
+n/9.03374 = (\OML/cmm/m/it/9.03374 P[]BP\OT1/cmr/m/n/9.03374 )[] = \OML/cmm/m/i
+t/9.03374 P[]B[]\OT1/cmr/m/n/9.03374 (\OML/cmm/m/it/9.03374 P[]\OT1/cmr/m/n/9.0
+3374 )[] =
+ []
+
+[49
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 5620.
- [47]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 5620.
+Underfull \vbox (badness 2626) has occurred while \output is active []
+
+ [50]
+[51] [52
+
+] [53] [54] [55] [56] [57]
+Overfull \hbox (12.17714pt too wide) in paragraph at lines 6674--6677
+[]$\OML/cmm/m/it/9.03374 ^^U \OT1/cmr/m/n/9.03374 = 1 \OMS/cmsy/m/n/9.03374 ^^@
+ \OML/cmm/m/it/9.03374 b$\TU/KaiTi(0)/m/n/9.03374 ，|  代 入 $\OT1/cmr/m/n/9.03374
+ (\OML/cmm/m/it/9.03374 ^^UE \OMS/cmsy/m/n/9.03374 ^^@ \OML/cmm/m/it/9.03374 A\
+OT1/cmr/m/n/9.03374 )$ \TU/KaiTi(0)/m/n/9.03374 后 得 基 础 解 系：| $\OML/cmm/m/it/9.
+03374 ^^K[] \OT1/cmr/m/n/9.03374 = [\OMS/cmsy/m/n/9.03374 ^^@\OT1/cmr/m/n/9.033
+74 1\OML/cmm/m/it/9.03374 ; \OT1/cmr/m/n/9.03374 1\OML/cmm/m/it/9.03374 ; \OT1/
+cmr/m/n/9.03374 0\OML/cmm/m/it/9.03374 ; []  ; \OT1/cmr/m/n/9.03374 0][]\OML/cm
+m/m/it/9.03374 ; ^^K[] \OT1/cmr/m/n/9.03374 = [\OMS/cmsy/m/n/9.03374 ^^@\OT1/cm
+r/m/n/9.03374 1\OML/cmm/m/it/9.03374 ; \OT1/cmr/m/n/9.03374 0\OML/cmm/m/it/9.03
+374 ; \OT1/cmr/m/n/9.03374 1\OML/cmm/m/it/9.03374 ; \OT1/cmr/m/n/9.03374 0\OML/
+cmm/m/it/9.03374 ; []  ; \OT1/cmr/m/n/9.03374 0]\OML/cmm/m/it/9.03374 ; []  ; ^
+^K[] \OT1/cmr/m/n/9.03374 = [\OMS/cmsy/m/n/9.03374 ^^@\OT1/cmr/m/n/9.03374 1\OM
+L/cmm/m/it/9.03374 ; \OT1/cmr/m/n/9.03374 0\OML/cmm/m/it/9.03374 ; []  ; \OT1/c
+mr/m/n/9.03374 0\OML/cmm/m/it/9.03374 ; \OT1/cmr/m/n/9.03374 1][]$\TU/KaiTi(0)/
+m/n/9.03374 ，|
+ []
+
+[58] [59] [60] [61
+
+] [62] [63] [64] [65]
+第五章
+[66
+
+] [67] [68] [69]
+Overfull \hbox (13.00333pt too wide) detected at line 7908
+[]
+ []
+
+[70] [71] [72
+
+] [73]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 8209.
+ [74]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 8209.
  (./xitice.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 5620.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 5620.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 8209.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 8209.
 
 Package rerunfilecheck Info: File `xitice.out' has not changed.
-(rerunfilecheck)             Checksum: 2B60F1DD4FE623B0E6B8BC546CAC439F.
+(rerunfilecheck)             Checksum: AE33E8622B86F7DA20EC26CC9E5F158C.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -1226,15 +1276,15 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 5620.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 8209.
  ) 
 Here is how much of TeX's memory you used:
- 26567 strings out of 492922
- 549831 string characters out of 6136751
- 646082 words of memory out of 5000000
- 30331 multiletter control sequences out of 15000+600000
+ 26595 strings out of 492922
+ 551633 string characters out of 6136751
+ 647932 words of memory out of 5000000
+ 30359 multiletter control sequences out of 15000+600000
  538155 words of font info for 87 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  59i,23n,79p,866b,533s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on xitice.pdf (48 pages).
+Output written on xitice.pdf (75 pages).
