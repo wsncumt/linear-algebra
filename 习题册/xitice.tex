@@ -5402,4 +5402,32 @@ a_{n}&\textcolor[rgb]{1.00,0.00,0.00}{a_{n-1}+\frac{a_n}{x}}&\textcolor[rgb]{1.0
 \end{jie}
 
 \chapter{矩阵的相似}
+\EX 
+
+\EX
+
+\EX 
+
+\EX 
+
+\EX 
+\EX 对于任意方阵$A$,称$A$的对角元的和为$A$的迹，记为$tr(A)$。证明：如果$A\sim B$，则$tr(A)=tr(B)$，并举例说明逆命题不成立。
+
+\begin{zhengming}
+由上一章作业例3.8得出：$tr(AB)=tr(BA)$.
+
+因为$A\sim B$，依定义，则存在一个可逆矩阵$P$，使得$B=P^{-1}AP$,则$tr(B)=tr((P^{-1}A)P)=tr(P(P^{-1}A))=tr(A)$。证毕。
+
+举例说明逆命题不成立：例如$A
+\begin{pmatrix}
+1&0\\0&1
+\end{pmatrix},B=
+\begin{pmatrix}
+1&1\\
+0&1
+\end{pmatrix}
+$，可以看出$tr(A)=tr(B)$，但根据相似的定义，单位矩阵只能跟自己相似，即逆命题不成立。
+\end{zhengming}
+
+
 \end{document} 

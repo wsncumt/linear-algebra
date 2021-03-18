@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2020.4.27)  15 MAR 2021 14:28
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2020.4.27)  18 MAR 2021 10:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1128,15 +1128,15 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 ]
 
-LaTeX Warning: Command \~ invalid in math mode on input line 2397.
-
-
 LaTeX Warning: Command \~ invalid in math mode on input line 2398.
+
+
+LaTeX Warning: Command \~ invalid in math mode on input line 2399.
 
 [19] [20] [21] [22] [23
 
 ]
-Overfull \hbox (4.46849pt too wide) detected at line 3058
+Overfull \hbox (4.46849pt too wide) detected at line 3059
 \OML/cmm/m/it/9.03374 A[] []  [] \OMS/cmsy/m/n/9.03374 )  []\OML/cmm/m/it/9.033
 74 A[] \OMS/cmsy/m/n/9.03374 ^^@ \OML/cmm/m/it/9.03374 E \OT1/cmr/m/n/9.03374 =
  []  [] \OMS/cmsy/m/n/9.03374 )  []\OT1/cmr/m/n/9.03374 (\OML/cmm/m/it/9.03374 
@@ -1155,7 +1155,7 @@ Underfull \vbox (badness 2065) has occurred while \output is active []
 [28
 
 ] [29]
-Overfull \hbox (0.18646pt too wide) in paragraph at lines 3996--4005
+Overfull \hbox (0.18646pt too wide) in paragraph at lines 3997--4006
 []\TU/SimSun(0)/bx/n/10.53937 例 []\TU/ptm/bx/n/10.53937 3.8 \TU/SimSun(0)/m/n/1
 0.53937 记 行 列 式 $[]$ 为 $\OML/cmm/m/it/10.53937 f\OT1/cmr/m/n/10.53937 (\OML/cmm
 /m/it/10.53937 x\OT1/cmr/m/n/10.53937 )$\TU/SimSun(0)/m/n/10.53937 。|  则 方 程 $\
@@ -1172,7 +1172,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 ] [36] [37] [38]
 第四章
 
-LaTeX Warning: Command \k invalid in math mode on input line 4847.
+LaTeX Warning: Command \k invalid in math mode on input line 4848.
 
 Missing character: There is no ̨ in font cmmi6!
 [39
@@ -1185,7 +1185,7 @@ Missing character: There is no ， in font [lmroman10-regular]:mapping=tex-text;
 Missing character: There is no ， in font [lmroman9-regular]:mapping=tex-text;!
 Missing character: There is no ， in font [lmroman9-regular]:mapping=tex-text;!
 
-Overfull \hbox (28.93907pt too wide) in paragraph at lines 5062--5082
+Overfull \hbox (28.93907pt too wide) in paragraph at lines 5063--5083
 []\TU/SimSun(0)/bx/n/10.53937 例 []\TU/ptm/bx/n/10.53937 4.11 \TU/SimSun(0)/m/n/
 10.53937 设 $\OML/cmm/m/it/10.53937 ^^K[] \OT1/cmr/m/n/10.53937 = [][] \OML/cmm/
 m/it/10.53937 ; ^^K[] \OT1/cmr/m/n/10.53937 = [][] \OML/cmm/m/it/10.53937 ; ^^K
@@ -1194,7 +1194,7 @@ m/it/10.53937 ; ^^K[] \OT1/cmr/m/n/10.53937 = [][] \OML/cmm/m/it/10.53937 ; ^^K
  []
 
 [42] [43] [44]
-Overfull \hbox (40.24701pt too wide) in paragraph at lines 5614--5615
+Overfull \hbox (40.24701pt too wide) in paragraph at lines 5615--5616
 []\TU/ptm/bx/n/10.53937 (7) \TU/SimSun(0)/m/n/10.53937 设 $\OML/cmm/m/it/10.5393
 7 ^^K[]; []  ; ^^K[]$ \TU/SimSun(0)/m/n/10.53937 是 线 性 无 关 的 $\OML/cmm/m/it/10.
 53937 m$ \TU/SimSun(0)/m/n/10.53937 维 向 量\TU/ptm/bx/n/10.53937 . \TU/SimSun(0)/
@@ -1207,7 +1207,7 @@ un(0)/m/n/10.53937 则 存 在 $\OML/cmm/m/it/10.53937 ^^K[]; []  ; ^^K[]$ \TU/S
 [45
 
 ] [46] [47]
-Overfull \hbox (36.13159pt too wide) in paragraph at lines 5938--5961
+Overfull \hbox (36.13159pt too wide) in paragraph at lines 5963--5986
 []\TU/ptm/m/n/9.03374 (I)$\OML/cmm/m/it/9.03374 x[] \OT1/cmr/m/n/9.03374 = \OMS
 /cmsy/m/n/9.03374 ^^@\OML/cmm/m/it/9.03374 x[] \OMS/cmsy/m/n/9.03374 ^^@ \OML/c
 mm/m/it/9.03374 x[] \OMS/cmsy/m/n/9.03374 ^^@ \OML/cmm/m/it/9.03374 x[]$ \TU/Ka
@@ -1216,18 +1216,72 @@ iTi(0)/m/n/9.03374 分 别 取 $[][] \OT1/cmr/m/n/9.03374 = [][] \OML/cmm/m/it/9
 /cmr/m/n/9.03374 = [][] \OML/cmm/m/it/9.03374 ; ^^X[] \OT1/cmr/m/n/9.03374 =
  []
 
-[48]
+[48] [49]
 Missing character: There is no ， in font [lmroman9-regular]:mapping=tex-text;!
- [49] [50] [51]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 6484.
- [52]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 6484.
+ [50] [51] [52] [53] [54]
+第五章
+
+Overfull \hbox (4.62491pt too wide) in paragraph at lines 6783--6784
+[]$\OML/cmm/m/it/9.03374 A$ \TU/KaiTi(0)/m/n/9.03374 可 逆 时：| $\OML/cmm/m/it/9.0
+3374 A \OMS/cmsy/m/n/9.03374 ^^X \OML/cmm/m/it/9.03374 B$\TU/KaiTi(0)/m/n/9.033
+74 ，|  所 以 存 在 一 个 可 逆 矩 阵 $\OML/cmm/m/it/9.03374 P$\TU/KaiTi(0)/m/n/9.03374 ，|
+ $\OML/cmm/m/it/9.03374 A \OT1/cmr/m/n/9.03374 = \OML/cmm/m/it/9.03374 P[]BP$\T
+U/KaiTi(0)/m/n/9.03374 ，|  两 边 同 时 求 逆，| $\OML/cmm/m/it/9.03374 A[] \OT1/cmr/m/
+n/9.03374 = (\OML/cmm/m/it/9.03374 P[]BP\OT1/cmr/m/n/9.03374 )[] = \OML/cmm/m/i
+t/9.03374 P[]B[]\OT1/cmr/m/n/9.03374 (\OML/cmm/m/it/9.03374 P[]\OT1/cmr/m/n/9.0
+3374 )[] =
+ []
+
+[55
+
+]
+Underfull \vbox (badness 6493) has occurred while \output is active []
+
+ [56]
+[57]
+Underfull \vbox (badness 3668) has occurred while \output is active []
+
+ [58]
+[59] [60] [61] [62]
+Overfull \hbox (12.17714pt too wide) in paragraph at lines 7619--7622
+[]$\OML/cmm/m/it/9.03374 ^^U \OT1/cmr/m/n/9.03374 = 1 \OMS/cmsy/m/n/9.03374 ^^@
+ \OML/cmm/m/it/9.03374 b$\TU/KaiTi(0)/m/n/9.03374 ，|  代 入 $\OT1/cmr/m/n/9.03374
+ (\OML/cmm/m/it/9.03374 ^^UE \OMS/cmsy/m/n/9.03374 ^^@ \OML/cmm/m/it/9.03374 A\
+OT1/cmr/m/n/9.03374 )$ \TU/KaiTi(0)/m/n/9.03374 后 得 基 础 解 系：| $\OML/cmm/m/it/9.
+03374 ^^K[] \OT1/cmr/m/n/9.03374 = [\OMS/cmsy/m/n/9.03374 ^^@\OT1/cmr/m/n/9.033
+74 1\OML/cmm/m/it/9.03374 ; \OT1/cmr/m/n/9.03374 1\OML/cmm/m/it/9.03374 ; \OT1/
+cmr/m/n/9.03374 0\OML/cmm/m/it/9.03374 ; []  ; \OT1/cmr/m/n/9.03374 0][]\OML/cm
+m/m/it/9.03374 ; ^^K[] \OT1/cmr/m/n/9.03374 = [\OMS/cmsy/m/n/9.03374 ^^@\OT1/cm
+r/m/n/9.03374 1\OML/cmm/m/it/9.03374 ; \OT1/cmr/m/n/9.03374 0\OML/cmm/m/it/9.03
+374 ; \OT1/cmr/m/n/9.03374 1\OML/cmm/m/it/9.03374 ; \OT1/cmr/m/n/9.03374 0\OML/
+cmm/m/it/9.03374 ; []  ; \OT1/cmr/m/n/9.03374 0]\OML/cmm/m/it/9.03374 ; []  ; ^
+^K[] \OT1/cmr/m/n/9.03374 = [\OMS/cmsy/m/n/9.03374 ^^@\OT1/cmr/m/n/9.03374 1\OM
+L/cmm/m/it/9.03374 ; \OT1/cmr/m/n/9.03374 0\OML/cmm/m/it/9.03374 ; []  ; \OT1/c
+mr/m/n/9.03374 0\OML/cmm/m/it/9.03374 ; \OT1/cmr/m/n/9.03374 1][]$\TU/KaiTi(0)/
+m/n/9.03374 ，|
+ []
+
+[63] [64] [65] [66
+
+] [67] [68] [69] [70]
+第六章
+[71
+
+] [72] [73] [74]
+Overfull \hbox (13.00333pt too wide) detected at line 8853
+[]
+ []
+
+[75] [76] [77] [78]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 9152.
+ [79]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 9152.
  (./diyici.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 6484.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 6484.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 9152.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 9152.
 
 Package rerunfilecheck Info: File `diyici.out' has not changed.
-(rerunfilecheck)             Checksum: C2D5F6D577D584473CC7F6F8291436A1.
+(rerunfilecheck)             Checksum: 83F1EC9659614429E17C29694F36E1A4.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -1236,15 +1290,15 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 6484.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 9152.
  ) 
 Here is how much of TeX's memory you used:
- 26577 strings out of 492922
- 550442 string characters out of 6136751
- 641482 words of memory out of 5000000
- 30341 multiletter control sequences out of 15000+600000
+ 26604 strings out of 492922
+ 552233 string characters out of 6136751
+ 641861 words of memory out of 5000000
+ 30368 multiletter control sequences out of 15000+600000
  538155 words of font info for 87 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 59i,23n,79p,866b,498s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 59i,23n,79p,866b,533s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on diyici.pdf (53 pages).
+Output written on diyici.pdf (80 pages).
